@@ -32,7 +32,7 @@ The **Translation Engine** combines deterministic formula rewriting with LLM-pow
 
 | Platform | Reader | Writer | Status |
 |----------|--------|--------|--------|
-| Tableau (.twb/.twbx) | Planned | Planned | |
+| Tableau (.twb/.twbx) | **Done** | Planned | Reader parses datasources, calc fields, worksheets, dashboards, filters |
 | Power BI (.pbix) | Planned | Planned | |
 | Yonghong (永洪) | Planned | Planned | |
 | Looker (LookML) | Planned | Planned | |
@@ -70,7 +70,7 @@ pytest
 
 ## Status
 
-Pre-alpha. The common IR and CLI scaffolding are in place. Reader and writer implementations are in progress, starting with Tableau and Yonghong.
+Pre-alpha. The Tableau reader (.twb/.twbx) is working end-to-end with `ingest`, `export`, and `analyze` commands. Writer and translation implementations are next, starting with Power BI and Yonghong.
 
 Star the repo to follow progress.
 

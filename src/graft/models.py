@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from enum import Enum
+from typing import Any
 
 
 class Platform(Enum):
@@ -115,12 +116,11 @@ class CalculatedField:
 
 @dataclass
 class Filter:
-    """A filter applied at report, page, or visual level."""
+    """A filter — scope is determined by position in the hierarchy (Report/Page/Visual)."""
 
     column: str
     operator: FilterOperator
     values: list[str] = field(default_factory=list)
-    scope: str = "report"  # report, page, visual
 
 
 @dataclass
@@ -133,7 +133,7 @@ class Visual:
     measures: list[str] = field(default_factory=list)
     filters: list[Filter] = field(default_factory=list)
     sort_fields: list[str] = field(default_factory=list)
-    properties: dict[str, str] = field(default_factory=dict)
+    properties: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass
@@ -143,6 +143,7 @@ class Page:
     name: str
     visuals: list[Visual] = field(default_factory=list)
     filters: list[Filter] = field(default_factory=list)
+    properties: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass
@@ -153,20 +154,28 @@ class Report:
     """
 
     name: str
-    source_platform: Platform
+    platform: Platform
     data_sources: list[DataSource] = field(default_factory=list)
     calculated_fields: list[CalculatedField] = field(default_factory=list)
     pages: list[Page] = field(default_factory=list)
     filters: list[Filter] = field(default_factory=list)
-    parameters: dict[str, str] = field(default_factory=dict)
-    metadata: dict[str, str] = field(default_factory=dict)
+    parameters: dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
+
+
+class Severity(Enum):
+    """Translation issue severity levels."""
+
+    ERROR = "error"
+    WARNING = "warning"
+    INFO = "info"
 
 
 @dataclass
 class TranslationIssue:
     """A problem encountered during translation that may need human review."""
 
-    severity: str  # "error", "warning", "info"
+    severity: Severity
     message: str
     source_element: str | None = None
     suggestion: str | None = None

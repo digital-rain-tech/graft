@@ -6,14 +6,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Graft is an AI-native BI report translation tool. It reads BI reports from one platform (Tableau, Power BI, Yonghong, Looker, etc.), parses them into a vendor-neutral intermediate representation, translates expressions between formula dialects, and writes working reports on the target platform.
 
-Early-stage project (Pre-Alpha). No readers or writers are implemented yet — the IR, CLI scaffolding, and registry pattern are in place.
+Early-stage project (Pre-Alpha). The Tableau reader (.twb/.twbx) is implemented and the `ingest`, `export`, and `analyze` commands are working end-to-end. No writers or translation engine yet.
 
 Sibling project to [Crawl](https://github.com/digital-rain-tech/crawl) (pre-migration intelligence for ETL/stored procs). Crawl = Step 0, Graft = Step 1.
 
 ## Commands
 
 ```bash
-# Install in dev mode
+# Install in dev mode (includes lxml for Tableau parsing)
 pip install -e ".[dev,llm]"
 
 # Run CLI
@@ -43,15 +43,22 @@ ruff format .
 src/graft/
 ├── cli.py              # Click CLI (entry point: graft.cli:main)
 ├── models.py           # Common IR: Report, DataSource, CalculatedField, Page, Visual, Filter
+├── export.py           # IR → JSON/Markdown serialization
 ├── readers/
 │   ├── __init__.py     # BaseReader ABC
-│   └── registry.py     # File path + format hint → reader resolution
+│   ├── registry.py     # File path + format hint → reader resolution
+│   ├── tableau.py      # Tableau reader orchestrator
+│   ├── tableau_utils.py        # Shared XML parsing utilities
+│   ├── tableau_datasources.py  # Datasource + calculated field extraction
+│   ├── tableau_worksheets.py   # Worksheet/visual/filter parsing
+│   └── tableau_dashboards.py   # Dashboard zone parsing
 ├── writers/
 │   └── __init__.py     # BaseWriter ABC
 ├── translate/
-│   └── __init__.py     # Expression translation engine (formula dialect mapping)
+│   └── __init__.py     # Expression translation engine (stub)
 └── analysis/
-    └── __init__.py     # Complexity scoring, translation readiness
+    ├── __init__.py
+    └── complexity.py   # Complexity scoring heuristic
 ```
 
 ### Key Design Patterns

@@ -54,6 +54,7 @@ llm = [
 dev = [
     "pytest>=8.0",
     "ruff>=0.5",
+    "lxml>=5.0",
 ]
 
 [project.scripts]

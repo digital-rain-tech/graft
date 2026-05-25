@@ -41,7 +41,14 @@ def resolve_reader(path: str, fmt: str = "auto") -> BaseReader:
             )
 
     if fmt == "tableau":
-        raise NotImplementedError("Tableau reader not yet implemented.")
+        try:
+            from graft.readers.tableau import TableauReader
+        except ImportError:
+            raise ImportError(
+                "Tableau support requires lxml. Install it with: pip install graft-bi[tableau]"
+            ) from None
+
+        return TableauReader()
     elif fmt == "powerbi":
         raise NotImplementedError("Power BI reader not yet implemented.")
     elif fmt == "yonghong":
