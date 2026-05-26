@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graft -- Transplant BI Reports Between Platforms, Alive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a1628;
+    --surface: #132238;
+    --elevated: #1a2d4a;
+    --text: #c8d6e5;
+    --muted: #5a7a9b;
+    --emphasis: #e8f0f8;
+    --accent: #2aa198;
+    --accent-dim: rgba(42, 161, 152, 0.15);
+    --yellow: #b58900;
+    --red: #dc322f;
+    --border: #1e3454;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    height: 100%;
+    overflow: hidden;
+    background: #050b14;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Slide container ── */
+  .deck {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--bg);
+    padding: 64px 80px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+  .slide.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* ── Navigation ── */
+  .nav-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 32px;
+    background: rgba(10, 22, 40, 0.85);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border);
+  }
+  .nav-bar .brand {
+    font-family: 'Instrument Serif', serif;
+    font-size: 18px;
+    color: var(--emphasis);
+  }
+  .nav-bar .brand span { color: var(--accent); }
+  .nav-bar .page-info {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .nav-bar .controls {
+    display: flex;
+    gap: 8px;
+  }
+  .nav-bar button {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .nav-bar button:hover {
+    background: var(--elevated);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* ── Shared typography ── */
+  .tag {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+  }
+  h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(40px, 5.5vw, 72px);
+    color: var(--emphasis);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin-bottom: 20px;
+  }
+  h1 em {
+    color: var(--accent);
+    font-style: italic;
+  }
+  h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    color: var(--emphasis);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .lead {
+    font-size: clamp(18px, 2vw, 24px);
+    color: var(--muted);
+    max-width: 640px;
+    line-height: 1.5;
+  }
+  .mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ── Slide-specific ── */
+
+  /* Slide 1: Title */
+  .s1-footer {
+    position: absolute;
+    bottom: 80px;
+    left: 80px;
+    font-size: 18px;
+    color: var(--muted);
+  }
+  .s1-footer span { color: var(--accent); }
+
+  /* Slide 2: Problem */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 40px;
+  }
+  .problem-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 32px;
+  }
+  .problem-card .number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 500;
+    color: var(--red);
+    margin-bottom: 8px;
+  }
+  .problem-card .label {
+    font-size: 18px;
+    color: var(--text);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .problem-card .desc {
+    font-size: 18px;
+    color: var(--muted);
+  }
+
+  /* Slide 3: Hub and spoke */
+  .diagram-row {
+    display: grid;
+    grid-template-columns: 1fr 60px 1fr;
+    align-items: center;
+    gap: 16px;
+    margin-top: 32px;
+    flex: 1;
+  }
+  .diagram-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 32px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .diagram-box.good {
+    border-color: rgba(42, 161, 152, 0.3);
+  }
+  .diagram-box .box-label {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+  .diagram-box .box-stat {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    margin-top: 16px;
+  }
+  .arrow-mid {
+    text-align: center;
+    font-size: 32px;
+    color: var(--accent);
+  }
+
+  /* Slide 4: Pipeline */
+  .pipeline {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 48px;
+  }
+  .pipe-step {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px 28px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 20px;
+    color: var(--text);
+    font-weight: 500;
+  }
+  .pipe-step.active {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-dim);
+  }
+  .pipe-arrow {
+    color: var(--muted);
+    font-size: 20px;
+  }
+  .pipe-descriptions {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .pipe-desc {
+    font-size: 16px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .pipe-desc.active { color: var(--accent); }
+
+  /* Slide 5: Stack */
+  .stack-row {
+    display: grid;
+    grid-template-columns: 1fr 60px 1fr;
+    gap: 24px;
+    align-items: center;
+    margin-top: 48px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .stack-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 40px;
+    text-align: center;
+  }
+  .stack-card.highlight {
+    border-color: rgba(42, 161, 152, 0.3);
+  }
+  .stack-card .step-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .stack-card.highlight .step-num { color: var(--accent); }
+  .stack-card .product-name {
+    font-family: 'Instrument Serif', serif;
+    font-size: 36px;
+    color: var(--emphasis);
+    margin-bottom: 12px;
+  }
+  .stack-card.highlight .product-name { color: var(--accent); }
+  .stack-card .product-desc {
+    font-size: 18px;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+  .stack-tags {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .stack-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+  .stack-card.highlight .stack-tag {
+    background: var(--accent-dim);
+    border-color: rgba(42, 161, 152, 0.3);
+    color: var(--accent);
+  }
+
+  /* Slide 6: Closing */
+  .close-links {
+    display: flex;
+    gap: 24px;
+    margin-top: 40px;
+  }
+  .close-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.15s;
+  }
+  .close-link.primary {
+    background: var(--accent);
+    color: var(--bg);
+  }
+  .close-link.secondary {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+</style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- ════════ SLIDE 1: TITLE ════════ -->
+  <div class="slide active" data-slide="1">
+    <div class="tag">Digital Rain Technologies</div>
+    <h1>Transplant BI Reports<br>Between Platforms, <em>Alive</em></h1>
+    <p class="lead">The vendor-neutral translation layer for enterprise BI migration. Data lineage first. Reasoning last.</p>
+    <div class="s1-footer"><span>Graft</span> &mdash; Step 1 of Migration Intelligence</div>
+  </div>
+
+  <!-- ════════ SLIDE 2: THE PROBLEM ════════ -->
+  <div class="slide" data-slide="2">
+    <div class="tag">The Problem</div>
+    <h2>BI Migrations Are Manual, Expensive, and Lossy</h2>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="number">N&sup2;</div>
+        <div class="label">Point-to-Point Connectors</div>
+        <div class="desc">Every platform pair needs its own translation. 7 platforms = 42 connectors to build and maintain.</div>
+      </div>
+      <div class="problem-card">
+        <div class="number">60%</div>
+        <div class="label">Formula Rewrite Effort</div>
+        <div class="desc">Most migration time is spent manually rewriting calculated fields between incompatible formula languages.</div>
+      </div>
+      <div class="problem-card">
+        <div class="number">0%</div>
+        <div class="label">Lineage Preservation</div>
+        <div class="desc">Current tools copy structure but lose the business logic and data lineage that makes reports trustworthy.</div>
+      </div>
+      <div class="problem-card">
+        <div class="number" style="color:var(--yellow);">?</div>
+        <div class="label">Fidelity Unknown</div>
+        <div class="desc">No way to know if the translated report produces the same answers as the original. You ship and pray.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ SLIDE 3: HUB AND SPOKE ════════ -->
+  <div class="slide" data-slide="3">
+    <div class="tag">The Architecture</div>
+    <h2>Hub and Spoke, Not Point-to-Point</h2>
+    <p class="lead">One intermediate representation. 2N connectors instead of N&sup2;. Add a platform once, translate to everything.</p>
+    <div class="diagram-row">
+      <div class="diagram-box">
+        <div class="box-label">Without Graft</div>
+        <svg viewBox="0 0 280 220" fill="none" style="width:100%;max-width:280px;">
+          <circle cx="60" cy="35" r="20" fill="#1a2d4a" stroke="#dc322f" stroke-width="1.5" opacity="0.8"/>
+          <text x="60" y="39" text-anchor="middle" fill="#c8d6e5" font-family="DM Sans" font-size="9" font-weight="600">Tableau</text>
+          <circle cx="220" cy="35" r="20" fill="#1a2d4a" stroke="#dc322f" stroke-width="1.5" opacity="0.8"/>
+          <text x="220" y="39" text-anchor="middle" fill="#c8d6e5" font-family="DM Sans" font-size="8" font-weight="600">Power BI</text>
+          <circle cx="260" cy="130" r="20" fill="#1a2d4a" stroke="#dc322f" stroke-width="1.5" opacity="0.8"/>
+          <text x="260" y="134" text-anchor="middle" fill="#c8d6e5" font-family="DM Sans" font-size="9" font-weight="600">Looker</text>
+          <circle cx="20" cy="130" r="20" fill="#1a2d4a" stroke="#dc322f" stroke-width="1.5" opacity="0.8"/>
+          <text x="20" y="127" text-anchor="middle" fill="#c8d6e5" font-family="DM Sans" font-size="7" font-weight="600">Yong</text>
+          <text x="20" y="137" text-anchor="middle" fill="#c8d6e5" font-family="DM Sans" font-size="7" font-weight="600">hong</text>
+          <circle cx="140" cy="200" r="20" fill="#1a2d4a" stroke="#dc322f" stroke-width="1.5" opacity="0.8"/>
+          <text x="140" y="204" text-anchor="middle" fill="#c8d6e5" font-family="DM Sans" font-size="9" font-weight="600">Qlik</text>
+          <line x1="80" y1="35" x2="200" y2="35" stroke="#dc322f" stroke-width="1" opacity="0.4"/>
+          <line x1="75" y1="50" x2="245" y2="115" stroke="#dc322f" stroke-width="1" opacity="0.4"/>
+          <line x1="75" y1="45" x2="125" y2="185" stroke="#dc322f" stroke-width="1" opacity="0.4"/>
+          <line x1="40" y1="120" x2="200" y2="40" stroke="#dc322f" stroke-width="1" opacity="0.4"/>
+          <line x1="40" y1="140" x2="240" y2="130" stroke="#dc322f" stroke-width="1" opacity="0.4"/>
+          <line x1="35" y1="148" x2="125" y2="185" stroke="#dc322f" stroke-width="1" opacity="0.4"/>
+          <line x1="205" y1="50" x2="155" y2="185" stroke="#dc322f" stroke-width="1" opacity="0.4"/>
+          <line x1="245" y1="140" x2="155" y2="190" stroke="#dc322f" stroke-width="1" opacity="0.4"/>
+          <line x1="240" y1="115" x2="210" y2="50" stroke="#dc322f" stroke-width="1" opacity="0.4"/>
+          <line x1="40" y1="115" x2="65" y2="52" stroke="#dc322f" stroke-width="1" opacity="0.4"/>
+        </svg>
+        <div class="box-stat" style="color:var(--red);">20 connectors for 5 platforms</div>
+      </div>
+      <div class="arrow-mid">&rarr;</div>
+      <div class="diagram-box good">
+        <div class="box-label">With Graft</div>
+        <svg viewBox="0 0 280 220" fill="none" style="width:100%;max-width:280px;">
+          <circle cx="140" cy="110" r="30" fill="rgba(42,161,152,0.15)" stroke="#2aa198" stroke-width="2"/>
+          <text x="140" y="106" text-anchor="middle" fill="#2aa198" font-family="JetBrains Mono" font-size="10" font-weight="500">Common</text>
+          <text x="140" y="120" text-anchor="middle" fill="#2aa198" font-family="JetBrains Mono" font-size="10" font-weight="500">IR</text>
+          <line x1="140" y1="80" x2="140" y2="38" stroke="#2aa198" stroke-width="1.5" opacity="0.6"/>
+          <circle cx="140" cy="22" r="18" fill="#1a2d4a" stroke="#5a7a9b" stroke-width="1.5"/>
+          <text x="140" y="26" text-anchor="middle" fill="#c8d6e5" font-family="DM Sans" font-size="9" font-weight="600">Tableau</text>
+          <line x1="167" y1="96" x2="225" y2="55" stroke="#2aa198" stroke-width="1.5" opacity="0.6"/>
+          <circle cx="240" cy="42" r="18" fill="#1a2d4a" stroke="#5a7a9b" stroke-width="1.5"/>
+          <text x="240" y="46" text-anchor="middle" fill="#c8d6e5" font-family="DM Sans" font-size="8" font-weight="600">Power BI</text>
+          <line x1="167" y1="126" x2="225" y2="168" stroke="#2aa198" stroke-width="1.5" opacity="0.6"/>
+          <circle cx="240" cy="182" r="18" fill="#1a2d4a" stroke="#5a7a9b" stroke-width="1.5"/>
+          <text x="240" y="186" text-anchor="middle" fill="#c8d6e5" font-family="DM Sans" font-size="9" font-weight="600">Looker</text>
+          <line x1="113" y1="126" x2="55" y2="168" stroke="#2aa198" stroke-width="1.5" opacity="0.6"/>
+          <circle cx="40" cy="182" r="18" fill="#1a2d4a" stroke="#5a7a9b" stroke-width="1.5"/>
+          <text x="40" y="179" text-anchor="middle" fill="#c8d6e5" font-family="DM Sans" font-size="7" font-weight="600">Yong</text>
+          <text x="40" y="189" text-anchor="middle" fill="#c8d6e5" font-family="DM Sans" font-size="7" font-weight="600">hong</text>
+          <line x1="113" y1="96" x2="55" y2="55" stroke="#2aa198" stroke-width="1.5" opacity="0.6"/>
+          <circle cx="40" cy="42" r="18" fill="#1a2d4a" stroke="#5a7a9b" stroke-width="1.5"/>
+          <text x="40" y="46" text-anchor="middle" fill="#c8d6e5" font-family="DM Sans" font-size="9" font-weight="600">Qlik</text>
+        </svg>
+        <div class="box-stat" style="color:var(--accent);">10 connectors for 5 platforms</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ SLIDE 4: PIPELINE ════════ -->
+  <div class="slide" data-slide="4">
+    <div class="tag" style="text-align:center;">The Surgical Approach</div>
+    <h2 style="text-align:center;">Data Lineage First.<br>Reasoning Last.</h2>
+    <p class="lead" style="text-align:center;margin-left:auto;margin-right:auto;">Build the 20% of software that solves 80% of the problem.</p>
+    <div class="pipeline">
+      <div class="pipe-step">ingest</div>
+      <span class="pipe-arrow">&rarr;</span>
+      <div class="pipe-step">analyze</div>
+      <span class="pipe-arrow">&rarr;</span>
+      <div class="pipe-step active">translate</div>
+      <span class="pipe-arrow">&rarr;</span>
+      <div class="pipe-step">validate</div>
+      <span class="pipe-arrow">&rarr;</span>
+      <div class="pipe-step">export</div>
+    </div>
+    <div class="pipe-descriptions">
+      <div class="pipe-desc">Parse vendor format into Common IR</div>
+      <div class="pipe-desc">Score complexity and translation risk</div>
+      <div class="pipe-desc active">Map formulas between dialects</div>
+      <div class="pipe-desc">Semantic diff source vs. target</div>
+      <div class="pipe-desc">Emit working report file</div>
+    </div>
+  </div>
+
+  <!-- ════════ SLIDE 5: CRAWL + GRAFT STACK ════════ -->
+  <div class="slide" data-slide="5">
+    <div class="tag" style="text-align:center;">Migration Intelligence</div>
+    <h2 style="text-align:center;">Built by People Who've<br>Done This Before</h2>
+    <p class="lead" style="text-align:center;margin-left:auto;margin-right:auto;">Enterprise software veterans. Two surgical tools for the two hardest problems in data migration.</p>
+    <div class="stack-row">
+      <div class="stack-card">
+        <div class="step-num">STEP 0</div>
+        <div class="product-name">Crawl</div>
+        <div class="product-desc">Pre-migration intelligence.<br>What breaks when you move.</div>
+        <div class="stack-tags">
+          <span class="stack-tag">scan</span>
+          <span class="stack-tag">extract</span>
+          <span class="stack-tag">triage</span>
+        </div>
+      </div>
+      <div style="text-align:center;font-size:32px;color:var(--accent);">&rarr;</div>
+      <div class="stack-card highlight">
+        <div class="step-num">STEP 1</div>
+        <div class="product-name">Graft</div>
+        <div class="product-desc">Report translation.<br>Transplant the intelligence.</div>
+        <div class="stack-tags">
+          <span class="stack-tag">ingest</span>
+          <span class="stack-tag">translate</span>
+          <span class="stack-tag">validate</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ SLIDE 6: CLOSING ════════ -->
+  <div class="slide" data-slide="6">
+    <div class="tag">Open Source &middot; Apache 2.0</div>
+    <h1>The 20% That Solves 80%</h1>
+    <p class="lead">Vendor-neutral. AI-native. Built for the teams who actually run the migration. Data lineage and fidelity come first. Always.</p>
+    <div class="close-links">
+      <a class="close-link primary" href="https://github.com/digital-rain-tech/graft">View on GitHub &rarr;</a>
+      <a class="close-link secondary" href="https://getcrawl.dev">getcrawl.dev</a>
+    </div>
+    <div style="margin-top:48px;font-size:18px;color:var(--muted);">
+      Augustin Chan &middot; Digital Rain Technologies &middot; <span style="color:var(--accent);">aug@iterative.day</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- Navigation bar -->
+<div class="nav-bar">
+  <div class="brand"><span>Graft</span></div>
+  <div class="page-info"><span id="current">1</span> / <span id="total">6</span></div>
+  <div class="controls">
+    <button onclick="prev()">&larr; Prev</button>
+    <button onclick="next()">Next &rarr;</button>
+  </div>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
+
+  function show(n) {
+    slides.forEach(s => s.classList.remove('active'));
+    current = Math.max(0, Math.min(n, slides.length - 1));
+    slides[current].classList.add('active');
+    document.getElementById('current').textContent = current + 1;
+  }
+
+  function next() { show(current + 1); }
+  function prev() { show(current - 1); }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+  });
+
+  document.getElementById('total').textContent = slides.length;
+</script>
+
+</body>
+</html>
