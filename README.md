@@ -33,6 +33,7 @@ The **Translation Engine** combines deterministic formula rewriting with LLM-pow
 | Platform | Reader | Writer | Status |
 |----------|--------|--------|--------|
 | Tableau (.twb/.twbx) | **Done** | Planned | Reader parses datasources, calc fields, worksheets, dashboards, filters |
+| JasperReports (.jrxml) | **Done** | Planned | Reader parses bands, elements, parameters, fields, variables, subreports; conversion-readiness analyzer |
 | Power BI (.pbix) | Planned | Planned | |
 | Yonghong (永洪) | Planned | Planned | |
 | Looker (LookML) | Planned | Planned | |
@@ -68,9 +69,36 @@ graft translate report.twb --target powerbi -o report.pbix
 pytest
 ```
 
+### Analyze JasperReports for conversion readiness
+
+Graft reads JasperReports `.jrxml` templates and scores how convertible each
+report is — **automatic**, **assisted**, or **manual** — with the specific
+blockers behind each verdict (custom Java callouts, table/list components,
+subreports). Run these from the repo root:
+
+```bash
+# one report — structure, verdict, and blockers
+graft analyze tests/fixtures/jasper/java_callout.jrxml
+
+# a whole folder — the portfolio roll-up (% automatic / assisted / manual)
+graft portfolio tests/fixtures/jasper
+
+# export the roll-up to Markdown
+graft portfolio tests/fixtures/jasper -o readiness.md
+
+# export one report's full intermediate representation
+graft export tests/fixtures/jasper/minimal.jrxml --format json
+```
+
+`tests/fixtures/jasper/` holds small synthetic samples. To analyze your own
+reports, point the commands at any file or folder. Graft reads report
+*definitions* (structure, formulas, SQL text) — never the data that populates
+them — and strips connection credentials on ingest, so the output is structural
+metadata only.
+
 ## Status
 
-Pre-alpha. The Tableau reader (.twb/.twbx) is working end-to-end with `ingest`, `export`, and `analyze` commands. Writer and translation implementations are next, starting with Power BI and Yonghong.
+Pre-alpha. The Tableau (.twb/.twbx) and JasperReports (.jrxml) readers work end-to-end with `ingest`, `export`, and `analyze`; JasperReports adds a `portfolio` command that rolls conversion-readiness up across a folder of reports. Writer and translation implementations are next, starting with Power BI and Yonghong.
 
 Star the repo to follow progress.
 
