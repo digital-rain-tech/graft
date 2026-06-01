@@ -22,6 +22,7 @@ class Platform(Enum):
     METABASE = "metabase"
     QLIK = "qlik"
     SUPERSET = "superset"
+    JASPER = "jasperreports"
 
 
 class ChartType(Enum):
@@ -91,6 +92,7 @@ class DataSource:
     schema: str | None = None
     host: str | None = None
     port: int | None = None
+    properties: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass
@@ -112,6 +114,111 @@ class CalculatedField:
     source_dialect: str | None = None
     aggregation: AggregationType = AggregationType.NONE
     referenced_columns: list[str] = field(default_factory=list)
+
+
+class BandType(Enum):
+    """JasperReports band sections (banded, pixel-perfect reports)."""
+
+    TITLE = "title"
+    PAGE_HEADER = "page_header"
+    COLUMN_HEADER = "column_header"
+    GROUP_HEADER = "group_header"
+    GROUP_FOOTER = "group_footer"
+    DETAIL = "detail"
+    COLUMN_FOOTER = "column_footer"
+    PAGE_FOOTER = "page_footer"
+    LAST_PAGE_FOOTER = "last_page_footer"
+    SUMMARY = "summary"
+    BACKGROUND = "background"
+    NO_DATA = "no_data"
+
+
+class ElementKind(Enum):
+    """Kinds of positioned report elements within a band."""
+
+    TEXT_FIELD = "text_field"
+    STATIC_TEXT = "static_text"
+    IMAGE = "image"
+    LINE = "line"
+    RECTANGLE = "rectangle"
+    SUBREPORT = "subreport"
+    COMPONENT = "component"  # jr:table / jr:list
+
+
+@dataclass
+class ReportParameter:
+    """A typed report input ($P{} in JasperReports)."""
+
+    name: str
+    data_type: str
+    default_expression: str | None = None
+    prompt: str | None = None
+
+
+@dataclass
+class ReportField:
+    """A query result column ($F{} in JasperReports)."""
+
+    name: str
+    data_type: str | None = None
+
+
+@dataclass
+class ReportVariable:
+    """A computed/aggregated report value ($V{} in JasperReports)."""
+
+    name: str
+    expression: str | None = None
+    calculation: str = "Nothing"  # Sum/Count/Average/Nothing/...
+    reset_type: str = "Report"  # Report/Page/Column/Group
+
+
+@dataclass
+class ReportElement:
+    """A single positioned element within a band."""
+
+    kind: ElementKind
+    x: int = 0
+    y: int = 0
+    width: int = 0
+    height: int = 0
+    expression: str | None = None  # textFieldExpression (Java)
+    static_text: str | None = None  # staticText content
+    style: str | None = None
+    properties: dict[str, Any] = field(default_factory=dict)
+
+
+@dataclass
+class Subreport:
+    """A subreport or dataset run referenced from a band/component."""
+
+    name: str
+    expression: str | None = None
+    connection_expression: str | None = None
+    parameters: list[str] = field(default_factory=list)
+
+
+@dataclass
+class Band:
+    """A band section containing positioned elements."""
+
+    band_type: BandType
+    height: int = 0
+    elements: list[ReportElement] = field(default_factory=list)
+    group_name: str | None = None
+    properties: dict[str, Any] = field(default_factory=dict)
+
+
+@dataclass
+class PageLayout:
+    """Pixel geometry of a banded report page."""
+
+    page_width: int = 0
+    page_height: int = 0
+    margins: dict[str, int] = field(default_factory=dict)
+    column_width: int = 0
+    column_count: int = 1
+    orientation: str = "Portrait"
 
 
 @dataclass
@@ -144,6 +251,8 @@ class Page:
     visuals: list[Visual] = field(default_factory=list)
     filters: list[Filter] = field(default_factory=list)
     properties: dict[str, Any] = field(default_factory=dict)
+    bands: list[Band] = field(default_factory=list)
+    layout: PageLayout | None = None
 
 
 @dataclass
@@ -161,6 +270,10 @@ class Report:
     filters: list[Filter] = field(default_factory=list)
     parameters: dict[str, Any] = field(default_factory=dict)
     metadata: dict[str, Any] = field(default_factory=dict)
+    report_parameters: list[ReportParameter] = field(default_factory=list)
+    report_fields: list[ReportField] = field(default_factory=list)
+    report_variables: list[ReportVariable] = field(default_factory=list)
+    subreports: list[Subreport] = field(default_factory=list)
 
 
 class Severity(Enum):

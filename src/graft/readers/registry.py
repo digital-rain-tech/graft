@@ -13,6 +13,7 @@ _FORMAT_EXTENSIONS: dict[str, str] = {
     ".pbip": "powerbi",
     ".lkml": "looker",
     ".lookml": "looker",
+    ".jrxml": "jasper",
 }
 
 
@@ -49,6 +50,15 @@ def resolve_reader(path: str, fmt: str = "auto") -> BaseReader:
             ) from None
 
         return TableauReader()
+    elif fmt == "jasper":
+        try:
+            from graft.readers.jasper import JasperReader
+        except ImportError:
+            raise ImportError(
+                "JasperReports support requires lxml. Install it with: pip install graft-bi[jasper]"
+            ) from None
+
+        return JasperReader()
     elif fmt == "powerbi":
         raise NotImplementedError("Power BI reader not yet implemented.")
     elif fmt == "yonghong":

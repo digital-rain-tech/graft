@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+    name="java_callout" pageWidth="595" pageHeight="842"
+    columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+    <field name="payment_string" class="java.lang.String"/>
+    <detail>
+        <band height="120">
+            <image>
+                <reportElement x="0" y="0" width="100" height="100"/>
+                <imageExpression><![CDATA[new com.example.QRCodeRenderer($F{payment_string}).toImage()]]></imageExpression>
+            </image>
+        </band>
+    </detail>
+</jasperReport>
