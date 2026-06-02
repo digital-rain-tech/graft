@@ -83,8 +83,9 @@ graft analyze tests/fixtures/jasper/java_callout.jrxml
 # a whole folder — the portfolio roll-up (% automatic / assisted / manual)
 graft portfolio tests/fixtures/jasper
 
-# export the roll-up to Markdown
+# export the roll-up to Markdown, or a self-contained styled HTML report
 graft portfolio tests/fixtures/jasper -o readiness.md
+graft portfolio tests/fixtures/jasper -o readiness.html   # open in any browser
 
 # export one report's full intermediate representation
 graft export tests/fixtures/jasper/minimal.jrxml --format json
