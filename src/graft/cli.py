@@ -62,18 +62,64 @@ def ingest(source_file: str, fmt: str):
     console.print(table)
 
 
+def _severity_color(sev) -> str:
+    from graft.models import Severity
+
+    return {Severity.ERROR: "red", Severity.WARNING: "yellow", Severity.INFO: "cyan"}.get(
+        sev, "white"
+    )
+
+
+def _translate_to_finereport(source_file: str, output: str | None) -> None:
+    from pathlib import Path
+
+    from graft.readers.registry import resolve_reader
+    from graft.translate.jasper_to_finereport import translate_to_finereport
+    from graft.writers.finereport import FineReportWriter
+
+    try:
+        reader = resolve_reader(source_file, "auto")
+    except (ValueError, NotImplementedError, ImportError) as e:
+        console.print(f"[bold red]Error:[/] {e}")
+        raise SystemExit(1)
+
+    report = reader.read(source_file)
+    result = translate_to_finereport(report)
+
+    out_path = Path(output) if output else Path(source_file).with_suffix(".cpt")
+    written = FineReportWriter().write(result.report, out_path)
+
+    pct = int((result.fidelity_score or 0) * 100)
+    color = "green" if pct >= 80 else "yellow" if pct >= 50 else "red"
+    console.print(f"Wrote [bold]{written}[/]")
+    console.print(f"Fidelity: [{color}]{pct}%[/]")
+
+    cells = result.report.pages[0].cells if result.report.pages else []
+    console.print(
+        f"Translated {len(result.report.data_sources)} datasource(s), "
+        f"{len(cells)} cell(s), {len(result.report.parameter_widgets)} widget(s)."
+    )
+    if result.issues:
+        console.print("\n[bold]Review notes:[/]")
+        for issue in result.issues:
+            console.print(f"  [{_severity_color(issue.severity)}]•[/] {issue.message}")
+
+
 @main.command()
 @click.argument("source_file", type=click.Path(exists=True))
 @click.option(
     "--target",
     required=True,
-    type=click.Choice(["tableau", "powerbi", "yonghong", "looker", "metabase"]),
+    type=click.Choice(["tableau", "powerbi", "yonghong", "looker", "metabase", "finereport"]),
     help="Target BI platform.",
 )
 @click.option("--output", "-o", type=click.Path(), help="Output file path.")
 def translate(source_file: str, target: str, output: str | None):
     """Translate a BI report from one platform to another."""
     console.print(f"Translating [bold]{source_file}[/] → [bold]{target}[/]")
+    if target == "finereport":
+        _translate_to_finereport(source_file, output)
+        return
     click.echo("Not yet implemented.")
 
 

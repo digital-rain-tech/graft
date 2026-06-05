@@ -223,6 +223,38 @@ class PageLayout:
 
 
 @dataclass
+class DataSet:
+    """A named sub-query within a report.
+
+    Maps a JasperReports ``<subDataset>`` (used by table/list/chart components) or
+    a FineReport ``<TableData>`` — a query that feeds a specific block rather than
+    the whole report.
+    """
+
+    name: str
+    query: str | None = None
+    fields: list[ReportField] = field(default_factory=list)
+
+
+@dataclass
+class TableColumn:
+    """A single column of a table component."""
+
+    header: str | None = None
+    field: str | None = None  # bound field name (from $F{...} in the detail cell)
+    footer_expression: str | None = None  # column-footer expression (e.g. a total)
+
+
+@dataclass
+class TableComponent:
+    """A tabular component (JasperReports ``jr:table``) bound to a `DataSet`."""
+
+    name: str | None = None  # export/table name
+    dataset: str | None = None  # the DataSet (subDataset) it iterates
+    columns: list[TableColumn] = field(default_factory=list)
+
+
+@dataclass
 class Cell:
     """A single cell in a grid/spreadsheet-style report (FineReport .cpt).
 
@@ -309,6 +341,7 @@ class Page:
     bands: list[Band] = field(default_factory=list)
     layout: PageLayout | None = None
     cells: list[Cell] = field(default_factory=list)
+    tables: list[TableComponent] = field(default_factory=list)
 
 
 @dataclass
@@ -331,6 +364,7 @@ class Report:
     report_variables: list[ReportVariable] = field(default_factory=list)
     subreports: list[Subreport] = field(default_factory=list)
     parameter_widgets: list[ParameterWidget] = field(default_factory=list)
+    datasets: list[DataSet] = field(default_factory=list)
 
 
 class Severity(Enum):

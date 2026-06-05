@@ -33,7 +33,8 @@ The **Translation Engine** combines deterministic formula rewriting with LLM-pow
 | Platform | Reader | Writer | Status |
 |----------|--------|--------|--------|
 | Tableau (.twb/.twbx) | **Done** | Planned | Reader parses datasources, calc fields, worksheets, dashboards, filters |
-| JasperReports (.jrxml) | **Done** | Planned | Reader parses bands, elements, parameters, fields, variables, subreports; conversion-readiness analyzer |
+| JasperReports (.jrxml) | **Done** | Planned | Reader parses bands, elements, parameters, fields, variables, subreports, `jr:table` components/subDatasets; conversion-readiness analyzer |
+| FineReport (.cpt) | **Done** | **Done** | Reader + writer for the cell grid, formulas, column bindings, filters, parameter panel; JasperReports → FineReport translator |
 | Power BI (.pbix) | Planned | Planned | |
 | Yonghong (永洪) | Planned | Planned | |
 | Looker (LookML) | Planned | Planned | |
@@ -89,7 +90,17 @@ graft portfolio tests/fixtures/jasper -o readiness.html   # open in any browser
 
 # export one report's full intermediate representation
 graft export tests/fixtures/jasper/minimal.jrxml --format json
+
+# translate a tabular JasperReports report into a working FineReport (.cpt)
+graft translate tests/fixtures/jasper/table_with_headers.jrxml \
+  --target finereport -o out.cpt
 ```
+
+`graft translate --target finereport` maps a Jasper report's `jr:table`
+subDatasets, columns, totals, and parameters onto FineReport's cell grid and
+parameter panel. It prints a fidelity score and review notes for anything not
+mechanically convertible (cover-sheet artwork, page-number logic), so you know
+exactly what still needs a human.
 
 `tests/fixtures/jasper/` holds small synthetic samples. To analyze your own
 reports, point the commands at any file or folder. Graft reads report
@@ -99,7 +110,7 @@ metadata only.
 
 ## Status
 
-Pre-alpha. The Tableau (.twb/.twbx) and JasperReports (.jrxml) readers work end-to-end with `ingest`, `export`, and `analyze`; JasperReports adds a `portfolio` command that rolls conversion-readiness up across a folder of reports. Writer and translation implementations are next, starting with Power BI and Yonghong.
+Pre-alpha. The Tableau (.twb/.twbx) and JasperReports (.jrxml) readers work end-to-end with `ingest`, `export`, and `analyze`; JasperReports adds a `portfolio` command that rolls conversion-readiness up across a folder of reports. FineReport (.cpt) has both a reader and a writer, and `graft translate --target finereport` performs the first working cross-platform conversion (JasperReports → FineReport) for tabular reports. Power BI and Yonghong are next.
 
 Star the repo to follow progress.
 

@@ -9,8 +9,8 @@ def test_portfolio_over_fixtures():
     result = CliRunner().invoke(main, ["portfolio", FIXTURES])
     assert result.exit_code == 0
     assert "Portfolio Conversion Readiness" in result.output
-    # 7 synthetic top-level fixtures (local/ subdir excluded without --recursive)
-    assert "7 reports" in result.output
+    # 8 synthetic top-level fixtures (local/ subdir excluded without --recursive)
+    assert "8 reports" in result.output
 
 
 def test_portfolio_markdown_output(tmp_path):
