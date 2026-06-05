@@ -14,6 +14,7 @@ from graft.readers.jasper_query import (
     parse_variables,
 )
 from graft.readers.jasper_subreports import max_nesting_depth, parse_subreports
+from graft.readers.jasper_tables import parse_datasets, parse_tables
 from graft.readers.jasper_utils import parse_jrxml
 
 
@@ -34,8 +35,10 @@ class JasperReader(BaseReader):
         bands = parse_bands(root)
         subreports = parse_subreports(root)
         layout = parse_layout(root)
+        datasets = parse_datasets(root)
+        tables = parse_tables(root)
 
-        page = Page(name=name, bands=bands, layout=layout)
+        page = Page(name=name, bands=bands, layout=layout, tables=tables)
 
         return Report(
             name=name,
@@ -47,5 +50,6 @@ class JasperReader(BaseReader):
             report_fields=fields,
             report_variables=variables,
             subreports=subreports,
+            datasets=datasets,
             metadata={"max_nesting_depth": max_nesting_depth(root)},
         )

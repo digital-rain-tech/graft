@@ -14,6 +14,7 @@ _FORMAT_EXTENSIONS: dict[str, str] = {
     ".lkml": "looker",
     ".lookml": "looker",
     ".jrxml": "jasper",
+    ".cpt": "finereport",
 }
 
 
@@ -59,6 +60,15 @@ def resolve_reader(path: str, fmt: str = "auto") -> BaseReader:
             ) from None
 
         return JasperReader()
+    elif fmt == "finereport":
+        try:
+            from graft.readers.finereport import FineReportReader
+        except ImportError:
+            raise ImportError(
+                "FineReport support requires lxml. Install it with: pip install graft-bi[finereport]"
+            ) from None
+
+        return FineReportReader()
     elif fmt == "powerbi":
         raise NotImplementedError("Power BI reader not yet implemented.")
     elif fmt == "yonghong":

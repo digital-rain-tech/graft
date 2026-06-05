@@ -48,6 +48,9 @@ tableau = [
 jasper = [
     "lxml>=5.0",
 ]
+finereport = [
+    "lxml>=5.0",
+]
 powerbi = [
     "lxml>=5.0",
 ]

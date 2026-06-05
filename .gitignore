@@ -21,3 +21,4 @@ memory/
 
 # Local-only customer report samples (never committed)
 tests/fixtures/jasper/local/
+tests/fixtures/finereport/local/
