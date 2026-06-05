@@ -28,6 +28,8 @@ All readers produce a **Common IR** (`Report`) containing `DataSource`, `Calcula
 
 The **Translation Engine** combines deterministic formula rewriting with LLM-powered semantic mapping for expressions that don't have direct equivalents across platforms.
 
+The first end-to-end conversion is live: **JasperReports → FineReport**. Graft reads a Jasper `.jrxml`, maps its `jr:table` subDatasets, columns, totals, and parameters onto FineReport's cell grid, and writes a working `.cpt` — with a fidelity score and per-issue review notes for anything that needs a human (see [below](#convert-jasperreports--finereport)).
+
 ## Supported Platforms
 
 | Platform | Reader | Writer | Status |
@@ -90,17 +92,58 @@ graft portfolio tests/fixtures/jasper -o readiness.html   # open in any browser
 
 # export one report's full intermediate representation
 graft export tests/fixtures/jasper/minimal.jrxml --format json
+```
 
-# translate a tabular JasperReports report into a working FineReport (.cpt)
+### Convert JasperReports → FineReport
+
+Graft's first working cross-platform conversion. It turns a tabular Jasper
+report into a working FineReport `.cpt`:
+
+```bash
 graft translate tests/fixtures/jasper/table_with_headers.jrxml \
   --target finereport -o out.cpt
 ```
 
-`graft translate --target finereport` maps a Jasper report's `jr:table`
-subDatasets, columns, totals, and parameters onto FineReport's cell grid and
-parameter panel. It prints a fidelity score and review notes for anything not
-mechanically convertible (cover-sheet artwork, page-number logic), so you know
-exactly what still needs a human.
+What it maps:
+
+| JasperReports | → | FineReport |
+|---|---|---|
+| `jr:table` subDataset (query + fields) | → | `TableData` datasource |
+| table columns (header + bound field) | → | header row + bound detail row |
+| column footers (sums, `Total :`) | → | totals row (`=SUM(...)`, labels) |
+| report parameters | → | parameter panel + submit button |
+
+The command prints a **fidelity score** and the conversion summary:
+
+```
+Wrote out.cpt
+Fidelity: 100%
+Translated 1 datasource(s), 6 cell(s), 2 widget(s).
+```
+
+On a real-world report — say a multi-table summary with a cover sheet and
+running totals — the score drops and Graft lists exactly what needs a human,
+rather than silently dropping it:
+
+```
+Fidelity: 85%
+Translated 2 datasource(s), 24 cell(s), 4 widget(s).
+
+Review notes:
+  • Column header is a dynamic expression: "Details of …
+  • Title/cover and page-header artwork were not reproduced.
+```
+
+### Read and write FineReport (.cpt)
+
+FineReport has both a reader and a writer, so `.cpt` workbooks round-trip
+through the common IR with no loss of report definition (cell grid, formulas,
+column bindings, filter conditions, aggregations, parameter panel):
+
+```bash
+graft ingest report.cpt                       # parse a FineReport workbook
+graft export report.cpt --format json         # dump its full IR
+```
 
 `tests/fixtures/jasper/` holds small synthetic samples. To analyze your own
 reports, point the commands at any file or folder. Graft reads report
