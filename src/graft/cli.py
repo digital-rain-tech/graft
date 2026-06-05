@@ -21,7 +21,9 @@ def main():
 @click.option(
     "--format",
     "fmt",
-    type=click.Choice(["tableau", "powerbi", "yonghong", "looker", "metabase", "jasper", "auto"]),
+    type=click.Choice(
+        ["tableau", "powerbi", "yonghong", "looker", "metabase", "jasper", "finereport", "auto"]
+    ),
     default="auto",
     help="Source format. Auto-detected from file extension if omitted.",
 )
@@ -114,7 +116,9 @@ def _render_jasper_analysis(report) -> None:
 @click.option(
     "--format",
     "fmt",
-    type=click.Choice(["tableau", "powerbi", "yonghong", "looker", "metabase", "jasper", "auto"]),
+    type=click.Choice(
+        ["tableau", "powerbi", "yonghong", "looker", "metabase", "jasper", "finereport", "auto"]
+    ),
     default="auto",
     help="Source format for parsing.",
 )
@@ -487,7 +491,9 @@ def validate(source_file: str, translated_file: str):
 @click.option(
     "--format-source",
     "source_fmt",
-    type=click.Choice(["tableau", "powerbi", "yonghong", "looker", "metabase", "jasper", "auto"]),
+    type=click.Choice(
+        ["tableau", "powerbi", "yonghong", "looker", "metabase", "jasper", "finereport", "auto"]
+    ),
     default="auto",
     help="Source format for parsing.",
 )

@@ -23,6 +23,7 @@ class Platform(Enum):
     QLIK = "qlik"
     SUPERSET = "superset"
     JASPER = "jasperreports"
+    FINEREPORT = "finereport"
 
 
 class ChartType(Enum):
@@ -222,6 +223,60 @@ class PageLayout:
 
 
 @dataclass
+class Cell:
+    """A single cell in a grid/spreadsheet-style report (FineReport .cpt).
+
+    FineReport templates are cell-based rather than banded: each `<C>` carries a
+    column/row position, optional spans, and a value object that is either literal
+    text, a formula (``=...``), or a bound data-source column (with optional
+    grouping/aggregation and row-level filter conditions).
+    """
+
+    row: int
+    col: int
+    row_span: int = 1
+    col_span: int = 1
+    value: str | None = None  # literal text content
+    expression: str | None = None  # formula, including leading "="
+    value_kind: str = "empty"  # empty | text | formula | column | date
+    data_source: str | None = None  # bound data source (DSColumn dsName)
+    column: str | None = None  # bound column name (DSColumn columnName)
+    aggregation: AggregationType = AggregationType.NONE
+    filters: list[Filter] = field(default_factory=list)
+    style_id: str | None = None
+    properties: dict[str, Any] = field(default_factory=dict)
+
+    @property
+    def a1(self) -> str:
+        """Spreadsheet-style reference, e.g. col 5/row 4 -> ``F5``."""
+        n = self.col
+        letters = ""
+        while True:
+            n, rem = divmod(n, 26)
+            letters = chr(ord("A") + rem) + letters
+            if n == 0:
+                break
+            n -= 1
+        return f"{letters}{self.row + 1}"
+
+
+@dataclass
+class ParameterWidget:
+    """A parameter-panel UI control (FineReport ComboCheckBox, DateEditor, ...).
+
+    These drive the report's input parameters and submit button. Input controls
+    (date pickers, checkbox combos) also surface as `ReportParameter` entries.
+    """
+
+    name: str
+    widget_type: str  # date | combo_checkbox | label | button | text | ...
+    label: str | None = None
+    default_value: str | None = None
+    data_source: str | None = None  # backing dictionary/dataset for value lists
+    properties: dict[str, Any] = field(default_factory=dict)
+
+
+@dataclass
 class Filter:
     """A filter — scope is determined by position in the hierarchy (Report/Page/Visual)."""
 
@@ -253,6 +308,7 @@ class Page:
     properties: dict[str, Any] = field(default_factory=dict)
     bands: list[Band] = field(default_factory=list)
     layout: PageLayout | None = None
+    cells: list[Cell] = field(default_factory=list)
 
 
 @dataclass
@@ -274,6 +330,7 @@ class Report:
     report_fields: list[ReportField] = field(default_factory=list)
     report_variables: list[ReportVariable] = field(default_factory=list)
     subreports: list[Subreport] = field(default_factory=list)
+    parameter_widgets: list[ParameterWidget] = field(default_factory=list)
 
 
 class Severity(Enum):
