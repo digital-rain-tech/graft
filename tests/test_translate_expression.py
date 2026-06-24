@@ -138,6 +138,12 @@ def test_ternary_with_or_and_null():
     assert tr(expr) == '=IF(OR(ISNULL(a), ISNULL(b)), "x", "y")'
 
 
+def test_ternary_inside_parentheses():
+    # Null-coalescing sums: each parenthesised ternary must convert too.
+    expr = "($V{A} == null ? 0 : $V{A}) + ($V{B} == null ? 0 : $V{B})"
+    assert tr(expr) == "=(IF(ISNULL(A), 0, A)) + (IF(ISNULL(B), 0, B))"
+
+
 # --- Issues for untranslatable patterns ----------------------------------
 
 

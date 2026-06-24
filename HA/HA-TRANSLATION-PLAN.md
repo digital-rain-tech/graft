@@ -270,6 +270,38 @@ For pixel-positioned reports (RC-0055, TN-0028) that aren't tabular:
   correct `=SUM()` footers and dynamic-header info issues. No code gaps found (its `DATE`/
   `DAYSINMONTH`/`INTEGER_VALUE` usage lives inside the dataset query, not cell formulas).
 
+## Phase 5: Functional-full conversion (all 3 reports)
+
+**Goal:** each report runs in FineReport and produces correct data, logic, Chinese text,
+QR codes, logos, and totals — verified, not assumed. Pixel-perfect visual fidelity is
+explicitly out of scope here (deferred); layout is faithful but may need Designer polish.
+See [ADR-0013](../docs/adr/0013-sql-expression-ir-with-llm-frontend-and-sqlite-verification.md).
+
+**Expression coverage** (measured by `graft.analysis.expression_coverage`):
+
+| Report | Total exprs | Literal | Clean | Needs review | Functional |
+|---|---|---|---|---|---|
+| S&V-006A | 33 | 8 | 25 | 0 | **100%** |
+| RC-0055 | 470 | 420 | 50 | 0 | **100%** |
+| TN-0028 | 132 | 62 | 66 | 4 | **97%** |
+
+- [x] **5a: Coverage audit** — DONE. `expression_coverage.py` enumerates + classifies every
+  expression; drives the table above. 7 TDD tests.
+- [x] **5b: Parenthesised-ternary fix** — DONE. `_convert_ternaries` recurses into `(...)` so
+  null-coalescing sums like `(a==null?0:a)+(b==null?0:b)` convert. Took S&V → 100%.
+- [ ] **5c: TN-0028 long tail (4 exprs)** — `length()>25 ? substring(0, lastIndexOf(' ')) : …`
+  word-wrap truncation. Designated AI→SQL→oracle cases (ADR-0013), or approximate to FR cell
+  auto-wrap (ADR-0012). Not yet resolved.
+- [ ] **5d: Content mappers** — base64 images (all), `QRCODE()` for RC-0055's ZXing QR, HTML
+  `<sup>` passthrough (TN-0028). Not started.
+- [ ] **5e: RC-0055 bursting** — map the 5 subdatasets (per-tenant statement bursting) to FR
+  datasets/distribution. Not started.
+- [ ] **5f: ChineseConvertUtil install** — Java generated in `HA/finereport/functions/`;
+  recipient compiles + registers on the FR server (one-time, manual).
+
+**Shared layers still to build:** FineReport SQLGlot dialect (productionise the expression
+path), AI Java→SQL front-end + golden-test harness (productionise `spike/`), content mappers.
+
 ## Relevant Files
 
 | File | Purpose |

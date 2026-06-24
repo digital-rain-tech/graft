@@ -229,6 +229,47 @@ def _split_top_level(s: str, op: str) -> list[str]:
     return [p.strip() for p in parts]
 
 
+def _convert_ternaries(s: str) -> str:
+    """Convert ternaries everywhere, recursing into parenthesised groups first.
+
+    ``_ternary_to_if`` only sees top-level ``?``; a ternary nested inside ``(...)``
+    (e.g. null-coalescing sums ``(a==null?0:a)+(b==null?0:b)``) would be missed.
+    This walks the string, recursively converts the interior of each parenthesised
+    group, then converts any remaining top-level ternary.
+    """
+    result: list[str] = []
+    i = 0
+    n = len(s)
+    while i < n:
+        ch = s[i]
+        if ch == '"':
+            j = i + 1
+            while j < n and s[j] != '"':
+                j += 1
+            result.append(s[i : j + 1])
+            i = j + 1
+        elif ch == "(":
+            depth = 1
+            in_str = False
+            j = i + 1
+            while j < n and depth > 0:
+                c = s[j]
+                if c == '"':
+                    in_str = not in_str
+                elif not in_str:
+                    if c == "(":
+                        depth += 1
+                    elif c == ")":
+                        depth -= 1
+                j += 1
+            result.append("(" + _convert_ternaries(s[i + 1 : j - 1]) + ")")
+            i = j
+        else:
+            result.append(ch)
+            i += 1
+    return _ternary_to_if("".join(result))
+
+
 def _ternary_to_if(s: str) -> str:
     """Recursively convert Java ``cond ? a : b`` into FineReport ``IF(cond, a, b)``."""
     q = _find_top_level(s, ("?",))
@@ -267,7 +308,7 @@ def _ternary_to_if(s: str) -> str:
     true_part = rest[:colon]
     false_part = rest[colon + 1 :]
     cond_fr = _logical_to_fr(cond.strip())
-    return f"IF({cond_fr}, {_ternary_to_if(true_part)}, {_ternary_to_if(false_part)})"
+    return f"IF({cond_fr}, {_convert_ternaries(true_part)}, {_convert_ternaries(false_part)})"
 
 
 def _translate_expression(
@@ -277,7 +318,7 @@ def _translate_expression(
 ) -> str:
     """Best-effort Jasper (Java) expression -> FineReport formula (leading ``=``)."""
     s = _apply_java_patterns(expr, issues)
-    s = _ternary_to_if(s)
+    s = _convert_ternaries(s)
     # Token replacement: references -> parameter names / bound cells / variable names.
     s = re.sub(r"\$P\{([^}]+)\}", r"$\1", s)
     s = re.sub(r"\$F\{([^}]+)\}", lambda m: field_to_cell.get(m.group(1), m.group(1)), s)
