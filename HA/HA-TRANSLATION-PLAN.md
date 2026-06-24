@@ -241,10 +241,20 @@ For pixel-positioned reports (RC-0055, TN-0028) that aren't tabular:
 
 ## Current Status (as of 2026-06-24)
 
-- [ ] **Phase 1: Java pattern map** — NOT STARTED (`_translate_expression` still uses basic token substitution only)
+- [x] **Phase 1: Java pattern map** — DONE. `_translate_expression` now applies the full
+  Java→FR pattern map (`_apply_java_patterns`), ternary→`IF` conversion (`_ternary_to_if`,
+  paren/string-aware, recursive for nesting), and Java boolean→`AND()/OR()/NOT()`
+  (`_logical_to_fr`). Untranslatable idioms (`lastIndexOf`) emit a `TranslationIssue` and
+  pass through (Tier 3). Covered by `tests/test_translate_expression.py` (27 tests, TDD).
+  Validated against real TN-0028 / RC-0055 Java expressions.
 - [ ] **Phase 2: ChineseConvertUtil** — NOT STARTED
-- [ ] **Phase 3: Band→FR mapping** — NOT STARTED
-- [ ] **Phase 4: S&V-006A baseline** — NOT STARTED
+- [ ] **Phase 3: Band→FR mapping** — NOT STARTED. Required before RC-0055 / TN-0028 produce
+  any cells (both are band/pixel reports with no `jr:table`, so they currently translate to
+  0 cells, fidelity 0.2). The Phase 1 expression map will feed band TEXT_FIELD elements once
+  this lands.
+- [x] **Phase 4: S&V-006A baseline** — DONE. Translates to 24 cells, fidelity 0.85, with
+  correct `=SUM()` footers and dynamic-header info issues. No code gaps found (its `DATE`/
+  `DAYSINMONTH`/`INTEGER_VALUE` usage lives inside the dataset query, not cell formulas).
 
 ## Relevant Files
 
