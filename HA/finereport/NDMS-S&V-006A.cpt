@@ -1,0 +1,261 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<WorkBook xmlVersion="20170720" releaseVersion="10.0.0">
+  <TableDataMap>
+    <TableData name="AL" class="com.fr.data.impl.DBTableData">
+      <Parameters/>
+      <Connection class="com.fr.data.impl.NameDatabaseConnection">
+        <DatabaseName><![CDATA[AL]]></DatabaseName>
+      </Connection>
+      <Query><![CDATA[select 
+HSE_RGN_CODE,
+HSE_EST_ENG_NAME,
+HSE_STCK_MAIN_CODE_ADDR,
+SUM(HSE_STCK_LES_AREA) AS Approved_Letting_Area
+from
+(
+SELECT HSE_RGN_CODE,HSE_EST_ENG_NAME,
+CASE WHEN HSE_STCK_DSGN_TRD_CODE = 'CO04' OR HSE_STCK_DSGN_TRD_CODE = 'RFDA' OR HSE_STCK_DSGN_TRD_CODE = 'SVPB' THEN
+CONCAT(HSE_STCK_MAIN_CODE_ADDR,'*')
+ELSE
+HSE_STCK_MAIN_CODE_ADDR
+END AS HSE_STCK_MAIN_CODE_ADDR,
+HSE_STCK_LES_AREA
+FROM CIS_RPT_SV_ACTUAL_CRITERIA_V
+WHERE COMMITED_TYPE LIKE 'E_Approved Letting' AND
+SYS_RPT_YEAR = $P{REPORT_YEAR} AND
+SYS_RPT_MTH = $P{REPORT_MONTH} AND
+(($P{STATUS} = 'P' and CIS_DSBD_APRV_STS_CODE <> 'A') OR ($P{STATUS} = 'C' AND CIS_DSBD_APRV_STS_CODE = 'A'))
+) R6_Approved_Lettings
+GROUP BY HSE_RGN_CODE, HSE_EST_ENG_NAME,HSE_STCK_MAIN_CODE_ADDR
+ORDER BY HSE_RGN_CODE ASC, HSE_EST_ENG_NAME ASC]]></Query>
+    </TableData>
+    <TableData name="TTBC" class="com.fr.data.impl.DBTableData">
+      <Parameters/>
+      <Connection class="com.fr.data.impl.NameDatabaseConnection">
+        <DatabaseName><![CDATA[TTBC]]></DatabaseName>
+      </Connection>
+      <Query><![CDATA[select 
+HSE_RGN_CODE,
+HSE_EST_ENG_NAME,
+HSE_STCK_MAIN_CODE_ADDR,
+SUM(HSE_STCK_LES_AREA) AS Approved_Letting_Area
+from
+(
+SELECT HSE_RGN_CODE,HSE_EST_ENG_NAME,
+CASE WHEN HSE_STCK_DSGN_TRD_CODE = 'CO04' OR HSE_STCK_DSGN_TRD_CODE = 'RFDA' OR HSE_STCK_DSGN_TRD_CODE = 'SVPB' THEN
+CONCAT(HSE_STCK_MAIN_CODE_ADDR,'*')
+ELSE
+HSE_STCK_MAIN_CODE_ADDR
+END AS HSE_STCK_MAIN_CODE_ADDR,
+HSE_STCK_LES_AREA
+FROM CIS_RPT_SV_ACTUAL_CRITERIA_V
+WHERE COMMITED_TYPE LIKE 'A_Tenancy To Be Commenced' AND
+SYS_RPT_YEAR = $P{REPORT_YEAR}  AND
+SYS_RPT_MTH =$P{REPORT_MONTH} AND
+(($P{STATUS} = 'P' and CIS_DSBD_APRV_STS_CODE <> 'A') OR ($P{STATUS} = 'C' AND CIS_DSBD_APRV_STS_CODE = 'A'))
+) R6_Approved_Lettings
+GROUP BY HSE_RGN_CODE, HSE_EST_ENG_NAME,HSE_STCK_MAIN_CODE_ADDR
+ORDER BY HSE_RGN_CODE ASC, HSE_EST_ENG_NAME ASC]]></Query>
+    </TableData>
+  </TableDataMap>
+  <Report name="NDMS_SV_006A" class="com.fr.report.worksheet.WorkSheet">
+    <CellElementList>
+      <C c="0" r="0">
+        <O><![CDATA[A. Tenancies to be Commenced]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="1">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[="Details of\nCommitted\nArea for "+$REPORT_MONTH+"/"+$REPORT_YEAR]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="1">
+        <O><![CDATA[Region
+Code]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="1">
+        <O><![CDATA[Estate English Name]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="3" r="1">
+        <O><![CDATA[Code Address]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="4" r="1">
+        <O><![CDATA[Leasing Area
+IFA (m²)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="2">
+        <O t="DSColumn">
+          <Attributes dsName="TTBC" columnName="HSE_RGN_CODE"/>
+          <RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+          <Parameters/>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="2">
+        <O t="DSColumn">
+          <Attributes dsName="TTBC" columnName="HSE_EST_ENG_NAME"/>
+          <RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+          <Parameters/>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="3" r="2">
+        <O t="DSColumn">
+          <Attributes dsName="TTBC" columnName="HSE_STCK_MAIN_CODE_ADDR"/>
+          <RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+          <Parameters/>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="4" r="2">
+        <O t="DSColumn">
+          <Attributes dsName="TTBC" columnName="APPROVED_LETTING_AREA"/>
+          <RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+          <Parameters/>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="3" r="3">
+        <O><![CDATA[Total :]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="4" r="3">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=SUM(E3)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="5">
+        <O><![CDATA[B. Approved Lettings]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="6">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[="Details of\nCommitted\nArea for "+$REPORT_MONTH+"/"+$REPORT_YEAR]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="6">
+        <O><![CDATA[Region
+Code]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="6">
+        <O><![CDATA[Estate English Name]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="3" r="6">
+        <O><![CDATA[Code Address]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="4" r="6">
+        <O><![CDATA[Leasing Area
+(m²)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="7">
+        <O t="DSColumn">
+          <Attributes dsName="AL" columnName="HSE_RGN_CODE"/>
+          <RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+          <Parameters/>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="7">
+        <O t="DSColumn">
+          <Attributes dsName="AL" columnName="HSE_EST_ENG_NAME"/>
+          <RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+          <Parameters/>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="3" r="7">
+        <O t="DSColumn">
+          <Attributes dsName="AL" columnName="HSE_STCK_MAIN_CODE_ADDR"/>
+          <RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+          <Parameters/>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="4" r="7">
+        <O t="DSColumn">
+          <Attributes dsName="AL" columnName="APPROVED_LETTING_AREA"/>
+          <RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+          <Parameters/>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="3" r="8">
+        <O><![CDATA[Total :]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="4" r="8">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=SUM(E8)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+    </CellElementList>
+    <PrivilegeControl/>
+  </Report>
+  <ReportParameterAttr>
+    <ParameterUI class="com.fr.form.main.parameter.FormParameterUI">
+      <Layout class="com.fr.form.ui.container.WParameterLayout">
+        <WidgetName name="para"/>
+        <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+          <InnerWidget class="com.fr.form.ui.TextEditor">
+            <WidgetName name="REPORT_YEAR"/>
+            <LabelName name="REPORT_YEAR"/>
+          </InnerWidget>
+        </Widget>
+        <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+          <InnerWidget class="com.fr.form.ui.TextEditor">
+            <WidgetName name="REPORT_MONTH"/>
+            <LabelName name="REPORT_MONTH"/>
+          </InnerWidget>
+        </Widget>
+        <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+          <InnerWidget class="com.fr.form.ui.TextEditor">
+            <WidgetName name="STATUS"/>
+            <LabelName name="STATUS"/>
+          </InnerWidget>
+        </Widget>
+        <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+          <InnerWidget class="com.fr.form.parameter.FormSubmitButton">
+            <WidgetName name="query"/>
+            <Text><![CDATA[Query]]></Text>
+          </InnerWidget>
+        </Widget>
+      </Layout>
+    </ParameterUI>
+  </ReportParameterAttr>
+</WorkBook>

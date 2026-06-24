@@ -241,10 +241,26 @@ For pixel-positioned reports (RC-0055, TN-0028) that aren't tabular:
 
 ## Current Status (as of 2026-06-24)
 
-- [ ] **Phase 1: Java pattern map** — NOT STARTED (`_translate_expression` still uses basic token substitution only)
+- [x] **Phase 1: Java pattern map** — DONE. `_translate_expression` now applies the full
+  Java→FR pattern map (`_apply_java_patterns`), ternary→`IF` conversion (`_ternary_to_if`,
+  paren/string-aware, recursive for nesting), and Java boolean→`AND()/OR()/NOT()`
+  (`_logical_to_fr`). Untranslatable idioms (`lastIndexOf`) emit a `TranslationIssue` and
+  pass through (Tier 3). Covered by `tests/test_translate_expression.py` (27 tests, TDD).
+  Validated against real TN-0028 / RC-0055 Java expressions.
 - [ ] **Phase 2: ChineseConvertUtil** — NOT STARTED
-- [ ] **Phase 3: Band→FR mapping** — NOT STARTED
-- [ ] **Phase 4: S&V-006A baseline** — NOT STARTED
+- [x] **Phase 3: Band→FR mapping** — DONE. `_bands_to_cells` snaps pixel-positioned band
+  elements onto a FineReport cell grid by inferring column/row grid lines from element edge
+  coordinates (left/right → columns, top/bottom → rows) and spanning each element across the
+  lines its extent crosses. STATIC_TEXT → text cells, TEXT_FIELD → text (literals) or
+  Phase-1-translated formulas; IMAGE elements emit an INFO issue (base64 cell value
+  suggested); geometry kept in `cell.properties`. `translate_to_finereport` now falls back to
+  the band path when a page has no `jr:table`. Results: RC-0055 → 639 cells / 48 formulas
+  (fidelity 0.65), TN-0028 → 636 cells / 70 formulas (fidelity 0.55), and the written `.cpt`
+  round-trips through the FineReport reader. Covered by `tests/test_translate_bands.py`
+  (9 tests, TDD).
+- [x] **Phase 4: S&V-006A baseline** — DONE. Translates to 24 cells, fidelity 0.85, with
+  correct `=SUM()` footers and dynamic-header info issues. No code gaps found (its `DATE`/
+  `DAYSINMONTH`/`INTEGER_VALUE` usage lives inside the dataset query, not cell formulas).
 
 ## Relevant Files
 

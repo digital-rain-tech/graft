@@ -1,0 +1,3640 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<WorkBook xmlVersion="20170720" releaseVersion="10.0.0">
+  <TableDataMap/>
+  <Report name="NDMS-RC-0055-pm" class="com.fr.report.worksheet.WorkSheet">
+    <CellElementList>
+      <C c="14" r="0" cs="14" rs="9">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=BAR_CODE]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="1" cs="8" rs="6">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=CUST_ENG_ADDR]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="16" r="1" cs="8" rs="2">
+        <O><![CDATA[Electronic Payment Tenant Code]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="24" r="1" cs="4" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=TNT_PPS_CODE]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="16" r="2" cs="8" rs="3">
+        <O><![CDATA[電子繳費租戶號碼]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="16" r="4" cs="12" rs="6">
+        <O><![CDATA[Premises Address 用戶地址]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="17" r="6" cs="11" rs="4">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=BAR2_CODE]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="7" cs="8" rs="4">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=CUST_CHI_ADDR]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="8" cs="13" rs="4">
+        <O><![CDATA[Monthly Statement 月結單]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="12" cs="28">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=CODE_ADDR]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="3" r="14" cs="25">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=CUST_CHI_NAME]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="3" r="15" cs="25">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=BILL_CHI_ADDR]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="3" r="16" cs="25">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=CUST_ENG_NAME]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="3" r="17" cs="25">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=BILL_ENG_ADDR_FST]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="3" r="18" cs="25">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=BILL_ENG_ADDR_SCD]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="20" cs="4">
+        <O><![CDATA[Date of Issue 印發日期: ]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="4" r="20" cs="6">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=MTH_STMT_ISS_DATE_DIS]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="23" r="20" cs="3">
+        <O><![CDATA[Page No. 頁數: ]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="26" r="20" cs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[="1/" + MTH_STMT_PAGE_CNT]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="22" cs="18">
+        <O><![CDATA[Description 項目]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="18" r="22" cs="4">
+        <O><![CDATA[Period 有關期間]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="22" r="22" cs="6">
+        <O><![CDATA[Amount 金額]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="24" cs="28">
+        <O><![CDATA[Other Information 其他事項 :]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="25" cs="28">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=MTH_STMT_ENG_RMK_TEXT_1]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="26" cs="28">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=MTH_STMT_CHI_RMK_TEXT_1]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="27" cs="28">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=MTH_STMT_ENG_RMK_TEXT_2]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="28" cs="28">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=MTH_STMT_CHI_RMK_TEXT_2]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="30" cs="28">
+        <O><![CDATA[The payment slip will be kept by the customer 店員請將整份帳單交回顧客]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="32" cs="5">
+        <O><![CDATA[Date of Issue 印發日期]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="5" r="32" cs="8">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=MTH_STMT_ISS_DATE_DIS]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="15" r="32" cs="13">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=CODE_ADDR]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="33" cs="13" rs="2">
+        <O><![CDATA[PPS Merchant Code]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="15" r="33" cs="6" rs="2">
+        <O><![CDATA[Electronic Payment Tenant Code]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="33" cs="7" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=TNT_PPS_CODE]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="34" cs="7" rs="3">
+        <O><![CDATA[「 轉數快」二維碼 FPS QR Code]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="35" cs="5">
+        <O><![CDATA[繳費靈商戶代號]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="5" r="35" cs="8">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=HA_CODE]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="15" r="35" cs="13">
+        <O><![CDATA[電子繳費租戶號碼]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="36" cs="5" rs="2">
+        <O><![CDATA[Bill Type 類別]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="5" r="36" cs="8" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=BILL_TYPE]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="38" cs="6">
+        <O><![CDATA[Due Date 到期繳款日 (日/月/年)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="6" r="38" cs="13">
+        <O><![CDATA[Amount Due 應繳數額]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="39" cs="6">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=MTH_STMT_DUE_DATE_DIS]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="6" r="39" cs="13">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[="$" + FORMAT(MTH_STMT_DUE_AMT, "#,##0.00")]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="40" cs="28">
+        <O><![CDATA[HD 1024]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="42" cs="12" rs="7">
+        <O><![CDATA[支票退回/自動轉帳被拒]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="43" cs="13" rs="5">
+        <O><![CDATA[Payment Methods ]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="43" cs="13" rs="5">
+        <O><![CDATA[Autopay]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="43" cs="13" rs="7">
+        <O><![CDATA[7-Eleven/Circle K/VanGO Convenience Stores/ U select]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="43" cs="13" rs="5">
+        <O><![CDATA[Estate Shroff Office]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="43" cs="13" rs="5">
+        <O><![CDATA[PPS]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="43" cs="13" rs="5">
+        <O><![CDATA[Internet / Phone Banking Service]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="43" cs="12" rs="7">
+        <O><![CDATA[繳款方法]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="43" cs="12" rs="7">
+        <O><![CDATA[7-Eleven/OK便利店/VanGO便利店/U購select]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="43" cs="12" rs="7">
+        <O><![CDATA[轉數快]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="43" cs="12" rs="7">
+        <O><![CDATA[屋邨繳費處]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="43" cs="8" rs="7">
+        <O><![CDATA[繳費靈]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="43" cs="12" rs="7">
+        <O><![CDATA[自動櫃員機]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="43" cs="12" rs="7">
+        <O><![CDATA[網上 / 電話理財]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="43" cs="12" rs="7">
+        <O><![CDATA[備註：]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="43" cs="12" rs="7">
+        <O><![CDATA[更改通訊地址]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="44" cs="13" rs="5">
+        <O><![CDATA[Automatic Teller Machine (ATM)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="44" cs="13" rs="5">
+        <O><![CDATA[Rejected Payment by Returned Cheques/Delinquent Autopay]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="44" cs="13" rs="5">
+        <O><![CDATA[Remarks:]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="44" cs="7" rs="5">
+        <O><![CDATA[Change of Correspondence Address]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="45" cs="13" rs="5">
+        <O><![CDATA[Faster Payment System (FPS)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="46" cs="13" rs="30">
+        <O><![CDATA[Autopay authorization forms are obtainable from the estate offices.
+Tenants are required to bring along the completed autopay authorization
+form together with their bank passbook or statement to the estate office
+during office hours for the processing of their applications. Please pay
+rent by other methods until the autopay amount is listed out in the bank
+passbook or monthly statement.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="46" cs="13" rs="35">
+        <O><![CDATA[Internet banking or phone banking account holders can pay rent through
+the internet and any tone phone. You should follow the instructions of the
+respective systems. Remember to choose “Hong Kong Housing
+Authority” as the merchant, and enter your Electronic Payment Tenant
+Code which is printed on your monthly statement to effect payment. You
+are advised to keep the transaction reference code for record. Please
+pay attention to the cut-off time of Respective Bank.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="47" cs="2" rs="5">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="47" cs="10" rs="15">
+        <O><![CDATA[Use any mobile banking apps that supports Hong Kong Housing Authority QR code bill payment to scan the FPS QR code printed on this monthly statement to make payment.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="47" cs="12" rs="11">
+        <O><![CDATA[若閣下用以繳付租金之支票或所指定之自動轉帳因退回而未能成功繳付
+租金，則有可能被徵收逾期利息。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="48" cs="13" rs="9">
+        <O><![CDATA[You can pay in <b><u>cash or by crossed cheque </u></b>at any estate shroff offices<br>during the rent collection service hours.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="48" cs="2" rs="5">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="48" cs="2" rs="5">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="48" cs="13" rs="10">
+        <O><![CDATA[Interest may be levied when a cheque payment or a direct debit payment
+is returned unpaid.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="48" cs="2" rs="5">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="48" cs="13" rs="10">
+        <O><![CDATA[Please notify staff of the estate office or property management
+companies for any change of your correspondence address.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="48" cs="12" rs="5">
+        <O><![CDATA[自動轉帳]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="48" cs="12" rs="13">
+        <O><![CDATA[使用支援「轉數快」二維碼繳交香港房屋委員會帳單的銀行手機應用程式，掃描此月結單上的「轉數快」二維碼進行繳費。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="48" cs="12" rs="9">
+        <O><![CDATA[可於任何屋邨繳費處的服務時間內以<b><u>現金或劃線支票</u></b>繳付。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="48" rs="4">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="48" rs="4">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="48" cs="12" rs="33">
+        <O><![CDATA[持有銀行「網上理財」或「電話理財」戶口的租戶，可以透過互聯網和
+音頻電話繳交租金。你應按個別銀行系統的指示，選擇「香港房屋委員
+會」作為收款商戶，並輸入你的電子繳費租戶號碼；請保留交易編號以
+作記錄。請留意個別銀行的截數時間。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="48" rs="4">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="48" cs="12" rs="10">
+        <O><![CDATA[通訊地址如有更改，請通知屋邨辦事處或商場管理公司職員。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="48" cs="11" rs="11">
+        <O><![CDATA[以電話繳付 : 請撥18033，然後輸入商戶編號62，再遵照電話錄音提
+示繳付。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="48" cs="11" rs="21">
+        <O><![CDATA[請以滙豐或恒生銀行發出的提款卡或具備提款功能的信用卡在滙豐或
+恒生銀行的自動櫃員機繳付。請保留通知書，以便核對。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="48" cs="11" rs="10">
+        <O><![CDATA[租金/暫准證費及其他費用須在每個曆月之首日上期繳付。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="48" cs="11" rs="10">
+        <O><![CDATA[By phone : Please call 18031, then enter Merchant Code 62, and
+follow the instructions for payment.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="48" cs="11" rs="21">
+        <O><![CDATA[Simply use any ATM cards or credit cards with the ATM function
+issued by HSBC or Hang Seng Bank Ltd (HSB) to make your
+payment at any ATM of HSBC / HSB. Please retain the customer
+advice for checking.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="48" cs="11" rs="10">
+        <O><![CDATA[Rent/licence fee and other charges shall be payable in advance on
+the first day of every calendar month.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="49" cs="11" rs="7">
+        <O><![CDATA[<P>可於7-Eleven以<b><u>現金</u></b>繳付。</P>]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="49" cs="11" rs="3">
+        <O><![CDATA[<P>Please pay in <b><u>cash</u></b> at any 7-Eleven.</P>]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="50" rs="4">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="51" cs="2" rs="8">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="51" cs="12" rs="32">
+        <O><![CDATA[自動轉帳授權書可於屋邨辦事處索取。租戶須帶備填妥的自動轉帳授權
+書連同銀行存摺或結算單，在辦公時間內到屋邨辦事處辦理手續。如果
+你的銀行存摺或月結單尚未列明應繳款額將以自動轉帳方式繳付，請繼
+續採用其他方法繳付應繳款額。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="52" cs="11" rs="8">
+        <O><![CDATA[<P>Please pay in <b><u>cash</u></b> or <b><u>EPS</u></b> at any Circle K, VanGO<br>Convenience Stores or U select.</P>]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="55" rs="6">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="55" cs="11" rs="8">
+        <O><![CDATA[<P>可於OK便利店、VanGO便利店或U購select以<b><u>現金</u></b>或<b><u>EPS</u></b>繳付。</P>]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="57" cs="13" rs="8">
+        <O><![CDATA[Notes]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="57" cs="2" rs="10">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="57" cs="12" rs="10">
+        <O><![CDATA[注意事項]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="57" cs="11" rs="20">
+        <O><![CDATA[No matter whether Landlord demanded formally or not, to avoid
+any levy of interest as stipulated in the Tenancy Agreement/
+Licence, please pay within 14 days of the due date.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="58" cs="2" rs="10">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="58" rs="9">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="58" rs="9">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="58" cs="11" rs="9">
+        <O><![CDATA[以「繳費靈網上服務」繳付：網址為 <u>www.ppshk.com</u>。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="58" cs="11" rs="18">
+        <O><![CDATA[不論業主有否正式催交，為免繳付租約/暫准證所訂的逾期利息，租
+戶請於到期繳款日起計14天內清繳款項。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="58" cs="11" rs="10">
+        <O><![CDATA[Through PPS by Internet at web site : <u>www.ppshk.com</u>]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="63" cs="2" rs="7">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="63" cs="11" rs="28">
+        <O><![CDATA[The payment cut-off time is 5 p.m. everyday. Payments made
+after 5 p.m. will be recorded as payment made on the next
+business day. Their hotlines are as follows:
+7-Eleven Convenience Stores: 2299 1110.
+Circle K Convenience Stores: 2991 6337.
+VanGO Convenience Stores : 2586 3567.
+U select : 2586 3686.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="64" rs="6">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="65" cs="13" rs="5">
+        <O><![CDATA[7-Eleven(Accept Cash Only)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="65" cs="11" rs="8">
+        <O><![CDATA[7-Eleven(只接受現金)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="65" cs="11" rs="27">
+        <O><![CDATA[繳款截數時間為每日下午5時正。租戶於下午5時後所交款項，將紀錄
+為下一個工作天的收款。便利店/超級巿場熱線電話如下:
+7-Eleven便利店 : 2299 1110。
+OK便利店 : 2991 6337。
+VanGO便利店 : 2586 3567。
+U購select : 2586 3686。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="66" cs="2" rs="6">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="66" rs="5">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="66" cs="11" rs="16">
+        <O><![CDATA[繳款截數時間為每日下午7時正(星期一至五)。租戶於下午7時後所交
+款項，將紀錄為下一個工作天的收款。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="66" cs="11" rs="17">
+        <O><![CDATA[The payment cut-off time is 7 p.m. (Monday to Friday). Payments
+made after 7 p.m. will be recorded as payment made on the next
+business day.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="69" cs="2" rs="6">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="69" rs="5">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="69" cs="11" rs="18">
+        <O><![CDATA[繳款截數時間為每日下午7時30分正(星期一至五)。租戶於下午7時30
+分後所交款項，將紀錄為下一個工作天的收款。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="69" cs="11" rs="19">
+        <O><![CDATA[The payment cut-off time is 7:30 p.m. (Monday to Friday).
+Payments made after 7:30 p.m. will be recorded as payment made
+on the next business day.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="70" cs="13" rs="11">
+        <O><![CDATA[Circle K/VanGO Convenience Stores/ U select (Accept Cash or EPS Only)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="71" cs="11" rs="8">
+        <O><![CDATA[OK便利店/VanGO便利店/U購select (只接受現金或EPS)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="74" cs="2" rs="8">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="74" cs="11" rs="12">
+        <O><![CDATA[Payment should not be made to any persons other than the stated
+payment methods in this monthly statement.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="76" rs="7">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="76" cs="11" rs="12">
+        <O><![CDATA[請按此月結單上的付款方法繳交款項，切勿把款項交給其他人士。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="77" rs="7">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="78" cs="11" rs="15">
+        <O><![CDATA[繳款時，請出示月結單。租戶繳款後請小心核對並確保收據上的資料
+無誤。並請保留收據（或按需要複印）及月結單，作為繳付紀錄，以
+便核對。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="80" cs="2" rs="6">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="80" cs="2" rs="7">
+        <O><![CDATA[4)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="80" cs="11" rs="15">
+        <O><![CDATA[Simply present the monthly statement when making payment.
+Please check carefully and ensure details printed on the receipt
+are correct. Retain the receipt or make a photocopy of it, if
+required, and the monthly statement as the record of payment for
+checking.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="80" cs="11" rs="7">
+        <O><![CDATA[The number of daily payment per tenant code is up to 3.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="82" rs="6">
+        <O><![CDATA[4)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="82" cs="11" rs="6">
+        <O><![CDATA[每個租戶號碼，一天內最多只能繳交3次。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="85" cs="2" rs="4">
+        <O><![CDATA[4)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="85" cs="11" rs="14">
+        <O><![CDATA[If you have paid the rent due for payment shown in the monthly
+statement or you have any enquiries on the monthly statement,
+please contact our estate office or property management
+companies.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="88" rs="2">
+        <O><![CDATA[4)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="88" cs="11" rs="6">
+        <O><![CDATA[如你已繳交此月結單內的到期租金，或對此月結單有任何查詢，請聯絡所屬屋邨辦事處或商場管理公司。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="92" cs="12" rs="6">
+        <O><![CDATA[屋邨繳費處 (可接受現金或劃線支票)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="96" cs="13" rs="5">
+        <O><![CDATA[Estate Shroff Office (Accept Cash or Crossed Cheque)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="97" rs="6">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="97" cs="11" rs="6">
+        <O><![CDATA[期票／現金支票恕不接受。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="100" cs="2" rs="5">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="100" cs="11" rs="4">
+        <O><![CDATA[Post-dated cheques / cash cheques will not be accepted.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="102" rs="5">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="102" cs="11" rs="7">
+        <O><![CDATA[劃線支票抬頭寫上「香港房屋委員會」，並於支票背頁寫上電子繳費
+租戶號碼。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="105" cs="11" rs="5">
+        <O><![CDATA[Please make a crossed cheque payable to ‘Hong Kong Housing
+Authority’, and write down your Electronic Payment Tenant Code
+on the back of your cheque.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="106" cs="2" rs="2">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="111" cs="8" rs="5">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=CUST_ENG_ADDR]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="16" r="111" cs="8">
+        <O><![CDATA[Electronic Payment Tenant Code]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="24" r="111" cs="4">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=TNT_PPS_CODE]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="16" r="112" cs="8" rs="2">
+        <O><![CDATA[電子繳費租戶號碼]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="16" r="113" cs="12" rs="4">
+        <O><![CDATA[Premises Address 用戶地址]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="115" cs="8" rs="3">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=CUST_CHI_ADDR]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="116" cs="13" rs="3">
+        <O><![CDATA[Monthly Statement 月結單]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="119" cs="28">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=CODE_ADDR]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="121" cs="4">
+        <O><![CDATA[Date of Issue 印發日期: ]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="4" r="121" cs="6">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=MTH_STMT_ISS_DATE_DIS]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="23" r="121" cs="3">
+        <O><![CDATA[Page No. 頁數: ]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="26" r="121" cs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[="2/" + MTH_STMT_PAGE_CNT]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="123" cs="18">
+        <O><![CDATA[Description 項目]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="18" r="123" cs="4">
+        <O><![CDATA[Period 有關期間]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="22" r="123" cs="6">
+        <O><![CDATA[Amount 金額]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="125" cs="25" rs="2">
+        <O><![CDATA[HD 1024]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="126" cs="12" rs="7">
+        <O><![CDATA[支票退回/自動轉帳被拒]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="127" cs="12" rs="7">
+        <O><![CDATA[繳款方法]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="127" cs="12" rs="7">
+        <O><![CDATA[7-Eleven/OK便利店/VanGO便利店/U購select]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="127" cs="12" rs="7">
+        <O><![CDATA[轉數快]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="127" cs="12" rs="7">
+        <O><![CDATA[屋邨繳費處]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="127" cs="8" rs="7">
+        <O><![CDATA[繳費靈]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="127" cs="12" rs="7">
+        <O><![CDATA[自動櫃員機]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="127" cs="12" rs="7">
+        <O><![CDATA[網上 / 電話理財]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="127" cs="12" rs="7">
+        <O><![CDATA[備註：]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="127" cs="12" rs="7">
+        <O><![CDATA[更改通訊地址]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="127" cs="13" rs="5">
+        <O><![CDATA[Payment Methods ]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="127" cs="13" rs="5">
+        <O><![CDATA[Autopay]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="127" cs="13" rs="7">
+        <O><![CDATA[7-Eleven/Circle K/VanGO Convenience Stores/ U select]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="127" cs="13" rs="5">
+        <O><![CDATA[Estate Shroff Office]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="127" cs="13" rs="5">
+        <O><![CDATA[PPS]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="127" cs="13" rs="5">
+        <O><![CDATA[Internet / Phone Banking Service]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="128" cs="13" rs="5">
+        <O><![CDATA[Automatic Teller Machine (ATM)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="128" cs="13" rs="5">
+        <O><![CDATA[Rejected Payment by Returned Cheques/Delinquent Autopay]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="128" cs="13" rs="5">
+        <O><![CDATA[Remarks:]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="128" cs="7" rs="5">
+        <O><![CDATA[Change of Correspondence Address]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="129" cs="13" rs="5">
+        <O><![CDATA[Faster Payment System (FPS)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="130" cs="13" rs="29">
+        <O><![CDATA[Autopay authorization forms are obtainable from the estate offices.
+Tenants are required to bring along the completed autopay authorization
+form together with their bank passbook or statement to the estate office
+during office hours for the processing of their applications. Please pay
+rent by other methods until the autopay amount is listed out in the bank
+passbook or monthly statement.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="130" cs="13" rs="35">
+        <O><![CDATA[Internet banking or phone banking account holders can pay rent through
+the internet and any tone phone. You should follow the instructions of the
+respective systems. Remember to choose “Hong Kong Housing
+Authority” as the merchant, and enter your Electronic Payment Tenant
+Code which is printed on your monthly statement to effect payment. You
+are advised to keep the transaction reference code for record. Please
+pay attention to the cut-off time of Respective Bank.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="131" cs="12" rs="10">
+        <O><![CDATA[若閣下用以繳付租金之支票或所指定之自動轉帳因退回而未能成功繳付
+租金，則有可能被徵收逾期利息。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="131" cs="2" rs="5">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="131" cs="10" rs="14">
+        <O><![CDATA[Use any mobile banking apps that supports Hong Kong Housing Authority QR code bill payment to scan the FPS QR code printed on this monthly statement to make payment.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="132" cs="12" rs="5">
+        <O><![CDATA[自動轉帳]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="132" cs="12" rs="12">
+        <O><![CDATA[使用支援「轉數快」二維碼繳交香港房屋委員會帳單的銀行手機應用程式，掃描此月結單上的「轉數快」二維碼進行繳費。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="132" cs="12" rs="8">
+        <O><![CDATA[可於任何屋邨繳費處的服務時間內以<b><u>現金或劃線支票</u></b>繳付。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="132" rs="4">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="132" rs="4">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="132" cs="12" rs="33">
+        <O><![CDATA[持有銀行「網上理財」或「電話理財」戶口的租戶，可以透過互聯網和
+音頻電話繳交租金。你應按個別銀行系統的指示，選擇「香港房屋委員
+會」作為收款商戶，並輸入你的電子繳費租戶號碼；請保留交易編號以
+作記錄。請留意個別銀行的截數時間。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="132" rs="4">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="132" cs="12" rs="9">
+        <O><![CDATA[通訊地址如有更改，請通知屋邨辦事處或商場管理公司職員。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="132" cs="13" rs="8">
+        <O><![CDATA[You can pay in <b><u>cash or by crossed cheque </u></b>at any estate shroff offices<br>during the rent collection service hours.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="132" cs="2" rs="5">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="132" cs="2" rs="5">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="132" cs="13" rs="9">
+        <O><![CDATA[Interest may be levied when a cheque payment or a direct debit payment
+is returned unpaid.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="132" cs="2" rs="5">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="132" cs="13" rs="9">
+        <O><![CDATA[Please notify staff of the estate office or property management
+companies for any change of your correspondence address.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="132" cs="11" rs="10">
+        <O><![CDATA[以電話繳付 : 請撥18033，然後輸入商戶編號62，再遵照電話錄音提
+示繳付。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="132" cs="11" rs="19">
+        <O><![CDATA[請以滙豐或恒生銀行發出的提款卡或具備提款功能的信用卡在滙豐或
+恒生銀行的自動櫃員機繳付。請保留通知書，以便核對。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="132" cs="11" rs="9">
+        <O><![CDATA[租金/暫准證費及其他費用須在每個曆月之首日上期繳付。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="132" cs="11" rs="9">
+        <O><![CDATA[By phone : Please call 18031, then enter Merchant Code 62, and
+follow the instructions for payment.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="132" cs="11" rs="19">
+        <O><![CDATA[Simply use any ATM cards or credit cards with the ATM function
+issued by HSBC or Hang Seng Bank Ltd (HSB) to make your
+payment at any ATM of HSBC / HSB. Please retain the customer
+advice for checking.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="132" cs="11" rs="9">
+        <O><![CDATA[Rent/licence fee and other charges shall be payable in advance on
+the first day of every calendar month.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="133" rs="4">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="133" cs="11" rs="6">
+        <O><![CDATA[<P>可於7-Eleven以<b><u>現金</u></b>繳付。</P>]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="133" cs="11" rs="3">
+        <O><![CDATA[<P>Please pay in <b><u>cash</u></b> at any 7-Eleven.</P>]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="135" cs="12" rs="32">
+        <O><![CDATA[自動轉帳授權書可於屋邨辦事處索取。租戶須帶備填妥的自動轉帳授權
+書連同銀行存摺或結算單，在辦公時間內到屋邨辦事處辦理手續。如果
+你的銀行存摺或月結單尚未列明應繳款額將以自動轉帳方式繳付，請繼
+續採用其他方法繳付應繳款額。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="135" cs="2" rs="7">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="136" cs="11" rs="7">
+        <O><![CDATA[<P>Please pay in <b><u>cash</u></b> or <b><u>EPS</u></b> at any Circle K, VanGO<br>Convenience Stores or U select.</P>]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="138" rs="6">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="138" cs="11" rs="8">
+        <O><![CDATA[<P>可於OK便利店、VanGO便利店或U購select以<b><u>現金</u></b>或<b><u>EPS</u></b>繳付。</P>]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="140" cs="12" rs="9">
+        <O><![CDATA[注意事項]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="140" cs="13" rs="7">
+        <O><![CDATA[Notes]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="140" cs="2" rs="9">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="140" cs="11" rs="20">
+        <O><![CDATA[No matter whether Landlord demanded formally or not, to avoid
+any levy of interest as stipulated in the Tenancy Agreement/
+Licence, please pay within 14 days of the due date.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="141" rs="8">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="141" rs="8">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="141" cs="2" rs="9">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="141" cs="11" rs="8">
+        <O><![CDATA[以「繳費靈網上服務」繳付：網址為 <u>www.ppshk.com</u>。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="141" cs="11" rs="18">
+        <O><![CDATA[不論業主有否正式催交，為免繳付租約/暫准證所訂的逾期利息，租
+戶請於到期繳款日起計14天內清繳款項。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="141" cs="11" rs="9">
+        <O><![CDATA[Through PPS by Internet at web site : <u>www.ppshk.com</u>]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="146" cs="2" rs="6">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="146" cs="11" rs="30">
+        <O><![CDATA[The payment cut-off time is 5 p.m. everyday. Payments made
+after 5 p.m. will be recorded as payment made on the next
+business day. Their hotlines are as follows:
+7-Eleven Convenience Stores: 2299 1110.
+Circle K Convenience Stores: 2991 6337.
+VanGO Convenience Stores : 2586 3567.
+U select : 2586 3686.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="147" rs="6">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="147" cs="11" rs="9">
+        <O><![CDATA[7-Eleven(只接受現金)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="147" cs="13" rs="5">
+        <O><![CDATA[7-Eleven(Accept Cash Only)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="147" cs="11" rs="30">
+        <O><![CDATA[繳款截數時間為每日下午5時正。租戶於下午5時後所交款項，將紀錄
+為下一個工作天的收款。便利店/超級巿場熱線電話如下:
+7-Eleven便利店 : 2299 1110。
+OK便利店 : 2991 6337。
+VanGO便利店 : 2586 3567。
+U購select : 2586 3686。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="148" rs="6">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="148" cs="2" rs="7">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="148" cs="11" rs="19">
+        <O><![CDATA[繳款截數時間為每日下午7時正(星期一至五)。租戶於下午7時後所交
+款項，將紀錄為下一個工作天的收款。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="148" cs="11" rs="18">
+        <O><![CDATA[The payment cut-off time is 7 p.m. (Monday to Friday). Payments
+made after 7 p.m. will be recorded as payment made on the next
+business day.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="151" rs="6">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="151" cs="2" rs="7">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="151" cs="11" rs="20">
+        <O><![CDATA[繳款截數時間為每日下午7時30分正(星期一至五)。租戶於下午7時30
+分後所交款項，將紀錄為下一個工作天的收款。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="151" cs="11" rs="21">
+        <O><![CDATA[The payment cut-off time is 7:30 p.m. (Monday to Friday).
+Payments made after 7:30 p.m. will be recorded as payment made
+on the next business day.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="152" cs="13" rs="13">
+        <O><![CDATA[Circle K/VanGO Convenience Stores/ U select (Accept Cash or EPS Only)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="154" cs="11" rs="8">
+        <O><![CDATA[OK便利店/VanGO便利店/U購select (只接受現金或EPS)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="157" cs="2" rs="9">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="157" cs="11" rs="13">
+        <O><![CDATA[Payment should not be made to any persons other than the stated
+payment methods in this monthly statement.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="159" rs="8">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="159" cs="11" rs="13">
+        <O><![CDATA[請按此月結單上的付款方法繳交款項，切勿把款項交給其他人士。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="160" rs="8">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="161" cs="11" rs="17">
+        <O><![CDATA[繳款時，請出示月結單。租戶繳款後請小心核對並確保收據上的資料
+無誤。並請保留收據（或按需要複印）及月結單，作為繳付紀錄，以
+便核對。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="163" cs="2" rs="6">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="163" cs="11" rs="16">
+        <O><![CDATA[Simply present the monthly statement when making payment.
+Please check carefully and ensure details printed on the receipt
+are correct. Retain the receipt or make a photocopy of it, if
+required, and the monthly statement as the record of payment for
+checking.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="164" cs="2" rs="7">
+        <O><![CDATA[4)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="164" cs="11" rs="7">
+        <O><![CDATA[The number of daily payment per tenant code is up to 3.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="166" rs="7">
+        <O><![CDATA[4)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="166" cs="11" rs="7">
+        <O><![CDATA[每個租戶號碼，一天內最多只能繳交3次。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="169" cs="2" rs="5">
+        <O><![CDATA[4)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="169" cs="11" rs="14">
+        <O><![CDATA[If you have paid the rent due for payment shown in the monthly
+statement or you have any enquiries on the monthly statement,
+please contact our estate office or property management
+companies.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="172" rs="3">
+        <O><![CDATA[4)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="172" cs="11" rs="7">
+        <O><![CDATA[如你已繳交此月結單內的到期租金，或對此月結單有任何查詢，請聯絡所屬屋邨辦事處或商場管理公司。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="177" cs="12" rs="5">
+        <O><![CDATA[屋邨繳費處 (可接受現金或劃線支票)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="180" cs="13" rs="4">
+        <O><![CDATA[Estate Shroff Office (Accept Cash or Crossed Cheque)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="181" rs="5">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="181" cs="11" rs="5">
+        <O><![CDATA[期票／現金支票恕不接受。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="184" cs="2" rs="4">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="184" cs="11" rs="3">
+        <O><![CDATA[Post-dated cheques / cash cheques will not be accepted.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="185" rs="4">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="185" cs="11" rs="6">
+        <O><![CDATA[劃線支票抬頭寫上「香港房屋委員會」，並於支票背頁寫上電子繳費
+租戶號碼。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="187" cs="2" rs="3">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="187" cs="11" rs="5">
+        <O><![CDATA[Please make a crossed cheque payable to ‘Hong Kong Housing
+Authority’, and write down your Electronic Payment Tenant Code
+on the back of your cheque.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="193" cs="8" rs="5">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=CUST_ENG_ADDR]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="16" r="193" cs="8">
+        <O><![CDATA[Electronic Payment Tenant Code]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="24" r="193" cs="4">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=TNT_PPS_CODE]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="16" r="194" cs="8" rs="2">
+        <O><![CDATA[電子繳費租戶號碼]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="16" r="195" cs="12" rs="4">
+        <O><![CDATA[Premises Address 用戶地址]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="197" cs="8" rs="3">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=CUST_CHI_ADDR]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="198" cs="13" rs="3">
+        <O><![CDATA[Monthly Statement 月結單]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="201" cs="28">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=CODE_ADDR]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="203" cs="4">
+        <O><![CDATA[Date of Issue 印發日期: ]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="4" r="203" cs="6">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=MTH_STMT_ISS_DATE_DIS]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="23" r="203" cs="3">
+        <O><![CDATA[Page No. 頁數: ]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="26" r="203" cs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[="3/" + MTH_STMT_PAGE_CNT]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="205" cs="18">
+        <O><![CDATA[Description 項目]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="18" r="205" cs="4">
+        <O><![CDATA[Period 有關期間]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="22" r="205" cs="6">
+        <O><![CDATA[Amount 金額]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="207" cs="25" rs="2">
+        <O><![CDATA[HD 1024]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="208" cs="12" rs="7">
+        <O><![CDATA[支票退回/自動轉帳被拒]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="209" cs="12" rs="7">
+        <O><![CDATA[繳款方法]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="209" cs="12" rs="7">
+        <O><![CDATA[7-Eleven/OK便利店/VanGO便利店/U購select]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="209" cs="12" rs="7">
+        <O><![CDATA[轉數快]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="209" cs="12" rs="7">
+        <O><![CDATA[屋邨繳費處]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="209" cs="8" rs="7">
+        <O><![CDATA[繳費靈]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="209" cs="12" rs="7">
+        <O><![CDATA[自動櫃員機]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="209" cs="12" rs="7">
+        <O><![CDATA[網上 / 電話理財]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="209" cs="12" rs="7">
+        <O><![CDATA[備註：]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="209" cs="12" rs="7">
+        <O><![CDATA[更改通訊地址]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="209" cs="13" rs="5">
+        <O><![CDATA[Payment Methods ]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="209" cs="13" rs="5">
+        <O><![CDATA[Autopay]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="209" cs="13" rs="7">
+        <O><![CDATA[7-Eleven/Circle K/VanGO Convenience Stores/ U select]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="209" cs="13" rs="5">
+        <O><![CDATA[Estate Shroff Office]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="209" cs="13" rs="5">
+        <O><![CDATA[PPS]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="209" cs="13" rs="5">
+        <O><![CDATA[Internet / Phone Banking Service]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="210" cs="13" rs="5">
+        <O><![CDATA[Automatic Teller Machine (ATM)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="210" cs="13" rs="5">
+        <O><![CDATA[Rejected Payment by Returned Cheques/Delinquent Autopay]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="210" cs="13" rs="5">
+        <O><![CDATA[Remarks:]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="210" cs="7" rs="5">
+        <O><![CDATA[Change of Correspondence Address]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="211" cs="13" rs="5">
+        <O><![CDATA[Faster Payment System (FPS)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="212" cs="13" rs="30">
+        <O><![CDATA[Autopay authorization forms are obtainable from the estate offices.
+Tenants are required to bring along the completed autopay authorization
+form together with their bank passbook or statement to the estate office
+during office hours for the processing of their applications. Please pay
+rent by other methods until the autopay amount is listed out in the bank
+passbook or monthly statement.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="212" cs="13" rs="35">
+        <O><![CDATA[Internet banking or phone banking account holders can pay rent through
+the internet and any tone phone. You should follow the instructions of the
+respective systems. Remember to choose “Hong Kong Housing
+Authority” as the merchant, and enter your Electronic Payment Tenant
+Code which is printed on your monthly statement to effect payment. You
+are advised to keep the transaction reference code for record. Please
+pay attention to the cut-off time of Respective Bank.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="213" cs="12" rs="11">
+        <O><![CDATA[若閣下用以繳付租金之支票或所指定之自動轉帳因退回而未能成功繳付
+租金，則有可能被徵收逾期利息。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="213" cs="2" rs="5">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="213" cs="10" rs="15">
+        <O><![CDATA[Use any mobile banking apps that supports Hong Kong Housing Authority QR code bill payment to scan the FPS QR code printed on this monthly statement to make payment.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="214" cs="12" rs="5">
+        <O><![CDATA[自動轉帳]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="214" cs="12" rs="13">
+        <O><![CDATA[使用支援「轉數快」二維碼繳交香港房屋委員會帳單的銀行手機應用程式，掃描此月結單上的「轉數快」二維碼進行繳費。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="214" cs="12" rs="9">
+        <O><![CDATA[可於任何屋邨繳費處的服務時間內以<b><u>現金或劃線支票</u></b>繳付。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="214" rs="4">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="214" rs="4">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="214" cs="12" rs="33">
+        <O><![CDATA[持有銀行「網上理財」或「電話理財」戶口的租戶，可以透過互聯網和
+音頻電話繳交租金。你應按個別銀行系統的指示，選擇「香港房屋委員
+會」作為收款商戶，並輸入你的電子繳費租戶號碼；請保留交易編號以
+作記錄。請留意個別銀行的截數時間。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="214" rs="4">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="214" cs="12" rs="10">
+        <O><![CDATA[通訊地址如有更改，請通知屋邨辦事處或商場管理公司職員。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="214" cs="13" rs="9">
+        <O><![CDATA[You can pay in <b><u>cash or by crossed cheque </u></b>at any estate shroff offices<br>during the rent collection service hours.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="214" cs="2" rs="5">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="214" cs="2" rs="5">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="214" cs="13" rs="10">
+        <O><![CDATA[Interest may be levied when a cheque payment or a direct debit payment
+is returned unpaid.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="214" cs="2" rs="5">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="214" cs="13" rs="10">
+        <O><![CDATA[Please notify staff of the estate office or property management
+companies for any change of your correspondence address.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="214" cs="11" rs="11">
+        <O><![CDATA[以電話繳付 : 請撥18033，然後輸入商戶編號62，再遵照電話錄音提
+示繳付。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="214" cs="11" rs="21">
+        <O><![CDATA[請以滙豐或恒生銀行發出的提款卡或具備提款功能的信用卡在滙豐或
+恒生銀行的自動櫃員機繳付。請保留通知書，以便核對。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="214" cs="11" rs="10">
+        <O><![CDATA[租金/暫准證費及其他費用須在每個曆月之首日上期繳付。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="214" cs="11" rs="10">
+        <O><![CDATA[By phone : Please call 18031, then enter Merchant Code 62, and
+follow the instructions for payment.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="214" cs="11" rs="21">
+        <O><![CDATA[Simply use any ATM cards or credit cards with the ATM function
+issued by HSBC or Hang Seng Bank Ltd (HSB) to make your
+payment at any ATM of HSBC / HSB. Please retain the customer
+advice for checking.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="214" cs="11" rs="10">
+        <O><![CDATA[Rent/licence fee and other charges shall be payable in advance on
+the first day of every calendar month.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="215" cs="11" rs="7">
+        <O><![CDATA[<P>可於7-Eleven以<b><u>現金</u></b>繳付。</P>]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="215" cs="11" rs="3">
+        <O><![CDATA[<P>Please pay in <b><u>cash</u></b> at any 7-Eleven.</P>]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="216" rs="4">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="217" cs="12" rs="32">
+        <O><![CDATA[自動轉帳授權書可於屋邨辦事處索取。租戶須帶備填妥的自動轉帳授權
+書連同銀行存摺或結算單，在辦公時間內到屋邨辦事處辦理手續。如果
+你的銀行存摺或月結單尚未列明應繳款額將以自動轉帳方式繳付，請繼
+續採用其他方法繳付應繳款額。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="217" cs="2" rs="8">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="218" cs="11" rs="8">
+        <O><![CDATA[<P>Please pay in <b><u>cash</u></b> or <b><u>EPS</u></b> at any Circle K, VanGO<br>Convenience Stores or U select.</P>]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="221" rs="6">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="221" cs="11" rs="8">
+        <O><![CDATA[<P>可於OK便利店、VanGO便利店或U購select以<b><u>現金</u></b>或<b><u>EPS</u></b>繳付。</P>]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="223" cs="12" rs="10">
+        <O><![CDATA[注意事項]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="223" cs="13" rs="8">
+        <O><![CDATA[Notes]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="223" cs="2" rs="10">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="223" cs="11" rs="20">
+        <O><![CDATA[No matter whether Landlord demanded formally or not, to avoid
+any levy of interest as stipulated in the Tenancy Agreement/
+Licence, please pay within 14 days of the due date.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="224" rs="9">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="224" rs="9">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="224" cs="2" rs="10">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="224" cs="11" rs="9">
+        <O><![CDATA[以「繳費靈網上服務」繳付：網址為 <u>www.ppshk.com</u>。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="224" cs="11" rs="18">
+        <O><![CDATA[不論業主有否正式催交，為免繳付租約/暫准證所訂的逾期利息，租
+戶請於到期繳款日起計14天內清繳款項。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="224" cs="11" rs="10">
+        <O><![CDATA[Through PPS by Internet at web site : <u>www.ppshk.com</u>]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="229" cs="2" rs="7">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="229" cs="11" rs="28">
+        <O><![CDATA[The payment cut-off time is 5 p.m. everyday. Payments made
+after 5 p.m. will be recorded as payment made on the next
+business day. Their hotlines are as follows:
+7-Eleven Convenience Stores: 2299 1110.
+Circle K Convenience Stores: 2991 6337.
+VanGO Convenience Stores : 2586 3567.
+U select : 2586 3686.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="230" rs="6">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="231" cs="11" rs="8">
+        <O><![CDATA[7-Eleven(只接受現金)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="231" cs="13" rs="5">
+        <O><![CDATA[7-Eleven(Accept Cash Only)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="231" cs="11" rs="27">
+        <O><![CDATA[繳款截數時間為每日下午5時正。租戶於下午5時後所交款項，將紀錄
+為下一個工作天的收款。便利店/超級巿場熱線電話如下:
+7-Eleven便利店 : 2299 1110。
+OK便利店 : 2991 6337。
+VanGO便利店 : 2586 3567。
+U購select : 2586 3686。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="232" rs="5">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="232" cs="2" rs="6">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="232" cs="11" rs="16">
+        <O><![CDATA[繳款截數時間為每日下午7時正(星期一至五)。租戶於下午7時後所交
+款項，將紀錄為下一個工作天的收款。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="232" cs="11" rs="16">
+        <O><![CDATA[The payment cut-off time is 7 p.m. (Monday to Friday). Payments
+made after 7 p.m. will be recorded as payment made on the next
+business day.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="235" rs="5">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="235" cs="2" rs="6">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="235" cs="11" rs="18">
+        <O><![CDATA[繳款截數時間為每日下午7時30分正(星期一至五)。租戶於下午7時30
+分後所交款項，將紀錄為下一個工作天的收款。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="235" cs="11" rs="19">
+        <O><![CDATA[The payment cut-off time is 7:30 p.m. (Monday to Friday).
+Payments made after 7:30 p.m. will be recorded as payment made
+on the next business day.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="236" cs="13" rs="11">
+        <O><![CDATA[Circle K/VanGO Convenience Stores/ U select (Accept Cash or EPS Only)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="237" cs="11" rs="8">
+        <O><![CDATA[OK便利店/VanGO便利店/U購select (只接受現金或EPS)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="240" cs="2" rs="8">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="240" cs="11" rs="12">
+        <O><![CDATA[Payment should not be made to any persons other than the stated
+payment methods in this monthly statement.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="242" rs="7">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="242" cs="11" rs="12">
+        <O><![CDATA[請按此月結單上的付款方法繳交款項，切勿把款項交給其他人士。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="243" rs="7">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="244" cs="11" rs="15">
+        <O><![CDATA[繳款時，請出示月結單。租戶繳款後請小心核對並確保收據上的資料
+無誤。並請保留收據（或按需要複印）及月結單，作為繳付紀錄，以
+便核對。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="246" cs="2" rs="6">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="246" cs="2" rs="7">
+        <O><![CDATA[4)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="246" cs="11" rs="15">
+        <O><![CDATA[Simply present the monthly statement when making payment.
+Please check carefully and ensure details printed on the receipt
+are correct. Retain the receipt or make a photocopy of it, if
+required, and the monthly statement as the record of payment for
+checking.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="246" cs="11" rs="7">
+        <O><![CDATA[The number of daily payment per tenant code is up to 3.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="248" rs="6">
+        <O><![CDATA[4)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="248" cs="11" rs="6">
+        <O><![CDATA[每個租戶號碼，一天內最多只能繳交3次。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="251" cs="2" rs="4">
+        <O><![CDATA[4)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="251" cs="11" rs="14">
+        <O><![CDATA[If you have paid the rent due for payment shown in the monthly
+statement or you have any enquiries on the monthly statement,
+please contact our estate office or property management
+companies.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="254" rs="2">
+        <O><![CDATA[4)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="254" cs="11" rs="6">
+        <O><![CDATA[如你已繳交此月結單內的到期租金，或對此月結單有任何查詢，請聯絡所屬屋邨辦事處或商場管理公司。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="258" cs="12" rs="6">
+        <O><![CDATA[屋邨繳費處 (可接受現金或劃線支票)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="262" cs="13" rs="4">
+        <O><![CDATA[Estate Shroff Office (Accept Cash or Crossed Cheque)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="263" rs="5">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="263" cs="11" rs="5">
+        <O><![CDATA[期票／現金支票恕不接受。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="266" cs="2" rs="4">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="266" cs="11" rs="3">
+        <O><![CDATA[Post-dated cheques / cash cheques will not be accepted.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="267" rs="4">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="267" cs="11" rs="6">
+        <O><![CDATA[劃線支票抬頭寫上「香港房屋委員會」，並於支票背頁寫上電子繳費
+租戶號碼。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="269" cs="2" rs="3">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="269" cs="11" rs="5">
+        <O><![CDATA[Please make a crossed cheque payable to ‘Hong Kong Housing
+Authority’, and write down your Electronic Payment Tenant Code
+on the back of your cheque.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="275" cs="8" rs="5">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=CUST_ENG_ADDR]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="16" r="275" cs="8">
+        <O><![CDATA[Electronic Payment Tenant Code]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="24" r="275" cs="4">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=TNT_PPS_CODE]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="16" r="276" cs="8" rs="2">
+        <O><![CDATA[電子繳費租戶號碼]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="16" r="277" cs="12" rs="4">
+        <O><![CDATA[Premises Address 用戶地址]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="279" cs="8" rs="3">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=CUST_CHI_ADDR]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="280" cs="13" rs="3">
+        <O><![CDATA[Monthly Statement 月結單]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="283" cs="28">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=CODE_ADDR]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="285" cs="4">
+        <O><![CDATA[Date of Issue 印發日期: ]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="4" r="285" cs="6">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=MTH_STMT_ISS_DATE_DIS]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="23" r="285" cs="3">
+        <O><![CDATA[Page No. 頁數: ]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="26" r="285" cs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[="4/" + MTH_STMT_PAGE_CNT]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="287" cs="18">
+        <O><![CDATA[Description 項目]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="18" r="287" cs="4">
+        <O><![CDATA[Period 有關期間]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="22" r="287" cs="6">
+        <O><![CDATA[Amount 金額]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="289" cs="25" rs="2">
+        <O><![CDATA[HD 1024]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="290" cs="12" rs="7">
+        <O><![CDATA[支票退回/自動轉帳被拒]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="291" cs="12" rs="7">
+        <O><![CDATA[繳款方法]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="291" cs="12" rs="7">
+        <O><![CDATA[7-Eleven/OK便利店/VanGO便利店/U購select]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="291" cs="12" rs="7">
+        <O><![CDATA[轉數快]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="291" cs="12" rs="7">
+        <O><![CDATA[屋邨繳費處]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="291" cs="8" rs="7">
+        <O><![CDATA[繳費靈]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="291" cs="12" rs="7">
+        <O><![CDATA[自動櫃員機]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="291" cs="12" rs="7">
+        <O><![CDATA[網上 / 電話理財]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="291" cs="12" rs="7">
+        <O><![CDATA[備註：]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="291" cs="12" rs="7">
+        <O><![CDATA[更改通訊地址]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="291" cs="13" rs="5">
+        <O><![CDATA[Payment Methods ]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="291" cs="13" rs="5">
+        <O><![CDATA[Autopay]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="291" cs="13" rs="7">
+        <O><![CDATA[7-Eleven/Circle K/VanGO Convenience Stores/ U select]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="291" cs="13" rs="5">
+        <O><![CDATA[Estate Shroff Office]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="291" cs="13" rs="5">
+        <O><![CDATA[PPS]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="291" cs="13" rs="5">
+        <O><![CDATA[Internet / Phone Banking Service]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="292" cs="13" rs="5">
+        <O><![CDATA[Automatic Teller Machine (ATM)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="292" cs="13" rs="5">
+        <O><![CDATA[Rejected Payment by Returned Cheques/Delinquent Autopay]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="292" cs="13" rs="5">
+        <O><![CDATA[Remarks:]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="292" cs="7" rs="5">
+        <O><![CDATA[Change of Correspondence Address]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="293" cs="13" rs="5">
+        <O><![CDATA[Faster Payment System (FPS)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="294" cs="13" rs="30">
+        <O><![CDATA[Autopay authorization forms are obtainable from the estate offices.
+Tenants are required to bring along the completed autopay authorization
+form together with their bank passbook or statement to the estate office
+during office hours for the processing of their applications. Please pay
+rent by other methods until the autopay amount is listed out in the bank
+passbook or monthly statement.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="294" cs="13" rs="35">
+        <O><![CDATA[Internet banking or phone banking account holders can pay rent through
+the internet and any tone phone. You should follow the instructions of the
+respective systems. Remember to choose “Hong Kong Housing
+Authority” as the merchant, and enter your Electronic Payment Tenant
+Code which is printed on your monthly statement to effect payment. You
+are advised to keep the transaction reference code for record. Please
+pay attention to the cut-off time of Respective Bank.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="295" cs="12" rs="11">
+        <O><![CDATA[若閣下用以繳付租金之支票或所指定之自動轉帳因退回而未能成功繳付
+租金，則有可能被徵收逾期利息。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="295" cs="2" rs="5">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="295" cs="10" rs="15">
+        <O><![CDATA[Use any mobile banking apps that supports Hong Kong Housing Authority QR code bill payment to scan the FPS QR code printed on this monthly statement to make payment.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="296" cs="12" rs="5">
+        <O><![CDATA[自動轉帳]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="296" cs="12" rs="13">
+        <O><![CDATA[使用支援「轉數快」二維碼繳交香港房屋委員會帳單的銀行手機應用程式，掃描此月結單上的「轉數快」二維碼進行繳費。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="296" cs="12" rs="9">
+        <O><![CDATA[可於任何屋邨繳費處的服務時間內以<b><u>現金或劃線支票</u></b>繳付。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="296" rs="4">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="296" rs="4">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="296" cs="12" rs="33">
+        <O><![CDATA[持有銀行「網上理財」或「電話理財」戶口的租戶，可以透過互聯網和
+音頻電話繳交租金。你應按個別銀行系統的指示，選擇「香港房屋委員
+會」作為收款商戶，並輸入你的電子繳費租戶號碼；請保留交易編號以
+作記錄。請留意個別銀行的截數時間。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="296" rs="4">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="296" cs="12" rs="10">
+        <O><![CDATA[通訊地址如有更改，請通知屋邨辦事處或商場管理公司職員。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="296" cs="13" rs="9">
+        <O><![CDATA[You can pay in <b><u>cash or by crossed cheque </u></b>at any estate shroff offices<br>during the rent collection service hours.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="296" cs="2" rs="5">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="296" cs="2" rs="5">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="296" cs="13" rs="10">
+        <O><![CDATA[Interest may be levied when a cheque payment or a direct debit payment
+is returned unpaid.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="296" cs="2" rs="5">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="296" cs="13" rs="10">
+        <O><![CDATA[Please notify staff of the estate office or property management
+companies for any change of your correspondence address.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="296" cs="11" rs="11">
+        <O><![CDATA[以電話繳付 : 請撥18033，然後輸入商戶編號62，再遵照電話錄音提
+示繳付。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="296" cs="11" rs="21">
+        <O><![CDATA[請以滙豐或恒生銀行發出的提款卡或具備提款功能的信用卡在滙豐或
+恒生銀行的自動櫃員機繳付。請保留通知書，以便核對。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="296" cs="11" rs="10">
+        <O><![CDATA[租金/暫准證費及其他費用須在每個曆月之首日上期繳付。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="296" cs="11" rs="10">
+        <O><![CDATA[By phone : Please call 18031, then enter Merchant Code 62, and
+follow the instructions for payment.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="296" cs="11" rs="21">
+        <O><![CDATA[Simply use any ATM cards or credit cards with the ATM function
+issued by HSBC or Hang Seng Bank Ltd (HSB) to make your
+payment at any ATM of HSBC / HSB. Please retain the customer
+advice for checking.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="296" cs="11" rs="10">
+        <O><![CDATA[Rent/licence fee and other charges shall be payable in advance on
+the first day of every calendar month.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="297" cs="11" rs="7">
+        <O><![CDATA[<P>可於7-Eleven以<b><u>現金</u></b>繳付。</P>]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="297" cs="11" rs="3">
+        <O><![CDATA[<P>Please pay in <b><u>cash</u></b> at any 7-Eleven.</P>]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="298" rs="4">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="299" cs="12" rs="32">
+        <O><![CDATA[自動轉帳授權書可於屋邨辦事處索取。租戶須帶備填妥的自動轉帳授權
+書連同銀行存摺或結算單，在辦公時間內到屋邨辦事處辦理手續。如果
+你的銀行存摺或月結單尚未列明應繳款額將以自動轉帳方式繳付，請繼
+續採用其他方法繳付應繳款額。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="299" cs="2" rs="8">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="300" cs="11" rs="8">
+        <O><![CDATA[<P>Please pay in <b><u>cash</u></b> or <b><u>EPS</u></b> at any Circle K, VanGO<br>Convenience Stores or U select.</P>]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="303" rs="6">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="303" cs="11" rs="8">
+        <O><![CDATA[<P>可於OK便利店、VanGO便利店或U購select以<b><u>現金</u></b>或<b><u>EPS</u></b>繳付。</P>]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="305" cs="12" rs="10">
+        <O><![CDATA[注意事項]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="305" cs="13" rs="8">
+        <O><![CDATA[Notes]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="305" cs="2" rs="10">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="305" cs="11" rs="20">
+        <O><![CDATA[No matter whether Landlord demanded formally or not, to avoid
+any levy of interest as stipulated in the Tenancy Agreement/
+Licence, please pay within 14 days of the due date.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="306" rs="9">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="306" rs="9">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="306" cs="2" rs="10">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="306" cs="11" rs="9">
+        <O><![CDATA[以「繳費靈網上服務」繳付：網址為 <u>www.ppshk.com</u>。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="306" cs="11" rs="18">
+        <O><![CDATA[不論業主有否正式催交，為免繳付租約/暫准證所訂的逾期利息，租
+戶請於到期繳款日起計14天內清繳款項。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="306" cs="11" rs="10">
+        <O><![CDATA[Through PPS by Internet at web site : <u>www.ppshk.com</u>]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="311" cs="2" rs="7">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="311" cs="11" rs="28">
+        <O><![CDATA[The payment cut-off time is 5 p.m. everyday. Payments made
+after 5 p.m. will be recorded as payment made on the next
+business day. Their hotlines are as follows:
+7-Eleven Convenience Stores: 2299 1110.
+Circle K Convenience Stores: 2991 6337.
+VanGO Convenience Stores : 2586 3567.
+U select : 2586 3686.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="312" rs="6">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="313" cs="11" rs="8">
+        <O><![CDATA[7-Eleven(只接受現金)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="313" cs="13" rs="5">
+        <O><![CDATA[7-Eleven(Accept Cash Only)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="313" cs="11" rs="27">
+        <O><![CDATA[繳款截數時間為每日下午5時正。租戶於下午5時後所交款項，將紀錄
+為下一個工作天的收款。便利店/超級巿場熱線電話如下:
+7-Eleven便利店 : 2299 1110。
+OK便利店 : 2991 6337。
+VanGO便利店 : 2586 3567。
+U購select : 2586 3686。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="314" rs="5">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="314" cs="2" rs="6">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="314" cs="11" rs="16">
+        <O><![CDATA[繳款截數時間為每日下午7時正(星期一至五)。租戶於下午7時後所交
+款項，將紀錄為下一個工作天的收款。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="314" cs="11" rs="16">
+        <O><![CDATA[The payment cut-off time is 7 p.m. (Monday to Friday). Payments
+made after 7 p.m. will be recorded as payment made on the next
+business day.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="317" rs="5">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="317" cs="2" rs="6">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="317" cs="11" rs="18">
+        <O><![CDATA[繳款截數時間為每日下午7時30分正(星期一至五)。租戶於下午7時30
+分後所交款項，將紀錄為下一個工作天的收款。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="317" cs="11" rs="19">
+        <O><![CDATA[The payment cut-off time is 7:30 p.m. (Monday to Friday).
+Payments made after 7:30 p.m. will be recorded as payment made
+on the next business day.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="318" cs="13" rs="11">
+        <O><![CDATA[Circle K/VanGO Convenience Stores/ U select (Accept Cash or EPS Only)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="319" cs="11" rs="8">
+        <O><![CDATA[OK便利店/VanGO便利店/U購select (只接受現金或EPS)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="322" cs="2" rs="8">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="322" cs="11" rs="12">
+        <O><![CDATA[Payment should not be made to any persons other than the stated
+payment methods in this monthly statement.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="324" rs="7">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="324" cs="11" rs="12">
+        <O><![CDATA[請按此月結單上的付款方法繳交款項，切勿把款項交給其他人士。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="325" rs="7">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="326" cs="11" rs="15">
+        <O><![CDATA[繳款時，請出示月結單。租戶繳款後請小心核對並確保收據上的資料
+無誤。並請保留收據（或按需要複印）及月結單，作為繳付紀錄，以
+便核對。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="328" cs="2" rs="6">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="328" cs="2" rs="7">
+        <O><![CDATA[4)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="328" cs="11" rs="15">
+        <O><![CDATA[Simply present the monthly statement when making payment.
+Please check carefully and ensure details printed on the receipt
+are correct. Retain the receipt or make a photocopy of it, if
+required, and the monthly statement as the record of payment for
+checking.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="328" cs="11" rs="7">
+        <O><![CDATA[The number of daily payment per tenant code is up to 3.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="330" rs="6">
+        <O><![CDATA[4)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="330" cs="11" rs="6">
+        <O><![CDATA[每個租戶號碼，一天內最多只能繳交3次。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="333" cs="2" rs="4">
+        <O><![CDATA[4)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="333" cs="11" rs="14">
+        <O><![CDATA[If you have paid the rent due for payment shown in the monthly
+statement or you have any enquiries on the monthly statement,
+please contact our estate office or property management
+companies.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="336" rs="2">
+        <O><![CDATA[4)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="336" cs="11" rs="6">
+        <O><![CDATA[如你已繳交此月結單內的到期租金，或對此月結單有任何查詢，請聯絡所屬屋邨辦事處或商場管理公司。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="340" cs="12" rs="6">
+        <O><![CDATA[屋邨繳費處 (可接受現金或劃線支票)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="344" cs="13" rs="4">
+        <O><![CDATA[Estate Shroff Office (Accept Cash or Crossed Cheque)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="345" rs="5">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="345" cs="11" rs="5">
+        <O><![CDATA[期票／現金支票恕不接受。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="348" cs="2" rs="4">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="348" cs="11" rs="3">
+        <O><![CDATA[Post-dated cheques / cash cheques will not be accepted.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="349" rs="4">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="349" cs="11" rs="6">
+        <O><![CDATA[劃線支票抬頭寫上「香港房屋委員會」，並於支票背頁寫上電子繳費
+租戶號碼。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="351" cs="2" rs="3">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="351" cs="11" rs="5">
+        <O><![CDATA[Please make a crossed cheque payable to ‘Hong Kong Housing
+Authority’, and write down your Electronic Payment Tenant Code
+on the back of your cheque.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="357" cs="8" rs="5">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=CUST_ENG_ADDR]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="16" r="357" cs="8">
+        <O><![CDATA[Electronic Payment Tenant Code]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="24" r="357" cs="4">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=TNT_PPS_CODE]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="16" r="358" cs="8" rs="2">
+        <O><![CDATA[電子繳費租戶號碼]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="16" r="359" cs="12" rs="4">
+        <O><![CDATA[Premises Address 用戶地址]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="361" cs="8" rs="3">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=CUST_CHI_ADDR]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="362" cs="13" rs="3">
+        <O><![CDATA[Monthly Statement 月結單]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="365" cs="28">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=CODE_ADDR]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="367" cs="4">
+        <O><![CDATA[Date of Issue 印發日期: ]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="4" r="367" cs="6">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=MTH_STMT_ISS_DATE_DIS]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="23" r="367" cs="3">
+        <O><![CDATA[Page No. 頁數: ]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="26" r="367" cs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[="5/" + MTH_STMT_PAGE_CNT]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="369" cs="18">
+        <O><![CDATA[Description 項目]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="18" r="369" cs="4">
+        <O><![CDATA[Period 有關期間]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="22" r="369" cs="6">
+        <O><![CDATA[Amount 金額]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="371" cs="25" rs="2">
+        <O><![CDATA[HD 1024]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="372" cs="12" rs="7">
+        <O><![CDATA[支票退回/自動轉帳被拒]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="373" cs="12" rs="7">
+        <O><![CDATA[繳款方法]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="373" cs="12" rs="7">
+        <O><![CDATA[7-Eleven/OK便利店/VanGO便利店/U購select]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="373" cs="12" rs="7">
+        <O><![CDATA[轉數快]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="373" cs="12" rs="7">
+        <O><![CDATA[屋邨繳費處]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="373" cs="8" rs="7">
+        <O><![CDATA[繳費靈]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="373" cs="12" rs="7">
+        <O><![CDATA[自動櫃員機]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="373" cs="12" rs="7">
+        <O><![CDATA[網上 / 電話理財]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="373" cs="12" rs="7">
+        <O><![CDATA[備註：]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="373" cs="12" rs="7">
+        <O><![CDATA[更改通訊地址]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="373" cs="13" rs="5">
+        <O><![CDATA[Payment Methods ]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="373" cs="13" rs="5">
+        <O><![CDATA[Autopay]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="373" cs="13" rs="7">
+        <O><![CDATA[7-Eleven/Circle K/VanGO Convenience Stores/ U select]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="373" cs="13" rs="5">
+        <O><![CDATA[Estate Shroff Office]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="373" cs="13" rs="5">
+        <O><![CDATA[PPS]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="373" cs="13" rs="5">
+        <O><![CDATA[Internet / Phone Banking Service]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="374" cs="13" rs="5">
+        <O><![CDATA[Automatic Teller Machine (ATM)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="374" cs="13" rs="5">
+        <O><![CDATA[Rejected Payment by Returned Cheques/Delinquent Autopay]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="374" cs="13" rs="5">
+        <O><![CDATA[Remarks:]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="374" cs="7" rs="5">
+        <O><![CDATA[Change of Correspondence Address]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="375" cs="13" rs="5">
+        <O><![CDATA[Faster Payment System (FPS)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="376" cs="13" rs="30">
+        <O><![CDATA[Autopay authorization forms are obtainable from the estate offices.
+Tenants are required to bring along the completed autopay authorization
+form together with their bank passbook or statement to the estate office
+during office hours for the processing of their applications. Please pay
+rent by other methods until the autopay amount is listed out in the bank
+passbook or monthly statement.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="376" cs="13" rs="35">
+        <O><![CDATA[Internet banking or phone banking account holders can pay rent through
+the internet and any tone phone. You should follow the instructions of the
+respective systems. Remember to choose “Hong Kong Housing
+Authority” as the merchant, and enter your Electronic Payment Tenant
+Code which is printed on your monthly statement to effect payment. You
+are advised to keep the transaction reference code for record. Please
+pay attention to the cut-off time of Respective Bank.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="377" cs="12" rs="11">
+        <O><![CDATA[若閣下用以繳付租金之支票或所指定之自動轉帳因退回而未能成功繳付
+租金，則有可能被徵收逾期利息。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="377" cs="2" rs="5">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="377" cs="10" rs="15">
+        <O><![CDATA[Use any mobile banking apps that supports Hong Kong Housing Authority QR code bill payment to scan the FPS QR code printed on this monthly statement to make payment.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="378" cs="12" rs="5">
+        <O><![CDATA[自動轉帳]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="378" cs="12" rs="13">
+        <O><![CDATA[使用支援「轉數快」二維碼繳交香港房屋委員會帳單的銀行手機應用程式，掃描此月結單上的「轉數快」二維碼進行繳費。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="378" cs="12" rs="9">
+        <O><![CDATA[可於任何屋邨繳費處的服務時間內以<b><u>現金或劃線支票</u></b>繳付。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="378" rs="4">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="378" rs="4">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="378" cs="12" rs="33">
+        <O><![CDATA[持有銀行「網上理財」或「電話理財」戶口的租戶，可以透過互聯網和
+音頻電話繳交租金。你應按個別銀行系統的指示，選擇「香港房屋委員
+會」作為收款商戶，並輸入你的電子繳費租戶號碼；請保留交易編號以
+作記錄。請留意個別銀行的截數時間。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="378" rs="4">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="378" cs="12" rs="10">
+        <O><![CDATA[通訊地址如有更改，請通知屋邨辦事處或商場管理公司職員。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="378" cs="13" rs="9">
+        <O><![CDATA[You can pay in <b><u>cash or by crossed cheque </u></b>at any estate shroff offices<br>during the rent collection service hours.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="378" cs="2" rs="5">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="378" cs="2" rs="5">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="378" cs="13" rs="10">
+        <O><![CDATA[Interest may be levied when a cheque payment or a direct debit payment
+is returned unpaid.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="378" cs="2" rs="5">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="378" cs="13" rs="10">
+        <O><![CDATA[Please notify staff of the estate office or property management
+companies for any change of your correspondence address.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="378" cs="11" rs="11">
+        <O><![CDATA[以電話繳付 : 請撥18033，然後輸入商戶編號62，再遵照電話錄音提
+示繳付。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="378" cs="11" rs="21">
+        <O><![CDATA[請以滙豐或恒生銀行發出的提款卡或具備提款功能的信用卡在滙豐或
+恒生銀行的自動櫃員機繳付。請保留通知書，以便核對。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="378" cs="11" rs="10">
+        <O><![CDATA[租金/暫准證費及其他費用須在每個曆月之首日上期繳付。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="378" cs="11" rs="10">
+        <O><![CDATA[By phone : Please call 18031, then enter Merchant Code 62, and
+follow the instructions for payment.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="378" cs="11" rs="21">
+        <O><![CDATA[Simply use any ATM cards or credit cards with the ATM function
+issued by HSBC or Hang Seng Bank Ltd (HSB) to make your
+payment at any ATM of HSBC / HSB. Please retain the customer
+advice for checking.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="378" cs="11" rs="10">
+        <O><![CDATA[Rent/licence fee and other charges shall be payable in advance on
+the first day of every calendar month.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="379" cs="11" rs="7">
+        <O><![CDATA[<P>可於7-Eleven以<b><u>現金</u></b>繳付。</P>]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="379" cs="11" rs="3">
+        <O><![CDATA[<P>Please pay in <b><u>cash</u></b> at any 7-Eleven.</P>]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="380" rs="4">
+        <O><![CDATA[1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="381" cs="12" rs="32">
+        <O><![CDATA[自動轉帳授權書可於屋邨辦事處索取。租戶須帶備填妥的自動轉帳授權
+書連同銀行存摺或結算單，在辦公時間內到屋邨辦事處辦理手續。如果
+你的銀行存摺或月結單尚未列明應繳款額將以自動轉帳方式繳付，請繼
+續採用其他方法繳付應繳款額。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="381" cs="2" rs="8">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="382" cs="11" rs="8">
+        <O><![CDATA[<P>Please pay in <b><u>cash</u></b> or <b><u>EPS</u></b> at any Circle K, VanGO<br>Convenience Stores or U select.</P>]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="385" rs="6">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="385" cs="11" rs="8">
+        <O><![CDATA[<P>可於OK便利店、VanGO便利店或U購select以<b><u>現金</u></b>或<b><u>EPS</u></b>繳付。</P>]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="387" cs="12" rs="10">
+        <O><![CDATA[注意事項]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="387" cs="13" rs="8">
+        <O><![CDATA[Notes]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="387" cs="2" rs="10">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="387" cs="11" rs="20">
+        <O><![CDATA[No matter whether Landlord demanded formally or not, to avoid
+any levy of interest as stipulated in the Tenancy Agreement/
+Licence, please pay within 14 days of the due date.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="388" rs="9">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="388" rs="9">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="388" cs="2" rs="10">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="388" cs="11" rs="9">
+        <O><![CDATA[以「繳費靈網上服務」繳付：網址為 <u>www.ppshk.com</u>。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="388" cs="11" rs="18">
+        <O><![CDATA[不論業主有否正式催交,為免繳付租約/暫准證所訂的逾期利息，租
+戶請於到期繳款日起計14天內清繳款項。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="388" cs="11" rs="10">
+        <O><![CDATA[Through PPS by Internet at web site : <u>www.ppshk.com</u>]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="393" cs="2" rs="7">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="393" cs="11" rs="28">
+        <O><![CDATA[The payment cut-off time is 5 p.m. everyday. Payments made
+after 5 p.m. will be recorded as payment made on the next
+business day. Their hotlines are as follows:
+7-Eleven Convenience Stores: 2299 1110.
+Circle K Convenience Stores: 2991 6337.
+VanGO Convenience Stores : 2586 3567.
+U select : 2586 3686.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="394" rs="6">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="395" cs="11" rs="8">
+        <O><![CDATA[7-Eleven(只接受現金)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="395" cs="13" rs="5">
+        <O><![CDATA[7-Eleven(Accept Cash Only)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="395" cs="11" rs="27">
+        <O><![CDATA[繳款截數時間為每日下午5時正。租戶於下午5時後所交款項，將紀錄
+為下一個工作天的收款。便利店/超級巿場熱線電話如下:
+7-Eleven便利店 : 2299 1110。
+OK便利店 : 2991 6337。
+VanGO便利店 : 2586 3567。
+U購select : 2586 3686。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="396" rs="5">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="396" cs="2" rs="6">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="396" cs="11" rs="17">
+        <O><![CDATA[繳款截數時間為每日下午7時正(星期一至五)。租戶於下午7時後所交
+款項，將紀錄為下一個工作天的收款。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="396" cs="11" rs="16">
+        <O><![CDATA[The payment cut-off time is 7 p.m. (Monday to Friday). Payments
+made after 7 p.m. will be recorded as payment made on the next
+business day.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="399" rs="5">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="399" cs="2" rs="6">
+        <O><![CDATA[2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="399" cs="11" rs="18">
+        <O><![CDATA[繳款截數時間為每日下午7時30分正(星期一至五)。租戶於下午7時30
+分後所交款項，將紀錄為下一個工作天的收款。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="399" cs="11" rs="19">
+        <O><![CDATA[The payment cut-off time is 7:30 p.m. (Monday to Friday).
+Payments made after 7:30 p.m. will be recorded as payment made
+on the next business day.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="400" cs="13" rs="11">
+        <O><![CDATA[Circle K/VanGO Convenience Stores/ U select (Accept Cash or EPS Only)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="401" cs="11" rs="8">
+        <O><![CDATA[OK便利店/VanGO便利店/U購select (只接受現金或EPS)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="404" cs="2" rs="8">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="404" cs="11" rs="12">
+        <O><![CDATA[Payment should not be made to any persons other than the stated
+payment methods in this monthly statement.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="406" rs="7">
+        <O><![CDATA[3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="406" cs="11" rs="12">
+        <O><![CDATA[請按此月結單上的付款方法繳交款項，切勿把款項交給其他人士。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="407" rs="7">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="408" cs="11" rs="15">
+        <O><![CDATA[繳款時，請出示月結單。租戶繳款後請小心核對並確保收據上的資料
+無誤。並請保留收據（或按需要複印）及月結單，作為繳付紀錄，以
+便核對。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="410" cs="2" rs="6">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="410" cs="2" rs="7">
+        <O><![CDATA[4)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="410" cs="11" rs="15">
+        <O><![CDATA[Simply present the monthly statement when making payment.
+Please check carefully and ensure details printed on the receipt
+are correct. Retain the receipt or make a photocopy of it, if
+required, and the monthly statement as the record of payment for
+checking.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="410" cs="11" rs="7">
+        <O><![CDATA[The number of daily payment per tenant code is up to 3.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="412" rs="6">
+        <O><![CDATA[4)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="412" cs="11" rs="6">
+        <O><![CDATA[每個租戶號碼，一天內最多只能繳交3次。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="415" cs="2" rs="4">
+        <O><![CDATA[4)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="415" cs="11" rs="14">
+        <O><![CDATA[If you have paid the rent due for payment shown in the monthly
+statement or you have any enquiries on the monthly statement,
+please contact our estate office or property management
+companies.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="418" rs="2">
+        <O><![CDATA[4)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="418" cs="11" rs="6">
+        <O><![CDATA[如你已繳交此月結單內的到期租金，或對此月結單有任何查詢，請聯絡所屬屋邨辦事處或商場管理公司。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="422" cs="12" rs="6">
+        <O><![CDATA[屋邨繳費處 (可接受現金或劃線支票)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="426" cs="13" rs="3">
+        <O><![CDATA[Estate Shroff Office (Accept Cash or Crossed Cheque)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="427" rs="4">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="427" cs="11" rs="4">
+        <O><![CDATA[期票／現金支票恕不接受。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="429" cs="2" rs="4">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="429" cs="11" rs="3">
+        <O><![CDATA[Post-dated cheques / cash cheques will not be accepted.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="430" rs="4">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="430" cs="11" rs="6">
+        <O><![CDATA[劃線支票抬頭寫上「香港房屋委員會」，並於支票背頁寫上電子繳費
+租戶號碼。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="432" cs="2" rs="3">
+        <O><![CDATA[●]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="432" cs="11" rs="5">
+        <O><![CDATA[Please make a crossed cheque payable to ‘Hong Kong Housing
+Authority’, and write down your Electronic Payment Tenant Code
+on the back of your cheque.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+    </CellElementList>
+    <PrivilegeControl/>
+  </Report>
+  <ReportParameterAttr>
+    <ParameterUI class="com.fr.form.main.parameter.FormParameterUI">
+      <Layout class="com.fr.form.ui.container.WParameterLayout">
+        <WidgetName name="para"/>
+        <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+          <InnerWidget class="com.fr.form.ui.TextEditor">
+            <WidgetName name="MTH_STMT_KEY"/>
+            <LabelName name="MTH_STMT_KEY"/>
+          </InnerWidget>
+        </Widget>
+        <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+          <InnerWidget class="com.fr.form.ui.TextEditor">
+            <WidgetName name="HA_LOGO"/>
+            <LabelName name="HA_LOGO"/>
+            <widgetValue>
+              <O><![CDATA[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]]></O>
+            </widgetValue>
+          </InnerWidget>
+        </Widget>
+        <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+          <InnerWidget class="com.fr.form.ui.TextEditor">
+            <WidgetName name="WATERMARK_CHI"/>
+            <LabelName name="WATERMARK_CHI"/>
+          </InnerWidget>
+        </Widget>
+        <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+          <InnerWidget class="com.fr.form.ui.TextEditor">
+            <WidgetName name="WATERMARK_ENG"/>
+            <LabelName name="WATERMARK_ENG"/>
+          </InnerWidget>
+        </Widget>
+        <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+          <InnerWidget class="com.fr.form.parameter.FormSubmitButton">
+            <WidgetName name="query"/>
+            <Text><![CDATA[Query]]></Text>
+          </InnerWidget>
+        </Widget>
+      </Layout>
+    </ParameterUI>
+  </ReportParameterAttr>
+</WorkBook>
