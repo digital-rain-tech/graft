@@ -1,0 +1,3532 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<WorkBook xmlVersion="20170720" releaseVersion="10.0.0">
+  <TableDataMap/>
+  <Report name="NDMS-TN-0028" class="com.fr.report.worksheet.WorkSheet">
+    <CellElementList>
+      <C c="2" r="0" cs="177">
+        <O><![CDATA[香 港 房 屋 委 員 會
+Hong Kong Housing Authority]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="2" cs="177">
+        <O><![CDATA[TENANCY AGREEMENT
+租    約]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="2" r="4" cs="177">
+        <O><![CDATA[for
+Shops
+( 商舖適用 )]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="6" cs="75">
+        <O><![CDATA[HD 258A (Rev. 04/2026)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="8" cs="162" rs="4">
+        <O><![CDATA[To pay rates in respect of the said shop as assessed by the Commissioner of Rating and Valuation in advance on<br>a]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="9" cs="161" rs="4">
+        <O><![CDATA[The Landlord hereby lets to the Tenant on the terms and subject to the conditions hereinafter mentioned ALL<br>a]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="97" r="10" cs="23" rs="4">
+        <O><![CDATA[1]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="11" cs="52" rs="7">
+        <O><![CDATA[This Agreement]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="12" cs="106" rs="3">
+        <O><![CDATA[the first day of every calendar month the first payment of Dollars]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="106" r="12" cs="56" rs="3">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=CURRENCY_RATES_TEXT]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="13" cs="66" rs="3">
+        <O><![CDATA[THAT the shop known as Shop No]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="66" r="13" cs="95" rs="3">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=SHOPNO_ENG]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="68" r="14" cs="18" rs="3">
+        <O><![CDATA[is made the]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="87" r="14" cs="40" rs="3">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=MID(CUR_DATE_DAY,1, LEN(CUR_DATE_DAY )-2) + "<sup>"+MID(CUR_DATE_DAY,LEN(CUR_DATE_DAY )-1, 2)+ "</sup>"]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="128" r="14" cs="7" rs="3">
+        <O><![CDATA[day of]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="137" r="14" cs="37" rs="3">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=CUR_DATE_MTHYEAR]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="15" cs="54" rs="4">
+        <O><![CDATA[Hong Kong Currency (HK$]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="54" r="15" cs="20" rs="4">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=IF(OR(ISNULL(RATES_AMT), RATES_AMT == 0), "", RATES_TEXT)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="74" r="15" cs="27" rs="4">
+        <O><![CDATA[) for the period of]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="101" r="15" cs="11" rs="4">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=IF(OR(ISNULL(RATES_AMT), RATES_AMT == 0), "", NO_OF_DAYS)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="112" r="15" cs="13" rs="4">
+        <O><![CDATA[days from the]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="125" r="15" cs="6" rs="4">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=IF(OR(ISNULL(RATES_AMT), RATES_AMT == 0), "", (MID(DOC_DAY,1, LEN(DOC_DAY )-2) + "<sup>"+MID(DOC_DAY,LEN(DOC_DAY )-1, 2)+ "</sup>"))]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="131" r="15" cs="11" rs="4">
+        <O><![CDATA[day of]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="142" r="15" cs="20" rs="4">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=IF(OR(ISNULL(RATES_AMT), RATES_AMT == 0), "", DOC_MTHYEAR)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="16" cs="72" rs="4">
+        <O><![CDATA[having a total floor area of<br>a]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="72" r="16" cs="37" rs="4">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=IFA]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="109" r="16" cs="51" rs="4">
+        <O><![CDATA[square metres or thereabouts situate<br>a]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="143" r="18" cs="34" rs="3">
+        <O><![CDATA[BETWEEN THE HONG KONG]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="19" cs="10" rs="3">
+        <O><![CDATA[to the]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="11" r="19" cs="21" rs="3">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=IF(OR(ISNULL(RATES_AMT), RATES_AMT == 0), "", (MID(fstEndDate_DAY,1, LEN(fstEndDate_DAY )-2) + "<sup>"+MID(fstEndDate_DAY,LEN(fstEndDate_DAY )-1, 2)+ "</sup>"))]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="33" r="19" cs="14" rs="3">
+        <O><![CDATA[day of]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="50" r="19" cs="52" rs="3">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=IF(OR(ISNULL(RATES_AMT), RATES_AMT == 0), "", fstEndDate_MTHYEAR)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="103" r="19" cs="59" rs="3">
+        <O><![CDATA[shall be made on signing of this Agreement. If on<br>a]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="20" cs="3" rs="3">
+        <O><![CDATA[at]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="3" r="20" cs="105" rs="3">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=ENGADDR]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="109" r="20" cs="51" rs="3">
+        <O><![CDATA[Hong Kong (hereinafter called "the said shop") <br>a]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="21" cs="167" rs="3">
+        <O><![CDATA[HOUSING AUTHORITY of 33, Fat Kwong Street, Kowloon, Hong Kong (hereinafter called "the Landlord") of the one part<br>a]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="22" cs="162" rs="15">
+        <O><![CDATA[commencement of the tenancy the said shop is not yet assessed to rates, the Tenant shall pay to the Landlord monthly in advance in the aforesaid manner provisional rates which will be based on a rateable value equal to
+twelve months rent payable by the Tenant under this Tenancy Agreement. Upon assessment by the Commissioner
+of Rating and Valuation, if the amount paid by the Tenant as provisional rates is greater than the assessment, then the Tenant will receive a credit towards his rental payments. If the amount paid is less than the assessment, the Tenant shall on the date specified by the Landlord in his notice of demand, pay to the Landlord the balance to
+equate with the assessment based on the rateable value ascertained under Section 7 of the Rating Ordinance.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="23" cs="161" rs="2">
+        <O><![CDATA[*and for the purpose of identification only is delineated and edged pink on the plan annexed hereto, for the term of<br>a]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="24" cs="13" rs="2">
+        <O><![CDATA[AND]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="23" r="24" cs="73" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=CUST_ENG_NAME]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="96" r="24" cs="25" rs="2">
+        <O><![CDATA[(Holder of HKIC No]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="121" r="24" cs="23" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=HKIC]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="144" r="24" cs="14" rs="2">
+        <O><![CDATA[/Company No]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="158" r="24" cs="14" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=BRN]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="172" r="24" cs="3" rs="2">
+        <O><![CDATA[)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="25" cs="52" rs="2">
+        <O><![CDATA[THREE YEARS from the]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="52" r="25" cs="36" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=MID(DOC_DAY,1, LEN(DOC_DAY )-2) + "<sup>"+MID(DOC_DAY,LEN(DOC_DAY )-1, 2)+ "</sup>"]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="88" r="25" cs="10" rs="2">
+        <O><![CDATA[day of]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="99" r="25" cs="57" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=DOC_MTHYEAR]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="156" r="25" cs="5" rs="2">
+        <O><![CDATA[, but]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="26" cs="7" rs="2">
+        <O><![CDATA[of]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="27" cs="161" rs="2">
+        <O><![CDATA[determinable as hereinafter provided at the calendar monthly rental exclusive of rates of <br>a]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="138" r="28" cs="39" rs="2">
+        <O><![CDATA[(hereinafter called "the Tenant") of]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="29" cs="14" rs="2">
+        <O><![CDATA[Dollars]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="14" r="29" cs="122" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=CURRENCY_RENT_TEXT]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="136" r="29" cs="25" rs="2">
+        <O><![CDATA[Hong Kong Currency]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="30" cs="167" rs="2">
+        <O><![CDATA[the other part WHEREBY IT IS AGREED by and between the parties hereto as follows:—]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="31" cs="9" rs="3">
+        <O><![CDATA[(HK$]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="9" r="31" cs="41" rs="3">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=RENT_TEXT]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="50" r="31" cs="66" rs="3">
+        <O><![CDATA[). The rental payment (exclusive of rates) of Dollars]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="116" r="31" cs="45" rs="3">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=IF(LEN(CURRENCY_FIRST_RENT_TEXT)>25, CURRENCY_FIRST_RENT_TEXT.substring(0, CURRENCY_FIRST_RENT_TEXT.lastIndexOf(' ',25)), CURRENCY_FIRST_RENT_TEXT)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="33" cs="5" rs="3">
+        <O><![CDATA[I.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="33" cs="5" rs="3">
+        <O><![CDATA[(1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="1" r="34" cs="104">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=LEN(CURRENCY_FIRST_RENT_TEXT)>25 ? MID(CURRENCY_FIRST_RENT_TEXT, (CURRENCY_FIRST_RENT_TEXT.lastIndexOf(' ') + 1, (25) - (CURRENCY_FIRST_RENT_TEXT.lastIndexOf(' '))+1) : ""]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="105" r="34" cs="30">
+        <O><![CDATA[Hong Kong Currency (HK$]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="135" r="34" cs="21">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=FIRST_RENT_TEXT]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="156" r="34" cs="5">
+        <O><![CDATA[) for]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="35" cs="24" rs="3">
+        <O><![CDATA[the period of]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="24" r="35" cs="12" rs="3">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=NO_OF_DAYS]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="36" r="35" cs="25" rs="3">
+        <O><![CDATA[days from the]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="61" r="35" cs="9" rs="3">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=MID(DOC_DAY,1, LEN(DOC_DAY )-2) + "<sup>"+MID(DOC_DAY,LEN(DOC_DAY )-1, 2)+ "</sup>"]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="70" r="35" cs="6" rs="3">
+        <O><![CDATA[day of]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="76" r="35" cs="25" rs="3">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=DOC_MTHYEAR]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="101" r="35" cs="9" rs="3">
+        <O><![CDATA[to the]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="110" r="35" cs="4" rs="3">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=MID(fstEndDate_DAY,1, LEN(fstEndDate_DAY )-2) + "<sup>"+MID(fstEndDate_DAY,LEN(fstEndDate_DAY )-1, 2)+ "</sup>"]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="114" r="35" cs="8" rs="3">
+        <O><![CDATA[day of]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="122" r="35" cs="19" rs="3">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=fstEndDate_MTHYEAR]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="141" r="35" cs="20" rs="3">
+        <O><![CDATA[(hereinafter called]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="38" cs="161">
+        <O><![CDATA[“first installment of rent”) shall be made in advance on the signing of this agreement and the monthly rental exclusive of rates for the period thereafter shall be payable in advance on the first day of every calendar month.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="40" cs="5" rs="2">
+        <O><![CDATA[(2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="40" cs="87">
+        <O><![CDATA[The tenancy  granted  herein  is on  a fixed  term of  3 years]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="117" r="40" cs="36">
+        <O><![CDATA[without  an  option  to  renew.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="155" r="40" cs="22">
+        <O><![CDATA[The  Tenant  hereby]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="41" cs="147" rs="2">
+        <O><![CDATA[acknowledge there is no guarantee for any tenancy renewal upon the expiry of the term of the tenancy.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="13" r="44" cs="8" rs="2">
+        <O><![CDATA[*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="44" cs="5" rs="2">
+        <O><![CDATA[(3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="44" cs="120">
+        <O><![CDATA[Subject to the conditions set out in Clause I (4), the Tenant will have a rent-free period of]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="150" r="44" cs="17">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=IF(NO_OF_RENTFREE == 0, "", NO_OF_RENTFREE)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="167" r="44" cs="10">
+        <O><![CDATA[month(s)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="45" cs="147" rs="2">
+        <O><![CDATA[from the commencement of the term of the tenancy.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="13" r="48" cs="8" rs="3">
+        <O><![CDATA[*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="48" cs="5" rs="3">
+        <O><![CDATA[(4)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="48" cs="147">
+        <O><![CDATA[The rent-free period under Clause I (3) above is to be granted subject to:]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="50" cs="8" rs="2">
+        <O><![CDATA[a.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="42" r="50" cs="135" rs="2">
+        <O><![CDATA[no breach of any terms and conditions of this Agreement by the tenant; and]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="53" cs="8">
+        <O><![CDATA[b.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="42" r="53" cs="135">
+        <O><![CDATA[no termination of the tenancy by the Tenant]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="55" cs="147">
+        <O><![CDATA[during the period of six months from the commencement of the tenancy under this Agreement (the “Period”).  If at any time during the Period there is any breach of the terms of the tenancy and the tenancy is terminated by the Landlord in consequence of such breach or if the tenancy is terminated by the Tenant prior to the expiration of the Period, without prejudice to any other rights of the Landlord under this Agreement, the Tenant shall forthwith pay<br>a]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="56" cs="51">
+        <O><![CDATA[to the Landlord the sum of HK$]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="111" r="56" cs="34">
+        <O><![CDATA[being the rent for the period of]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="158" r="56" cs="19">
+        <O><![CDATA[month(s) from the]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="57" cs="136">
+        <O><![CDATA[commencement of the tenancy.  This clause shall survive the termination of the tenancy.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="13" r="59" cs="8" rs="2">
+        <O><![CDATA[*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="59" cs="5">
+        <O><![CDATA[(5)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="59" cs="147">
+        <O><![CDATA[Subject to Clause I (6) below, the Tenant will have the extra rent-free periods as follows: -]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="22" r="60" cs="7" rs="2">
+        <O><![CDATA[*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="60" cs="147" rs="2">
+        <O><![CDATA[Rent free for the 6th and 12th month of the term of the tenancy.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="22" r="62" cs="7">
+        <O><![CDATA[*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="62" cs="147">
+        <O><![CDATA[Rent free for the 6th, 12th, 18th and 24th month of the term of the tenancy.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="22" r="63" cs="7">
+        <O><![CDATA[*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="63" cs="147">
+        <O><![CDATA[Rent free for the 6th, 12th, 18th, 24th, 30th and 36th month of the term of the tenancy.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="13" r="65" cs="8">
+        <O><![CDATA[*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="65" cs="5">
+        <O><![CDATA[(6)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="65" cs="147" rs="2">
+        <O><![CDATA[If the tenancy hereby created is terminated in whatsoever manner before the expiration of the term of the tenancy,
+the above Clause I (5) shall cease to have any effect on the termination of this tenancy and the Tenant shall have no right to claim compensation in any form from the Landlord.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="13" r="68" cs="8">
+        <O><![CDATA[*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="68" cs="5">
+        <O><![CDATA[(7)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="68" cs="147" rs="2">
+        <O><![CDATA[If the Tenant pays the first installment of rent by cheque but the cheque is dishonored, the Tenant is in fundamental breach of this Agreement, and this Agreement will be terminated with immediate effect. The Landlord shall have the right to claim compensation from the Tenant for the tenant’s breach of this Agreement. The rental deposit paid by the Tenant upon signing this Agreement will also be forfeited by the Landlord. In this case, the Landlord shall have no obligation to deliver the said shop to the Tenant and shall be released from other obligations under this Agreement. The Tenant shall have no right to claim compensation in any form from the Landlord under this Agreement.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="71" cs="5">
+        <O><![CDATA[II.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="71" cs="156">
+        <O><![CDATA[The Tenant agrees with the Landlord as follows:—]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="19" r="73" cs="6">
+        <O><![CDATA[(1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="73" cs="147">
+        <O><![CDATA[To pay the said rent at the times aforesaid without any deduction.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="19" r="75" cs="6">
+        <O><![CDATA[(2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="77" cs="55">
+        <O><![CDATA[* Delete if inapplicable]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="79" cs="80" rs="2">
+        <O><![CDATA[業主茲按照下開條件及規定，將座落於香港]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="79" cs="132" rs="2">
+        <O><![CDATA[按照差餉物業估價署署長評定之數額，在每曆月之首日上期繳交該舖位之差餉。由<br>a]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="80" r="79" cs="84" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=CHIADDR]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="132" r="79" cs="16" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=IF(OR(ISNULL(RATES_AMT), RATES_AMT == 0), "", ChineseConvertUtil.dateToChineseYear(DOC))]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="148" r="79" cs="4" rs="2">
+        <O><![CDATA[年]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="152" r="79" cs="6" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=IF(OR(ISNULL(RATES_AMT), RATES_AMT == 0), "", ChineseConvertUtil.dateToChineseMonth(DOC))]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="158" r="79" cs="5" rs="2">
+        <O><![CDATA[月]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="97" r="80" cs="23" rs="2">
+        <O><![CDATA[第一頁]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="81" cs="34" rs="3">
+        <O><![CDATA[其樓面總面積為]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="81" cs="13" rs="3">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=IF(OR(ISNULL(RATES_AMT), RATES_AMT == 0), "", ChineseConvertUtil.dateToChineseDay(DOC))]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="13" r="81" cs="10" rs="3">
+        <O><![CDATA[日至]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="23" r="81" cs="22" rs="3">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=IF(OR(ISNULL(RATES_AMT), RATES_AMT == 0), "", ChineseConvertUtil.dateToChineseYear(fstEndDate))]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="34" r="81" cs="48" rs="3">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=ChineseConvertUtil.numberToChinese(IFA)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="45" r="81" cs="6" rs="3">
+        <O><![CDATA[年]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="51" r="81" cs="10" rs="3">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=IF(OR(ISNULL(RATES_AMT), RATES_AMT == 0), "", ChineseConvertUtil.dateToChineseMonth(fstEndDate))]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="61" r="81" cs="6" rs="3">
+        <O><![CDATA[月]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="67" r="81" cs="6" rs="3">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=IF(OR(ISNULL(RATES_AMT), RATES_AMT == 0), "", ChineseConvertUtil.dateToChineseDay(fstEndDate))]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="73" r="81" cs="5" rs="3">
+        <O><![CDATA[日共]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="78" r="81" cs="10" rs="3">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=IF(OR(ISNULL(RATES_AMT), RATES_AMT == 0), "", NO_OF_DAYS)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="82" r="81" cs="82" rs="3">
+        <O><![CDATA[平方米之舖位(以下簡稱「該舖位」)租予承租人，為期三年，]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="89" r="81" cs="26" rs="3">
+        <O><![CDATA[日的首期差餉港幣]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="115" r="81" cs="48" rs="3">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=ChineseConvertUtil.decimalToChinese(RATES_AMT)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="83" cs="26" rs="2">
+        <O><![CDATA[本合約訂於]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="36" r="83" cs="23" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=ChineseConvertUtil.dateToChineseYear(CUR_DATE)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="59" r="83" cs="4" rs="2">
+        <O><![CDATA[年]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="63" r="83" cs="14" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=ChineseConvertUtil.dateToChineseMonth(CUR_DATE)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="77" r="83" cs="6" rs="2">
+        <O><![CDATA[月]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="83" r="83" cs="17" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=ChineseConvertUtil.dateToChineseDay(CUR_DATE)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="101" r="83" cs="75" rs="2">
+        <O><![CDATA[日，立約人甲方為香港房屋委員會，地址在九龍佛光街三十三號]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="84" cs="5" rs="2">
+        <O><![CDATA[由]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="84" cs="8" rs="2">
+        <O><![CDATA[(HK$]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="5" r="84" cs="24" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=ChineseConvertUtil.dateToChineseYear(DOC)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="8" r="84" cs="45" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=IF(OR(ISNULL(RATES_AMT), RATES_AMT == 0), "", RATES_TEXT)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="29" r="84" cs="6" rs="2">
+        <O><![CDATA[年]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="35" r="84" cs="25" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=ChineseConvertUtil.dateToChineseMonth(DOC)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="53" r="84" cs="110" rs="2">
+        <O><![CDATA[）須於簽訂本租約時繳付。倘在租約開始生效時，該舖位之差餉尚未評定，則承]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="60" r="84" cs="4" rs="2">
+        <O><![CDATA[月]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="64" r="84" cs="15" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=ChineseConvertUtil.dateToChineseDay(DOC)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="79" r="84" cs="85" rs="2">
+        <O><![CDATA[日起計，但可根據本租約下文之規定而將租約終止。*該舖位之]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="85" cs="59" rs="2">
+        <O><![CDATA[(以下簡稱「業主」)；乙方為<br>a]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="69" r="85" cs="23" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=CUST_CHI_NAME]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="92" r="85" cs="26" rs="2">
+        <O><![CDATA[(香港身份證號碼：]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="118" r="85" cs="22" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=HKIC]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="140" r="85" cs="14" rs="2">
+        <O><![CDATA[/公司編號：]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="154" r="85" cs="14" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=BRN]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="168" r="85" cs="9" rs="2">
+        <O><![CDATA[)，]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="86" cs="124" rs="2">
+        <O><![CDATA[範圍為夾附圖則中以粉紅線勾畫部分(圖則只供參考)。租金訂明為每月港幣]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="86" cs="163" rs="10">
+        <O><![CDATA[租人須在每月上期依照上述方式向業主繳付一筆暫定差餉費，其數額乃根據全年應課差餉租值按比例計算，該租值則暫定相等於承租人依本租約所應繳付之十二個月租金。在差餉物業估價署署長評定該舖位之差餉後，倘承租人所繳付之暫定差餉費較評定之數額為大，則多出之數將作為承租人所繳交之部分租金處理；倘少於該數額，則承租人須在業主所發出之繳款通知書上指定之日期，向業主繳付不足之數，使其所付之差餉費，相等於根據差餉條例第七條所確定之應課差餉租值而評定之實際差餉額。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="124" r="86" cs="39" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=ChineseConvertUtil.decimalToChinese(RENT_AMT)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="87" cs="15" rs="2">
+        <O><![CDATA[地址在]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="149" r="87" cs="28" rs="2">
+        <O><![CDATA[(以下簡稱「承租人」)。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="88" cs="8" rs="2">
+        <O><![CDATA[(HK$]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="8" r="88" cs="33" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=RENT_TEXT]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="41" r="88" cs="34" rs="2">
+        <O><![CDATA[)，不包括差餉在內。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="75" r="88" cs="15" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=ChineseConvertUtil.dateToChineseYear(DOC)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="90" r="88" cs="4" rs="2">
+        <O><![CDATA[年]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="94" r="88" cs="13" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=ChineseConvertUtil.dateToChineseMonth(DOC)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="107" r="88" cs="5" rs="2">
+        <O><![CDATA[月]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="112" r="88" cs="4" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=ChineseConvertUtil.dateToChineseDay(DOC)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="116" r="88" cs="8" rs="2">
+        <O><![CDATA[日至]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="124" r="88" cs="9" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=ChineseConvertUtil.dateToChineseYear(fstEndDate)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="133" r="88" cs="6" rs="2">
+        <O><![CDATA[年]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="139" r="88" cs="8" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=ChineseConvertUtil.dateToChineseMonth(fstEndDate)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="147" r="88" cs="4" rs="2">
+        <O><![CDATA[月]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="151" r="88" cs="8" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=ChineseConvertUtil.dateToChineseDay(fstEndDate)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="159" r="88" cs="5" rs="2">
+        <O><![CDATA[日]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="89" cs="167" rs="2">
+        <O><![CDATA[現雙方訂定租約如下：]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="90" cs="4" rs="2">
+        <O><![CDATA[共]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="4" r="90" cs="16" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=NO_OF_DAYS]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="90" cs="52" rs="2">
+        <O><![CDATA[日的租金（不包括差餉）港幣]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="72" r="90" cs="47" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=ChineseConvertUtil.decimalToChinese(FIRST_RENT)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="119" r="90" cs="8" rs="2">
+        <O><![CDATA[(HK$]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="127" r="90" cs="18" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=FIRST_RENT_TEXT]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="145" r="90" cs="19" rs="2">
+        <O><![CDATA[)(以下簡稱「首]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="0" r="92" cs="164" rs="2">
+        <O><![CDATA[期租金」) 須於簽訂本租約時繳付，其後的月租（不包括差餉）須在每個曆月之首日上期繳付。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="93" cs="5" rs="2">
+        <O><![CDATA[I.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="93" cs="5" rs="2">
+        <O><![CDATA[(1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="97" cs="5">
+        <O><![CDATA[(2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="97" cs="146" rs="2">
+        <O><![CDATA[所批出租約的租賃期定為三年，租約上沒有選擇續約的條款。租戶確認租約期滿後沒有續約的保證。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="13" r="100" cs="8" rs="2">
+        <O><![CDATA[*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="100" cs="5" rs="2">
+        <O><![CDATA[(3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="100" cs="103">
+        <O><![CDATA[在符合下列第I條(4)款所列的條件下，租戶可享有自租期開始起計為期<br>a]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="134" r="100" cs="23">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=IF(NO_OF_RENTFREE == 0, "", NO_OF_RENTFREE)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="157" r="100" cs="16">
+        <O><![CDATA[月的免租期。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="13" r="103" cs="8">
+        <O><![CDATA[*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="103" cs="5">
+        <O><![CDATA[(4)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="103" cs="146" rs="2">
+        <O><![CDATA[給予上文第I條(3)款 的免租期的條件為在租約開始生效起計的6個月期間（下稱「該期間」）內：]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="106" cs="146">
+        <O><![CDATA[(a)     租戶並無違反本租約的任何條款及條件；以及
+(b)     租戶並無終止租約。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="108" cs="146">
+        <O><![CDATA[如在該期間的任何時間內出現任何違反租約條款的情況，而租約因此等違反租約條款的情況而被業主終止<br>或如租約在該期間屆滿前被租戶終止，在不影響業主根據本租約所享有的任何其他權利的原則下，租戶須<br>a]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="109" cs="64">
+        <O><![CDATA[即時向業主繳付由租約開始生效起計的]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="115" r="109" cs="15">
+        <O><![CDATA[個月租金港幣]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="110" cs="12">
+        <O><![CDATA[(HK$]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="84" r="110" cs="66">
+        <O><![CDATA[) 。本條款於租約終止後仍然生效。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="13" r="112" cs="8">
+        <O><![CDATA[*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="112" cs="5">
+        <O><![CDATA[(5)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="112" cs="146" rs="2">
+        <O><![CDATA[除下列第I條(6)款另有規定外，承租人可享有額外免租期，詳情如下：]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="115" cs="146">
+        <O><![CDATA[*本租約租賃期內第6及第12個月免租。
+*本租約租賃期內第6、第12、第18及第24個月免租。
+*本租約租賃期內第6、第12、第18、第24、第30及第36個月免租。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="13" r="117" cs="8">
+        <O><![CDATA[*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="117" cs="5">
+        <O><![CDATA[(6)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="117" cs="146" rs="2">
+        <O><![CDATA[不論本租約以任何方式在租賃期屆滿前予以終止，上述第I條(5)款即隨本租約終止而無效，承租人均無權向業主要求任何方式之補償。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="13" r="120" cs="8">
+        <O><![CDATA[*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="120" cs="5">
+        <O><![CDATA[(7)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="120" cs="146" rs="2">
+        <O><![CDATA[承租人如以支票繳付首期租金，但有關支票未能兌現，承租人即根本性地違反本租約，本租約會即時終止。業主有權向承租人因承租人違反本租約要求補償。承租人在簽訂本租約時所繳交之按金亦會被業主沒收。在此情況下，業主將沒有責任向承租人交付該舖位亦沒有責任履行於本租約須履行的其他責任。承租人無權就本租約向業主要求任何方式之補償。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="123" cs="5">
+        <O><![CDATA[II.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="123" cs="150">
+        <O><![CDATA[承租人同意對業主履行下開條款：]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="125" cs="5">
+        <O><![CDATA[(1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="125" cs="146" rs="2">
+        <O><![CDATA[依時繳交上述租金，不得有任何扣除事項。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="128" cs="5">
+        <O><![CDATA[(2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="130" cs="55">
+        <O><![CDATA[* 如不適用者刪去]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="97" r="132" cs="23">
+        <O><![CDATA[2]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="13" r="134" cs="8" rs="2">
+        <O><![CDATA[*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="134" cs="5" rs="2">
+        <O><![CDATA[(3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="134" cs="116">
+        <O><![CDATA[To pay to the Landlord by way of additional rent, an air-conditioning charge of HK$]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="146" r="134" cs="22">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=IF(OR(ISNULL(AC_AMT), AC_AMT == 0), "", AC_TEXT)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="169" r="134" cs="8">
+        <O><![CDATA[per]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="135" cs="147" rs="2">
+        <O><![CDATA[month from the commencement of the term created herein or from the date upon which the air-conditioning is supplied to the said shop, whichever is the later date, the first payment to be made on a date specified by the Landlord and thereafter in advance on the first day of each month, provided always that if at any time during the said term the cost for the operation of the air-cooling services shall have risen, the Landlord shall be entitled to serve one month's notice in writing upon the Tenant increasing the charge for air-conditioning and thereafter such increased charge shall be payable in lieu of the charge provided for herein.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="138" cs="5">
+        <O><![CDATA[(4)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="138" cs="147">
+        <O><![CDATA[To pay all existing and future water rates and electricity charges payable in respect of the said shop.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="140" cs="5">
+        <O><![CDATA[(5)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="140" cs="147" rs="2">
+        <O><![CDATA[To keep the interior of the said shop including the interior decoration and all the Landlord's fixtures and fittings in good and tenantable repair and condition and thoroughly clean and tidy throughout the tenancy (fair wear and tear excepted) and from time to time as considered necessary by the Landlord to paint with colourwash those parts of
+the interior of the said shop which were at the commencement of the tenancy so painted in the same colour as existing or such other colour as may be approved by the Landlord.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="143" cs="5">
+        <O><![CDATA[(6)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="143" cs="147" rs="2">
+        <O><![CDATA[To use the Landlord's fixtures and fittings and the sewers and drains serving the said shop in a proper and careful manner and to pay the Landlord on demand the cost incurred in repair or replacement of any of the said items
+arising otherwise than through fair wear and tear and the cost of clearing any drains or sewers choked or stopped
+up by reason of careless use by the Tenant or members of his family, his employees or licensees; provided that if
+the Tenant shall effect any of the aforesaid repairs or replacements or clearance of sewers or drains without the
+prior consent of the Landlord he shall be responsible for any costs incurred by the Landlord in remedying any such repairs or replacements or clearances effected by the Tenant which the Landlord considers unsatisfactory.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="146" cs="5">
+        <O><![CDATA[(7)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="146" cs="147" rs="2">
+        <O><![CDATA[To replace at his own expense any glass in any doors or windows of the said shop that may become broken from whatever cause, during the tenancy.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="149" cs="5">
+        <O><![CDATA[(8)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="149" cs="147">
+        <O><![CDATA[To take all reasonable precautions to protect the interior of the said shop against damage by storm or typhoon.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="151" cs="5">
+        <O><![CDATA[(9)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="151" cs="147" rs="2">
+        <O><![CDATA[Not to make any alterations whatsoever to the said shop or any electrical or air-conditioning installations therein or to install any fixture partition or other erection therein, or to remove any of the Landlord's fixtures or fittings
+without the previous consent in writing of the Landlord.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="154" cs="7">
+        <O><![CDATA[(10)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="154" cs="147" rs="2">
+        <O><![CDATA[To indemnify the Landlord against all actions costs claims and demands made upon or against the Landlord in respect of damage to the person or property of any person caused by or through or in any way due to the overflow
+of water or drainage from the said shop or any part thereof.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="157" cs="7" rs="2">
+        <O><![CDATA[(11)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="157" cs="147">
+        <O><![CDATA[Not to carry on or permit or suffer to be carried on in or upon the said shop or any part thereof any trade profession<br>a]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="158" cs="83" rs="2">
+        <O><![CDATA[or business or activities whatsoever other than that of]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="113" r="158" cs="52" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=TRD_ENG]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="165" r="158" cs="12" rs="2">
+        <O><![CDATA[. No mahjong]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="160" cs="83">
+        <O><![CDATA[playing by whoever is allowed in the said shop.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="162" cs="7">
+        <O><![CDATA[(12)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="162" cs="147" rs="2">
+        <O><![CDATA[Not to conduct or permit any auction sale of things or properties of any kind to take place on the said shop
+provided that this provision shall not preclude the conduct of genuine periodic seasonal or promotional sales of things or properties that are relating to the trade profession or business or activities permitted under the Clause
+II(11).]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="165" cs="7">
+        <O><![CDATA[(13)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="165" cs="147" rs="2">
+        <O><![CDATA[At his own expense to install a shop front (including the shop sign, shop window and window frame and door) and to fit up the said shop with furniture fixtures and fittings to the requirements and satisfaction in all respects of the Landlord and other authority concerned.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="13" r="168" cs="8">
+        <O><![CDATA[*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="168" cs="7">
+        <O><![CDATA[(14)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="168" cs="147" rs="2">
+        <O><![CDATA[To install and keep lit at the Tenant’s own expense a shop sign of the said shop during the opening hours of the
+shop and when the common areas of the shopping centre are open to the public and for the better observance.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="171" cs="7">
+        <O><![CDATA[(15)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="171" cs="147" rs="2">
+        <O><![CDATA[At all times during the tenancy hereby created to observe and perform the provisions of all laws, ordinances and regulations and all by-laws directions and orders of other authority and to obtain from the appropriate authority or authorities at his own expense all licences and permits that may be required in connection with the business carried on in the said shop.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="174" cs="7">
+        <O><![CDATA[(16)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="174" cs="147" rs="2">
+        <O><![CDATA[If the Tenant shall be the sole proprietor of the business of the said shop not to admit any partner during the tenancy hereby created and if the Tenant shall consist of partners not to admit any new partner during the said tenancy.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="177" cs="7">
+        <O><![CDATA[(17)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="177" cs="147" rs="2">
+        <O><![CDATA[Not to permit or suffer any person to remain on the said shop between the hours of 11:00 p.m. and 7:00 a.m. except with the prior approval of the Landlord.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="180" cs="7">
+        <O><![CDATA[(18)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="180" cs="147">
+        <O><![CDATA[Not to use or cause or permit the said shop or any part thereof to be used for any unlawful or immoral purpose.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="182" cs="7">
+        <O><![CDATA[(19)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="182" cs="147" rs="2">
+        <O><![CDATA[Not to cause or permit any touting or soliciting for business or distribution of any pamphlets notices or advertising materials outside the said shop or anywhere within the common area of the *shopping centre/estate where the said shop is situated by any of the Tenant, his servants, employees, invitees, agents, contractors or licensees without the prior written consent of the Landlord.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="184" cs="55">
+        <O><![CDATA[* Delete if inapplicable]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="97" r="186" cs="23">
+        <O><![CDATA[第二頁]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="13" r="188" cs="8" rs="2">
+        <O><![CDATA[*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="188" cs="5" rs="2">
+        <O><![CDATA[(3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="188" cs="146">
+        <O><![CDATA[自本租約生效之日或由該舖位開始有空氣調節供應之日起，以較後者為準，每月向業主繳付港 <br>a]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="189" cs="5" rs="2">
+        <O><![CDATA[幣]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="37" r="189" cs="54" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=ChineseConvertUtil.decimalToChinese(AC_AMT)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="91" r="189" cs="9" rs="2">
+        <O><![CDATA[(HK$]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="100" r="189" cs="25" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=IF(OR(ISNULL(AC_AMT), AC_AMT == 0), "", AC_TEXT)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="125" r="189" cs="52" rs="2">
+        <O><![CDATA[)之空氣調節費，作為額外租金。首期空氣調]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="191" cs="146">
+        <O><![CDATA[節費須於業主指定之日期繳交，此後須於每月之首日上期繳交。倘在租賃期內，冷氣設施之操作成本上升，則業主有權增加空氣調節費，但事前會預先一個月以書面通知承租人，此後承租人即須繳付新訂之空氣調節費，以代替本租約現訂之收費。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="193" cs="5">
+        <O><![CDATA[(4)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="193" cs="147">
+        <O><![CDATA[繳交該舖位目前及日後所應繳之水費及電費。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="195" cs="5">
+        <O><![CDATA[(5)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="195" cs="147" rs="2">
+        <O><![CDATA[在租賃期內，將該舖位之內部(包括內部裝飾及業主之固定裝置與設備)保持狀況良好及徹底整齊清潔(正常
+損耗者除外)，並於業主認為需要時，依照出租時之顏色或業主認可之其他顏色，將該舖位之內部粉飾。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="198" cs="5">
+        <O><![CDATA[(6)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="198" cs="147" rs="2">
+        <O><![CDATA[小心使用業主之固定裝置及設備，以及該舖位之糞渠、排水道等。上述任何一項物件損壞時(正常損耗者除
+外)，業主得向承租人收取修理費用或更換費用。如承租人、其家人、僱員或其許可之人士因不慎而致糞渠
+或排水道遭受淤塞，業主得向承租人收取疏導之費用。如承租人於事前未得業主同意而進行修理、更換或
+疏導糞渠或排水道，事後業主未能滿意，而須再行修理、更換或疏導者，則承租人須負擔此類修理、更換
+疏導之費用。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="201" cs="5">
+        <O><![CDATA[(7)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="201" cs="147">
+        <O><![CDATA[在租賃期內，若該舖位任何門窗之玻璃有破壞者，不論原因為何，均須自費將之更換。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="203" cs="5">
+        <O><![CDATA[(8)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="203" cs="147">
+        <O><![CDATA[必須採取一切合理之預防措施，以確保該舖位內部不受暴風雨或颱風毀壞。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="205" cs="5">
+        <O><![CDATA[(9)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="205" cs="147" rs="2">
+        <O><![CDATA[事前未經業主之書面同意，不得將該舖位或其內之任何電力或空氣調節設備作任何更改，亦不得在內安裝
+任何固定裝置、間隔或其他架設，及不得將業主之固定裝置或設備移去。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="208" cs="7">
+        <O><![CDATA[(10)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="208" cs="147" rs="2">
+        <O><![CDATA[倘該舖位任何部分因食水或渠水溢流，引致他人財產或身體遭受損害，並招致業主受控告或遭人索償時，
+承租人須補償業主所蒙受之一切損失。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="211" cs="7" rs="2">
+        <O><![CDATA[(11)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="211" cs="16">
+        <O><![CDATA[除經營<br>a]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="47" r="211" cs="76">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=TRD_CHI]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="123" r="211" cs="52">
+        <O><![CDATA[外，不得在該舖位內外任何地方從事或容許他]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="212" cs="147" rs="2">
+        <O><![CDATA[人從事其他行業、職業、業務或活動。此外，任何人均不得在該舖位內耍玩麻雀牌。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="215" cs="7">
+        <O><![CDATA[(12)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="215" cs="147" rs="2">
+        <O><![CDATA[不得在該舖位就任何種類的物品或財產進行或容許他人進行任何拍賣，惟與第II條(11)款所容許的行業、
+職業、業務或活動有關並真正屬於季度或促銷特賣的物品或財產，則不在此限。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="218" cs="7">
+        <O><![CDATA[(13)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="218" cs="147" rs="2">
+        <O><![CDATA[自費裝修舖面(包括招牌、飾櫃及門窗)，並在該舖位內配備傢具、各種固定裝置及設備，以符合業主及其
+他機關之要求及達到其認為滿意之程度。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="13" r="221" cs="8">
+        <O><![CDATA[*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="221" cs="7">
+        <O><![CDATA[(14)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="221" cs="147" rs="2">
+        <O><![CDATA[必須自費為該舖位安裝招牌，並在店舖的營業時間和商場的公用地方向公眾開放的時間內，為招牌提供照
+明，並須切實遵守這項規定。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="224" cs="7">
+        <O><![CDATA[(15)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="224" cs="147" rs="2">
+        <O><![CDATA[在租賃期內，須經常遵守及履行一切法例、條例及規例，以及其他機關之一切附例、指示及法令之規定事
+項；並須自費向有關當局領取經營該店舖業務所需之牌照及許可證。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="227" cs="7">
+        <O><![CDATA[(16)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="227" cs="147" rs="2">
+        <O><![CDATA[在租賃期內，若該舖位之業務是承租人獨資經營者，則不得接納股東加入；如其業務是合股經營者，則在
+上述租期內不得接納新股東加入。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="230" cs="7">
+        <O><![CDATA[(17)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="230" cs="147" rs="2">
+        <O><![CDATA[不得容許或容受任何人於晚上十一時至翌晨七時之間逗留在該舖位內，惟事先獲得業主批准者，則不在此
+限。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="233" cs="7">
+        <O><![CDATA[(18)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="233" cs="147">
+        <O><![CDATA[不得使用、促使或容許他人使用該舖位任何部份作違法或不道德之用途。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="235" cs="7">
+        <O><![CDATA[(19)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="235" cs="147" rs="2">
+        <O><![CDATA[未經業主事先給予書面許可，不得促使或容許承租人的任何傭工、僱員、獲其邀請的人、代理人、承辦商
+或獲其特許的人在該舖位外面或該舖位所在的*商場／屋邨公用地方內的任何範圍招徠或兜攬生意，或派發
+任何傳單、通告或廣告物品。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="238" cs="55">
+        <O><![CDATA[* 如不適用者刪去]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="97" r="240" cs="23">
+        <O><![CDATA[3]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="242" cs="7">
+        <O><![CDATA[(20)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="242" cs="147" rs="2">
+        <O><![CDATA[Not to do or cause or permit to be done in or on the said shop or approaches thereto anything that may be or become a nuisance or annoyance to the Landlord or the tenants or occupiers of other property in the neighbourhood.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="245" cs="7">
+        <O><![CDATA[(21)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="245" cs="147" rs="2">
+        <O><![CDATA[Not to cause or permit to be caused any nuisance or any noise which is a source of annoyance by any means whatsoever, or by the issue of any other noise or disturbance in the said shop between the hours of eleven in the evening and seven in the morning.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="248" cs="7">
+        <O><![CDATA[(22)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="248" cs="147" rs="2">
+        <O><![CDATA[Not to store or cause or permit to be stored in the said shop or any part thereof any arms, ammunition, gunpowder, kerosene, petrol or any explosive or combustible material or substance whatsoever except that the Tenant may
+keep therein not more than two containers of liquefied petroleum gas or if the said shop is not situated within the
+Sha Tin Fuel Restriction Area as defined under the Air Pollution Control (Fuel Restriction) Regulations Cap. 311I, the Tenant may keep a reasonable quantity of kerosene (not exceeding twenty litres at any one time) for the
+purposes of domestic cooking, and that Tenants holding current firearms licences issued by the Commissioner of Police may keep the arms to which the licence relates together with a reasonable quantity of suitable ammunition subject to the Landlord's agent being informed of the existence of such licence and of its renewal where such takes place.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="251" cs="7">
+        <O><![CDATA[(23)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="251" cs="147" rs="2">
+        <O><![CDATA[Not to use the said shop for the manufacture of goods or merchandise or for the storage of goods or merchandise other than stock reasonably required in connection with the Tenant’s business carried on therein nor to keep or
+store or cause or permit or suffer to be kept or stored any hazardous or dangerous goods within the meaning of the Dangerous Goods Ordinance and the regulations thereunder or any Statutory modification or re-enactment thereof provided that Tenant of the said shop let for the purposes requiring the heating of water or cooking of food in bulk may be permitted to store the approved fuel subject to any direction of the Landlord or of any competent authority with regard to the manner of storage or amount to be stored.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="254" cs="7">
+        <O><![CDATA[(24)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="254" cs="147" rs="2">
+        <O><![CDATA[Not to leave or cause or permit to be left any furniture boxes goods articles or rubbish in the entrance hall or on the stairways or landings or on any of the passage ways or lifts of the building of which the shop forms part or to
+cause any obstruction whatsoever thereto or to the common areas or pavement pertaining to the said shop.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="257" cs="7">
+        <O><![CDATA[(25)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="257" cs="147" rs="2">
+        <O><![CDATA[Not to use any area outside the said shop for any purpose such as storage or display of goods and not to erect any structure or roof on or over any such area.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="260" cs="7">
+        <O><![CDATA[(26)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="260" cs="147" rs="2">
+        <O><![CDATA[Not to affix or cause or permit any poster signboard or advertising matter of any kind to be affixed to any part of
+the exterior of the said shop except such as has been approved by the Landlord in writing and then only in a place
+and in a manner approved by the Landlord.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="263" cs="7">
+        <O><![CDATA[(27)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="263" cs="147" rs="2">
+        <O><![CDATA[That all cooking of food and heating of liquids in the said shop shall be done by means of an electric stove or other electric appliance or by a gas stove or other appliance using liquefied petroleum gas as a fuel (provided that in the latter case the installation is carried out by a contractor approved by the Landlord) and not to do or cause or permit any cooking of food or heating of liquids by any method involving the use of conventional liquid fuel or
+conventional solid fuel as defined under the Air Pollution Control (Fuel Restriction) Regulations Cap. 311I
+provided that if the said shop is not situated within the Sha Tin Fuel Restriction Area as defined under the Air Pollution Control (Fuel Restriction) Regulations Cap. 311I, other appliance using kerosene as a fuel can be used.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="266" cs="7">
+        <O><![CDATA[(28)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="266" cs="147">
+        <O><![CDATA[Not to keep any animal bird or livestock of any description in the said shop or any part thereof.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="268" cs="7">
+        <O><![CDATA[(29)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="268" cs="147" rs="2">
+        <O><![CDATA[Not to transfer and assign the Tenant’s rights and obligations of this Agreement, sublet, licence, share or otherwise part with possession of the said shop or any part thereof to any third party without the prior written consent of the Landlord.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="271" cs="7">
+        <O><![CDATA[(30)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="271" cs="147" rs="2">
+        <O><![CDATA[To permit the Landlord and his agents and all persons authorized by him at reasonable hours right of access to go
+pass or repass and to enter and view the said shop and to take an inventory of the fixtures and fittings therein and
+to do any repair or work for which the Landlord is liable hereunder.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="274" cs="7">
+        <O><![CDATA[(31)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="274" cs="147" rs="2">
+        <O><![CDATA[To commence operation of the business specified in Clause II (11) within<u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u> months from the date of commencement of this agreement.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="97" r="277" cs="23">
+        <O><![CDATA[第三頁]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="279" cs="7">
+        <O><![CDATA[(20)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="279" cs="147" rs="2">
+        <O><![CDATA[在該舖位內外，以及通至該舖位之通路上，不得進行、促使或容許他人進行妨礙、煩擾業主或鄰舍之事
+情。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="282" cs="7">
+        <O><![CDATA[(21)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="282" cs="147" rs="2">
+        <O><![CDATA[晚上十一時至翌晨七時之間，不得促使或容許他人在該舖位內喧嘩吵鬧，造成騷擾，或發出令人煩厭的聲
+響，以致妨礙他人安寧。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="285" cs="7">
+        <O><![CDATA[(22)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="285" cs="146" rs="2">
+        <O><![CDATA[承租人不得在該舖位任何部分儲藏，或促使或容許他人儲藏任何槍械、彈藥、炸藥、火水、電油、任何爆炸品或易燃物品，但可儲存不超過兩罐石油氣，又或該舖位並非位於香港法例第311I章空氣污染管制(燃料限制)規例所指之沙田燃料限制區內，則可儲存合理數量火水(每次儲量不得超過二十公升)，作煮食用途。承租人倘持有警務處處長發給之有效軍火牌照者，則可存放該牌照所核准之槍械及數量合理之適用彈藥，但承租人必須將其持有牌照及換領新牌照等事項通知業主之代理人。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="288" cs="7">
+        <O><![CDATA[(23)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="288" cs="146" rs="2">
+        <O><![CDATA[不得使用該舖位製造貨品或商品，或貯存貨品或商品(承租人在該舖位經營業務合理所需的存貨除外)，亦不得存放或貯存，或促使、容許或容受他人存放或貯存任何危險物品，或《危險品條例》或該條例下的各規例或法例規定有關該條例的任何修改或重訂條文所界定的危險品；如該舖位的出租用途需要大量燒水或烹調食物，其承租人可獲准貯存經許可的燃料，但貯存方式和貯存量均須符合業主或任何主管機關的指示。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="291" cs="7">
+        <O><![CDATA[(24)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="291" cs="146" rs="2">
+        <O><![CDATA[不得在該舖位所屬大廈之入口、樓梯、梯台、任何通道或升降機留下、促使或容許他人留下任何傢具、箱
+匣、貨物、雜物、垃圾，或將各該地方、公用地方及該舖位周邊之行人道阻塞。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="294" cs="7">
+        <O><![CDATA[(25)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="294" cs="146" rs="2">
+        <O><![CDATA[不得利用該舖位外面任何地方作儲存或陳列貨物之用，並不得在該等地方或其上面建有任何建築物或上蓋。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="297" cs="7">
+        <O><![CDATA[(26)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="297" cs="146" rs="2">
+        <O><![CDATA[不得在該舖位外任何部分張貼、促使或容許他人張貼海報、廣告或陳設招牌，但如經業主書面同意，並在
+其認可之地點及按照其認可之方式進行者，則屬例外。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="300" cs="7">
+        <O><![CDATA[(27)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="300" cs="146" rs="2">
+        <O><![CDATA[凡在該舖位內煮食或燒水，須使用電爐或其他電器用具或氣爐或其他使用石油氣為燃料之爐具(若使用以石
+油氣為燃料之爐具，必須由業主認可之承辦商安裝)。但凡煮食或燒水，一律不得使用，或促使或容許他人
+使用香港法例第311I章空氣污染管制(燃料限制)規例所指之傳統液體燃料或傳統固燃料。倘該舖位並非位
+於香港法例第311I章空氣污染管制(燃料限制)規例所指之沙田燃料限制區內，則可使用其他以火水為燃料
+之爐具。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="303" cs="7">
+        <O><![CDATA[(28)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="303" cs="146">
+        <O><![CDATA[不得在該舖位任何部分豢養任何禽畜或牲口。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="305" cs="7">
+        <O><![CDATA[(29)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="305" cs="146" rs="2">
+        <O><![CDATA[事先未經業主書面同意，不得將本租約所訂明承租人的權利和責任轉讓或出讓予任何第三方，又或以分租、特許、分享或其他方式將該舖位或其任何部分的管有權讓予任何第三方。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="308" cs="7">
+        <O><![CDATA[(30)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="308" cs="146" rs="2">
+        <O><![CDATA[准許業主包括其代理人及由其授權之人士在合理時間內均可進入巡視該舖位及點查其內之固定裝置及設
+備，並進行業主份內之修理或其他工作。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="311" cs="7">
+        <O><![CDATA[(31)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="311" cs="146">
+        <O><![CDATA[由本租約開始生效之日起計<u>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</u>個月內開始經營第II條(11)款所指定之行業。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="97" r="313" cs="23">
+        <O><![CDATA[4]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="315" cs="10">
+        <O><![CDATA[(32)*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="315" cs="147" rs="2">
+        <O><![CDATA[To keep the said shop open for business not less than 20 days in any calendar month.  On each business day, the
+said shop should open for a minimum of four hours.  The Tenant should obtain the prior consent from the
+Landlord if he is not able to open the said shop for business for at least 20 days.  If the Tenant fails to observe or comply with this Clause II(32), it will be considered as a material breach of this agreement and the Landlord shall
+be entitled to determine the tenancy under Clause IV(4) without prejudice to the rights of the Landlord under this agreement.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="318" cs="10">
+        <O><![CDATA[*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="318" cs="147" rs="2">
+        <O><![CDATA[To keep the said shop open for business between the hours of 10:00 a.m. and 8:00 p.m. (the “Core Business
+Hours”) and the number of rest days will be limited to not more than 4 days in any calendar month except with
+prior consent from the Landlord.  The Landlord has the absolute discretion to alter the Core Business Hours and
+will notify the Tenant in a timely manner of the alteration.   If the Tenant fails to observe or comply with this
+Clause II(32), it will be considered as a material breach of this agreement and the Landlord shall be entitled to determine the tenancy under Clause IV(4) without prejudice to the rights of the Landlord under this agreement.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="321" cs="7">
+        <O><![CDATA[(33)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="321" cs="147" rs="2">
+        <O><![CDATA[To observe and comply with such rules and regulations not in conflict with the terms of this agreement, as may be made from time to time by the Landlord in respect of the use of the said shop by the Tenant.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="324" cs="7">
+        <O><![CDATA[(34)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="324" cs="147" rs="2">
+        <O><![CDATA[On the expiration or determination of the tenancy hereby created or of any extension thereof forthwith to deliver
+up vacant possession of the said shop to the Landlord together with all the Landlord's fixtures and fittings therein
+in good and tenantable condition.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="327" cs="7">
+        <O><![CDATA[(35)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="327" cs="147" rs="2">
+        <O><![CDATA[To open up all shutters during the opening hours of the said shop and to install and at all times maintain displays of merchandise goods or services in the shopfront windows or showcases contained within the entrance ways of the said shop to the satisfaction of the Landlord and to a standard and composition appropriate in the opinion of the Landlord to the reputation and standing of the *shopping centre/estate and to alter any window or other display of goods or merchandise in or at the said shop immediately upon notice by the Landlord that such display will in the opinion of the Landlord prejudice the reputation or standing of the *shopping centre/estate, provided always that
+the opinion of the Landlord in the respect shall be final.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="330" cs="10">
+        <O><![CDATA[*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="330" cs="7">
+        <O><![CDATA[(36)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="330" cs="147" rs="2">
+        <O><![CDATA[The Tenant shall be responsible for the maintenance, control and safety of the dumbwaiter or goods lift installed in the said shop and shall, for these purposes, employ a registered contractor to undertake regular maintenance to
+keep the installation in good repair and to comply with the requirements of the Lifts and Escalator (Safety) Ordinance, Cap. 327, Code of Practice and Circular Letters of the Fire Services Department.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="333" cs="7">
+        <O><![CDATA[(37)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="333" cs="147" rs="2">
+        <O><![CDATA[Not to add onto or allow to be added onto the said shop or any part thereof for any purpose whatsoever any
+asbestos-containing material in any form whatsoever. If the Tenant is found to be in breach of this condition, the Tenant shall cause all such asbestos-containing material to be removed by a specialist asbestos remover to be approved by the Landlord to the satisfaction of the Landlord at the Tenant's sole cost and expense. In the event that the Tenant fails to remove such asbestos-containing material, the Landlord may do all things necessary to effect the removal of the same and any monies expended by the Landlord for the purpose shall be repayable by the Tenant on demand and be recoverable, by distress or otherwise, as for rent in arrears.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="336" cs="7">
+        <O><![CDATA[(38)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="336" cs="147" rs="2">
+        <O><![CDATA[Not to overload the floors or ceilings of the said shop, or the structure of the said shop, or any plant, machinery, plumbing or electrical installation serving the said shop or the *shopping centre/estate nor to do anything which interferes with the heating, air-conditioning, plumbing or ventilation of the *shopping centre/estate.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="339" cs="7">
+        <O><![CDATA[(39)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="339" cs="147" rs="2">
+        <O><![CDATA[To observe and comply with and perform all the covenants terms and provisions restrictions and prohibitions contained in the Deed of Mutual Covenant and Management Agreement (if any)(including but not limited to the building rules incorporated therein (if any)), the Sub Deed of Mutual Covenant (if any) and the Deed of Grant of Right of Way (if any) relating to the estate where the said shop is situate and shall indemnify the Landlord against the breach non-observance or non-performance thereof.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="9" r="342" cs="10">
+        <O><![CDATA[III.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="342" cs="156">
+        <O><![CDATA[The Landlord agrees with the Tenant as follows:—]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="344" cs="7">
+        <O><![CDATA[(1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="344" cs="147">
+        <O><![CDATA[To keep the exterior of the said shop (except all glass and the shop front) in tenantable repair.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="346" cs="7">
+        <O><![CDATA[(2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="346" cs="147" rs="2">
+        <O><![CDATA[To keep the Landlord's fixtures and fittings and the drains pipes and sewers serving the said shop in tenantable
+repair (where applicable at the cost of the Tenant as provided by Clause II (6) hereof); provided that the Landlord shall not be liable hereunder unless and until written notice of any want of repair shall have been served upon him and the Landlord shall have failed to take steps to effect the necessary repairs after the lapse of a reasonable time.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="349" cs="55">
+        <O><![CDATA[* Delete if inapplicable]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="97" r="351" cs="23">
+        <O><![CDATA[第四頁]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="353" cs="10">
+        <O><![CDATA[(32)*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="353" cs="146" rs="2">
+        <O><![CDATA[該舖位在每個曆月的營業日數不得少於20天，在每個營業日的營業時數不得少於四個小時。倘承租人未能
+確保該舖位營業至少達20天，必須事先徵得業主同意。倘承租人不遵守或不履行第II 條(32)款的規定，即
+視為嚴重違反本租約，業主有權根據第IV條(4)款 終止租約，而業主根據本租約所享有的權利則不受影響。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="23" r="356" cs="8">
+        <O><![CDATA[*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="356" cs="146" rs="2">
+        <O><![CDATA[除非事先徵得業主同意，該舖位在每個曆月的休業日數不得超過4天，並須在每個營業日上午10時至晚上
+8時（下稱「基本營業時間」）營業。業主有絕對酌情權更改該基本營業時間，並會適時通知承租人有關所作的更改。倘承租人不遵守或不履行第II條(32)款的規定，即視為嚴重違反本租約，業主有權根據第IV條(4)款 終止租約，而業主根據本租約所享有的權利則不受影響。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="359" cs="7">
+        <O><![CDATA[(33)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="359" cs="146">
+        <O><![CDATA[必須遵守業主隨時訂定關於承租人租用該舖位之一切規則，所訂規則以不抵觸本租約條款為原則。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="361" cs="7">
+        <O><![CDATA[(34)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="361" cs="146" rs="2">
+        <O><![CDATA[在現訂租約或續約期滿或終止時，須即將該舖位騰空，連同業主之固定裝置及設備，全部在修理妥當及可
+租用之情況下交回業主。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="364" cs="7">
+        <O><![CDATA[(35)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="364" cs="146" rs="2">
+        <O><![CDATA[在營業時間內，必須保持舖位閘門開啟及在舖面櫥窗或舖位入口處之飾櫃內安裝擺設，經常陳列店內所售
+商品或展示該店所提供之服務；擺設方式必須令業主滿意，其水準及組合亦須符合業主意旨，務求配合*
+商場/屋邨之聲譽及形象。若業主認為此等陳列有損*商場/屋邨之聲譽或形象，則承租人須在接獲業主通知
+後，立即將櫥窗改裝，或更換該舖內所陳列之貨物或商品。在此方面，一切當以業主之意見為依歸。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="13" r="367" cs="8">
+        <O><![CDATA[*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="367" cs="7">
+        <O><![CDATA[(36)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="367" cs="146" rs="2">
+        <O><![CDATA[有關安裝於該舖位內之傳菜或送貨升降機，承租人須負責予以維修、管理及確保其安全。為此，承租人必
+須聘用一註冊承裝商負責定期維修該等升降機，確保修理妥善，以符合香港法例第三二七章升降機及電動
+扶梯(安全)條例，以及消防處所發守則及通函之規定。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="370" cs="7">
+        <O><![CDATA[(37)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="370" cs="146" rs="2">
+        <O><![CDATA[不得自行或容許他人以任何方式，在該舖位或其內部分加上任何含有石棉之物料作任何用途。承租人若違
+反此項條款，一經發現，即須自費安排一名獲業主認可之專業石棉清拆商將所有石棉物料拆除，而清拆工
+程亦須令業主滿意。倘若承租人未能拆除此等含有石棉之物料，則業主可採取一切必須行動將之拆除。業
+主為此而支出之任何費用，得在其向承租人發出通知後，向承租人追討，或視作欠租，由業主以扣押財物
+或其他方式索還。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="373" cs="7">
+        <O><![CDATA[(38)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="373" cs="146" rs="2">
+        <O><![CDATA[不得使該舖位的樓板或天花、該舖位的結構、或為該舖位或該*商場／屋邨提供服務的任何機器、機械、水
+管或電力裝置荷載過重，亦不得干擾該*商場／屋邨的暖氣、空調、水管或通風設施。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="376" cs="7">
+        <O><![CDATA[(39)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="376" cs="146" rs="2">
+        <O><![CDATA[遵守、遵從並履行與該商舖所在屋邨相關的公契及管理協議(如有者)(包括但不限於納入其內的大廈規則
+(如有者))、公契分契(如有者)和通行權批約(如有者)上所載的一切契約、條款及條文、限制和禁制規
+定，並就違反、不遵守或不履行此等規定的行為對業主作出彌償。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="379" cs="10">
+        <O><![CDATA[III.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="379" cs="150">
+        <O><![CDATA[業主同意對承租人履行下開條款：]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="381" cs="5">
+        <O><![CDATA[(1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="381" cs="146">
+        <O><![CDATA[負責將舖位之外部(玻璃及舖面除外)修理妥善，以供承租人使用。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="383" cs="5">
+        <O><![CDATA[(2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="383" cs="146" rs="2">
+        <O><![CDATA[負責將業主之固定裝置與設備、及該舖位之排水渠、水管及糞渠修理妥善，以供承租人使用(情況適用時，
+得照本租約第II條(6)款之規定，由承租人負擔修理費用)。需要修理時，承租人必須以書面通知業主，
+業主除非已接獲通知，而在一段合理時間後仍未採取步驟進行所需修理，否則不作失責論。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="386" cs="55">
+        <O><![CDATA[* 如不適用者刪去]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="97" r="388" cs="23">
+        <O><![CDATA[5]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="6" r="390" cs="10">
+        <O><![CDATA[IV.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="17" r="390" cs="156">
+        <O><![CDATA[IT IS HEREBY expressly agreed as follows:—]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="392" cs="7">
+        <O><![CDATA[(1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="392" cs="147" rs="2">
+        <O><![CDATA[If the rent, *air-conditioning charge payable herein or any part thereof shall be unpaid for fourteen days after becoming payable (whether formally demanded or not) or if the rates payable herein or any part thereof shall be unpaid for fourteen days after becoming payable or if any agreement on the Tenant's part herein contained shall
+not be performed or observed then and in either of the said cases it shall be lawful for the Landlord at any time thereafter to re-enter upon the said shop or any part thereof in the name of the whole and thereupon the tenancy hereby created shall absolutely determine but without prejudice to the rights of the Landlord under this agreement.  For the avoidance of doubt, the day on which the rent, *air-conditioning charge, rates or any part thereof shall become payable is included in the reckoning of the said period of fourteen days under this provision.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="395" cs="7">
+        <O><![CDATA[(2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="395" cs="147" rs="2">
+        <O><![CDATA[If the rent, *air-conditioning charge or any part thereof shall be unpaid for fourteen days after the same shall
+become payable (whether formally demanded or not) or if the rates or any part thereof shall be unpaid for fourteen days after the same shall become payable the Tenant shall further pay to the Landlord interest at the rate of 2% per month on the amount of rent, *air-conditioning charges, rates in arrears and such interest shall be payable and calculated from the date upon which such payment in arrears fell due and not fourteen days thereafter until full payments are made.  For the avoidance of doubt, the day on which the rent, *air-conditioning charge, rates or any part thereof shall become payable is included in the reckoning of the said period of fourteen days under this provision.  For the further avoidance of doubt, the parties agree that the application of this provision shall not prejudice the rights of the Landlord under this agreement.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="398" cs="10">
+        <O><![CDATA[*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="398" cs="7">
+        <O><![CDATA[(3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="398" cs="147" rs="2">
+        <O><![CDATA[Without prejudice to Clause IV (1) the tenancy hereby created may be determined at any time by either party
+hereto giving to the other at least three calendar months' notice in writing expiring at the end of any calendar
+month.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="401" cs="7">
+        <O><![CDATA[(4)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="401" cs="147" rs="2">
+        <O><![CDATA[Notwithstanding Clause IV(1) *and IV(3) hereof, if the Tenant fails to observe or comply with any of the agreements on his part herein contained, the Landlord shall be entitled to determine the tenancy hereby created by giving to the Tenant at least one calendar month's notice in writing but without prejudice to the rights of the Landlord under this agreement.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="404" cs="7">
+        <O><![CDATA[(5)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="404" cs="147" rs="2">
+        <O><![CDATA[For the avoidance of doubt, where the Landlord invokes section 19(1)(b) of the Housing Ordinance (Cap. 283) to terminate this agreement, the period for the notice to quit issued under that section shall be 1 calendar month.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="407" cs="7">
+        <O><![CDATA[(6)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="407" cs="147" rs="2">
+        <O><![CDATA[If the tenancy hereby created is terminated in whatsoever manner the Tenant shall have no right whatsoever to
+claim compensation in any form from the Landlord.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="410" cs="7">
+        <O><![CDATA[(7)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="410" cs="147" rs="2">
+        <O><![CDATA[If any rent, charges or rates payable herein or any part thereof remain unpaid for one calendar month, the said
+non-payment shall affect the Tenant’s future tendering for the Landlord’s other tenancies and the Landlord shall have the absolute right not to consider any tender(s) submitted by the Tenant for the tendering for the Landlord’s future tenancies. For the avoidance of doubt, the said right of the Landlord shall not be affected or extinguished notwithstanding the unpaid rent, charges or, at the case may be, rates is/are subsequently paid (whether in full or not and whether with interest or not) by the Tenant to the Landlord.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="413" cs="7">
+        <O><![CDATA[(8)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="413" cs="147" rs="2">
+        <O><![CDATA[The Tenant may at any time during the last week of the tenancy hereby created disannex remove repossess and convert to his own use any erections and fittings and the shop front hereafter to be erected fixed or made by him at his own cost upon or to the said shop doing as little injury as may be to the said shop by such removal and making good such injury as may unavoidably be done.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="416" cs="7">
+        <O><![CDATA[(9)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="416" cs="147" rs="2">
+        <O><![CDATA[Should the said shop or part thereof be rendered unfit for occupation by any cause not attributable to the
+negligence or default of the Tenant, the rent or part thereof proportioned to the damage suffered by the said shop shall abate and cease to be payable until the said shop shall have been again rendered fit for occupation provided always that the Landlord shall not be required to reinstate the said shop if by reason of the condition of the said
+shop or any local regulations or other circumstances beyond the control of the Landlord it is in the opinion of the Landlord not practicable or reasonable to do so and provided always that the whole of Clause IV(9) shall not apply to any of the conditions specified in Clause IV (11) *and (18) hereof.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="419" cs="7">
+        <O><![CDATA[(10)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="419" cs="147" rs="2">
+        <O><![CDATA[The Landlord shall not be under any liability whatsoever to the Tenant or any member of the Tenant's family or any servant or licensee of his in respect of any damage sustained to the person or property of the Tenant or such other person caused by or through or in any way due to the overflow of water or drainage from any part of the building
+of which the said shop forms part.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="422" cs="7">
+        <O><![CDATA[(11)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="422" cs="147" rs="2">
+        <O><![CDATA[The Landlord shall not be under any liability whatsoever to the Tenant, his agents or licensees for any damage arising out of any interruption or failure of electricity, water, gas/LP gas supply to the said shop however caused.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="425" cs="7">
+        <O><![CDATA[(12)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="425" cs="147" rs="2">
+        <O><![CDATA[For the purposes of this agreement any act neglect or default of any member of the Tenant's family or of any
+servant or licensee of his shall be deemed to be the act neglect or default of the Tenant.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="428" cs="7">
+        <O><![CDATA[(13)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="428" cs="147" rs="2">
+        <O><![CDATA[The Landlord shall not be under any liability whatsoever to the Tenant or any member of the Tenant's family or
+any servant or licensee of his for the payment of any claim for compensation arising out of the operation of this agreement or any clause hereof.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="431" cs="7">
+        <O><![CDATA[(14)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="431" cs="147" rs="2">
+        <O><![CDATA[Any notice to the Tenant shall be sufficiently served if left addressed to him at the said shop or if sent to him by registered post to his last known address and any notice to the Landlord shall be sufficiently served if delivered to him at his registered office.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="434" cs="55">
+        <O><![CDATA[* Delete if inapplicable]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="97" r="436" cs="23">
+        <O><![CDATA[第五頁]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="7" r="438" cs="10">
+        <O><![CDATA[IV.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="18" r="438" cs="150">
+        <O><![CDATA[雙方同意履行下開各條款：]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="440" cs="5">
+        <O><![CDATA[(1)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="440" cs="146" rs="2">
+        <O><![CDATA[倘在本租約中須繳付的租金、*空氣調節費或其任何部分在到期繳交後14日尚未繳交(不論業主有否正
+式催交)，或在本租約中須繳付的差餉或其任何部分在到期繳交後14日尚未繳交，又或承租人不履行
+或不遵守本租約所載任何條款，業主可隨時收回該舖位或其任何部分(亦作全部收回論)，而現簽立的租
+約隨即完全終止，但業主根據本租約享有的權利則不受影響。為免生疑問，在引用本條文計算上述14
+日期限時，須把租金、*空氣調節費、差餉或其任何部分到期繳交之日計算在內。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="442" cs="5">
+        <O><![CDATA[(2)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="442" cs="146" rs="2">
+        <O><![CDATA[倘租金、*空氣調節費或其任何部分在到期繳交後14日尚未繳交(不論業主有否正式催交)，或差餉或其
+任何部分在到期繳交後14日尚未繳交，承租人須向業主繳付所欠租金、*空氣調節費或差餉的利息，
+利率為月息2釐，由欠款原先到期繳交日，而非由到期繳交日之後第14天起計，截算至欠款全數繳交
+為止。為免生疑問，在引用本條文計算上述14日期限時，須把租金、*空氣調節費、差餉或其任何部
+分到期繳交之日計算在內；而且，雙方亦同意在引用本條文時，業主根據本租約享有的權利不受影響。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="12" r="445" cs="9">
+        <O><![CDATA[*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="445" cs="6">
+        <O><![CDATA[(3)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="445" cs="146" rs="2">
+        <O><![CDATA[在不妨礙第IV條(1)款規定之原則下，業主或承租人均可隨時終止本租約，但任何一方最少須預先三個月
+以書面通知對方，而通知之屆滿日期須為月底。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="448" cs="5">
+        <O><![CDATA[(4)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="448" cs="146" rs="2">
+        <O><![CDATA[縱使本租約第IV條(1)款*及第IV條(3)款另有規定，倘承租人不遵守或不履行本租約之任何條款，則業主
+有權終止本租約，但最少須事先一個曆月以書面通知承租人。至於業主根據本租約所享有之權利，則不受
+影響。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="451" cs="5">
+        <O><![CDATA[(5)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="451" cs="146" rs="2">
+        <O><![CDATA[為免生疑問，倘業主引用《房屋條例》（第283章）第19(1)(b)條終止本租約，根據該條所發遷出通知書
+的通知期為一個曆月。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="454" cs="5">
+        <O><![CDATA[(6)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="454" cs="146">
+        <O><![CDATA[倘本租約以任何方式予以終止，承租人均無權向業主要求任何形式之補償。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="456" cs="5">
+        <O><![CDATA[(7)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="456" cs="146" rs="2">
+        <O><![CDATA[倘在本租約中須繳付的任何租金、費用或差餉或其任何部分逾期一個曆月仍未繳交，該筆欠款將影響承租人日後投標業主其他租約，且業主有絕對權利不考慮承租人日後投標業主租約所遞交的任何標書。為免生疑問，不管承租人其後是否向業主全數清繳未付的租金、費用或差餉（視屬何者而定），或是否連同利息一併繳付，業主享有的上述權利將不受影響或不會終絕。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="459" cs="5">
+        <O><![CDATA[(8)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="459" cs="146" rs="2">
+        <O><![CDATA[在現訂租約期滿前最後一星期內，承租人可隨時將其在該舖位內自費裝設之任何架設、設備及舖面拆除，
+留為己用，但於拆除時須盡量減少損壞該舖位，如損壞乃屬無可避免者，則須將之修理妥善。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="462" cs="5">
+        <O><![CDATA[(9)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="462" cs="146" rs="2">
+        <O><![CDATA[倘該舖位或其某部分不宜繼續使用，但非因承租人之疏忽或違約而致者，業主得酌量損壞之程度而豁免全
+部或部分租金，直至該舖位修理妥當，適合使用為止；倘因該舖位之情況或本港規例或業主無法控制之其
+他情形，而引致該舖位不合用，而業主又認為不適宜或無理由進行修理時，則業主毋須負修理之責；惟在
+此情形下，第IV條(9)款完全不適用於本租約第IV條(11)款*及(18)款所載之規定。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="465" cs="5">
+        <O><![CDATA[(10)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="465" cs="146" rs="2">
+        <O><![CDATA[倘因該舖位所屬建築物任何部分之食水或渠水溢流而引致承租人、其家人、僱員或其許可之人士受到損害
+或其財產蒙受損失時，業主概不負責。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="468" cs="7">
+        <O><![CDATA[(11)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="468" cs="146" rs="2">
+        <O><![CDATA[凡為任何原因而致有關舖位之電力、食水、咸水、煤氣或石油氣供應中斷或失靈，並因而造成任何損害
+者，業主均毋須對承租人、其代理人或其許可之人士承擔任何責任。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="471" cs="7">
+        <O><![CDATA[(12)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="471" cs="146" rs="2">
+        <O><![CDATA[就本租約而言，承租人之家人、僱員或其許可之人士之失責或違約行為，乃作為承租人本身之失責或違
+約行為論。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="474" cs="7">
+        <O><![CDATA[(13)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="474" cs="146" rs="2">
+        <O><![CDATA[倘因執行本租約或其任何條款而引致承租人、其家人、僱員或其許可之人士被索償損失時，業主概不負
+責。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="477" cs="7">
+        <O><![CDATA[(14)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="477" cs="146" rs="2">
+        <O><![CDATA[所有對承租人之通知書，袛須繕明由承租人收，並交達該舖位者，或用掛號信寄交其最後所報地址者，
+即作送達妥當論。致業主之通知書，如寄達業主之註冊辦事處者，亦作送達妥當論。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="480" cs="55">
+        <O><![CDATA[* 如不適用者刪去]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="97" r="482" cs="23">
+        <O><![CDATA[6]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="484" cs="7">
+        <O><![CDATA[(15)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="484" cs="147" rs="2">
+        <O><![CDATA[On the determination of the tenancy hereby created if the Tenant shall have paid all rent and other charges due hereunder and if there shall be no breach of any of this agreement on the Tenant's part to be observed and<br>a]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="486" cs="96">
+        <O><![CDATA[performed the Landlord will repay to the Tenant the sum of Dollars]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="126" r="486" cs="51">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=IF(LEN(CURRENCY_DEPOSIT_TEXT) > 25, CURRENCY_DEPOSIT_TEXT.substring(0, CURRENCY_DEPOSIT_TEXT.lastIndexOf(' ',LEN(CURRENCY_DEPOSIT_TEXT)/2)), CURRENCY_DEPOSIT_TEXT)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="487" cs="74">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=LEN(CURRENCY_DEPOSIT_TEXT) > 25 ? MID(CURRENCY_DEPOSIT_TEXT, (CURRENCY_DEPOSIT_TEXT.lastIndexOf(' ') + 1, (LEN(CURRENCY_DEPOSIT_TEXT) - (CURRENCY_DEPOSIT_TEXT.lastIndexOf(' '))/2)+1) : ""]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="104" r="487" cs="30">
+        <O><![CDATA[Hong Kong Currency (HK$]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="134" r="487" cs="21">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=IF(OR(ISNULL(DEPOSIT_AMT), DEPOSIT_AMT == 0), "", DEPOSIT_TEXT)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="155" r="487" cs="22">
+        <O><![CDATA[) paid to the Landlord]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="488" cs="147">
+        <O><![CDATA[as a deposit on the signing of this agreement but without any interest thereon but if there shall be any rent or other charges in arrears the Landlord  may appropriate such deposit wholly or in part towards payment of such arrears of rent or other charges and if there shall be any breach of this agreement on the part of the Tenant or any of them the Landlord may appropriate the said deposit or part thereof to the cost of remedying the same (in so far as this may be possible) without prejudice to any other claim or remedy that the Landlord may have against the Tenant by reason of the breach and (in any such cases) shall only pay the balance (if any) of the deposit to the Tenant.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="490" cs="10">
+        <O><![CDATA[*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="490" cs="7">
+        <O><![CDATA[(16)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="490" cs="147" rs="2">
+        <O><![CDATA[The Tenant shall at his own expense obtain the guarantee of a bank, deposit-taking company or insurance company in each case to be approved by the Landlord to be jointly and severally bound with the Tenant to the Landlord in<br>the sum of Dollars<u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>Hong Kong Currency (HK$<u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>) for the due payment of the rent herein reserved and for the due observance<br>and performance of the terms and conditions of this agreement in terms to be approved by the Landlord and thereafter to be deposited with him for safe custody PROVIDED always that if on the expiration of the said term<br>no part of the said rent shall then be in arrears and provided there shall be no breach or non-performance of any of the terms and conditions herein contained; or upon the Tenant depositing with the Assignee a fresh guarantee pursuant to Clause IV(20) of this Agreement to replace the said guarantee, the said guarantee shall be released to<br>the Tenant.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="493" cs="7">
+        <O><![CDATA[(17)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="493" cs="147" rs="2">
+        <O><![CDATA[The tenancy hereby created does not in any way whatsoever confer upon the Tenant any exclusive right to any particular trade on the estate and the Landlord reserves the right to let other premises on the estate in whatever manner for the same trade according to the needs of the estate as assessed by the Landlord.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="496" cs="10">
+        <O><![CDATA[*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="496" cs="7">
+        <O><![CDATA[(18)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="496" cs="147" rs="2">
+        <O><![CDATA[The Landlord shall not be under any liability whatsoever to the Tenant, his agents or licensees for any damage arising out of or due to the failure or interruption of air-conditioning supply to the said shop howsoever caused nor shall the Landlord be liable for any damages whatsoever to the Tenant, his agent or licensees due to the failure of
+the central air-conditioning system or the air-conditioning system of the said shop howsoever caused and the Landlord shall not be liable to abate rent and/or air-conditioning charges payable as additional rent in respect thereof.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="499" cs="7">
+        <O><![CDATA[(19)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="499" cs="147" rs="2">
+        <O><![CDATA[The Landlord has the exclusive right to use the common area for commercial or related purpose; to designate, redesignate or convert; to repair, renovate, reinstate or redecorate the same and shall not be liable to the Tenant, his agent or licensees for any claims in respect of such usage.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="502" cs="7">
+        <O><![CDATA[(20)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="502" cs="147" rs="2">
+        <O><![CDATA[The Landlord shall be entitled to transfer and assign the reversion in the said shop and all the Landlord's rights and obligations under this Agreement to any third party ("the Assignee") on such terms and conditions as the Landlord shall think fit without any interference or any claim or demand for compensation whatsoever by the Tenant.
+Upon such transfer or assignment,]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="505" cs="9">
+        <O><![CDATA[a.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="47" r="505" cs="131" rs="2">
+        <O><![CDATA[if the Tenant has paid to the Landlord any deposit under Clause IV(15) of this Agreement, the Landlord
+shall also be entitled to transfer the said deposit paid by the Tenant (less any deduction which the Landlord
+is entitled to make hereunder) to the Assignee;]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="507" cs="9">
+        <O><![CDATA[b.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="47" r="507" cs="131" rs="2">
+        <O><![CDATA[if the Tenant has pursuant to Clause IV(16) of this Agreement provided any guarantee to the Landlord, the Tenant shall on demand by the Landlord at the Tenant's own expense obtain and deposit with the Assignee a fresh guarantee similar to that mentioned in Clause IV(16) but given in favour of the Assignee.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="509" cs="147">
+        <O><![CDATA[With effect from the date of the transfer or assignment of the reversion and all the Landlord's rights and
+obligations by the Landlord as aforesaid, the Landlord shall be absolutely released from all the Landlord's obligations and all liabilities whatever hereunder (including the Landlord's obligation to refund the deposit, if any, paid by the Tenant under Clause IV(15), in accordance with the terms and conditions hereunder whether
+contractual or otherwise) and all such obligations and liabilities shall be assumed by the Assignee.  If the Tenant
+has paid any deposit under Clause IV(15), the Tenant shall only seek refund of the said deposit (subject always to the terms and conditions contained in this Agreement) from the Assignee.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="511" cs="7">
+        <O><![CDATA[(21)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="511" cs="147" rs="2">
+        <O><![CDATA[Notwithstanding any other provisions of this Agreement including any provision which purports to confer a
+benefit on a person who is not a party to this Agreement, this Agreement is not intended to and does not give any person who is not a party to this Agreement any right to enforce any provisions of this Agreement under the Contracts (Rights of Third Parties) Ordinance, and a person who is not a party to this Agreement shall not have
+any right under the Contracts (Rights of Third Parties) Ordinance to enforce any provisions of this Agreement.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="514" cs="55">
+        <O><![CDATA[* Delete if inapplicable]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="97" r="516" cs="23">
+        <O><![CDATA[第六頁]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="518" cs="7" rs="2">
+        <O><![CDATA[(15)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="518" cs="146">
+        <O><![CDATA[本租約終止時，倘承租人已清繳全部租金及其他應繳之費用、而又並無違約行為者，業主須將承租人在<br>a]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="519" cs="54" rs="2">
+        <O><![CDATA[簽訂本合約時所繳交之按金港幣<br>a]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="85" r="519" cs="92" rs="2">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=ChineseConvertUtil.decimalToChinese(DEPOSIT_AMT)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="521" cs="13">
+        <O><![CDATA[(HK$]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="44" r="521" cs="27">
+        <O t="XMLable" class="com.fr.base.Formula">
+          <Attributes><![CDATA[=IF(OR(ISNULL(DEPOSIT_AMT), DEPOSIT_AMT == 0), "", DEPOSIT_TEXT)]]></Attributes>
+        </O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="71" r="521" cs="106">
+        <O><![CDATA[)，免息交回承租人。倘有欠租及未清繳其他費用等情，業主可先將按金之全部或一<br>a]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="522" cs="146">
+        <O><![CDATA[部分扣除撥付。倘承租人有違約行為，業主得在可能範圍內將按金之全部或一部分扣除以補償其損失，<br>並可用其他方式向承租人索償。在此情形下，袛須將按金之餘款(若尚有餘款者)發還承租人。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="13" r="524" cs="8">
+        <O><![CDATA[*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="524" cs="7">
+        <O><![CDATA[(16)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="524" cs="146" rs="2">
+        <O><![CDATA[承租人須根據業主所同意之條件，自費向業主所認可之銀行，接受存款公司或保險公司獲取相等於港<br>幣<u>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</u>(HK$<u>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</u>)之保證書，以確保如期向業主繳付本租約所列之租<br>金以及妥為遵守及履行本租約之條款(是項責任由承租人及上述銀行或公司共同承擔)，隨後並須將保證<br>書交予業主保管，倘上述租期屆滿時，承租人並無欠繳上述租金任何部份，亦無違反或不履行本租約所<br>載之條款及條件；又或是承租人已根據本租約第IV條(20)款之規定，把新簽訂之保證書交付承讓人以取<br>代上述保證書，則上述保證書得交還承租人。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="527" cs="7">
+        <O><![CDATA[(17)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="527" cs="146" rs="2">
+        <O><![CDATA[本租約並不賦予承租人在該邨內經營某種行業之專利權。業主仍有權按照自行鑑定之屋邨需求情況，將
+該邨內其他商業單位以任何方式租予他人，以便經營同一行業。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="13" r="530" cs="8">
+        <O><![CDATA[*]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="530" cs="7">
+        <O><![CDATA[(18)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="530" cs="146" rs="2">
+        <O><![CDATA[倘該舖位之空氣調節供應失效或中斷，以致造成任何損害，則無論原因為何，業主均毋須對承租人、其
+代理人或其許可之人士承擔任何責任；若中央空氣調節系統或該舖位之空氣調節系統失靈，以致造成任
+何損害，則無論原因為何，業主均毋須向承租人、其代理人或其許可之人士賠償，亦毋須豁免承租人之
+租金及／或作為額外租金繳付之空氣調節費。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="533" cs="7">
+        <O><![CDATA[(19)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="533" cs="146" rs="2">
+        <O><![CDATA[業主有全權將公用地方用作商業或有關用途；指定、重新指定或改變該等地方之用途；修葺、翻新、重
+新裝修該等地方或使其恢復原狀，而對承租人、其代理人或其許可之人士就上述各項使用所提出之索償
+要求，亦毋須負責。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="536" cs="7">
+        <O><![CDATA[(20)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="536" cs="146" rs="2">
+        <O><![CDATA[業主有權把上述舖位之復歸權，以及本租約所載業主之一切權利和義務，以業主認為合適之條款及條件
+轉讓予任何第三者(下稱「承讓人」)，承租人不得作出任何干擾或提出任何申索。轉讓該等權利和義務
+時 -]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="539" cs="9">
+        <O><![CDATA[a.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="48" r="539" cs="130" rs="2">
+        <O><![CDATA[倘承租人根據本租約第IV條(15)款所載規定，向業主繳納任何按金，則業主亦有權把承租人繳付之
+上述按金(扣除業主有權依據本租約所載之條款而扣除之任何款項)轉讓予承讓人。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="542" cs="9">
+        <O><![CDATA[b.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="48" r="542" cs="130" rs="2">
+        <O><![CDATA[倘承租人已根據本租約第IV條(16)款所載規定，向業主交付任何保證書，如業主提出要求，承租人
+須自費取得並向承讓人交付一份類似第IV條(16)款所載新簽訂之保證書，惟受惠人須為承讓人。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="545" cs="146">
+        <O><![CDATA[由上述轉讓復歸權及業主一切權利和業主所須承擔義務之日期起，業主將完全卸除本租約所載有關業主之
+一切義務和責任(包括業主按照本租約所載之合約或非合約條款及條件，退還由承租人根據第IV條(15)款
+所載之規定而繳付之按金(如有的話)之義務)，而一切該等義務和責任將由承讓人承擔。倘承租人已根據第
+IV條(15)款所載之規定繳付任何按金，則承租人只可要求承讓人退還上述按金(有關要求須受本合約之條款
+及條件所約束)。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="547" cs="7">
+        <O><![CDATA[(21)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="547" cs="146" rs="2">
+        <O><![CDATA[儘管本租約任何其他條款另有規定，包括任何看來是賦予非協議一方的人一項利益的條款，本租約並無
+意圖亦無給予任何非協議一方的人任何權力，可根據《合約（第三者權利）條例》強制執行本租約的任
+何條款，而根據《合約（第三者權利）條例》，非協議一方的人無權強制執行本租約任何條款。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="550" cs="55">
+        <O><![CDATA[* 如不適用者刪去]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="97" r="552" cs="23">
+        <O><![CDATA[7]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="554" cs="7">
+        <O><![CDATA[(22)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="554" cs="147" rs="2">
+        <O><![CDATA[The Tenant shall endeavour to participate in sustainability practices that promote environmental responsibility and resources conservation, as the Tenant sees fit.  This may include, but not limited to, initiatives aimed at enhancing energy efficiency, conserving water, and reducing waste.  The Tenant is encouraged to identify and implement innovative solutions that contribute positively to the overall environmental impact of the premises.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="557" cs="9">
+        <O><![CDATA[a.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="47" r="557" cs="131" rs="2">
+        <O><![CDATA[The Tenant shall upon request by the Landlord endeavour to participate the environmental protection activities after they are launched such as food waste recycling scheme and comply with all the rules and regulations as may be prescribed by the Landlord from time to time for the activities.  For the avoidance of doubt, the Tenant shall not be entitled to any abatement of rent or any compensation whatsoever for participation in the activities pursuant to this provision.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="560" cs="9" rs="2">
+        <O><![CDATA[b.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="47" r="560" cs="131">
+        <O><![CDATA[The Tenant shall use all reasonable endeavours to:]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="47" r="561" cs="10" rs="2">
+        <O><![CDATA[(i)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="58" r="561" cs="120" rs="2">
+        <O><![CDATA[Reduce electricity consumption;]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="47" r="563" cs="10">
+        <O><![CDATA[(ii)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="58" r="563" cs="120">
+        <O><![CDATA[Reduce town gas consumption (if applicable);]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="47" r="564" cs="10">
+        <O><![CDATA[(iii)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="58" r="564" cs="120">
+        <O><![CDATA[Reduce water consumption (if applicable);]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="47" r="565" cs="10">
+        <O><![CDATA[(iv)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="58" r="565" cs="120">
+        <O><![CDATA[Reduce and recycle waste;]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="47" r="566" cs="10">
+        <O><![CDATA[(v)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="58" r="566" cs="120">
+        <O><![CDATA[Adopt sustainable fit-out features / materials; and]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="47" r="567" cs="10">
+        <O><![CDATA[(vi)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="58" r="567" cs="120">
+        <O><![CDATA[Adopt employee-oriented good human resource management measures.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="569" cs="7">
+        <O><![CDATA[(23)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="569" cs="147" rs="2">
+        <O><![CDATA[Notwithstanding anything to the contrary in this Agreement , it shall be lawful for the Landlord at any time after
+the happening of any of the circumstances or events mentioned in the following sub-clauses a., b. or c. to terminate this Agreement and re-enter upon the said shop or any part thereof in the name of the whole, but without prejudice
+to any right of action of the Landlord in respect of any antecedent breach, non-performance or non-observance of
+the terms and conditions to be observed by and on the part of the Tenant herein contained and in the event of such re-entry the rent already paid or any part thereof shall not be refunded and no compensation whatsoever shall be payable to the Tenant by the Landlord:]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="572" cs="9">
+        <O><![CDATA[a.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="47" r="572" cs="131" rs="2">
+        <O><![CDATA[the Tenant has engaged or is engaging in any act or activity that is likely to constitute or cause the occurrence of an offence endangering national security or which would otherwise be contrary to the interest of national security;]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="575" cs="9">
+        <O><![CDATA[b.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="47" r="575" cs="131" rs="2">
+        <O><![CDATA[the continued occupation and use of the said shop by the Tenant or the continued performance of the Agreement by the Tenant is contrary to the interest of national security; or]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="578" cs="9">
+        <O><![CDATA[c.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="47" r="578" cs="131">
+        <O><![CDATA[the Landlord reasonably believes that any of the circumstances or events mentioned above is about to occur.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="580" cs="147">
+        <O><![CDATA[Upon the re-entry and determination of the Agreement aforesaid, the Tenant shall indemnify and keep the
+Landlord indemnified from and against all liabilities, claims, losses, damages, expenses, charges, costs, demands, actions and proceedings whatsoever and howsoever arising whether directly or indirectly out of the same or in relation thereto.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="30" r="582" cs="147">
+        <O><![CDATA[For the avoidance of doubts, the word “engage” or its variants in this condition shall include but not be limited to aiding, abetting, counselling or procuring. The decision of the Landlord to terminate this Agreement shall be final, conclusive and binding on the Tenant.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="9" r="584" cs="10">
+        <O><![CDATA[V.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="20" r="584" cs="156" rs="2">
+        <O><![CDATA[The expression "the Tenant" wherever used herein shall include the person or persons specifically named and his or their executors or administrators and in the case of a corporation shall include the corporation specifically named and its successors and (if the context so permits or requires) words importing the singular number only shall include the plural number and words importing the masculine gender only shall include the feminine gender and the neuter and words importing a person shall include a corporation.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="97" r="587" cs="23">
+        <O><![CDATA[第七頁]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="589" cs="7">
+        <O><![CDATA[(22)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="589" cs="146" rs="2">
+        <O><![CDATA[承租人須以其認為合適的方式，致力參與提倡環保責任和資源保護的可持續發展行動，包括但不限於加
+強節能、省水、減廢的舉措。承租人可運用創新思維，尋找並落實能令處所提升整體環保表現的方案。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="592" cs="9">
+        <O><![CDATA[a.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="48" r="592" cs="130" rs="2">
+        <O><![CDATA[承租人須應業主要求，致力參與所推行的環保活動，例如廚餘回收計劃，並遵守業主就該等活動不
+時訂定的一切規則。為免生疑問，承租人根據本條款參與該等活動，無權因而獲得任何租金減免或
+補償。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="595" cs="9">
+        <O><![CDATA[b.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="48" r="595" cs="130">
+        <O><![CDATA[承租人須盡一切合理努力，推展以下工作：]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="48" r="597" cs="6">
+        <O><![CDATA[(i)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="60" r="597" cs="118">
+        <O><![CDATA[減少用電；]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="48" r="599" cs="6">
+        <O><![CDATA[(ii)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="60" r="599" cs="118">
+        <O><![CDATA[減少使用煤氣（如適用）；]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="48" r="601" cs="6">
+        <O><![CDATA[(iii)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="60" r="601" cs="118">
+        <O><![CDATA[減少用水（如適用）；]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="48" r="603" cs="6">
+        <O><![CDATA[(iv)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="60" r="603" cs="118">
+        <O><![CDATA[減少廢物，回收廢物；]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="48" r="605" cs="6">
+        <O><![CDATA[(v)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="60" r="605" cs="118">
+        <O><![CDATA[採用可持續的裝修設計╱物料；以及]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="48" r="607" cs="6">
+        <O><![CDATA[(vi)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="60" r="607" cs="118">
+        <O><![CDATA[採取以員工為本的良好人力資源管理措施。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="609" cs="7">
+        <O><![CDATA[(23)]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="609" cs="146" rs="2">
+        <O><![CDATA[即使本租約中有任何相反的規定，當以下第a.、第b.或第c.款所述的任何一種情況或事件發生後，業主
+可依法在任何時間終止本租約及以重收該舖位的名義，收回該舖位及其任何部分，但這不損害業主就承
+租人先前違反、不履行或不遵守本租約所載承租人必須遵守的條款及條件而進行訴訟的任何權利。如出
+現該等重收情況，已繳的租金或其任何部分無須退還，業主也無須給予承租人任何補償：]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="612" cs="9">
+        <O><![CDATA[a.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="48" r="612" cs="130" rs="2">
+        <O><![CDATA[承租人曾經作出或正在作出的任何行為或活動，可能構成或導致危害國家安全罪行又或不利於國家
+安全；]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="614" cs="9">
+        <O><![CDATA[b.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="48" r="614" cs="130">
+        <O><![CDATA[承租人繼續佔用和使用該舖位，又或繼續履行本租約會不利於國家安全；或]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="616" cs="9">
+        <O><![CDATA[c.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="48" r="616" cs="130">
+        <O><![CDATA[業主合理地相信以上所述的任何一種情況或事件即將會發生。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="618" cs="146">
+        <O><![CDATA[若然一如上文所述該舖位被收回以及本租約被終止，不論為何和如何直接或間接引致或與之有關連的一切
+法律責任、申索、損失、損害賠償、開支、收費、費用、要求、訴訟及法律程序，承租人必須向業主作出
+彌償，並使其持續獲得彌償。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="620" cs="146">
+        <O><![CDATA[為免生疑問，本條件中「作出」一詞或其變體詞包括但不限於協助、教唆、慫使或促致。業主終止本租約
+的決定屬最終且不可推翻的決定，並對承租人具約束力。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="622" cs="10">
+        <O><![CDATA[V.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="21" r="622" cs="150" rs="2">
+        <O><![CDATA[本租約內所用「承租人」一詞，包括本租約所列舉之人及其遺囑執行人或遺產管理人。若該承租人為一公
+司，則包括本租約所指之公司及其繼承人。本租約所有辭句(倘上下文意許可或需要時)，如屬單數者可作
+眾數用，如屬男性者可作女性及中性用，如字意是指一人而言者，亦將包括公司在內。]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="97" r="625" cs="23">
+        <O><![CDATA[8]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="17" r="627" cs="156">
+        <O><![CDATA[AS WITNESS the signature of the parties hereto the day and year first hereinbefore written.]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="17" r="628" cs="156">
+        <O><![CDATA[本租約各立約人在上述立約日期簽署如後：]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="630" cs="21">
+        <O><![CDATA[SIGNED]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="630" cs="62">
+        <O><![CDATA[on behalf of the Landlord]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="632" cs="69">
+        <O><![CDATA[in the presence of:—]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="634" cs="69">
+        <O><![CDATA[代表業主在見證人]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="129" r="634" cs="41">
+        <O><![CDATA[之前簽署：]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="636" cs="21">
+        <O><![CDATA[SIGNED]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="31" r="636" cs="62">
+        <O><![CDATA[by the Tenant in the]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="638" cs="69">
+        <O><![CDATA[presence of:—]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="640" cs="69">
+        <O><![CDATA[承租人在見證人]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="129" r="640" cs="41">
+        <O><![CDATA[之前簽署：]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="642" cs="38">
+        <O><![CDATA[INTERPRETED]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="49" r="642" cs="56">
+        <O><![CDATA[to the Tenant by:—]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="644" cs="69">
+        <O><![CDATA[向承租人闡釋本租約內容之人員]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="129" r="644" cs="41">
+        <O><![CDATA[簽署：]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="646" cs="45">
+        <O><![CDATA[DEPOSIT RECEIPT]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="56" r="646" cs="57">
+        <O><![CDATA[No. :]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+      <C c="10" r="648" cs="69">
+        <O><![CDATA[按金收據號碼：]]></O>
+        <PrivilegeControl/>
+        <Expand/>
+      </C>
+    </CellElementList>
+    <PrivilegeControl/>
+  </Report>
+  <ReportParameterAttr>
+    <ParameterUI class="com.fr.form.main.parameter.FormParameterUI">
+      <Layout class="com.fr.form.ui.container.WParameterLayout">
+        <WidgetName name="para"/>
+        <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+          <InnerWidget class="com.fr.form.ui.TextEditor">
+            <WidgetName name="TNCY_AGRMT_KEY"/>
+            <LabelName name="TNCY_AGRMT_KEY"/>
+          </InnerWidget>
+        </Widget>
+        <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+          <InnerWidget class="com.fr.form.ui.TextEditor">
+            <WidgetName name="DOC_DATE"/>
+            <LabelName name="DOC_DATE"/>
+          </InnerWidget>
+        </Widget>
+        <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+          <InnerWidget class="com.fr.form.ui.TextEditor">
+            <WidgetName name="DEPOSIT_AMT"/>
+            <LabelName name="DEPOSIT_AMT"/>
+          </InnerWidget>
+        </Widget>
+        <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+          <InnerWidget class="com.fr.form.ui.TextEditor">
+            <WidgetName name="RATES_AMT"/>
+            <LabelName name="RATES_AMT"/>
+          </InnerWidget>
+        </Widget>
+        <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+          <InnerWidget class="com.fr.form.ui.TextEditor">
+            <WidgetName name="AC_AMT"/>
+            <LabelName name="AC_AMT"/>
+          </InnerWidget>
+        </Widget>
+        <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+          <InnerWidget class="com.fr.form.parameter.FormSubmitButton">
+            <WidgetName name="query"/>
+            <Text><![CDATA[Query]]></Text>
+          </InnerWidget>
+        </Widget>
+      </Layout>
+    </ParameterUI>
+  </ReportParameterAttr>
+</WorkBook>
