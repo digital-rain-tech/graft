@@ -1,0 +1,899 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="NDMS_SV_006A" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isTitleNewPage="true" uuid="5db0b5e8-59f1-4ffa-88bf-0a86f69576cc">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="net.sf.jasperreports.page.break.no.pagination" value="apply"/>
+	<property name="net.sf.jasperreports.export.xls.one.page.per.sheet" value="true"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="AL" uuid="6312e51d-09d0-4ccc-b570-4405789c9146">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Dev (EMC01)"/>
+		<parameter name="REPORT_YEAR" class="java.lang.String"/>
+		<parameter name="REPORT_MONTH" class="java.lang.String"/>
+		<parameter name="STATUS" class="java.lang.String"/>
+		<queryString language="SQL">
+			<![CDATA[select 
+HSE_RGN_CODE,
+HSE_EST_ENG_NAME,
+HSE_STCK_MAIN_CODE_ADDR,
+SUM(HSE_STCK_LES_AREA) AS Approved_Letting_Area
+from
+(
+SELECT HSE_RGN_CODE,HSE_EST_ENG_NAME,
+CASE WHEN HSE_STCK_DSGN_TRD_CODE = 'CO04' OR HSE_STCK_DSGN_TRD_CODE = 'RFDA' OR HSE_STCK_DSGN_TRD_CODE = 'SVPB' THEN
+CONCAT(HSE_STCK_MAIN_CODE_ADDR,'*')
+ELSE
+HSE_STCK_MAIN_CODE_ADDR
+END AS HSE_STCK_MAIN_CODE_ADDR,
+HSE_STCK_LES_AREA
+FROM CIS_RPT_SV_ACTUAL_CRITERIA_V
+WHERE COMMITED_TYPE LIKE 'E_Approved Letting' AND
+SYS_RPT_YEAR = $P{REPORT_YEAR} AND
+SYS_RPT_MTH = $P{REPORT_MONTH} AND
+(($P{STATUS} = 'P' and CIS_DSBD_APRV_STS_CODE <> 'A') OR ($P{STATUS} = 'C' AND CIS_DSBD_APRV_STS_CODE = 'A'))
+) R6_Approved_Lettings
+GROUP BY HSE_RGN_CODE, HSE_EST_ENG_NAME,HSE_STCK_MAIN_CODE_ADDR
+ORDER BY HSE_RGN_CODE ASC, HSE_EST_ENG_NAME ASC]]>
+		</queryString>
+		<field name="HSE_RGN_CODE" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="HSE_RGN_CODE"/>
+		</field>
+		<field name="HSE_EST_ENG_NAME" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="HSE_EST_ENG_NAME"/>
+		</field>
+		<field name="HSE_STCK_MAIN_CODE_ADDR" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="HSE_STCK_MAIN_CODE_ADDR"/>
+		</field>
+		<field name="APPROVED_LETTING_AREA" class="java.math.BigDecimal">
+			<property name="com.jaspersoft.studio.field.label" value="APPROVED_LETTING_AREA"/>
+		</field>
+		<variable name="SUM_APPROVED_LETTING_AREA" class="java.lang.Double" resetType="Column" calculation="Sum">
+			<variableExpression><![CDATA[$F{APPROVED_LETTING_AREA}]]></variableExpression>
+		</variable>
+		<variable name="SUM_APPROVED_LETTING_AREA2" class="java.lang.Double" calculation="Sum">
+			<variableExpression><![CDATA[$F{APPROVED_LETTING_AREA}]]></variableExpression>
+		</variable>
+	</subDataset>
+	<subDataset name="TTBC" whenResourceMissingType="Key" uuid="145a16db-6be5-4ae3-97ea-45066d0a6f97">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Dev (EMC01)"/>
+		<parameter name="REPORT_YEAR" class="java.lang.String"/>
+		<parameter name="REPORT_MONTH" class="java.lang.String"/>
+		<parameter name="STATUS" class="java.lang.String"/>
+		<queryString language="SQL">
+			<![CDATA[select 
+HSE_RGN_CODE,
+HSE_EST_ENG_NAME,
+HSE_STCK_MAIN_CODE_ADDR,
+SUM(HSE_STCK_LES_AREA) AS Approved_Letting_Area
+from
+(
+SELECT HSE_RGN_CODE,HSE_EST_ENG_NAME,
+CASE WHEN HSE_STCK_DSGN_TRD_CODE = 'CO04' OR HSE_STCK_DSGN_TRD_CODE = 'RFDA' OR HSE_STCK_DSGN_TRD_CODE = 'SVPB' THEN
+CONCAT(HSE_STCK_MAIN_CODE_ADDR,'*')
+ELSE
+HSE_STCK_MAIN_CODE_ADDR
+END AS HSE_STCK_MAIN_CODE_ADDR,
+HSE_STCK_LES_AREA
+FROM CIS_RPT_SV_ACTUAL_CRITERIA_V
+WHERE COMMITED_TYPE LIKE 'A_Tenancy To Be Commenced' AND
+SYS_RPT_YEAR = $P{REPORT_YEAR}  AND
+SYS_RPT_MTH =$P{REPORT_MONTH} AND
+(($P{STATUS} = 'P' and CIS_DSBD_APRV_STS_CODE <> 'A') OR ($P{STATUS} = 'C' AND CIS_DSBD_APRV_STS_CODE = 'A'))
+) R6_Approved_Lettings
+GROUP BY HSE_RGN_CODE, HSE_EST_ENG_NAME,HSE_STCK_MAIN_CODE_ADDR
+ORDER BY HSE_RGN_CODE ASC, HSE_EST_ENG_NAME ASC]]>
+		</queryString>
+		<field name="HSE_RGN_CODE" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="HSE_RGN_CODE"/>
+		</field>
+		<field name="HSE_EST_ENG_NAME" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="HSE_EST_ENG_NAME"/>
+		</field>
+		<field name="HSE_STCK_MAIN_CODE_ADDR" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.label" value="HSE_STCK_MAIN_CODE_ADDR"/>
+		</field>
+		<field name="APPROVED_LETTING_AREA" class="java.lang.Double">
+			<property name="com.jaspersoft.studio.field.label" value="APPROVED_LETTING_AREA"/>
+		</field>
+		<variable name="SUM_TTBC" class="java.lang.Double" calculation="Sum">
+			<variableExpression><![CDATA[$F{APPROVED_LETTING_AREA}]]></variableExpression>
+		</variable>
+	</subDataset>
+	<parameter name="REPORT_YEAR" class="java.lang.String"/>
+	<parameter name="REPORT_MONTH" class="java.lang.String"/>
+	<parameter name="STATUS" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select 1 from dual]]>
+	</queryString>
+	<variable name="ApprovedLetting" class="java.lang.Double"/>
+	<variable name="SUM_TTBC" class="java.lang.Double"/>
+	<variable name="Table_1_Page" class="java.lang.Integer" calculation="System">
+		<variableExpression><![CDATA[$V{PAGE_NUMBER}]]></variableExpression>
+	</variable>
+	<variable name="Table_2_Page" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="260" splitType="Stretch">
+			<staticText>
+				<reportElement x="230" y="0" width="100" height="20" uuid="624ff199-26a9-42e3-93d2-fba89c6ce449"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Cover Sheet]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="80" width="200" height="40" uuid="4dbbefdd-d8e6-44a7-963b-a2491a7586da"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Category of Retail Committed Area]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="180" y="40" width="200" height="20" uuid="bb809870-2137-4177-b2cb-2235fb803c01"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA["Details of Committed Area for "+$P{REPORT_MONTH}+"/"+$P{REPORT_YEAR}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="60" y="120" width="200" height="20" uuid="d5daf617-cd2b-4e09-8993-e31eeeeaa0c5"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[A. Tenancies to be Commenced]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="140" width="200" height="20" uuid="d2f97bad-0f62-48bb-9341-f72aa201e86a"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[B. Approved Lettings]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="80" width="70" height="40" uuid="e22401bb-704e-4d05-a736-a1ee343d9a99"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Leasing Area
+IFA (m²)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="80" width="70" height="40" uuid="6375dbd4-2cf3-4843-b0bb-91e9ece73d67"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Page]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="80" width="100" height="20" uuid="cda8a761-8fde-46ce-8a58-ea59b4a9f983"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<text><![CDATA[Source]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="100" width="50" height="20" uuid="1c39eeb1-21bc-436b-b64b-52fdf45ea469"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<text><![CDATA[NDMS #]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="100" width="50" height="20" uuid="9f277371-ced7-4692-bc0d-c4d4d755b18a"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<text><![CDATA[Manual]]></text>
+			</staticText>
+			<textField evaluationTime="Auto">
+				<reportElement x="330" y="120" width="70" height="20" uuid="83a741dd-dd43-4e67-bd86-6250344c5cda"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{Table_1_Page} == 2 ? 2 : "2 - " + $V{Table_1_Page}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="120" width="50" height="20" uuid="79fd38ef-96a2-489a-b46a-3db9ba53160b"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="120" width="50" height="20" uuid="ba38511c-a042-433f-8010-3107baf43f2d"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="140" width="50" height="20" uuid="7d082883-0389-48de-a2a7-61aa33299637"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="140" width="50" height="20" uuid="f655e753-5161-4790-acb1-60db7212dd4d"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textFieldExpression><![CDATA[""]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Auto">
+				<reportElement x="330" y="140" width="70" height="20" uuid="9c4da2e5-aafb-4bd3-8731-3feed87dfe39"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{Table_1_Page} == 2 ? 
+$V{Table_2_Page} == 3 ? 3 : "3 - " + $V{Table_2_Page}
+: $V{Table_1_Page}+1 == $V{Table_2_Page} ? 
+$V{Table_1_Page}+1 : $V{Table_1_Page}+1 + " - " + $V{Table_2_Page}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" pattern="#,##0.00#;#,##0.00#-">
+				<reportElement x="260" y="140" width="70" height="20" uuid="8d0046b4-8294-47cc-9536-72ca895b4c2f"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{ApprovedLetting}==null?0:$V{ApprovedLetting}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" pattern="#,##0.00#;#,##0.00#-">
+				<reportElement x="260" y="120" width="70" height="20" uuid="e5bc5c44-62de-415e-a20d-706b1e71cecc"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{SUM_TTBC}==null?0:$V{SUM_TTBC}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" pattern="#,##0.00#;#,##0.00#-">
+				<reportElement x="260" y="160" width="70" height="20" uuid="dedd974d-51c1-43f7-a830-51bad81d8c0d"/>
+				<box>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Bottom"/>
+				<textFieldExpression><![CDATA[($V{ApprovedLetting}==null?0:$V{ApprovedLetting})+($V{SUM_TTBC}==null?0:$V{SUM_TTBC})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="60" y="160" width="200" height="20" uuid="af804c2d-ec5f-46a7-853f-00f90c994b6a"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Bottom"/>
+				<text><![CDATA[Total : ]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="480" y="20" width="20" height="20" uuid="e85ea704-304d-4d12-bee6-0b0289b74a54"/>
+				<textElement textAlignment="Left" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA["/" + $V{PAGE_NUMBER}+")"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="20" width="80" height="20" uuid="0b19a99d-623f-4c51-9be1-013bb1fd2be9"/>
+				<textElement textAlignment="Right" verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA["(P." + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="0" width="100" height="20" uuid="159a83cb-8795-4d67-9554-abaf41b201b8"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Table R6-A"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="202" width="450" height="50" uuid="a2e0ce82-3fef-4f09-8986-9cfe03867365"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["#   NDMS download file and monthly report on committed retail premises as at "+DAYSINMONTH(DATE(INTEGER_VALUE( $P{REPORT_YEAR}),INTEGER_VALUE($P{REPORT_MONTH} ) ,1))+"."+$P{REPORT_MONTH}+"."+$P{REPORT_YEAR}+"\n*   Leasing Team, EMD(CP)"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="60" y="180" width="90" height="20" uuid="501e9eb0-7e4a-4331-b0f1-b0333bd5ef8f"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Remarks:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40">
+			<textField evaluationTime="Report">
+				<reportElement x="520" y="20" width="20" height="20" uuid="e5e3b14f-dc2c-4166-9725-787ee4354919"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["/" + $V{PAGE_NUMBER}+")"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="20" width="90" height="20" uuid="de4447a8-6334-4848-8eba-3fd43412ac64"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["(P." + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="0" width="110" height="20" uuid="38e70203-a2ba-48fa-a2a6-cf747c38ef21"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Table R6-A"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="343">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<staticText>
+				<reportElement x="0" y="0" width="170" height="20" uuid="347cc9a5-5cfc-4a2c-aec1-6fdd911d1caa"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[A. Tenancies to be Commenced]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="0" y="40" width="554" height="90" uuid="7af8d0b4-fd41-47a7-b345-b14fa879aa58">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+					<property name="net.sf.jasperreports.export.headertoolbar.table.name" value="partA"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="AllSectionsNoDetail">
+					<datasetRun subDataset="TTBC" uuid="5be4363a-56c6-41b2-b4f7-fa93e3ac10af">
+						<datasetParameter name="REPORT_YEAR">
+							<datasetParameterExpression><![CDATA[$P{REPORT_YEAR}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="REPORT_MONTH">
+							<datasetParameterExpression><![CDATA[$P{REPORT_MONTH}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="STATUS">
+							<datasetParameterExpression><![CDATA[$P{STATUS}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+						<returnValue fromVariable="SUM_TTBC" toVariable="SUM_TTBC"/>
+					</datasetRun>
+					<jr:column width="80" uuid="81879292-00c9-488f-bd25-c89a4421a734">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:columnHeader style="Table_CH" height="50" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="80" height="50" uuid="15773824-065a-4433-9247-eafa970ee012"/>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+								<textFieldExpression><![CDATA["Details of\nCommitted\nArea for "+$P{REPORT_MONTH}+"/"+$P{REPORT_YEAR}]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="20" rowSpan="1"/>
+						<jr:detailCell style="Table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="80" height="20" uuid="083e1a02-5efb-4f37-970e-fb6d4a5a5f07">
+									<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="eecbf125-8439-429b-962c-d0dbe6a4f371"/>
+								</reportElement>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$V{REPORT_COUNT}==null?"":$V{REPORT_COUNT}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="50" uuid="ab8e33f9-c777-4281-bf8e-f0295650dbd6">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:columnHeader style="Table_CH" height="50" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="50" height="50" uuid="99dff9b5-b044-4d1c-8280-75b2928fe167">
+									<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="eecbf125-8439-429b-962c-d0dbe6a4f371"/>
+								</reportElement>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+								<text><![CDATA[Region
+Code]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="20" rowSpan="1"/>
+						<jr:detailCell style="Table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="50" height="20" uuid="ead74f5d-c782-4d76-975b-1ef9995a44fe">
+									<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="eecbf125-8439-429b-962c-d0dbe6a4f371"/>
+								</reportElement>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textFieldExpression><![CDATA[$F{HSE_RGN_CODE}==null?"":$F{HSE_RGN_CODE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="120" uuid="bff12d57-6970-4546-9024-3cfa9017bfa0">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<jr:columnHeader style="Table_CH" height="50" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="120" height="50" uuid="54b32e52-4a0b-42ab-a7f8-792f60a46e72">
+									<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="689d550e-e520-4d37-abbe-cda0ea80cecf"/>
+								</reportElement>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+								<text><![CDATA[Estate English Name]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="20" rowSpan="1"/>
+						<jr:detailCell style="Table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="120" height="20" uuid="2057350d-3a2e-45e0-ae28-2046fb62229b">
+									<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="689d550e-e520-4d37-abbe-cda0ea80cecf"/>
+								</reportElement>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textFieldExpression><![CDATA[$F{HSE_EST_ENG_NAME}==null?"":$F{HSE_EST_ENG_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="180" uuid="e4edd826-1024-42ad-935b-6c9579253a35">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+						<jr:columnHeader style="Table_CH" height="50" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="180" height="50" uuid="721db001-ba2a-4065-8e3a-7af76ce6cbb4">
+									<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d7782262-430a-4228-8dbb-53b8ab6a1cb9"/>
+								</reportElement>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+								<text><![CDATA[Code Address]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="180" height="20" uuid="c71c7127-71d6-4bfd-b312-49193b893a4f">
+									<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d7782262-430a-4228-8dbb-53b8ab6a1cb9"/>
+								</reportElement>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Bottom"/>
+								<textFieldExpression><![CDATA["Total :"]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
+						<jr:detailCell style="Table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="180" height="20" uuid="c5a1d96c-f744-414f-8e53-e9fbbba2121f">
+									<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d7782262-430a-4228-8dbb-53b8ab6a1cb9"/>
+								</reportElement>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textFieldExpression><![CDATA[$F{HSE_STCK_MAIN_CODE_ADDR}==null?"":$F{HSE_STCK_MAIN_CODE_ADDR}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="110" uuid="92116fc0-91ef-40d9-b842-3418c0871684">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+						<jr:columnHeader style="Table_CH" height="50" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="110" height="50" uuid="b4c2672e-1fc5-4f28-bc73-92a0c9495c01">
+									<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ed1eb3f5-cddb-4a1b-9089-46d4826545fe"/>
+								</reportElement>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+								<text><![CDATA[Leasing Area
+IFA (m²)]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="20" rowSpan="1">
+							<textField pattern="#,##0.00#;#,##0.00#-">
+								<reportElement x="0" y="0" width="110" height="20" uuid="90d43713-5176-4bd2-bdfb-c9977b88dba3">
+									<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ed1eb3f5-cddb-4a1b-9089-46d4826545fe"/>
+								</reportElement>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Bottom"/>
+								<textFieldExpression><![CDATA[$V{SUM_TTBC}==null?0:$V{SUM_TTBC}]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
+						<jr:detailCell style="Table_TD" height="20">
+							<textField pattern="#,##0.00#;#,##0.00#-">
+								<reportElement x="0" y="0" width="110" height="20" uuid="43383a6d-431e-4bee-b015-16d6df55ef34">
+									<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ed1eb3f5-cddb-4a1b-9089-46d4826545fe"/>
+								</reportElement>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{APPROVED_LETTING_AREA}==0?"":$F{APPROVED_LETTING_AREA}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<textField>
+				<reportElement positionType="Float" x="0" y="135" width="540" height="50" uuid="3ebdd52e-b406-4f0f-b777-504425cc9ac2">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Source: NDMS download file and monthly report on committed retail premises as at "+DAYSINMONTH(DATE(INTEGER_VALUE( $P{REPORT_YEAR}),INTEGER_VALUE($P{REPORT_MONTH} ) ,1))+"."+$P{REPORT_MONTH}+"."+$P{REPORT_YEAR}]]></textFieldExpression>
+			</textField>
+			<returnValue toVariable="Table_1_Page">
+				<expression><![CDATA[$V{PAGE_NUMBER}]]></expression>
+			</returnValue>
+		</band>
+		<band height="343">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement x="0" y="1" width="170" height="20" uuid="443e9076-ec9a-40ff-9020-b7d4bea4131c">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[B. Approved Lettings]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="0" y="40" width="554" height="90" uuid="3750d363-d7b2-4ca0-82e9-9cc6e390465e">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+					<property name="net.sf.jasperreports.export.headertoolbar.table.name" value="partB"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="AllSectionsNoDetail">
+					<datasetRun subDataset="AL" uuid="442189f5-0efb-4cfe-be86-8f66e6c8b03d">
+						<datasetParameter name="REPORT_YEAR">
+							<datasetParameterExpression><![CDATA[$P{REPORT_YEAR}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="REPORT_MONTH">
+							<datasetParameterExpression><![CDATA[$P{REPORT_MONTH}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="STATUS">
+							<datasetParameterExpression><![CDATA[$P{STATUS}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+						<returnValue fromVariable="SUM_APPROVED_LETTING_AREA2" toVariable="ApprovedLetting"/>
+					</datasetRun>
+					<jr:column width="80" uuid="2cb06e26-0c07-4e14-ad9c-31490f6b9af0">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:columnHeader style="Table_CH" height="50" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="80" height="50" uuid="41073bd9-373c-452d-b67f-f8a31dd1a3bd"/>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+								<textFieldExpression><![CDATA["Details of\nCommitted\nArea for "+$P{REPORT_MONTH}+"/"+$P{REPORT_YEAR}]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="20" rowSpan="1"/>
+						<jr:detailCell style="Table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="80" height="20" uuid="a48728a6-232e-4bb8-ab9d-8becb62218d0">
+									<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="eecbf125-8439-429b-962c-d0dbe6a4f371"/>
+								</reportElement>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="50" uuid="03ac9563-c326-4dda-ae3e-0c3197e90804">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:columnHeader style="Table_CH" height="50" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="50" height="50" uuid="780ac8ac-af4a-407a-9828-0a53b9499329">
+									<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="eecbf125-8439-429b-962c-d0dbe6a4f371"/>
+								</reportElement>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+								<text><![CDATA[Region
+Code]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="20" rowSpan="1"/>
+						<jr:detailCell style="Table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="50" height="20" uuid="173e837b-7d64-4d88-9cf3-1900252a352e">
+									<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="eecbf125-8439-429b-962c-d0dbe6a4f371"/>
+								</reportElement>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textFieldExpression><![CDATA[$F{HSE_RGN_CODE}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="120" uuid="3d085a97-1091-4e59-ad3c-9cb342924bf4">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<jr:columnHeader style="Table_CH" height="50" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="120" height="50" uuid="fd38f8bc-caf7-41d2-bbe9-8fdd7a251598">
+									<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="689d550e-e520-4d37-abbe-cda0ea80cecf"/>
+								</reportElement>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+								<text><![CDATA[Estate English Name]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="20" rowSpan="1"/>
+						<jr:detailCell style="Table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="120" height="20" uuid="99541301-a271-4810-b98b-18f147f7b19b">
+									<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="689d550e-e520-4d37-abbe-cda0ea80cecf"/>
+								</reportElement>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textFieldExpression><![CDATA[$F{HSE_EST_ENG_NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="180" uuid="14fdfbfe-3c4d-4a84-8967-687725ef0420">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+						<jr:columnHeader style="Table_CH" height="50" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="180" height="50" uuid="b38b1f89-2fbc-438b-b96c-4c51205ce36f">
+									<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d7782262-430a-4228-8dbb-53b8ab6a1cb9"/>
+								</reportElement>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+								<text><![CDATA[Code Address]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="180" height="20" uuid="a60eab8d-f1ba-428f-9501-e936f81dac06">
+									<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d7782262-430a-4228-8dbb-53b8ab6a1cb9"/>
+								</reportElement>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Bottom"/>
+								<textFieldExpression><![CDATA["Total :"]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
+						<jr:detailCell style="Table_TD" height="20">
+							<textField>
+								<reportElement x="0" y="0" width="180" height="20" uuid="098e7f77-1ee8-43d0-b063-a0a99722611b">
+									<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="d7782262-430a-4228-8dbb-53b8ab6a1cb9"/>
+								</reportElement>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textFieldExpression><![CDATA[$F{HSE_STCK_MAIN_CODE_ADDR}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="110" uuid="022a1d98-edb9-4a75-a6da-adffe5238be6">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+						<jr:columnHeader style="Table_CH" height="50" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="110" height="50" uuid="713a62ac-522c-47e9-9c02-955264206388">
+									<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ed1eb3f5-cddb-4a1b-9089-46d4826545fe"/>
+								</reportElement>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+								<text><![CDATA[Leasing Area
+(m²)]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="20" rowSpan="1">
+							<textField pattern="#,##0.00#;#,##0.00#-">
+								<reportElement x="0" y="0" width="110" height="20" uuid="128a2fdb-b179-4227-914e-f6f929e9440e">
+									<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ed1eb3f5-cddb-4a1b-9089-46d4826545fe"/>
+								</reportElement>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Right" verticalAlignment="Bottom"/>
+								<textFieldExpression><![CDATA[$V{SUM_APPROVED_LETTING_AREA}==null?0:$V{SUM_APPROVED_LETTING_AREA}]]></textFieldExpression>
+							</textField>
+						</jr:columnFooter>
+						<jr:detailCell style="Table_TD" height="20">
+							<textField pattern="#,##0.00#;#,##0.00#-">
+								<reportElement x="0" y="0" width="110" height="20" uuid="66beb859-d5aa-4e7a-8235-dfc6d8fcc76f">
+									<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ed1eb3f5-cddb-4a1b-9089-46d4826545fe"/>
+								</reportElement>
+								<box>
+									<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+									<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+								</box>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{APPROVED_LETTING_AREA}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="135" width="100" height="20" uuid="eff8388b-1eb1-45a3-9120-118ee2be1d3d">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<text><![CDATA[* Councillor's Office]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="0" y="150" width="540" height="50" uuid="25d798a2-9d5e-4bf1-9e44-5d2d221f57ea">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Source: NDMS download file and monthly report on committed retail premises as at "+DAYSINMONTH(DATE(INTEGER_VALUE( $P{REPORT_YEAR}),INTEGER_VALUE($P{REPORT_MONTH} ) ,1))+"."+$P{REPORT_MONTH}+"."+$P{REPORT_YEAR}]]></textFieldExpression>
+			</textField>
+			<break>
+				<reportElement x="0" y="0" width="100" height="1" uuid="e687fea3-f29f-4d86-a306-54b7ad909b78">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+			</break>
+			<returnValue toVariable="Table_2_Page">
+				<expression><![CDATA[$V{PAGE_NUMBER}]]></expression>
+			</returnValue>
+		</band>
+	</detail>
+</jasperReport>
