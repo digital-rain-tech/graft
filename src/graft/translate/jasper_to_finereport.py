@@ -74,12 +74,70 @@ _CONSTANT_MAP = {
 }
 
 
-def _substring_to_mid(m: re.Match[str]) -> str:
-    ref, a, b = m.group(1), m.group(2), m.group(3)
-    # FineReport MID is 1-indexed: substring(start, end) -> MID(ref, start+1, end-start).
-    if a.lstrip("-").isdigit() and b.lstrip("-").isdigit():
-        return f"MID({ref}, {int(a) + 1}, {int(b) - int(a)})"
-    return f"MID({ref}, ({a}) + 1, ({b}) - ({a}))"
+def _rewrite_balanced(s: str, method: str, fn) -> str:
+    """Rewrite ``$ref.method(...)`` calls, parsing arguments with paren balance.
+
+    Unlike a regex this handles nested calls in the arguments (e.g.
+    ``substring(0, x.lastIndexOf(' ', 25))``). ``fn(ref, args)`` returns the
+    replacement string.
+    """
+    pat = re.compile(r"(\$[PFV]\{[^}]+\})\." + re.escape(method) + r"\(")
+    while True:
+        m = pat.search(s)
+        if not m:
+            return s
+        ref, open_i = m.group(1), m.end() - 1
+        depth, i, in_str = 0, open_i, ""
+        while i < len(s):
+            c = s[i]
+            if in_str:
+                if c == in_str:
+                    in_str = ""
+            elif c in "\"'":
+                in_str = c
+            elif c == "(":
+                depth += 1
+            elif c == ")":
+                depth -= 1
+                if depth == 0:
+                    break
+            i += 1
+        inner = s[open_i + 1 : i]
+        args = [a.strip() for a in _split_top_level(inner, ",")] if inner.strip() else []
+        s = s[: m.start()] + fn(ref, args) + s[i + 1 :]
+
+
+def _singlequote_to_double(arg: str) -> str:
+    """Java char/String single-quote literals -> FineReport double-quoted strings."""
+    return re.sub(r"'([^']*)'", r'"\1"', arg)
+
+
+def _last_index_of_fr(ref: str, args: list[str]) -> str:
+    conv = ", ".join(_singlequote_to_double(a) for a in args)
+    return f"lastIndexOf({ref}, {conv})"
+
+
+def _substring_fr(ref: str, args: list[str]) -> str:
+    """Java 0-indexed substring -> FineReport 1-indexed MID."""
+    if len(args) == 2:
+        a, b = args
+        a_lit, b_lit = a.lstrip("-").isdigit(), b.lstrip("-").isdigit()
+        start = f"{int(a) + 1}" if a_lit else f"({a}) + 1"
+        if a_lit and b_lit:
+            length = f"{int(b) - int(a)}"
+        elif a_lit and int(a) == 0:
+            length = b
+        elif a_lit:
+            length = f"({b}) - {int(a)}"
+        else:
+            length = f"({b}) - ({a})"
+        return f"MID({ref}, {start}, {length})"
+    if len(args) == 1:
+        a = args[0]
+        if a.lstrip("-").isdigit():
+            return f"MID({ref}, {int(a) + 1}, LEN({ref}) - {int(a)})"
+        return f"MID({ref}, ({a}) + 1, LEN({ref}) - ({a}))"
+    return f"MID({ref})"  # pragma: no cover - defensive
 
 
 def _apply_java_patterns(s: str, issues: list[TranslationIssue] | None) -> str:
@@ -91,16 +149,6 @@ def _apply_java_patterns(s: str, issues: list[TranslationIssue] | None) -> str:
     # Constants first so they resolve before being consumed as method arguments.
     for java, fr in _CONSTANT_MAP.items():
         s = s.replace(java, fr)
-
-    # Untranslatable: flag and leave for human review before anything rewrites it.
-    if issues is not None and ".lastIndexOf(" in s:
-        issues.append(
-            TranslationIssue(
-                severity=Severity.WARNING,
-                message=f"lastIndexOf has no direct FineReport equivalent: {s[:50]}…",
-                suggestion="Replace with a FineReport custom function or simplify the logic.",
-            )
-        )
 
     # BigDecimal.compareTo(x) OP 0  ->  ref OP x  (must precede null/equality work).
     s = re.sub(
@@ -123,7 +171,9 @@ def _apply_java_patterns(s: str, issues: list[TranslationIssue] | None) -> str:
     s = re.sub(rf"({_REF})\.trim\(\)", r"TRIM(\1)", s)
     s = re.sub(rf"({_REF})\.toUpperCase\(\)", r"UPPER(\1)", s)
     s = re.sub(rf"({_REF})\.toLowerCase\(\)", r"LOWER(\1)", s)
-    s = re.sub(rf"({_REF})\.substring\(\s*([^,)]+)\s*,\s*([^,)]+)\s*\)", _substring_to_mid, s)
+    # lastIndexOf before substring: substring args often contain a lastIndexOf call.
+    s = _rewrite_balanced(s, "lastIndexOf", _last_index_of_fr)
+    s = _rewrite_balanced(s, "substring", _substring_fr)
 
     # ChineseConvertUtil.method(...) -> method(...): each becomes a FineReport
     # custom function (see graft.translate.finereport_functions).

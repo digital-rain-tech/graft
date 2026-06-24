@@ -49,6 +49,24 @@ def test_ast_regenerates_for_multiple_targets():
         assert "CASE WHEN" in to_dialect(sql, dialect)
 
 
+def test_lastindexof_wordwrap_verified_against_java_reference():
+    # The real TN-0028 blocker: split long currency text at the last space <= 25.
+    # The FineReport lastIndexOf custom function returns Java's 0-indexed result;
+    # verify the translated MID logic against the Java reference on a sample.
+    from graft.translate.java_string import wrap_two_lines
+
+    conn = __import__("sqlite3").connect(":memory:")
+    from graft.translate.java_string import last_index_of
+
+    conn.create_function("lastIndexOf", 3, last_index_of)
+    text = "seventy eight thousand four hundred and ninety nine dollars"
+    # line 1 == MID(text, 1, lastIndexOf(text, " ", 25))  (substring(0, k))
+    k = conn.execute("SELECT lastIndexOf(?, ' ', 25)", (text,)).fetchone()[0]
+    line1 = conn.execute("SELECT substr(?, 1, ?)", (text, k)).fetchone()[0]
+    conn.close()
+    assert line1 == wrap_two_lines(text, 25)[0]
+
+
 def test_oracle_catches_a_wrong_translation():
     # Suppose the AI mistranslated "|| == 0" as ">= 0" (a real, plausible slip).
     wrong = "CASE WHEN RATES_AMT IS NULL OR RATES_AMT >= 0 THEN '' ELSE decimalToChinese(RATES_AMT) END"

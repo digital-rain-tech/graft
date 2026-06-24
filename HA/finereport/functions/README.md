@@ -14,6 +14,7 @@ reference lives in `src/graft/translate/chinese_convert.py`).
 | `dateToChineseDay(date)` | `2026-04-21` | `二十一日` |
 | `numberToChinese(int)` | `112` | `一百一十二` |
 | `decimalToChinese(amount)` | `3513.3` | `叄仟伍佰壹拾叄元叄角` |
+| `lastIndexOf(text, search[, from])` | `"a b c", " ", 25` | `3` (0-indexed; word-wrap) |
 
 ## Install
 
@@ -25,7 +26,7 @@ reference lives in `src/graft/translate/chinese_convert.py`).
    `%FR_HOME%/webapps/webroot/WEB-INF/classes/com/fr/function/`.
 3. In FineReport Designer: **Server → Function Manager → Add**, registering each
    class (`dateToChineseYear`, `dateToChineseMonth`, `dateToChineseDay`,
-   `numberToChinese`, `decimalToChinese`).
+   `numberToChinese`, `decimalToChinese`, `lastIndexOf`).
 4. Restart the FineReport server.
 
 Regenerate these files with

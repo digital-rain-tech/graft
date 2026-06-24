@@ -24,7 +24,32 @@ CUSTOM_FUNCTIONS: dict[str, str] = {
     "decimalToChinese": "decimalToChinese",
 }
 
-CUSTOM_FUNCTION_NAMES: tuple[str, ...] = tuple(CUSTOM_FUNCTIONS)
+# Standalone custom functions that don't go through ChineseConvertUtil.
+_STANDALONE_JAVA: dict[str, str] = {
+    "lastIndexOf": """package com.fr.function;
+
+import com.fr.script.AbstractFunction;
+
+/** FineReport custom function: lastIndexOf(text, search[, fromIndex]) — 0-indexed. */
+public class lastIndexOf extends AbstractFunction {
+
+    @Override
+    public Object run(Object[] args) {
+        if (args == null || args.length < 2 || args[0] == null || args[1] == null) {
+            return -1;
+        }
+        String text = String.valueOf(args[0]);
+        String search = String.valueOf(args[1]);
+        int from = args.length > 2 && args[2] != null
+                ? (int) Math.floor(Double.parseDouble(String.valueOf(args[2])))
+                : text.length();
+        return text.lastIndexOf(search, from);
+    }
+}
+""",
+}
+
+CUSTOM_FUNCTION_NAMES: tuple[str, ...] = tuple(CUSTOM_FUNCTIONS) + tuple(_STANDALONE_JAVA)
 
 # The shared helper. Logic mirrors graft.translate.chinese_convert.
 _HELPER_JAVA = """package com.fr.function;
@@ -217,6 +242,11 @@ def write_custom_functions(out_dir: Path) -> list[Path]:
             _FUNCTION_TEMPLATE.format(fn=fn, method=method, arg_desc=_ARG_DESC.get(fn, "a value")),
             encoding="utf-8",
         )
+        written.append(path)
+
+    for fn, source in _STANDALONE_JAVA.items():
+        path = out / f"{fn}.java"
+        path.write_text(source, encoding="utf-8")
         written.append(path)
 
     return written

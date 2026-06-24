@@ -45,6 +45,22 @@ def test_substring_integer_literals():
     assert tr("$F{s}.substring(0, 4)") == "=MID(s, 1, 4)"
 
 
+def test_substring_single_literal_arg():
+    # substring(begin) -> MID(s, begin+1, LEN(s)-begin)
+    assert tr("$F{s}.substring(2)") == "=MID(s, 3, LEN(s) - 2)"
+
+
+def test_last_index_of_becomes_custom_function():
+    assert tr("$F{s}.lastIndexOf(' ', 25)") == '=lastIndexOf(s, " ", 25)'
+
+
+def test_substring_with_lastindexof_arg_translates_fully():
+    out = tr("$F{s}.substring(0, $F{s}.lastIndexOf(' ', 25))")
+    # no residual Java method calls survive
+    assert ".substring(" not in out and ".lastIndexOf(" not in out
+    assert out.startswith("=MID(s, 1, lastIndexOf(s, \" \", 25)")
+
+
 def test_int_value():
     assert tr("$F{qty}.intValue()") == "=INT(qty)"
 
@@ -144,15 +160,14 @@ def test_ternary_inside_parentheses():
     assert tr(expr) == "=(IF(ISNULL(A), 0, A)) + (IF(ISNULL(B), 0, B))"
 
 
-# --- Issues for untranslatable patterns ----------------------------------
+# --- lastIndexOf now translates to a custom function (no longer flagged) ------
 
 
-def test_last_index_of_flags_issue():
+def test_last_index_of_translates_to_custom_function():
     issues = []
     out = tr('$F{s}.lastIndexOf("/", 5)', issues=issues)
-    assert any(i.severity is Severity.WARNING for i in issues)
-    # passthrough: still references the field cell/name
-    assert "s" in out
+    assert out == '=lastIndexOf(s, "/", 5)'
+    assert not any(i.severity is Severity.WARNING for i in issues)
 
 
 # --- ChineseConvertUtil -> FineReport custom functions -------------------

@@ -29,10 +29,11 @@ def test_classify_literal():
     assert status == "literal"
 
 
-def test_classify_needs_review_residual_lastindexof():
-    status, residuals = classify_expression('$F{s}.lastIndexOf("/", 5)')
+def test_classify_needs_review_unhandled_constructor():
+    # lastIndexOf now translates; an unhandled constructor still needs review.
+    status, residuals = classify_expression('new SimpleDateFormat("yyyy").format($F{d})')
     assert status == "needs_review"
-    assert any("lastIndexOf" in r for r in residuals)
+    assert any("new" in r for r in residuals)
 
 
 def test_classify_custom_function_is_clean_but_flagged():
@@ -51,7 +52,11 @@ def _report_with(*exprs):
 
 
 def test_coverage_counts_total_and_clean():
-    report = _report_with('$F{x} == null ? "" : $F{x}', '"caption"', '$F{s}.lastIndexOf("/", 5)')
+    report = _report_with(
+        '$F{x} == null ? "" : $F{x}',
+        '"caption"',
+        'new SimpleDateFormat("yyyy").format($F{d})',
+    )
     cov = analyze_expression_coverage(report)
     assert cov.total == 3
     assert cov.literal == 1

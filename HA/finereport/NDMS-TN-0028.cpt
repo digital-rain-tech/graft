@@ -362,7 +362,7 @@ equate with the assessment based on the rateable value ascertained under Section
       </C>
       <C c="117" r="33" cs="45" rs="3">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=IF(LEN(CURRENCY_FIRST_RENT_TEXT)>25, CURRENCY_FIRST_RENT_TEXT.substring(0, CURRENCY_FIRST_RENT_TEXT.lastIndexOf(' ',25)), CURRENCY_FIRST_RENT_TEXT)]]></Attributes>
+          <Attributes><![CDATA[=IF(LEN(CURRENCY_FIRST_RENT_TEXT)>25, MID(CURRENCY_FIRST_RENT_TEXT, 1, lastIndexOf(CURRENCY_FIRST_RENT_TEXT, " ", 25)), CURRENCY_FIRST_RENT_TEXT)]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>
@@ -379,7 +379,7 @@ equate with the assessment based on the rateable value ascertained under Section
       </C>
       <C c="1" r="36" cs="105">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=LEN(CURRENCY_FIRST_RENT_TEXT)>25 ? MID(CURRENCY_FIRST_RENT_TEXT, (CURRENCY_FIRST_RENT_TEXT.lastIndexOf(' ') + 1, (25) - (CURRENCY_FIRST_RENT_TEXT.lastIndexOf(' '))+1) : ")]]></Attributes>
+          <Attributes><![CDATA[=IF(LEN(CURRENCY_FIRST_RENT_TEXT)>25, MID(CURRENCY_FIRST_RENT_TEXT, (lastIndexOf(CURRENCY_FIRST_RENT_TEXT, " ", 25)+1) + 1, LEN(CURRENCY_FIRST_RENT_TEXT) - (lastIndexOf(CURRENCY_FIRST_RENT_TEXT, " ", 25)+1)), "")]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>
@@ -2756,14 +2756,14 @@ any servant or licensee of his for the payment of any claim for compensation ari
       </C>
       <C c="127" r="488" cs="51">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=IF(LEN(CURRENCY_DEPOSIT_TEXT) > 25, CURRENCY_DEPOSIT_TEXT.substring(0, CURRENCY_DEPOSIT_TEXT.lastIndexOf(' ',LEN(CURRENCY_DEPOSIT_TEXT)/2)), CURRENCY_DEPOSIT_TEXT)]]></Attributes>
+          <Attributes><![CDATA[=IF(LEN(CURRENCY_DEPOSIT_TEXT) > 25, MID(CURRENCY_DEPOSIT_TEXT, 1, lastIndexOf(CURRENCY_DEPOSIT_TEXT, " ", LEN(CURRENCY_DEPOSIT_TEXT)/2)), CURRENCY_DEPOSIT_TEXT)]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>
       </C>
       <C c="30" r="489" cs="75">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=LEN(CURRENCY_DEPOSIT_TEXT) > 25 ? MID(CURRENCY_DEPOSIT_TEXT, (CURRENCY_DEPOSIT_TEXT.lastIndexOf(' ') + 1, (LEN(CURRENCY_DEPOSIT_TEXT) - (CURRENCY_DEPOSIT_TEXT.lastIndexOf(' '))/2)+1) : ")]]></Attributes>
+          <Attributes><![CDATA[=IF(LEN(CURRENCY_DEPOSIT_TEXT) > 25, MID(CURRENCY_DEPOSIT_TEXT, (lastIndexOf(CURRENCY_DEPOSIT_TEXT, " ", LEN(CURRENCY_DEPOSIT_TEXT)/2)+1) + 1, LEN(CURRENCY_DEPOSIT_TEXT) - (lastIndexOf(CURRENCY_DEPOSIT_TEXT, " ", LEN(CURRENCY_DEPOSIT_TEXT)/2)+1)), "")]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>

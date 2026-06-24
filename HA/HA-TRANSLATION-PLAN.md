@@ -283,15 +283,18 @@ See [ADR-0013](../docs/adr/0013-sql-expression-ir-with-llm-frontend-and-sqlite-v
 |---|---|---|---|---|---|
 | S&V-006A | 33 | 8 | 25 | 0 | **100%** |
 | RC-0055 | 470 | 420 | 50 | 0 | **100%** |
-| TN-0028 | 132 | 62 | 66 | 4 | **97%** |
+| TN-0028 | 132 | 62 | 70 | 0 | **100%** |
 
 - [x] **5a: Coverage audit** — DONE. `expression_coverage.py` enumerates + classifies every
   expression; drives the table above. 7 TDD tests.
 - [x] **5b: Parenthesised-ternary fix** — DONE. `_convert_ternaries` recurses into `(...)` so
   null-coalescing sums like `(a==null?0:a)+(b==null?0:b)` convert. Took S&V → 100%.
-- [ ] **5c: TN-0028 long tail (4 exprs)** — `length()>25 ? substring(0, lastIndexOf(' ')) : …`
-  word-wrap truncation. Designated AI→SQL→oracle cases (ADR-0013), or approximate to FR cell
-  auto-wrap (ADR-0012). Not yet resolved.
+- [x] **5c: TN-0028 long tail (4 exprs)** — DONE. The `length()>25 ? substring(0,
+  lastIndexOf(' ', N)) : …` two-line word-wrap now translates fully: paren-aware
+  `substring`→`MID` (1-indexed) and `lastIndexOf`→a generated FineReport custom function
+  (Java `String.lastIndexOf`, 0-indexed). Semantics pinned by `graft.translate.java_string`
+  (4 golden tests) and cross-checked through the SQLite oracle (`spike/`). TN-0028 → **100%**
+  expression coverage; all three reports now at 100%.
 - [~] **5d: Content mappers** — IN PROGRESS.
   - [x] **Base64 images** — `_extract_image_source` parses Jasper `ByteArrayInputStream(Base64
     .decodeBase64(...))`; param refs → `="data:image/png;base64," + $LOGO`, inline literals →
