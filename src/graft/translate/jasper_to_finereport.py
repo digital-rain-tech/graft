@@ -437,6 +437,123 @@ def _emit_table(builder: _GridBuilder, table, heading: str | None) -> None:
     _ = detail_row  # detail row index reserved for future cross-references
 
 
+# Element kinds that carry renderable text/value content.
+_TEXTUAL_KINDS = (ElementKind.STATIC_TEXT, ElementKind.TEXT_FIELD)
+
+
+class _PlacedElement:
+    """A band element resolved to absolute page coordinates."""
+
+    __slots__ = ("element", "x", "y", "width", "height")
+
+    def __init__(self, element, abs_y: int) -> None:
+        self.element = element
+        self.x = element.x
+        self.y = abs_y
+        self.width = max(element.width, 1)
+        self.height = max(element.height, 1)
+
+
+def _band_height(band) -> int:
+    """Effective band height — fall back to element extents when unset."""
+    extent = max((e.y + e.height for e in band.elements), default=0)
+    return max(band.height, extent)
+
+
+def _bands_to_cells(page: Page) -> tuple[list[Cell], list[TranslationIssue]]:
+    """Snap pixel-positioned band elements onto a FineReport cell grid.
+
+    Column and row grid lines are inferred from the set of element edge
+    coordinates (left/right for columns, top/bottom for rows); each element is
+    then placed at the grid index of its top-left corner and spanned across the
+    grid lines its extent crosses. This reconstructs the visual layout without
+    needing FineReport absolute positioning.
+    """
+    issues: list[TranslationIssue] = []
+    placed: list[_PlacedElement] = []
+    offset = 0
+    for band in page.bands:
+        if band.band_type is BandType.BACKGROUND:
+            continue
+        for el in band.elements:
+            if el.kind in _TEXTUAL_KINDS:
+                if el.static_text is None and el.expression is None:
+                    continue
+                placed.append(_PlacedElement(el, offset + el.y))
+            elif el.kind is ElementKind.IMAGE:
+                issues.append(
+                    TranslationIssue(
+                        severity=Severity.INFO,
+                        message="Image element not embedded; supply as a base64 cell value.",
+                        source_element=el.expression or None,
+                        suggestion="FineReport accepts data:image/...;base64 values in a cell.",
+                    )
+                )
+        offset += _band_height(band)
+
+    if not placed:
+        return [], issues
+
+    x_edges = sorted({p.x for p in placed} | {p.x + p.width for p in placed})
+    y_edges = sorted({p.y for p in placed} | {p.y + p.height for p in placed})
+    x_index = {v: i for i, v in enumerate(x_edges)}
+    y_index = {v: i for i, v in enumerate(y_edges)}
+
+    cells: list[Cell] = []
+    for p in placed:
+        col = x_index[p.x]
+        row = y_index[p.y]
+        col_span = max(1, x_index[p.x + p.width] - col)
+        row_span = max(1, y_index[p.y + p.height] - row)
+        props = {"x": p.x, "y": p.y, "width": p.width, "height": p.height}
+        el = p.element
+
+        if el.kind is ElementKind.STATIC_TEXT:
+            cells.append(
+                Cell(
+                    row=row,
+                    col=col,
+                    row_span=row_span,
+                    col_span=col_span,
+                    value=el.static_text,
+                    value_kind="text",
+                    properties=props,
+                )
+            )
+            continue
+
+        # TEXT_FIELD: literal string -> text, otherwise a translated formula.
+        expr = el.expression or ""
+        literal = _QUOTED_LITERAL_RE.match(expr.strip())
+        if literal:
+            cells.append(
+                Cell(
+                    row=row,
+                    col=col,
+                    row_span=row_span,
+                    col_span=col_span,
+                    value=literal.group(1),
+                    value_kind="text",
+                    properties=props,
+                )
+            )
+        else:
+            cells.append(
+                Cell(
+                    row=row,
+                    col=col,
+                    row_span=row_span,
+                    col_span=col_span,
+                    expression=_translate_expression(expr, {}, issues),
+                    value_kind="formula",
+                    properties=props,
+                )
+            )
+
+    cells.sort(key=lambda c: (c.row, c.col))
+    return cells, issues
+
+
 def translate_to_finereport(report: Report) -> TranslationResult:
     """Translate a Jasper IR `Report` into a FineReport-shaped `TranslationResult`."""
     page = report.pages[0] if report.pages else Page(name=report.name)
@@ -453,8 +570,22 @@ def translate_to_finereport(report: Report) -> TranslationResult:
 
     issues = list(builder.issues)
 
+    cells = builder.cells
+    used_band_path = False
+    if not page.tables:
+        # Pixel/banded report: snap band elements onto a cell grid.
+        band_cells, band_issues = _bands_to_cells(page)
+        if band_cells:
+            cells = band_cells
+            issues.extend(band_issues)
+            used_band_path = True
+
+    has_content = bool(page.tables) or used_band_path
+
     # Surface structural omissions so fidelity is explicit.
-    if any(b.band_type in (BandType.TITLE, BandType.PAGE_HEADER) for b in page.bands):
+    if page.tables and any(
+        b.band_type in (BandType.TITLE, BandType.PAGE_HEADER) for b in page.bands
+    ):
         issues.append(
             TranslationIssue(
                 severity=Severity.INFO,
@@ -462,12 +593,12 @@ def translate_to_finereport(report: Report) -> TranslationResult:
                 suggestion="Recreate the cover sheet in FineReport's report header if needed.",
             )
         )
-    if not page.tables:
+    if not has_content:
         issues.append(
             TranslationIssue(
                 severity=Severity.WARNING,
-                message="No table components found; produced an empty grid.",
-                suggestion="This report may be banded/pixel-perfect — convert manually.",
+                message="No table components or band content found; produced an empty grid.",
+                suggestion="This report may be image-only — convert manually.",
             )
         )
 
@@ -478,7 +609,7 @@ def translate_to_finereport(report: Report) -> TranslationResult:
         name=report.name,
         platform=Platform.FINEREPORT,
         data_sources=data_sources,
-        pages=[Page(name=page.name or "sheet1", cells=builder.cells)],
+        pages=[Page(name=page.name or "sheet1", cells=cells)],
         report_parameters=params,
         parameter_widgets=widgets,
         metadata={"translated_from": report.platform.value},
@@ -486,7 +617,7 @@ def translate_to_finereport(report: Report) -> TranslationResult:
 
     warnings = sum(1 for i in issues if i.severity is Severity.WARNING)
     infos = sum(1 for i in issues if i.severity is Severity.INFO)
-    fidelity = max(0.3, round(1.0 - 0.1 * warnings - 0.05 * infos, 2)) if page.tables else 0.2
+    fidelity = max(0.3, round(1.0 - 0.1 * warnings - 0.05 * infos, 2)) if has_content else 0.2
 
     return TranslationResult(
         source_platform=report.platform,
