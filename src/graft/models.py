@@ -254,6 +254,26 @@ class TableComponent:
     columns: list[TableColumn] = field(default_factory=list)
 
 
+@dataclass(frozen=True)
+class CellStyle:
+    """Cell formatting (a FineReport ``<Style>``): font + horizontal alignment.
+
+    Frozen so identical styles deduplicate into a single StyleList entry. Font
+    size and borders/colors are intentionally omitted for now — their FineReport
+    encodings are not yet verified against a real export.
+    """
+
+    font_name: str | None = None
+    font_size: int | None = None
+    bold: bool = False
+    italic: bool = False
+    h_align: str | None = None  # "left" | "center" | "right" | "justified"
+
+    @property
+    def is_default(self) -> bool:
+        return self == CellStyle()
+
+
 @dataclass
 class Cell:
     """A single cell in a grid/spreadsheet-style report (FineReport .cpt).
@@ -277,6 +297,12 @@ class Cell:
     filters: list[Filter] = field(default_factory=list)
     style_id: str | None = None
     properties: dict[str, Any] = field(default_factory=dict)
+
+    @property
+    def style(self) -> CellStyle | None:
+        """The generated `CellStyle` carried in ``properties['style']``, if any."""
+        st = self.properties.get("style")
+        return st if isinstance(st, CellStyle) else None
 
     @property
     def a1(self) -> str:

@@ -331,9 +331,21 @@ equivalent to absent). Known still-dropped on round-trip: widget-level fonts/bor
 - [x] **5g: StyleList + sizing preservation** — DONE. Reader captures the workbook `<StyleList>`
   (metadata) and per-worksheet sizing (page properties); writer re-emits both. Verified by
   round-tripping the real sample. (TDD: 2 round-trip + 1 sizing test.)
-- [ ] **5h: Generate StyleList from Jasper styles** — emit fonts/borders/alignment (and
-  `imageLayout` for image cells) for the HA reports, using the now-proven emission path. The
-  definitive check remains opening the output in FineReport Designer.
+- [~] **5h: Generate StyleList from Jasper styles** — IN PROGRESS.
+  - [x] **Font + bold/italic + horizontal alignment** — `CellStyle` IR (frozen, dedupes); reader
+    extracts `<textElement>` alignment + `<font>` name/size/bold/italic; translator builds a
+    `CellStyle` per band cell; writer deduplicates into a `<StyleList>` and references it via
+    `s="N"`. RC-0055 → 20 styles/639 cells, TN-0028 → 21 styles/636 cells. (TDD: reader +
+    translator + 2 writer tests.)
+    - ⚠️ FineReport `horizontal_alignment` codes (`left=0, center=2, right=4`) are grounded only
+      by the sample (center=2 from its spanning title) — **verify in Designer**. Centralized in
+      `_FR_HALIGN`.
+  - [ ] **Font size** — omitted: the sample's sizes (62–134) are scaled by an unverified factor
+    (≈pt×7.8). Needs a Designer check before emitting.
+  - [ ] **Borders / background colors** — deferred: FR border-style and color int encodings are
+    not decodable from one sample.
+  - [ ] **Table-path styles (S&V-006A)** — only band-path cells are styled today; table columns
+    carry no captured style yet.
 - [ ] **5e: RC-0055 bursting** — map the 5 subdatasets (per-tenant statement bursting) to FR
   datasets/distribution. Not started.
 - [ ] **5f: ChineseConvertUtil install** — Java generated in `HA/finereport/functions/`;

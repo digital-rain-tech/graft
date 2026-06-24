@@ -22,6 +22,7 @@ from graft.models import (
     AggregationType,
     BandType,
     Cell,
+    CellStyle,
     DataSource,
     ElementKind,
     Page,
@@ -556,6 +557,19 @@ def _band_height(band) -> int:
     return max(band.height, extent)
 
 
+def _cell_style_from(el) -> CellStyle | None:
+    """Build a generated `CellStyle` from a Jasper element's style properties."""
+    p = el.properties or {}
+    style = CellStyle(
+        font_name=p.get("font_name"),
+        font_size=p.get("font_size"),
+        bold=p.get("bold", False),
+        italic=p.get("italic", False),
+        h_align=p.get("h_align"),
+    )
+    return None if style.is_default else style
+
+
 # Jasper image expressions wrap a Base64 payload in a ByteArrayInputStream.
 _IMAGE_PARAM_RE = re.compile(r"decodeBase64\(\s*\$P\{([^}]+)\}\.getBytes\(\)")
 _IMAGE_LITERAL_RE = re.compile(r'decodeBase64\(\s*"([^"]*)"\.getBytes\(\)')
@@ -624,6 +638,10 @@ def _bands_to_cells(page: Page) -> tuple[list[Cell], list[TranslationIssue], dic
         # Jasper markup="html" → FineReport HTML cell rendering.
         if (el.properties or {}).get("markup") == "html":
             props["html"] = True
+        # Generated cell style (font + alignment) → a FineReport <Style>.
+        style = _cell_style_from(el)
+        if style is not None:
+            props["style"] = style
 
         if el.kind is ElementKind.IMAGE:
             src = _extract_image_source(el.expression or "")

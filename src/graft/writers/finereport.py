@@ -138,13 +138,18 @@ def _write_column_obj(parent: etree._Element, cell: Cell) -> None:
     etree.SubElement(o, "Parameters")
 
 
-def _write_cell(cell_list: etree._Element, cell: Cell) -> None:
+def _write_cell(
+    cell_list: etree._Element, cell: Cell, style_index: dict | None = None
+) -> None:
     c = etree.SubElement(cell_list, "C", c=str(cell.col), r=str(cell.row))
     if cell.col_span != 1:
         c.set("cs", str(cell.col_span))
     if cell.row_span != 1:
         c.set("rs", str(cell.row_span))
-    if cell.style_id is not None:
+    # A generated style index takes precedence over a preserved style_id.
+    if style_index and cell.style is not None and cell.style in style_index:
+        c.set("s", str(style_index[cell.style]))
+    elif cell.style_id is not None:
         c.set("s", cell.style_id)
 
     if cell.value_kind == "image":
@@ -200,6 +205,42 @@ def _write_sizes(report_el: etree._Element, page) -> None:
         cw.text = etree.CDATA(",".join(str(int(px) * _EMU_PER_PX) for px in cols))
 
 
+# FineReport horizontal_alignment codes. Grounded by the sample (a spanning
+# title cell uses 2 → center); left/right and justify inferred — VERIFY in Designer.
+_FR_HALIGN = {"left": 0, "center": 2, "right": 4, "justified": 0}
+
+
+def _collect_cell_styles(report: Report) -> tuple[list, dict]:
+    """Deduplicate generated `CellStyle`s across all cells into an ordered list."""
+    order: list = []
+    index: dict = {}
+    for page in report.pages:
+        for cell in page.cells:
+            st = cell.style
+            if st is not None and not st.is_default and st not in index:
+                index[st] = len(order)
+                order.append(st)
+    return order, index
+
+
+def _write_generated_stylelist(workbook: etree._Element, styles: list) -> None:
+    """Emit a <StyleList> built from generated CellStyles (font + alignment)."""
+    style_list = etree.SubElement(workbook, "StyleList")
+    for st in styles:
+        attrib = {}
+        if st.h_align is not None:
+            attrib["horizontal_alignment"] = str(_FR_HALIGN.get(st.h_align, 0))
+        style_el = etree.SubElement(style_list, "Style", attrib=attrib)
+        # Java Font style bits: 0 plain, 1 bold, 2 italic, 3 bold+italic.
+        font_style = (1 if st.bold else 0) + (2 if st.italic else 0)
+        etree.SubElement(
+            style_el,
+            "FRFont",
+            name=st.font_name or "Times New Roman",
+            style=str(font_style),
+        )
+
+
 def _write_stylelist(workbook: etree._Element, report: Report) -> None:
     """Re-emit a preserved workbook-level <StyleList> (fonts/borders/backgrounds)."""
     xml = report.metadata.get("finereport_stylelist")
@@ -207,7 +248,7 @@ def _write_stylelist(workbook: etree._Element, report: Report) -> None:
         workbook.append(etree.fromstring(xml))
 
 
-def _write_worksheet(workbook: etree._Element, report: Report) -> None:
+def _write_worksheet(workbook: etree._Element, report: Report, style_index: dict) -> None:
     for page in report.pages:
         report_el = etree.SubElement(
             workbook, "Report", attrib={"class": _WORKSHEET_CLASS}, name=page.name
@@ -215,7 +256,7 @@ def _write_worksheet(workbook: etree._Element, report: Report) -> None:
         _write_sizes(report_el, page)
         cell_list = etree.SubElement(report_el, "CellElementList")
         for cell in page.cells:
-            _write_cell(cell_list, cell)
+            _write_cell(cell_list, cell, style_index)
         etree.SubElement(report_el, "PrivilegeControl")
 
 
@@ -281,10 +322,14 @@ class FineReportWriter(BaseWriter):
             out = out.with_suffix(".cpt")
 
         workbook = etree.Element("WorkBook", xmlVersion="20170720", releaseVersion="10.0.0")
+        styles, style_index = _collect_cell_styles(report)
         _write_datasources(workbook, report)
-        _write_worksheet(workbook, report)
+        _write_worksheet(workbook, report, style_index)
         _write_parameters(workbook, report)
-        _write_stylelist(workbook, report)
+        if styles:
+            _write_generated_stylelist(workbook, styles)
+        else:
+            _write_stylelist(workbook, report)
 
         tree = etree.ElementTree(workbook)
         out.parent.mkdir(parents=True, exist_ok=True)

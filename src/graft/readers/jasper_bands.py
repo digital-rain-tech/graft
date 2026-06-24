@@ -82,11 +82,24 @@ def _element_from(elem, kind: ElementKind) -> ReportElement:
     x, y, w, h = read_geometry(elem)
     re_el = find_local(elem, "reportElement")
     style = re_el.get("style") if re_el is not None else None
-    # JasperReports marks rich-text fields with markup="html" on <textElement>.
+    # Style hints live on <textElement> (alignment, markup) and its <font> child.
     text_el = find_local(elem, "textElement")
     properties: dict = {}
-    if text_el is not None and text_el.get("markup"):
-        properties["markup"] = text_el.get("markup")
+    if text_el is not None:
+        if text_el.get("markup"):
+            properties["markup"] = text_el.get("markup")
+        if text_el.get("textAlignment"):
+            properties["h_align"] = text_el.get("textAlignment").lower()
+        font = find_local(text_el, "font")
+        if font is not None:
+            if font.get("fontName"):
+                properties["font_name"] = font.get("fontName")
+            if font.get("size"):
+                properties["font_size"] = int(float(font.get("size")))
+            if font.get("isBold") == "true":
+                properties["bold"] = True
+            if font.get("isItalic") == "true":
+                properties["italic"] = True
     return ReportElement(
         kind=kind,
         x=x,

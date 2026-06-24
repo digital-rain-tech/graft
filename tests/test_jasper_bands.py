@@ -9,6 +9,21 @@ GROUPS = "tests/fixtures/jasper/groups.jrxml"
 MARKUP = "tests/fixtures/jasper/markup_html.jrxml"
 
 
+STYLED = "tests/fixtures/jasper/styled.jrxml"
+
+
+def test_font_and_alignment_captured_in_properties():
+    bands = parse_bands(parse_jrxml(STYLED))
+    title = next(b for b in bands if b.band_type is BandType.TITLE)
+    heading, amount = title.elements[0], title.elements[1]
+    assert heading.properties["h_align"] == "center"
+    assert heading.properties["font_name"] == "Times New Roman"
+    assert heading.properties["font_size"] == 14
+    assert heading.properties["bold"] is True
+    assert amount.properties["h_align"] == "right"
+    assert amount.properties.get("bold", False) is False
+
+
 def test_html_markup_captured_in_properties():
     bands = parse_bands(parse_jrxml(MARKUP))
     title = next(b for b in bands if b.band_type is BandType.TITLE)

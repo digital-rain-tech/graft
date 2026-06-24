@@ -197,6 +197,24 @@ def test_column_widths_and_row_heights_from_geometry():
     assert dims["row_heights"] == [20, 30]  # y edges 0,20,50
 
 
+def test_cell_style_built_from_element_properties():
+    from graft.models import CellStyle
+
+    el = _el(ElementKind.STATIC_TEXT, static_text="Heading")
+    el.properties = {"font_name": "Times New Roman", "bold": True, "h_align": "center"}
+    page = _page(Band(band_type=BandType.TITLE, height=30, elements=[el]))
+    cells = _bands_to_cells(page)[0]
+    style = cells[0].properties["style"]
+    assert style == CellStyle(font_name="Times New Roman", bold=True, h_align="center")
+
+
+def test_unstyled_element_has_no_style():
+    el = _el(ElementKind.STATIC_TEXT, static_text="plain")
+    page = _page(Band(band_type=BandType.TITLE, height=30, elements=[el]))
+    cells = _bands_to_cells(page)[0]
+    assert "style" not in cells[0].properties
+
+
 def test_html_markup_flagged_on_cell():
     el = _el(ElementKind.STATIC_TEXT, static_text="1<sup>st</sup>")
     el.properties = {"markup": "html"}

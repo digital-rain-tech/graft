@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from graft.models import AggregationType, Cell, FilterOperator, Page, Platform, Report
+from graft.models import AggregationType, Cell, CellStyle, FilterOperator, Page, Platform, Report
 from graft.readers.finereport import FineReportReader
 from graft.writers.finereport import FineReportWriter
 
@@ -44,6 +44,41 @@ def _count_tags(text: str, tag: str) -> int:
     import re
 
     return len(re.findall("<" + tag + r"[ />]", text))
+
+
+def test_generated_stylelist_dedupes_and_refs(tmp_path):
+    centered = CellStyle(font_name="Times New Roman", bold=True, h_align="center")
+    cells = [
+        Cell(row=0, col=0, value="Title", value_kind="text", properties={"style": centered}),
+        Cell(row=1, col=0, value="a", value_kind="text", properties={"style": centered}),
+        Cell(row=2, col=0, value="b", value_kind="text", properties={"style": CellStyle(h_align="right")}),
+        Cell(row=3, col=0, value="plain", value_kind="text"),
+    ]
+    report = Report(name="r", platform=Platform.FINEREPORT, pages=[Page(name="s", cells=cells)])
+    text = FineReportWriter().write(report, tmp_path / "st.cpt").read_text(encoding="utf-8")
+
+    assert "<StyleList>" in text
+    assert _count_tags(text, "Style") == 2  # the two centered cells share one style
+    assert 'name="Times New Roman"' in text
+    assert 'style="1"' in text  # bold
+    assert 'horizontal_alignment="2"' in text  # center
+    assert 'horizontal_alignment="4"' in text  # right
+
+
+def test_generated_style_cell_references(tmp_path):
+    centered = CellStyle(h_align="center")
+    cells = [
+        Cell(row=0, col=0, value="x", value_kind="text", properties={"style": centered}),
+        Cell(row=1, col=0, value="y", value_kind="text"),
+    ]
+    report = Report(name="r", platform=Platform.FINEREPORT, pages=[Page(name="s", cells=cells)])
+    reparsed = FineReportReader().read(
+        str(FineReportWriter().write(report, tmp_path / "st.cpt"))
+    )
+    styled = next(c for c in reparsed.pages[0].cells if c.a1 == "A1")
+    plain = next(c for c in reparsed.pages[0].cells if c.a1 == "A2")
+    assert styled.style_id == "0"
+    assert plain.style_id is None
 
 
 def _stylelist_block(text: str) -> str:
