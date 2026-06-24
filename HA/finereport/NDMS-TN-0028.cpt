@@ -706,7 +706,7 @@ the above Clause I (5) shall cease to have any effect on the termination of this
       </C>
       <C c="132" r="79" cs="16" rs="2">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=IF(OR(ISNULL(RATES_AMT), RATES_AMT == 0), "", ChineseConvertUtil.dateToChineseYear(DOC))]]></Attributes>
+          <Attributes><![CDATA[=IF(OR(ISNULL(RATES_AMT), RATES_AMT == 0), "", dateToChineseYear(DOC))]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>
@@ -718,7 +718,7 @@ the above Clause I (5) shall cease to have any effect on the termination of this
       </C>
       <C c="152" r="79" cs="6" rs="2">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=IF(OR(ISNULL(RATES_AMT), RATES_AMT == 0), "", ChineseConvertUtil.dateToChineseMonth(DOC))]]></Attributes>
+          <Attributes><![CDATA[=IF(OR(ISNULL(RATES_AMT), RATES_AMT == 0), "", dateToChineseMonth(DOC))]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>
@@ -740,7 +740,7 @@ the above Clause I (5) shall cease to have any effect on the termination of this
       </C>
       <C c="0" r="81" cs="13" rs="3">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=IF(OR(ISNULL(RATES_AMT), RATES_AMT == 0), "", ChineseConvertUtil.dateToChineseDay(DOC))]]></Attributes>
+          <Attributes><![CDATA[=IF(OR(ISNULL(RATES_AMT), RATES_AMT == 0), "", dateToChineseDay(DOC))]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>
@@ -752,14 +752,14 @@ the above Clause I (5) shall cease to have any effect on the termination of this
       </C>
       <C c="23" r="81" cs="22" rs="3">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=IF(OR(ISNULL(RATES_AMT), RATES_AMT == 0), "", ChineseConvertUtil.dateToChineseYear(fstEndDate))]]></Attributes>
+          <Attributes><![CDATA[=IF(OR(ISNULL(RATES_AMT), RATES_AMT == 0), "", dateToChineseYear(fstEndDate))]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>
       </C>
       <C c="34" r="81" cs="48" rs="3">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=ChineseConvertUtil.numberToChinese(IFA)]]></Attributes>
+          <Attributes><![CDATA[=numberToChinese(IFA)]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>
@@ -771,7 +771,7 @@ the above Clause I (5) shall cease to have any effect on the termination of this
       </C>
       <C c="51" r="81" cs="10" rs="3">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=IF(OR(ISNULL(RATES_AMT), RATES_AMT == 0), "", ChineseConvertUtil.dateToChineseMonth(fstEndDate))]]></Attributes>
+          <Attributes><![CDATA[=IF(OR(ISNULL(RATES_AMT), RATES_AMT == 0), "", dateToChineseMonth(fstEndDate))]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>
@@ -783,7 +783,7 @@ the above Clause I (5) shall cease to have any effect on the termination of this
       </C>
       <C c="67" r="81" cs="6" rs="3">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=IF(OR(ISNULL(RATES_AMT), RATES_AMT == 0), "", ChineseConvertUtil.dateToChineseDay(fstEndDate))]]></Attributes>
+          <Attributes><![CDATA[=IF(OR(ISNULL(RATES_AMT), RATES_AMT == 0), "", dateToChineseDay(fstEndDate))]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>
@@ -812,7 +812,7 @@ the above Clause I (5) shall cease to have any effect on the termination of this
       </C>
       <C c="115" r="81" cs="48" rs="3">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=ChineseConvertUtil.decimalToChinese(RATES_AMT)]]></Attributes>
+          <Attributes><![CDATA[=decimalToChinese(RATES_AMT)]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>
@@ -824,7 +824,7 @@ the above Clause I (5) shall cease to have any effect on the termination of this
       </C>
       <C c="36" r="83" cs="23" rs="2">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=ChineseConvertUtil.dateToChineseYear(CUR_DATE)]]></Attributes>
+          <Attributes><![CDATA[=dateToChineseYear(CUR_DATE)]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>
@@ -836,7 +836,7 @@ the above Clause I (5) shall cease to have any effect on the termination of this
       </C>
       <C c="63" r="83" cs="14" rs="2">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=ChineseConvertUtil.dateToChineseMonth(CUR_DATE)]]></Attributes>
+          <Attributes><![CDATA[=dateToChineseMonth(CUR_DATE)]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>
@@ -848,7 +848,7 @@ the above Clause I (5) shall cease to have any effect on the termination of this
       </C>
       <C c="83" r="83" cs="17" rs="2">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=ChineseConvertUtil.dateToChineseDay(CUR_DATE)]]></Attributes>
+          <Attributes><![CDATA[=dateToChineseDay(CUR_DATE)]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>
@@ -870,7 +870,7 @@ the above Clause I (5) shall cease to have any effect on the termination of this
       </C>
       <C c="5" r="84" cs="24" rs="2">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=ChineseConvertUtil.dateToChineseYear(DOC)]]></Attributes>
+          <Attributes><![CDATA[=dateToChineseYear(DOC)]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>
@@ -889,7 +889,7 @@ the above Clause I (5) shall cease to have any effect on the termination of this
       </C>
       <C c="35" r="84" cs="25" rs="2">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=ChineseConvertUtil.dateToChineseMonth(DOC)]]></Attributes>
+          <Attributes><![CDATA[=dateToChineseMonth(DOC)]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>
@@ -906,7 +906,7 @@ the above Clause I (5) shall cease to have any effect on the termination of this
       </C>
       <C c="64" r="84" cs="15" rs="2">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=ChineseConvertUtil.dateToChineseDay(DOC)]]></Attributes>
+          <Attributes><![CDATA[=dateToChineseDay(DOC)]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>
@@ -969,7 +969,7 @@ the above Clause I (5) shall cease to have any effect on the termination of this
       </C>
       <C c="124" r="86" cs="39" rs="2">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=ChineseConvertUtil.decimalToChinese(RENT_AMT)]]></Attributes>
+          <Attributes><![CDATA[=decimalToChinese(RENT_AMT)]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>
@@ -1003,7 +1003,7 @@ the above Clause I (5) shall cease to have any effect on the termination of this
       </C>
       <C c="75" r="88" cs="15" rs="2">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=ChineseConvertUtil.dateToChineseYear(DOC)]]></Attributes>
+          <Attributes><![CDATA[=dateToChineseYear(DOC)]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>
@@ -1015,7 +1015,7 @@ the above Clause I (5) shall cease to have any effect on the termination of this
       </C>
       <C c="94" r="88" cs="13" rs="2">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=ChineseConvertUtil.dateToChineseMonth(DOC)]]></Attributes>
+          <Attributes><![CDATA[=dateToChineseMonth(DOC)]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>
@@ -1027,7 +1027,7 @@ the above Clause I (5) shall cease to have any effect on the termination of this
       </C>
       <C c="112" r="88" cs="4" rs="2">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=ChineseConvertUtil.dateToChineseDay(DOC)]]></Attributes>
+          <Attributes><![CDATA[=dateToChineseDay(DOC)]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>
@@ -1039,7 +1039,7 @@ the above Clause I (5) shall cease to have any effect on the termination of this
       </C>
       <C c="124" r="88" cs="9" rs="2">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=ChineseConvertUtil.dateToChineseYear(fstEndDate)]]></Attributes>
+          <Attributes><![CDATA[=dateToChineseYear(fstEndDate)]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>
@@ -1051,7 +1051,7 @@ the above Clause I (5) shall cease to have any effect on the termination of this
       </C>
       <C c="139" r="88" cs="8" rs="2">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=ChineseConvertUtil.dateToChineseMonth(fstEndDate)]]></Attributes>
+          <Attributes><![CDATA[=dateToChineseMonth(fstEndDate)]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>
@@ -1063,7 +1063,7 @@ the above Clause I (5) shall cease to have any effect on the termination of this
       </C>
       <C c="151" r="88" cs="8" rs="2">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=ChineseConvertUtil.dateToChineseDay(fstEndDate)]]></Attributes>
+          <Attributes><![CDATA[=dateToChineseDay(fstEndDate)]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>
@@ -1097,7 +1097,7 @@ the above Clause I (5) shall cease to have any effect on the termination of this
       </C>
       <C c="72" r="90" cs="47" rs="2">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=ChineseConvertUtil.decimalToChinese(FIRST_RENT)]]></Attributes>
+          <Attributes><![CDATA[=decimalToChinese(FIRST_RENT)]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>
@@ -1565,7 +1565,7 @@ shop and when the common areas of the shopping centre are open to the public and
       </C>
       <C c="37" r="189" cs="54" rs="2">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=ChineseConvertUtil.decimalToChinese(AC_AMT)]]></Attributes>
+          <Attributes><![CDATA[=decimalToChinese(AC_AMT)]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>
@@ -2914,7 +2914,7 @@ any right under the Contracts (Rights of Third Parties) Ordinance to enforce any
       </C>
       <C c="85" r="519" cs="92" rs="2">
         <O t="XMLable" class="com.fr.base.Formula">
-          <Attributes><![CDATA[=ChineseConvertUtil.decimalToChinese(DEPOSIT_AMT)]]></Attributes>
+          <Attributes><![CDATA[=decimalToChinese(DEPOSIT_AMT)]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>

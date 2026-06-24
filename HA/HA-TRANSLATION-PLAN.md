@@ -247,7 +247,15 @@ For pixel-positioned reports (RC-0055, TN-0028) that aren't tabular:
   (`_logical_to_fr`). Untranslatable idioms (`lastIndexOf`) emit a `TranslationIssue` and
   pass through (Tier 3). Covered by `tests/test_translate_expression.py` (27 tests, TDD).
   Validated against real TN-0028 / RC-0055 Java expressions.
-- [ ] **Phase 2: ChineseConvertUtil** — NOT STARTED
+- [x] **Phase 2: ChineseConvertUtil** — DONE. `src/graft/translate/chinese_convert.py` is the
+  tested Python reference for the 5 methods (`dateToChineseYear/Month/Day`, `numberToChinese`
+  standard numerals, `decimalToChinese` financial 大寫 + 元/角/分), with expected outputs
+  pinned to the rendered NDMS-TN-0028 `.docx`. The translator strips the `ChineseConvertUtil.`
+  prefix so FR formulas call bare custom functions and emits an INFO issue listing the
+  functions to install. `src/graft/translate/finereport_functions.py` generates the matching
+  FineReport custom-function Java (`write_custom_functions`), shipped in
+  `HA/finereport/functions/` with an install README. Covered by `tests/test_chinese_convert.py`
+  (8 tests) and `tests/test_finereport_functions.py` (3 tests).
 - [x] **Phase 3: Band→FR mapping** — DONE. `_bands_to_cells` snaps pixel-positioned band
   elements onto a FineReport cell grid by inferring column/row grid lines from element edge
   coordinates (left/right → columns, top/bottom → rows) and spanning each element across the

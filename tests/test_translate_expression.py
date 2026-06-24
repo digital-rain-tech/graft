@@ -149,6 +149,18 @@ def test_last_index_of_flags_issue():
     assert "s" in out
 
 
+# --- ChineseConvertUtil -> FineReport custom functions -------------------
+
+
+def test_chinese_convert_prefix_stripped():
+    assert tr("ChineseConvertUtil.dateToChineseMonth($F{DOC})") == "=dateToChineseMonth(DOC)"
+
+
+def test_chinese_convert_inside_ternary():
+    expr = '$F{RATES_AMT} == null ? "" : ChineseConvertUtil.decimalToChinese($F{RATES_AMT})'
+    assert tr(expr) == '=IF(ISNULL(RATES_AMT), "", decimalToChinese(RATES_AMT))'
+
+
 # --- Existing behavior preserved -----------------------------------------
 
 

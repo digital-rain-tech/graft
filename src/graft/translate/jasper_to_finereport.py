@@ -33,6 +33,7 @@ from graft.models import (
     TranslationIssue,
     TranslationResult,
 )
+from graft.translate.finereport_functions import CUSTOM_FUNCTION_NAMES
 
 _QUOTED_LITERAL_RE = re.compile(r'^"([^"]*)"$')
 _JASPER_REF_RE = re.compile(r"\$[PFV]\{")
@@ -123,6 +124,10 @@ def _apply_java_patterns(s: str, issues: list[TranslationIssue] | None) -> str:
     s = re.sub(rf"({_REF})\.toUpperCase\(\)", r"UPPER(\1)", s)
     s = re.sub(rf"({_REF})\.toLowerCase\(\)", r"LOWER(\1)", s)
     s = re.sub(rf"({_REF})\.substring\(\s*([^,)]+)\s*,\s*([^,)]+)\s*\)", _substring_to_mid, s)
+
+    # ChineseConvertUtil.method(...) -> method(...): each becomes a FineReport
+    # custom function (see graft.translate.finereport_functions).
+    s = re.sub(r"ChineseConvertUtil\.([A-Za-z]\w*)\(", r"\1(", s)
 
     # Numeric coercions.
     s = re.sub(rf"({_REF})\.intValue\(\)", r"INT(\1)", s)
@@ -599,6 +604,26 @@ def translate_to_finereport(report: Report) -> TranslationResult:
                 severity=Severity.WARNING,
                 message="No table components or band content found; produced an empty grid.",
                 suggestion="This report may be image-only — convert manually.",
+            )
+        )
+
+    # Note any ChineseConvertUtil-derived custom functions that must be installed.
+    used_funcs = sorted(
+        {
+            fn
+            for c in cells
+            if c.expression
+            for fn in CUSTOM_FUNCTION_NAMES
+            if f"{fn}(" in c.expression
+        }
+    )
+    if used_funcs:
+        issues.append(
+            TranslationIssue(
+                severity=Severity.INFO,
+                message=f"Requires FineReport custom functions: {', '.join(used_funcs)}.",
+                suggestion="Generate them with graft.translate.finereport_functions."
+                "write_custom_functions() and install under WEB-INF/classes/.",
             )
         )
 
