@@ -65,6 +65,17 @@ def test_generated_stylelist_dedupes_and_refs(tmp_path):
     assert 'horizontal_alignment="4"' in text  # right
 
 
+def test_generated_style_emits_font_size_and_colors(tmp_path):
+    st = CellStyle(font_name="Arial", font_size=10, fg_color="#FFFFFF", bg_color="#FF0000")
+    cells = [Cell(row=0, col=0, value="x", value_kind="text", properties={"style": st})]
+    report = Report(name="r", platform=Platform.FINEREPORT, pages=[Page(name="s", cells=cells)])
+    text = FineReportWriter().write(report, tmp_path / "st.cpt").read_text(encoding="utf-8")
+    assert 'size="78"' in text  # 10pt -> 10*8-2 (derived from the sample)
+    assert 'foreground="-1"' in text  # white = Java Color.getRGB()
+    assert 'color="-65536"' in text  # red background
+    assert "<Background" in text
+
+
 def test_generated_style_cell_references(tmp_path):
     centered = CellStyle(h_align="center")
     cells = [

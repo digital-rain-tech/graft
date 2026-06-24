@@ -566,6 +566,8 @@ def _cell_style_from(el) -> CellStyle | None:
         bold=p.get("bold", False),
         italic=p.get("italic", False),
         h_align=p.get("h_align"),
+        fg_color=p.get("fg_color"),
+        bg_color=p.get("bg_color"),
     )
     return None if style.is_default else style
 

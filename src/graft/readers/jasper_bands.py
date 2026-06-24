@@ -82,9 +82,15 @@ def _element_from(elem, kind: ElementKind) -> ReportElement:
     x, y, w, h = read_geometry(elem)
     re_el = find_local(elem, "reportElement")
     style = re_el.get("style") if re_el is not None else None
+    properties: dict = {}
+    # Colours live on <reportElement>; backcolor only paints when mode="Opaque".
+    if re_el is not None:
+        if re_el.get("forecolor"):
+            properties["fg_color"] = re_el.get("forecolor")
+        if re_el.get("backcolor") and re_el.get("mode") == "Opaque":
+            properties["bg_color"] = re_el.get("backcolor")
     # Style hints live on <textElement> (alignment, markup) and its <font> child.
     text_el = find_local(elem, "textElement")
-    properties: dict = {}
     if text_el is not None:
         if text_el.get("markup"):
             properties["markup"] = text_el.get("markup")

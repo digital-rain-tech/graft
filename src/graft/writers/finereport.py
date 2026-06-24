@@ -210,6 +210,18 @@ def _write_sizes(report_el: etree._Element, page) -> None:
 _FR_HALIGN = {"left": 0, "center": 2, "right": 4, "justified": 0}
 
 
+def _fr_font_size(pt: int) -> int:
+    """Point size -> FineReport FRFont size. Fits the sample exactly: 8pt->62 … 17pt->134."""
+    return int(pt) * 8 - 2
+
+
+def _java_color(hex_color: str) -> int:
+    """``#RRGGBB`` -> Java ``Color.getRGB()`` signed int (white -> -1, as in the sample)."""
+    h = hex_color.lstrip("#")
+    argb = 0xFF000000 | int(h, 16)
+    return argb - 0x100000000 if argb >= 0x80000000 else argb
+
+
 def _collect_cell_styles(report: Report) -> tuple[list, dict]:
     """Deduplicate generated `CellStyle`s across all cells into an ordered list."""
     order: list = []
@@ -233,12 +245,19 @@ def _write_generated_stylelist(workbook: etree._Element, styles: list) -> None:
         style_el = etree.SubElement(style_list, "Style", attrib=attrib)
         # Java Font style bits: 0 plain, 1 bold, 2 italic, 3 bold+italic.
         font_style = (1 if st.bold else 0) + (2 if st.italic else 0)
-        etree.SubElement(
-            style_el,
-            "FRFont",
-            name=st.font_name or "Times New Roman",
-            style=str(font_style),
-        )
+        font_attrib = {"name": st.font_name or "Times New Roman", "style": str(font_style)}
+        if st.font_size:
+            font_attrib["size"] = str(_fr_font_size(st.font_size))
+        if st.fg_color:
+            font_attrib["foreground"] = str(_java_color(st.fg_color))
+        etree.SubElement(style_el, "FRFont", **font_attrib)
+        if st.bg_color:
+            etree.SubElement(
+                style_el,
+                "Background",
+                name="ColorBackground",
+                color=str(_java_color(st.bg_color)),
+            )
 
 
 def _write_stylelist(workbook: etree._Element, report: Report) -> None:

@@ -20,8 +20,11 @@ def test_font_and_alignment_captured_in_properties():
     assert heading.properties["font_name"] == "Times New Roman"
     assert heading.properties["font_size"] == 14
     assert heading.properties["bold"] is True
+    assert heading.properties["fg_color"] == "#0000FF"
+    assert heading.properties["bg_color"] == "#FFFF00"  # mode=Opaque
     assert amount.properties["h_align"] == "right"
     assert amount.properties.get("bold", False) is False
+    assert "bg_color" not in amount.properties  # transparent → no background
 
 
 def test_html_markup_captured_in_properties():

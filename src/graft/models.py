@@ -264,10 +264,12 @@ class CellStyle:
     """
 
     font_name: str | None = None
-    font_size: int | None = None
+    font_size: int | None = None  # point size
     bold: bool = False
     italic: bool = False
     h_align: str | None = None  # "left" | "center" | "right" | "justified"
+    fg_color: str | None = None  # "#RRGGBB" foreground/font colour
+    bg_color: str | None = None  # "#RRGGBB" cell background
 
     @property
     def is_default(self) -> bool:

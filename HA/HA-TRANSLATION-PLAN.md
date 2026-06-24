@@ -340,12 +340,16 @@ equivalent to absent). Known still-dropped on round-trip: widget-level fonts/bor
     - ⚠️ FineReport `horizontal_alignment` codes (`left=0, center=2, right=4`) are grounded only
       by the sample (center=2 from its spanning title) — **verify in Designer**. Centralized in
       `_FR_HALIGN`.
-  - [ ] **Font size** — omitted: the sample's sizes (62–134) are scaled by an unverified factor
-    (≈pt×7.8). Needs a Designer check before emitting.
-  - [ ] **Borders / background colors** — deferred: FR border-style and color int encodings are
-    not decodable from one sample.
-  - [ ] **Table-path styles (S&V-006A)** — only band-path cells are styled today; table columns
-    carry no captured style yet.
+  - [x] **Font size** — DONE. The sample's sizes fit `fr = pt×8 − 2` exactly (8pt→62 … 17pt→134);
+    emitted via `_fr_font_size`. (Still worth a Designer confirmation, but it's a fitted formula,
+    not a guess.)
+  - [x] **Colours (foreground + background)** — DONE. Jasper `forecolor`/`backcolor` (backcolor
+    only when `mode="Opaque"`) → FineReport via Java `Color.getRGB()` signed int (`_java_color`;
+    white→-1 matches the sample). RC-0055 emits backgrounds, TN-0028 emits font colours.
+  - [ ] **Borders** — deferred: FR border line-style codes aren't decodable from one sample
+    (colors would be derivable via `_java_color`, but the style code isn't).
+  - [ ] **Table-path styles (S&V-006A)** — only band-path cells are styled today; the jr:table
+    reader doesn't capture per-column style yet.
 - [ ] **5e: RC-0055 bursting** — map the 5 subdatasets (per-tenant statement bursting) to FR
   datasets/distribution. Not started.
 - [ ] **5f: ChineseConvertUtil install** — Java generated in `HA/finereport/functions/`;

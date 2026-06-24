@@ -188,7 +188,7 @@
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="30" cs="30" s="9">
+      <C c="0" r="30" cs="30" s="12">
         <O><![CDATA[The payment slip will be kept by the customer 店員請將整份帳單交回顧客]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -229,7 +229,7 @@
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="20" r="34" cs="9" rs="4" s="12">
+      <C c="20" r="34" cs="9" rs="4" s="13">
         <O><![CDATA[「 轉數快」二維碼 FPS QR Code]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -263,24 +263,24 @@
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="39" cs="6" s="13">
+      <C c="0" r="39" cs="6" s="14">
         <O><![CDATA[Due Date 到期繳款日 (日/月/年)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="6" r="39" cs="13" s="14">
+      <C c="6" r="39" cs="13" s="15">
         <O><![CDATA[Amount Due 應繳數額]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="40" cs="6" s="15">
+      <C c="0" r="40" cs="6" s="16">
         <O t="XMLable" class="com.fr.base.Formula">
           <Attributes><![CDATA[=MTH_STMT_DUE_DATE_DIS]]></Attributes>
         </O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="6" r="40" cs="13" s="16">
+      <C c="6" r="40" cs="13" s="17">
         <O t="XMLable" class="com.fr.base.Formula">
           <Attributes><![CDATA[="$" + FORMAT(MTH_STMT_DUE_AMT, "#,##0.00")]]></Attributes>
         </O>
@@ -297,32 +297,32 @@
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="44" cs="13" rs="5" s="17">
+      <C c="0" r="44" cs="13" rs="5" s="18">
         <O><![CDATA[Payment Methods ]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="44" cs="13" rs="5" s="17">
+      <C c="0" r="44" cs="13" rs="5" s="18">
         <O><![CDATA[Autopay]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="44" cs="13" rs="7" s="17">
+      <C c="0" r="44" cs="13" rs="7" s="18">
         <O><![CDATA[7-Eleven/Circle K/VanGO Convenience Stores/ U select]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="44" cs="13" rs="5" s="17">
+      <C c="0" r="44" cs="13" rs="5" s="18">
         <O><![CDATA[Estate Shroff Office]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="44" cs="13" rs="5" s="17">
+      <C c="0" r="44" cs="13" rs="5" s="18">
         <O><![CDATA[PPS]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="44" cs="13" rs="5" s="17">
+      <C c="0" r="44" cs="13" rs="5" s="18">
         <O><![CDATA[Internet / Phone Banking Service]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -372,32 +372,32 @@
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="45" cs="13" rs="5" s="17">
+      <C c="0" r="45" cs="13" rs="5" s="18">
         <O><![CDATA[Automatic Teller Machine (ATM)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="45" cs="13" rs="5" s="17">
+      <C c="0" r="45" cs="13" rs="5" s="18">
         <O><![CDATA[Rejected Payment by Returned Cheques/Delinquent Autopay]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="45" cs="13" rs="5" s="17">
+      <C c="0" r="45" cs="13" rs="5" s="18">
         <O><![CDATA[Remarks:]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="45" cs="7" rs="5" s="17">
+      <C c="0" r="45" cs="7" rs="5" s="18">
         <O><![CDATA[Change of Correspondence Address]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="46" cs="13" rs="5" s="17">
+      <C c="0" r="46" cs="13" rs="5" s="18">
         <O><![CDATA[Faster Payment System (FPS)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="47" cs="13" rs="30" s="18">
+      <C c="0" r="47" cs="13" rs="30" s="19">
         <O><![CDATA[Autopay authorization forms are obtainable from the estate offices.
 Tenants are required to bring along the completed autopay authorization
 form together with their bank passbook or statement to the estate office
@@ -407,7 +407,7 @@ passbook or monthly statement.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="47" cs="13" rs="35" s="18">
+      <C c="0" r="47" cs="13" rs="35" s="19">
         <O><![CDATA[Internet banking or phone banking account holders can pay rent through
 the internet and any tone phone. You should follow the instructions of the
 respective systems. Remember to choose “Hong Kong Housing
@@ -418,12 +418,12 @@ pay attention to the cut-off time of Respective Bank.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="48" cs="2" rs="5" s="18">
+      <C c="0" r="48" cs="2" rs="5" s="19">
         <O><![CDATA[1)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="48" cs="10" rs="15" s="18">
+      <C c="0" r="48" cs="10" rs="15" s="19">
         <O><![CDATA[Use any mobile banking apps that supports Hong Kong Housing Authority QR code bill payment to scan the FPS QR code printed on this monthly statement to make payment.]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -434,33 +434,33 @@ pay attention to the cut-off time of Respective Bank.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="49" cs="13" rs="9" s="18">
+      <C c="0" r="49" cs="13" rs="9" s="19">
         <O><![CDATA[You can pay in <b><u>cash or by crossed cheque </u></b>at any estate shroff offices<br>during the rent collection service hours.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="49" cs="2" rs="5" s="18">
+      <C c="0" r="49" cs="2" rs="5" s="19">
         <O><![CDATA[1)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="49" cs="2" rs="5" s="18">
+      <C c="0" r="49" cs="2" rs="5" s="19">
         <O><![CDATA[1)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="49" cs="13" rs="10" s="18">
+      <C c="0" r="49" cs="13" rs="10" s="19">
         <O><![CDATA[Interest may be levied when a cheque payment or a direct debit payment
 is returned unpaid.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="49" cs="2" rs="5" s="18">
+      <C c="0" r="49" cs="2" rs="5" s="19">
         <O><![CDATA[1)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="49" cs="13" rs="10" s="18">
+      <C c="0" r="49" cs="13" rs="10" s="19">
         <O><![CDATA[Please notify staff of the estate office or property management
 companies for any change of your correspondence address.]]></O>
         <PrivilegeControl/>
@@ -526,13 +526,13 @@ companies for any change of your correspondence address.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="49" cs="11" rs="10" s="18">
+      <C c="2" r="49" cs="11" rs="10" s="19">
         <O><![CDATA[By phone : Please call 18031, then enter Merchant Code 62, and
 follow the instructions for payment.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="49" cs="11" rs="21" s="18">
+      <C c="2" r="49" cs="11" rs="21" s="19">
         <O><![CDATA[Simply use any ATM cards or credit cards with the ATM function
 issued by HSBC or Hang Seng Bank Ltd (HSB) to make your
 payment at any ATM of HSBC / HSB. Please retain the customer
@@ -540,7 +540,7 @@ advice for checking.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="49" cs="11" rs="10" s="18">
+      <C c="2" r="49" cs="11" rs="10" s="19">
         <O><![CDATA[Rent/licence fee and other charges shall be payable in advance on
 the first day of every calendar month.]]></O>
         <PrivilegeControl/>
@@ -551,7 +551,7 @@ the first day of every calendar month.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="50" cs="11" rs="3" s="18">
+      <C c="2" r="50" cs="11" rs="3" s="19">
         <O><![CDATA[<P>Please pay in <b><u>cash</u></b> at any 7-Eleven.</P>]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -561,7 +561,7 @@ the first day of every calendar month.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="52" cs="2" rs="8" s="18">
+      <C c="0" r="52" cs="2" rs="8" s="19">
         <O><![CDATA[2)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -574,7 +574,7 @@ the first day of every calendar month.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="53" cs="11" rs="8" s="18">
+      <C c="2" r="53" cs="11" rs="8" s="19">
         <O><![CDATA[<P>Please pay in <b><u>cash</u></b> or <b><u>EPS</u></b> at any Circle K, VanGO<br>Convenience Stores or U select.</P>]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -589,12 +589,12 @@ the first day of every calendar month.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="58" cs="13" rs="8" s="17">
+      <C c="0" r="58" cs="13" rs="8" s="18">
         <O><![CDATA[Notes]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="58" cs="2" rs="10" s="18">
+      <C c="0" r="58" cs="2" rs="10" s="19">
         <O><![CDATA[2)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -604,14 +604,14 @@ the first day of every calendar month.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="58" cs="11" rs="20" s="18">
+      <C c="2" r="58" cs="11" rs="20" s="19">
         <O><![CDATA[No matter whether Landlord demanded formally or not, to avoid
 any levy of interest as stipulated in the Tenancy Agreement/
 Licence, please pay within 14 days of the due date.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="59" cs="2" rs="10" s="18">
+      <C c="0" r="59" cs="2" rs="10" s="19">
         <O><![CDATA[2)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -637,17 +637,17 @@ Licence, please pay within 14 days of the due date.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="59" cs="11" rs="10" s="18">
+      <C c="2" r="59" cs="11" rs="10" s="19">
         <O><![CDATA[Through PPS by Internet at web site : <u>www.ppshk.com</u>]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="64" cs="2" rs="7" s="18">
+      <C c="0" r="64" cs="2" rs="7" s="19">
         <O><![CDATA[3)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="64" cs="11" rs="28" s="18">
+      <C c="2" r="64" cs="11" rs="28" s="19">
         <O><![CDATA[The payment cut-off time is 5 p.m. everyday. Payments made
 after 5 p.m. will be recorded as payment made on the next
 business day. Their hotlines are as follows:
@@ -663,7 +663,7 @@ U select : 2586 3686.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="66" cs="13" rs="5" s="17">
+      <C c="0" r="66" cs="13" rs="5" s="18">
         <O><![CDATA[7-Eleven(Accept Cash Only)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -683,7 +683,7 @@ U購select : 2586 3686。]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="67" cs="2" rs="6" s="18">
+      <C c="0" r="67" cs="2" rs="6" s="19">
         <O><![CDATA[3)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -699,14 +699,14 @@ U購select : 2586 3686。]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="67" cs="11" rs="17" s="18">
+      <C c="2" r="67" cs="11" rs="17" s="19">
         <O><![CDATA[The payment cut-off time is 7 p.m. (Monday to Friday). Payments
 made after 7 p.m. will be recorded as payment made on the next
 business day.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="70" cs="2" rs="6" s="18">
+      <C c="0" r="70" cs="2" rs="6" s="19">
         <O><![CDATA[2)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -722,14 +722,14 @@ business day.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="70" cs="11" rs="19" s="18">
+      <C c="2" r="70" cs="11" rs="19" s="19">
         <O><![CDATA[The payment cut-off time is 7:30 p.m. (Monday to Friday).
 Payments made after 7:30 p.m. will be recorded as payment made
 on the next business day.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="71" cs="13" rs="11" s="17">
+      <C c="0" r="71" cs="13" rs="11" s="18">
         <O><![CDATA[Circle K/VanGO Convenience Stores/ U select (Accept Cash or EPS Only)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -739,12 +739,12 @@ on the next business day.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="75" cs="2" rs="8" s="18">
+      <C c="0" r="75" cs="2" rs="8" s="19">
         <O><![CDATA[3)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="75" cs="11" rs="12" s="18">
+      <C c="2" r="75" cs="11" rs="12" s="19">
         <O><![CDATA[Payment should not be made to any persons other than the stated
 payment methods in this monthly statement.]]></O>
         <PrivilegeControl/>
@@ -772,17 +772,17 @@ payment methods in this monthly statement.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="81" cs="2" rs="6" s="19">
+      <C c="0" r="81" cs="2" rs="6" s="20">
         <O><![CDATA[●]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="81" cs="2" rs="7" s="18">
+      <C c="0" r="81" cs="2" rs="7" s="19">
         <O><![CDATA[4)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="81" cs="11" rs="15" s="18">
+      <C c="2" r="81" cs="11" rs="15" s="19">
         <O><![CDATA[Simply present the monthly statement when making payment.
 Please check carefully and ensure details printed on the receipt
 are correct. Retain the receipt or make a photocopy of it, if
@@ -791,7 +791,7 @@ checking.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="81" cs="11" rs="7" s="18">
+      <C c="2" r="81" cs="11" rs="7" s="19">
         <O><![CDATA[The number of daily payment per tenant code is up to 3.]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -806,12 +806,12 @@ checking.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="86" cs="2" rs="4" s="18">
+      <C c="0" r="86" cs="2" rs="4" s="19">
         <O><![CDATA[4)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="86" cs="11" rs="14" s="18">
+      <C c="2" r="86" cs="11" rs="14" s="19">
         <O><![CDATA[If you have paid the rent due for payment shown in the monthly
 statement or you have any enquiries on the monthly statement,
 please contact our estate office or property management
@@ -834,7 +834,7 @@ companies.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="97" cs="13" rs="5" s="17">
+      <C c="0" r="97" cs="13" rs="5" s="18">
         <O><![CDATA[Estate Shroff Office (Accept Cash or Crossed Cheque)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -849,12 +849,12 @@ companies.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="101" cs="2" rs="5" s="19">
+      <C c="0" r="101" cs="2" rs="5" s="20">
         <O><![CDATA[●]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="101" cs="11" rs="4" s="18">
+      <C c="2" r="101" cs="11" rs="4" s="19">
         <O><![CDATA[Post-dated cheques / cash cheques will not be accepted.]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -870,14 +870,14 @@ companies.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="106" cs="11" rs="5" s="18">
+      <C c="2" r="106" cs="11" rs="5" s="19">
         <O><![CDATA[Please make a crossed cheque payable to ‘Hong Kong Housing
 Authority’, and write down your Electronic Payment Tenant Code
 on the back of your cheque.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="107" cs="2" rs="2" s="19">
+      <C c="0" r="107" cs="2" rs="2" s="20">
         <O><![CDATA[●]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -1031,62 +1031,62 @@ on the back of your cheque.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="128" cs="13" rs="5" s="17">
+      <C c="0" r="128" cs="13" rs="5" s="18">
         <O><![CDATA[Payment Methods ]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="128" cs="13" rs="5" s="17">
+      <C c="0" r="128" cs="13" rs="5" s="18">
         <O><![CDATA[Autopay]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="128" cs="13" rs="7" s="17">
+      <C c="0" r="128" cs="13" rs="7" s="18">
         <O><![CDATA[7-Eleven/Circle K/VanGO Convenience Stores/ U select]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="128" cs="13" rs="5" s="17">
+      <C c="0" r="128" cs="13" rs="5" s="18">
         <O><![CDATA[Estate Shroff Office]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="128" cs="13" rs="5" s="17">
+      <C c="0" r="128" cs="13" rs="5" s="18">
         <O><![CDATA[PPS]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="128" cs="13" rs="5" s="17">
+      <C c="0" r="128" cs="13" rs="5" s="18">
         <O><![CDATA[Internet / Phone Banking Service]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="129" cs="13" rs="5" s="17">
+      <C c="0" r="129" cs="13" rs="5" s="18">
         <O><![CDATA[Automatic Teller Machine (ATM)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="129" cs="13" rs="5" s="17">
+      <C c="0" r="129" cs="13" rs="5" s="18">
         <O><![CDATA[Rejected Payment by Returned Cheques/Delinquent Autopay]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="129" cs="13" rs="5" s="17">
+      <C c="0" r="129" cs="13" rs="5" s="18">
         <O><![CDATA[Remarks:]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="129" cs="7" rs="5" s="17">
+      <C c="0" r="129" cs="7" rs="5" s="18">
         <O><![CDATA[Change of Correspondence Address]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="130" cs="13" rs="5" s="17">
+      <C c="0" r="130" cs="13" rs="5" s="18">
         <O><![CDATA[Faster Payment System (FPS)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="131" cs="13" rs="29" s="18">
+      <C c="0" r="131" cs="13" rs="29" s="19">
         <O><![CDATA[Autopay authorization forms are obtainable from the estate offices.
 Tenants are required to bring along the completed autopay authorization
 form together with their bank passbook or statement to the estate office
@@ -1096,7 +1096,7 @@ passbook or monthly statement.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="131" cs="13" rs="35" s="18">
+      <C c="0" r="131" cs="13" rs="35" s="19">
         <O><![CDATA[Internet banking or phone banking account holders can pay rent through
 the internet and any tone phone. You should follow the instructions of the
 respective systems. Remember to choose “Hong Kong Housing
@@ -1113,12 +1113,12 @@ pay attention to the cut-off time of Respective Bank.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="132" cs="2" rs="5" s="18">
+      <C c="0" r="132" cs="2" rs="5" s="19">
         <O><![CDATA[1)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="132" cs="10" rs="14" s="18">
+      <C c="0" r="132" cs="10" rs="14" s="19">
         <O><![CDATA[Use any mobile banking apps that supports Hong Kong Housing Authority QR code bill payment to scan the FPS QR code printed on this monthly statement to make payment.]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -1166,33 +1166,33 @@ pay attention to the cut-off time of Respective Bank.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="133" cs="13" rs="8" s="18">
+      <C c="0" r="133" cs="13" rs="8" s="19">
         <O><![CDATA[You can pay in <b><u>cash or by crossed cheque </u></b>at any estate shroff offices<br>during the rent collection service hours.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="133" cs="2" rs="5" s="18">
+      <C c="0" r="133" cs="2" rs="5" s="19">
         <O><![CDATA[1)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="133" cs="2" rs="5" s="18">
+      <C c="0" r="133" cs="2" rs="5" s="19">
         <O><![CDATA[1)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="133" cs="13" rs="9" s="18">
+      <C c="0" r="133" cs="13" rs="9" s="19">
         <O><![CDATA[Interest may be levied when a cheque payment or a direct debit payment
 is returned unpaid.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="133" cs="2" rs="5" s="18">
+      <C c="0" r="133" cs="2" rs="5" s="19">
         <O><![CDATA[1)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="133" cs="13" rs="9" s="18">
+      <C c="0" r="133" cs="13" rs="9" s="19">
         <O><![CDATA[Please notify staff of the estate office or property management
 companies for any change of your correspondence address.]]></O>
         <PrivilegeControl/>
@@ -1215,13 +1215,13 @@ companies for any change of your correspondence address.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="133" cs="11" rs="9" s="18">
+      <C c="2" r="133" cs="11" rs="9" s="19">
         <O><![CDATA[By phone : Please call 18031, then enter Merchant Code 62, and
 follow the instructions for payment.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="133" cs="11" rs="19" s="18">
+      <C c="2" r="133" cs="11" rs="19" s="19">
         <O><![CDATA[Simply use any ATM cards or credit cards with the ATM function
 issued by HSBC or Hang Seng Bank Ltd (HSB) to make your
 payment at any ATM of HSBC / HSB. Please retain the customer
@@ -1229,7 +1229,7 @@ advice for checking.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="133" cs="11" rs="9" s="18">
+      <C c="2" r="133" cs="11" rs="9" s="19">
         <O><![CDATA[Rent/licence fee and other charges shall be payable in advance on
 the first day of every calendar month.]]></O>
         <PrivilegeControl/>
@@ -1245,7 +1245,7 @@ the first day of every calendar month.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="134" cs="11" rs="3" s="18">
+      <C c="2" r="134" cs="11" rs="3" s="19">
         <O><![CDATA[<P>Please pay in <b><u>cash</u></b> at any 7-Eleven.</P>]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -1258,12 +1258,12 @@ the first day of every calendar month.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="136" cs="2" rs="7" s="18">
+      <C c="0" r="136" cs="2" rs="7" s="19">
         <O><![CDATA[2)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="137" cs="11" rs="7" s="18">
+      <C c="2" r="137" cs="11" rs="7" s="19">
         <O><![CDATA[<P>Please pay in <b><u>cash</u></b> or <b><u>EPS</u></b> at any Circle K, VanGO<br>Convenience Stores or U select.</P>]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -1283,17 +1283,17 @@ the first day of every calendar month.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="141" cs="13" rs="7" s="17">
+      <C c="0" r="141" cs="13" rs="7" s="18">
         <O><![CDATA[Notes]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="141" cs="2" rs="9" s="18">
+      <C c="0" r="141" cs="2" rs="9" s="19">
         <O><![CDATA[2)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="141" cs="11" rs="20" s="18">
+      <C c="2" r="141" cs="11" rs="20" s="19">
         <O><![CDATA[No matter whether Landlord demanded formally or not, to avoid
 any levy of interest as stipulated in the Tenancy Agreement/
 Licence, please pay within 14 days of the due date.]]></O>
@@ -1310,7 +1310,7 @@ Licence, please pay within 14 days of the due date.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="142" cs="2" rs="9" s="18">
+      <C c="0" r="142" cs="2" rs="9" s="19">
         <O><![CDATA[2)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -1326,17 +1326,17 @@ Licence, please pay within 14 days of the due date.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="142" cs="11" rs="9" s="18">
+      <C c="2" r="142" cs="11" rs="9" s="19">
         <O><![CDATA[Through PPS by Internet at web site : <u>www.ppshk.com</u>]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="147" cs="2" rs="6" s="18">
+      <C c="0" r="147" cs="2" rs="6" s="19">
         <O><![CDATA[3)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="147" cs="11" rs="30" s="18">
+      <C c="2" r="147" cs="11" rs="30" s="19">
         <O><![CDATA[The payment cut-off time is 5 p.m. everyday. Payments made
 after 5 p.m. will be recorded as payment made on the next
 business day. Their hotlines are as follows:
@@ -1357,7 +1357,7 @@ U select : 2586 3686.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="148" cs="13" rs="5" s="17">
+      <C c="0" r="148" cs="13" rs="5" s="18">
         <O><![CDATA[7-Eleven(Accept Cash Only)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -1377,7 +1377,7 @@ U購select : 2586 3686。]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="149" cs="2" rs="7" s="18">
+      <C c="0" r="149" cs="2" rs="7" s="19">
         <O><![CDATA[3)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -1388,7 +1388,7 @@ U購select : 2586 3686。]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="149" cs="11" rs="18" s="18">
+      <C c="2" r="149" cs="11" rs="18" s="19">
         <O><![CDATA[The payment cut-off time is 7 p.m. (Monday to Friday). Payments
 made after 7 p.m. will be recorded as payment made on the next
 business day.]]></O>
@@ -1400,7 +1400,7 @@ business day.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="152" cs="2" rs="7" s="18">
+      <C c="0" r="152" cs="2" rs="7" s="19">
         <O><![CDATA[2)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -1411,14 +1411,14 @@ business day.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="152" cs="11" rs="21" s="18">
+      <C c="2" r="152" cs="11" rs="21" s="19">
         <O><![CDATA[The payment cut-off time is 7:30 p.m. (Monday to Friday).
 Payments made after 7:30 p.m. will be recorded as payment made
 on the next business day.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="153" cs="13" rs="13" s="17">
+      <C c="0" r="153" cs="13" rs="13" s="18">
         <O><![CDATA[Circle K/VanGO Convenience Stores/ U select (Accept Cash or EPS Only)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -1428,12 +1428,12 @@ on the next business day.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="158" cs="2" rs="9" s="18">
+      <C c="0" r="158" cs="2" rs="9" s="19">
         <O><![CDATA[3)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="158" cs="11" rs="13" s="18">
+      <C c="2" r="158" cs="11" rs="13" s="19">
         <O><![CDATA[Payment should not be made to any persons other than the stated
 payment methods in this monthly statement.]]></O>
         <PrivilegeControl/>
@@ -1461,12 +1461,12 @@ payment methods in this monthly statement.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="164" cs="2" rs="6" s="19">
+      <C c="0" r="164" cs="2" rs="6" s="20">
         <O><![CDATA[●]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="164" cs="11" rs="16" s="18">
+      <C c="2" r="164" cs="11" rs="16" s="19">
         <O><![CDATA[Simply present the monthly statement when making payment.
 Please check carefully and ensure details printed on the receipt
 are correct. Retain the receipt or make a photocopy of it, if
@@ -1475,12 +1475,12 @@ checking.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="165" cs="2" rs="7" s="18">
+      <C c="0" r="165" cs="2" rs="7" s="19">
         <O><![CDATA[4)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="165" cs="11" rs="7" s="18">
+      <C c="2" r="165" cs="11" rs="7" s="19">
         <O><![CDATA[The number of daily payment per tenant code is up to 3.]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -1495,12 +1495,12 @@ checking.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="170" cs="2" rs="5" s="18">
+      <C c="0" r="170" cs="2" rs="5" s="19">
         <O><![CDATA[4)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="170" cs="11" rs="14" s="18">
+      <C c="2" r="170" cs="11" rs="14" s="19">
         <O><![CDATA[If you have paid the rent due for payment shown in the monthly
 statement or you have any enquiries on the monthly statement,
 please contact our estate office or property management
@@ -1523,7 +1523,7 @@ companies.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="181" cs="13" rs="4" s="17">
+      <C c="0" r="181" cs="13" rs="4" s="18">
         <O><![CDATA[Estate Shroff Office (Accept Cash or Crossed Cheque)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -1538,12 +1538,12 @@ companies.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="185" cs="2" rs="4" s="19">
+      <C c="0" r="185" cs="2" rs="4" s="20">
         <O><![CDATA[●]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="185" cs="11" rs="3" s="18">
+      <C c="2" r="185" cs="11" rs="3" s="19">
         <O><![CDATA[Post-dated cheques / cash cheques will not be accepted.]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -1559,12 +1559,12 @@ companies.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="188" cs="2" rs="3" s="19">
+      <C c="0" r="188" cs="2" rs="3" s="20">
         <O><![CDATA[●]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="188" cs="11" rs="5" s="18">
+      <C c="2" r="188" cs="11" rs="5" s="19">
         <O><![CDATA[Please make a crossed cheque payable to ‘Hong Kong Housing
 Authority’, and write down your Electronic Payment Tenant Code
 on the back of your cheque.]]></O>
@@ -1720,62 +1720,62 @@ on the back of your cheque.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="210" cs="13" rs="5" s="17">
+      <C c="0" r="210" cs="13" rs="5" s="18">
         <O><![CDATA[Payment Methods ]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="210" cs="13" rs="5" s="17">
+      <C c="0" r="210" cs="13" rs="5" s="18">
         <O><![CDATA[Autopay]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="210" cs="13" rs="7" s="17">
+      <C c="0" r="210" cs="13" rs="7" s="18">
         <O><![CDATA[7-Eleven/Circle K/VanGO Convenience Stores/ U select]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="210" cs="13" rs="5" s="17">
+      <C c="0" r="210" cs="13" rs="5" s="18">
         <O><![CDATA[Estate Shroff Office]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="210" cs="13" rs="5" s="17">
+      <C c="0" r="210" cs="13" rs="5" s="18">
         <O><![CDATA[PPS]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="210" cs="13" rs="5" s="17">
+      <C c="0" r="210" cs="13" rs="5" s="18">
         <O><![CDATA[Internet / Phone Banking Service]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="211" cs="13" rs="5" s="17">
+      <C c="0" r="211" cs="13" rs="5" s="18">
         <O><![CDATA[Automatic Teller Machine (ATM)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="211" cs="13" rs="5" s="17">
+      <C c="0" r="211" cs="13" rs="5" s="18">
         <O><![CDATA[Rejected Payment by Returned Cheques/Delinquent Autopay]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="211" cs="13" rs="5" s="17">
+      <C c="0" r="211" cs="13" rs="5" s="18">
         <O><![CDATA[Remarks:]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="211" cs="7" rs="5" s="17">
+      <C c="0" r="211" cs="7" rs="5" s="18">
         <O><![CDATA[Change of Correspondence Address]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="212" cs="13" rs="5" s="17">
+      <C c="0" r="212" cs="13" rs="5" s="18">
         <O><![CDATA[Faster Payment System (FPS)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="213" cs="13" rs="30" s="18">
+      <C c="0" r="213" cs="13" rs="30" s="19">
         <O><![CDATA[Autopay authorization forms are obtainable from the estate offices.
 Tenants are required to bring along the completed autopay authorization
 form together with their bank passbook or statement to the estate office
@@ -1785,7 +1785,7 @@ passbook or monthly statement.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="213" cs="13" rs="35" s="18">
+      <C c="0" r="213" cs="13" rs="35" s="19">
         <O><![CDATA[Internet banking or phone banking account holders can pay rent through
 the internet and any tone phone. You should follow the instructions of the
 respective systems. Remember to choose “Hong Kong Housing
@@ -1802,12 +1802,12 @@ pay attention to the cut-off time of Respective Bank.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="214" cs="2" rs="5" s="18">
+      <C c="0" r="214" cs="2" rs="5" s="19">
         <O><![CDATA[1)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="214" cs="10" rs="15" s="18">
+      <C c="0" r="214" cs="10" rs="15" s="19">
         <O><![CDATA[Use any mobile banking apps that supports Hong Kong Housing Authority QR code bill payment to scan the FPS QR code printed on this monthly statement to make payment.]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -1855,33 +1855,33 @@ pay attention to the cut-off time of Respective Bank.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="215" cs="13" rs="9" s="18">
+      <C c="0" r="215" cs="13" rs="9" s="19">
         <O><![CDATA[You can pay in <b><u>cash or by crossed cheque </u></b>at any estate shroff offices<br>during the rent collection service hours.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="215" cs="2" rs="5" s="18">
+      <C c="0" r="215" cs="2" rs="5" s="19">
         <O><![CDATA[1)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="215" cs="2" rs="5" s="18">
+      <C c="0" r="215" cs="2" rs="5" s="19">
         <O><![CDATA[1)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="215" cs="13" rs="10" s="18">
+      <C c="0" r="215" cs="13" rs="10" s="19">
         <O><![CDATA[Interest may be levied when a cheque payment or a direct debit payment
 is returned unpaid.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="215" cs="2" rs="5" s="18">
+      <C c="0" r="215" cs="2" rs="5" s="19">
         <O><![CDATA[1)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="215" cs="13" rs="10" s="18">
+      <C c="0" r="215" cs="13" rs="10" s="19">
         <O><![CDATA[Please notify staff of the estate office or property management
 companies for any change of your correspondence address.]]></O>
         <PrivilegeControl/>
@@ -1904,13 +1904,13 @@ companies for any change of your correspondence address.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="215" cs="11" rs="10" s="18">
+      <C c="2" r="215" cs="11" rs="10" s="19">
         <O><![CDATA[By phone : Please call 18031, then enter Merchant Code 62, and
 follow the instructions for payment.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="215" cs="11" rs="21" s="18">
+      <C c="2" r="215" cs="11" rs="21" s="19">
         <O><![CDATA[Simply use any ATM cards or credit cards with the ATM function
 issued by HSBC or Hang Seng Bank Ltd (HSB) to make your
 payment at any ATM of HSBC / HSB. Please retain the customer
@@ -1918,7 +1918,7 @@ advice for checking.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="215" cs="11" rs="10" s="18">
+      <C c="2" r="215" cs="11" rs="10" s="19">
         <O><![CDATA[Rent/licence fee and other charges shall be payable in advance on
 the first day of every calendar month.]]></O>
         <PrivilegeControl/>
@@ -1929,7 +1929,7 @@ the first day of every calendar month.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="216" cs="11" rs="3" s="18">
+      <C c="2" r="216" cs="11" rs="3" s="19">
         <O><![CDATA[<P>Please pay in <b><u>cash</u></b> at any 7-Eleven.</P>]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -1947,12 +1947,12 @@ the first day of every calendar month.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="218" cs="2" rs="8" s="18">
+      <C c="0" r="218" cs="2" rs="8" s="19">
         <O><![CDATA[2)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="219" cs="11" rs="8" s="18">
+      <C c="2" r="219" cs="11" rs="8" s="19">
         <O><![CDATA[<P>Please pay in <b><u>cash</u></b> or <b><u>EPS</u></b> at any Circle K, VanGO<br>Convenience Stores or U select.</P>]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -1972,17 +1972,17 @@ the first day of every calendar month.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="224" cs="13" rs="8" s="17">
+      <C c="0" r="224" cs="13" rs="8" s="18">
         <O><![CDATA[Notes]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="224" cs="2" rs="10" s="18">
+      <C c="0" r="224" cs="2" rs="10" s="19">
         <O><![CDATA[2)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="224" cs="11" rs="20" s="18">
+      <C c="2" r="224" cs="11" rs="20" s="19">
         <O><![CDATA[No matter whether Landlord demanded formally or not, to avoid
 any levy of interest as stipulated in the Tenancy Agreement/
 Licence, please pay within 14 days of the due date.]]></O>
@@ -1999,7 +1999,7 @@ Licence, please pay within 14 days of the due date.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="225" cs="2" rs="10" s="18">
+      <C c="0" r="225" cs="2" rs="10" s="19">
         <O><![CDATA[2)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -2015,17 +2015,17 @@ Licence, please pay within 14 days of the due date.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="225" cs="11" rs="10" s="18">
+      <C c="2" r="225" cs="11" rs="10" s="19">
         <O><![CDATA[Through PPS by Internet at web site : <u>www.ppshk.com</u>]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="230" cs="2" rs="7" s="18">
+      <C c="0" r="230" cs="2" rs="7" s="19">
         <O><![CDATA[3)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="230" cs="11" rs="28" s="18">
+      <C c="2" r="230" cs="11" rs="28" s="19">
         <O><![CDATA[The payment cut-off time is 5 p.m. everyday. Payments made
 after 5 p.m. will be recorded as payment made on the next
 business day. Their hotlines are as follows:
@@ -2046,7 +2046,7 @@ U select : 2586 3686.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="232" cs="13" rs="5" s="17">
+      <C c="0" r="232" cs="13" rs="5" s="18">
         <O><![CDATA[7-Eleven(Accept Cash Only)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -2066,7 +2066,7 @@ U購select : 2586 3686。]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="233" cs="2" rs="6" s="18">
+      <C c="0" r="233" cs="2" rs="6" s="19">
         <O><![CDATA[3)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -2077,7 +2077,7 @@ U購select : 2586 3686。]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="233" cs="11" rs="16" s="18">
+      <C c="2" r="233" cs="11" rs="16" s="19">
         <O><![CDATA[The payment cut-off time is 7 p.m. (Monday to Friday). Payments
 made after 7 p.m. will be recorded as payment made on the next
 business day.]]></O>
@@ -2089,7 +2089,7 @@ business day.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="236" cs="2" rs="6" s="18">
+      <C c="0" r="236" cs="2" rs="6" s="19">
         <O><![CDATA[2)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -2100,14 +2100,14 @@ business day.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="236" cs="11" rs="19" s="18">
+      <C c="2" r="236" cs="11" rs="19" s="19">
         <O><![CDATA[The payment cut-off time is 7:30 p.m. (Monday to Friday).
 Payments made after 7:30 p.m. will be recorded as payment made
 on the next business day.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="237" cs="13" rs="11" s="17">
+      <C c="0" r="237" cs="13" rs="11" s="18">
         <O><![CDATA[Circle K/VanGO Convenience Stores/ U select (Accept Cash or EPS Only)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -2117,12 +2117,12 @@ on the next business day.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="241" cs="2" rs="8" s="18">
+      <C c="0" r="241" cs="2" rs="8" s="19">
         <O><![CDATA[3)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="241" cs="11" rs="12" s="18">
+      <C c="2" r="241" cs="11" rs="12" s="19">
         <O><![CDATA[Payment should not be made to any persons other than the stated
 payment methods in this monthly statement.]]></O>
         <PrivilegeControl/>
@@ -2150,17 +2150,17 @@ payment methods in this monthly statement.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="247" cs="2" rs="6" s="19">
+      <C c="0" r="247" cs="2" rs="6" s="20">
         <O><![CDATA[●]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="247" cs="2" rs="7" s="18">
+      <C c="0" r="247" cs="2" rs="7" s="19">
         <O><![CDATA[4)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="247" cs="11" rs="15" s="18">
+      <C c="2" r="247" cs="11" rs="15" s="19">
         <O><![CDATA[Simply present the monthly statement when making payment.
 Please check carefully and ensure details printed on the receipt
 are correct. Retain the receipt or make a photocopy of it, if
@@ -2169,7 +2169,7 @@ checking.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="247" cs="11" rs="7" s="18">
+      <C c="2" r="247" cs="11" rs="7" s="19">
         <O><![CDATA[The number of daily payment per tenant code is up to 3.]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -2184,12 +2184,12 @@ checking.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="252" cs="2" rs="4" s="18">
+      <C c="0" r="252" cs="2" rs="4" s="19">
         <O><![CDATA[4)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="252" cs="11" rs="14" s="18">
+      <C c="2" r="252" cs="11" rs="14" s="19">
         <O><![CDATA[If you have paid the rent due for payment shown in the monthly
 statement or you have any enquiries on the monthly statement,
 please contact our estate office or property management
@@ -2212,7 +2212,7 @@ companies.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="263" cs="13" rs="4" s="17">
+      <C c="0" r="263" cs="13" rs="4" s="18">
         <O><![CDATA[Estate Shroff Office (Accept Cash or Crossed Cheque)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -2227,12 +2227,12 @@ companies.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="267" cs="2" rs="4" s="19">
+      <C c="0" r="267" cs="2" rs="4" s="20">
         <O><![CDATA[●]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="267" cs="11" rs="3" s="18">
+      <C c="2" r="267" cs="11" rs="3" s="19">
         <O><![CDATA[Post-dated cheques / cash cheques will not be accepted.]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -2248,12 +2248,12 @@ companies.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="270" cs="2" rs="3" s="19">
+      <C c="0" r="270" cs="2" rs="3" s="20">
         <O><![CDATA[●]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="270" cs="11" rs="5" s="18">
+      <C c="2" r="270" cs="11" rs="5" s="19">
         <O><![CDATA[Please make a crossed cheque payable to ‘Hong Kong Housing
 Authority’, and write down your Electronic Payment Tenant Code
 on the back of your cheque.]]></O>
@@ -2409,62 +2409,62 @@ on the back of your cheque.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="292" cs="13" rs="5" s="17">
+      <C c="0" r="292" cs="13" rs="5" s="18">
         <O><![CDATA[Payment Methods ]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="292" cs="13" rs="5" s="17">
+      <C c="0" r="292" cs="13" rs="5" s="18">
         <O><![CDATA[Autopay]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="292" cs="13" rs="7" s="17">
+      <C c="0" r="292" cs="13" rs="7" s="18">
         <O><![CDATA[7-Eleven/Circle K/VanGO Convenience Stores/ U select]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="292" cs="13" rs="5" s="17">
+      <C c="0" r="292" cs="13" rs="5" s="18">
         <O><![CDATA[Estate Shroff Office]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="292" cs="13" rs="5" s="17">
+      <C c="0" r="292" cs="13" rs="5" s="18">
         <O><![CDATA[PPS]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="292" cs="13" rs="5" s="17">
+      <C c="0" r="292" cs="13" rs="5" s="18">
         <O><![CDATA[Internet / Phone Banking Service]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="293" cs="13" rs="5" s="17">
+      <C c="0" r="293" cs="13" rs="5" s="18">
         <O><![CDATA[Automatic Teller Machine (ATM)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="293" cs="13" rs="5" s="17">
+      <C c="0" r="293" cs="13" rs="5" s="18">
         <O><![CDATA[Rejected Payment by Returned Cheques/Delinquent Autopay]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="293" cs="13" rs="5" s="17">
+      <C c="0" r="293" cs="13" rs="5" s="18">
         <O><![CDATA[Remarks:]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="293" cs="7" rs="5" s="17">
+      <C c="0" r="293" cs="7" rs="5" s="18">
         <O><![CDATA[Change of Correspondence Address]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="294" cs="13" rs="5" s="17">
+      <C c="0" r="294" cs="13" rs="5" s="18">
         <O><![CDATA[Faster Payment System (FPS)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="295" cs="13" rs="30" s="18">
+      <C c="0" r="295" cs="13" rs="30" s="19">
         <O><![CDATA[Autopay authorization forms are obtainable from the estate offices.
 Tenants are required to bring along the completed autopay authorization
 form together with their bank passbook or statement to the estate office
@@ -2474,7 +2474,7 @@ passbook or monthly statement.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="295" cs="13" rs="35" s="18">
+      <C c="0" r="295" cs="13" rs="35" s="19">
         <O><![CDATA[Internet banking or phone banking account holders can pay rent through
 the internet and any tone phone. You should follow the instructions of the
 respective systems. Remember to choose “Hong Kong Housing
@@ -2491,12 +2491,12 @@ pay attention to the cut-off time of Respective Bank.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="296" cs="2" rs="5" s="18">
+      <C c="0" r="296" cs="2" rs="5" s="19">
         <O><![CDATA[1)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="296" cs="10" rs="15" s="18">
+      <C c="0" r="296" cs="10" rs="15" s="19">
         <O><![CDATA[Use any mobile banking apps that supports Hong Kong Housing Authority QR code bill payment to scan the FPS QR code printed on this monthly statement to make payment.]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -2544,33 +2544,33 @@ pay attention to the cut-off time of Respective Bank.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="297" cs="13" rs="9" s="18">
+      <C c="0" r="297" cs="13" rs="9" s="19">
         <O><![CDATA[You can pay in <b><u>cash or by crossed cheque </u></b>at any estate shroff offices<br>during the rent collection service hours.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="297" cs="2" rs="5" s="18">
+      <C c="0" r="297" cs="2" rs="5" s="19">
         <O><![CDATA[1)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="297" cs="2" rs="5" s="18">
+      <C c="0" r="297" cs="2" rs="5" s="19">
         <O><![CDATA[1)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="297" cs="13" rs="10" s="18">
+      <C c="0" r="297" cs="13" rs="10" s="19">
         <O><![CDATA[Interest may be levied when a cheque payment or a direct debit payment
 is returned unpaid.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="297" cs="2" rs="5" s="18">
+      <C c="0" r="297" cs="2" rs="5" s="19">
         <O><![CDATA[1)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="297" cs="13" rs="10" s="18">
+      <C c="0" r="297" cs="13" rs="10" s="19">
         <O><![CDATA[Please notify staff of the estate office or property management
 companies for any change of your correspondence address.]]></O>
         <PrivilegeControl/>
@@ -2593,13 +2593,13 @@ companies for any change of your correspondence address.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="297" cs="11" rs="10" s="18">
+      <C c="2" r="297" cs="11" rs="10" s="19">
         <O><![CDATA[By phone : Please call 18031, then enter Merchant Code 62, and
 follow the instructions for payment.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="297" cs="11" rs="21" s="18">
+      <C c="2" r="297" cs="11" rs="21" s="19">
         <O><![CDATA[Simply use any ATM cards or credit cards with the ATM function
 issued by HSBC or Hang Seng Bank Ltd (HSB) to make your
 payment at any ATM of HSBC / HSB. Please retain the customer
@@ -2607,7 +2607,7 @@ advice for checking.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="297" cs="11" rs="10" s="18">
+      <C c="2" r="297" cs="11" rs="10" s="19">
         <O><![CDATA[Rent/licence fee and other charges shall be payable in advance on
 the first day of every calendar month.]]></O>
         <PrivilegeControl/>
@@ -2618,7 +2618,7 @@ the first day of every calendar month.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="298" cs="11" rs="3" s="18">
+      <C c="2" r="298" cs="11" rs="3" s="19">
         <O><![CDATA[<P>Please pay in <b><u>cash</u></b> at any 7-Eleven.</P>]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -2636,12 +2636,12 @@ the first day of every calendar month.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="300" cs="2" rs="8" s="18">
+      <C c="0" r="300" cs="2" rs="8" s="19">
         <O><![CDATA[2)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="301" cs="11" rs="8" s="18">
+      <C c="2" r="301" cs="11" rs="8" s="19">
         <O><![CDATA[<P>Please pay in <b><u>cash</u></b> or <b><u>EPS</u></b> at any Circle K, VanGO<br>Convenience Stores or U select.</P>]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -2661,17 +2661,17 @@ the first day of every calendar month.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="306" cs="13" rs="8" s="17">
+      <C c="0" r="306" cs="13" rs="8" s="18">
         <O><![CDATA[Notes]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="306" cs="2" rs="10" s="18">
+      <C c="0" r="306" cs="2" rs="10" s="19">
         <O><![CDATA[2)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="306" cs="11" rs="20" s="18">
+      <C c="2" r="306" cs="11" rs="20" s="19">
         <O><![CDATA[No matter whether Landlord demanded formally or not, to avoid
 any levy of interest as stipulated in the Tenancy Agreement/
 Licence, please pay within 14 days of the due date.]]></O>
@@ -2688,7 +2688,7 @@ Licence, please pay within 14 days of the due date.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="307" cs="2" rs="10" s="18">
+      <C c="0" r="307" cs="2" rs="10" s="19">
         <O><![CDATA[2)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -2704,17 +2704,17 @@ Licence, please pay within 14 days of the due date.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="307" cs="11" rs="10" s="18">
+      <C c="2" r="307" cs="11" rs="10" s="19">
         <O><![CDATA[Through PPS by Internet at web site : <u>www.ppshk.com</u>]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="312" cs="2" rs="7" s="18">
+      <C c="0" r="312" cs="2" rs="7" s="19">
         <O><![CDATA[3)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="312" cs="11" rs="28" s="18">
+      <C c="2" r="312" cs="11" rs="28" s="19">
         <O><![CDATA[The payment cut-off time is 5 p.m. everyday. Payments made
 after 5 p.m. will be recorded as payment made on the next
 business day. Their hotlines are as follows:
@@ -2735,7 +2735,7 @@ U select : 2586 3686.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="314" cs="13" rs="5" s="17">
+      <C c="0" r="314" cs="13" rs="5" s="18">
         <O><![CDATA[7-Eleven(Accept Cash Only)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -2755,7 +2755,7 @@ U購select : 2586 3686。]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="315" cs="2" rs="6" s="18">
+      <C c="0" r="315" cs="2" rs="6" s="19">
         <O><![CDATA[3)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -2766,7 +2766,7 @@ U購select : 2586 3686。]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="315" cs="11" rs="16" s="18">
+      <C c="2" r="315" cs="11" rs="16" s="19">
         <O><![CDATA[The payment cut-off time is 7 p.m. (Monday to Friday). Payments
 made after 7 p.m. will be recorded as payment made on the next
 business day.]]></O>
@@ -2778,7 +2778,7 @@ business day.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="318" cs="2" rs="6" s="18">
+      <C c="0" r="318" cs="2" rs="6" s="19">
         <O><![CDATA[2)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -2789,14 +2789,14 @@ business day.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="318" cs="11" rs="19" s="18">
+      <C c="2" r="318" cs="11" rs="19" s="19">
         <O><![CDATA[The payment cut-off time is 7:30 p.m. (Monday to Friday).
 Payments made after 7:30 p.m. will be recorded as payment made
 on the next business day.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="319" cs="13" rs="11" s="17">
+      <C c="0" r="319" cs="13" rs="11" s="18">
         <O><![CDATA[Circle K/VanGO Convenience Stores/ U select (Accept Cash or EPS Only)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -2806,12 +2806,12 @@ on the next business day.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="323" cs="2" rs="8" s="18">
+      <C c="0" r="323" cs="2" rs="8" s="19">
         <O><![CDATA[3)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="323" cs="11" rs="12" s="18">
+      <C c="2" r="323" cs="11" rs="12" s="19">
         <O><![CDATA[Payment should not be made to any persons other than the stated
 payment methods in this monthly statement.]]></O>
         <PrivilegeControl/>
@@ -2839,17 +2839,17 @@ payment methods in this monthly statement.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="329" cs="2" rs="6" s="19">
+      <C c="0" r="329" cs="2" rs="6" s="20">
         <O><![CDATA[●]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="329" cs="2" rs="7" s="18">
+      <C c="0" r="329" cs="2" rs="7" s="19">
         <O><![CDATA[4)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="329" cs="11" rs="15" s="18">
+      <C c="2" r="329" cs="11" rs="15" s="19">
         <O><![CDATA[Simply present the monthly statement when making payment.
 Please check carefully and ensure details printed on the receipt
 are correct. Retain the receipt or make a photocopy of it, if
@@ -2858,7 +2858,7 @@ checking.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="329" cs="11" rs="7" s="18">
+      <C c="2" r="329" cs="11" rs="7" s="19">
         <O><![CDATA[The number of daily payment per tenant code is up to 3.]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -2873,12 +2873,12 @@ checking.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="334" cs="2" rs="4" s="18">
+      <C c="0" r="334" cs="2" rs="4" s="19">
         <O><![CDATA[4)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="334" cs="11" rs="14" s="18">
+      <C c="2" r="334" cs="11" rs="14" s="19">
         <O><![CDATA[If you have paid the rent due for payment shown in the monthly
 statement or you have any enquiries on the monthly statement,
 please contact our estate office or property management
@@ -2901,7 +2901,7 @@ companies.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="345" cs="13" rs="4" s="17">
+      <C c="0" r="345" cs="13" rs="4" s="18">
         <O><![CDATA[Estate Shroff Office (Accept Cash or Crossed Cheque)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -2916,12 +2916,12 @@ companies.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="349" cs="2" rs="4" s="19">
+      <C c="0" r="349" cs="2" rs="4" s="20">
         <O><![CDATA[●]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="349" cs="11" rs="3" s="18">
+      <C c="2" r="349" cs="11" rs="3" s="19">
         <O><![CDATA[Post-dated cheques / cash cheques will not be accepted.]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -2937,12 +2937,12 @@ companies.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="352" cs="2" rs="3" s="19">
+      <C c="0" r="352" cs="2" rs="3" s="20">
         <O><![CDATA[●]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="352" cs="11" rs="5" s="18">
+      <C c="2" r="352" cs="11" rs="5" s="19">
         <O><![CDATA[Please make a crossed cheque payable to ‘Hong Kong Housing
 Authority’, and write down your Electronic Payment Tenant Code
 on the back of your cheque.]]></O>
@@ -3098,62 +3098,62 @@ on the back of your cheque.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="374" cs="13" rs="5" s="17">
+      <C c="0" r="374" cs="13" rs="5" s="18">
         <O><![CDATA[Payment Methods ]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="374" cs="13" rs="5" s="17">
+      <C c="0" r="374" cs="13" rs="5" s="18">
         <O><![CDATA[Autopay]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="374" cs="13" rs="7" s="17">
+      <C c="0" r="374" cs="13" rs="7" s="18">
         <O><![CDATA[7-Eleven/Circle K/VanGO Convenience Stores/ U select]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="374" cs="13" rs="5" s="17">
+      <C c="0" r="374" cs="13" rs="5" s="18">
         <O><![CDATA[Estate Shroff Office]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="374" cs="13" rs="5" s="17">
+      <C c="0" r="374" cs="13" rs="5" s="18">
         <O><![CDATA[PPS]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="374" cs="13" rs="5" s="17">
+      <C c="0" r="374" cs="13" rs="5" s="18">
         <O><![CDATA[Internet / Phone Banking Service]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="375" cs="13" rs="5" s="17">
+      <C c="0" r="375" cs="13" rs="5" s="18">
         <O><![CDATA[Automatic Teller Machine (ATM)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="375" cs="13" rs="5" s="17">
+      <C c="0" r="375" cs="13" rs="5" s="18">
         <O><![CDATA[Rejected Payment by Returned Cheques/Delinquent Autopay]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="375" cs="13" rs="5" s="17">
+      <C c="0" r="375" cs="13" rs="5" s="18">
         <O><![CDATA[Remarks:]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="375" cs="7" rs="5" s="17">
+      <C c="0" r="375" cs="7" rs="5" s="18">
         <O><![CDATA[Change of Correspondence Address]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="376" cs="13" rs="5" s="17">
+      <C c="0" r="376" cs="13" rs="5" s="18">
         <O><![CDATA[Faster Payment System (FPS)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="377" cs="13" rs="30" s="18">
+      <C c="0" r="377" cs="13" rs="30" s="19">
         <O><![CDATA[Autopay authorization forms are obtainable from the estate offices.
 Tenants are required to bring along the completed autopay authorization
 form together with their bank passbook or statement to the estate office
@@ -3163,7 +3163,7 @@ passbook or monthly statement.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="377" cs="13" rs="35" s="18">
+      <C c="0" r="377" cs="13" rs="35" s="19">
         <O><![CDATA[Internet banking or phone banking account holders can pay rent through
 the internet and any tone phone. You should follow the instructions of the
 respective systems. Remember to choose “Hong Kong Housing
@@ -3180,12 +3180,12 @@ pay attention to the cut-off time of Respective Bank.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="378" cs="2" rs="5" s="18">
+      <C c="0" r="378" cs="2" rs="5" s="19">
         <O><![CDATA[1)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="378" cs="10" rs="15" s="18">
+      <C c="0" r="378" cs="10" rs="15" s="19">
         <O><![CDATA[Use any mobile banking apps that supports Hong Kong Housing Authority QR code bill payment to scan the FPS QR code printed on this monthly statement to make payment.]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -3233,33 +3233,33 @@ pay attention to the cut-off time of Respective Bank.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="379" cs="13" rs="9" s="18">
+      <C c="0" r="379" cs="13" rs="9" s="19">
         <O><![CDATA[You can pay in <b><u>cash or by crossed cheque </u></b>at any estate shroff offices<br>during the rent collection service hours.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="379" cs="2" rs="5" s="18">
+      <C c="0" r="379" cs="2" rs="5" s="19">
         <O><![CDATA[1)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="379" cs="2" rs="5" s="18">
+      <C c="0" r="379" cs="2" rs="5" s="19">
         <O><![CDATA[1)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="379" cs="13" rs="10" s="18">
+      <C c="0" r="379" cs="13" rs="10" s="19">
         <O><![CDATA[Interest may be levied when a cheque payment or a direct debit payment
 is returned unpaid.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="379" cs="2" rs="5" s="18">
+      <C c="0" r="379" cs="2" rs="5" s="19">
         <O><![CDATA[1)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="379" cs="13" rs="10" s="18">
+      <C c="0" r="379" cs="13" rs="10" s="19">
         <O><![CDATA[Please notify staff of the estate office or property management
 companies for any change of your correspondence address.]]></O>
         <PrivilegeControl/>
@@ -3282,13 +3282,13 @@ companies for any change of your correspondence address.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="379" cs="11" rs="10" s="18">
+      <C c="2" r="379" cs="11" rs="10" s="19">
         <O><![CDATA[By phone : Please call 18031, then enter Merchant Code 62, and
 follow the instructions for payment.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="379" cs="11" rs="21" s="18">
+      <C c="2" r="379" cs="11" rs="21" s="19">
         <O><![CDATA[Simply use any ATM cards or credit cards with the ATM function
 issued by HSBC or Hang Seng Bank Ltd (HSB) to make your
 payment at any ATM of HSBC / HSB. Please retain the customer
@@ -3296,7 +3296,7 @@ advice for checking.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="379" cs="11" rs="10" s="18">
+      <C c="2" r="379" cs="11" rs="10" s="19">
         <O><![CDATA[Rent/licence fee and other charges shall be payable in advance on
 the first day of every calendar month.]]></O>
         <PrivilegeControl/>
@@ -3307,7 +3307,7 @@ the first day of every calendar month.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="380" cs="11" rs="3" s="18">
+      <C c="2" r="380" cs="11" rs="3" s="19">
         <O><![CDATA[<P>Please pay in <b><u>cash</u></b> at any 7-Eleven.</P>]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -3325,12 +3325,12 @@ the first day of every calendar month.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="382" cs="2" rs="8" s="18">
+      <C c="0" r="382" cs="2" rs="8" s="19">
         <O><![CDATA[2)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="383" cs="11" rs="8" s="18">
+      <C c="2" r="383" cs="11" rs="8" s="19">
         <O><![CDATA[<P>Please pay in <b><u>cash</u></b> or <b><u>EPS</u></b> at any Circle K, VanGO<br>Convenience Stores or U select.</P>]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -3350,17 +3350,17 @@ the first day of every calendar month.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="388" cs="13" rs="8" s="17">
+      <C c="0" r="388" cs="13" rs="8" s="18">
         <O><![CDATA[Notes]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="388" cs="2" rs="10" s="18">
+      <C c="0" r="388" cs="2" rs="10" s="19">
         <O><![CDATA[2)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="388" cs="11" rs="20" s="18">
+      <C c="2" r="388" cs="11" rs="20" s="19">
         <O><![CDATA[No matter whether Landlord demanded formally or not, to avoid
 any levy of interest as stipulated in the Tenancy Agreement/
 Licence, please pay within 14 days of the due date.]]></O>
@@ -3377,7 +3377,7 @@ Licence, please pay within 14 days of the due date.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="389" cs="2" rs="10" s="18">
+      <C c="0" r="389" cs="2" rs="10" s="19">
         <O><![CDATA[2)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -3393,17 +3393,17 @@ Licence, please pay within 14 days of the due date.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="389" cs="11" rs="10" s="18">
+      <C c="2" r="389" cs="11" rs="10" s="19">
         <O><![CDATA[Through PPS by Internet at web site : <u>www.ppshk.com</u>]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="394" cs="2" rs="7" s="18">
+      <C c="0" r="394" cs="2" rs="7" s="19">
         <O><![CDATA[3)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="394" cs="11" rs="28" s="18">
+      <C c="2" r="394" cs="11" rs="28" s="19">
         <O><![CDATA[The payment cut-off time is 5 p.m. everyday. Payments made
 after 5 p.m. will be recorded as payment made on the next
 business day. Their hotlines are as follows:
@@ -3424,7 +3424,7 @@ U select : 2586 3686.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="396" cs="13" rs="5" s="17">
+      <C c="0" r="396" cs="13" rs="5" s="18">
         <O><![CDATA[7-Eleven(Accept Cash Only)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -3444,7 +3444,7 @@ U購select : 2586 3686。]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="397" cs="2" rs="6" s="18">
+      <C c="0" r="397" cs="2" rs="6" s="19">
         <O><![CDATA[3)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -3455,7 +3455,7 @@ U購select : 2586 3686。]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="397" cs="11" rs="16" s="18">
+      <C c="2" r="397" cs="11" rs="16" s="19">
         <O><![CDATA[The payment cut-off time is 7 p.m. (Monday to Friday). Payments
 made after 7 p.m. will be recorded as payment made on the next
 business day.]]></O>
@@ -3467,7 +3467,7 @@ business day.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="400" cs="2" rs="6" s="18">
+      <C c="0" r="400" cs="2" rs="6" s="19">
         <O><![CDATA[2)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -3478,14 +3478,14 @@ business day.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="400" cs="11" rs="19" s="18">
+      <C c="2" r="400" cs="11" rs="19" s="19">
         <O><![CDATA[The payment cut-off time is 7:30 p.m. (Monday to Friday).
 Payments made after 7:30 p.m. will be recorded as payment made
 on the next business day.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="401" cs="13" rs="11" s="17">
+      <C c="0" r="401" cs="13" rs="11" s="18">
         <O><![CDATA[Circle K/VanGO Convenience Stores/ U select (Accept Cash or EPS Only)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -3495,12 +3495,12 @@ on the next business day.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="405" cs="2" rs="8" s="18">
+      <C c="0" r="405" cs="2" rs="8" s="19">
         <O><![CDATA[3)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="405" cs="11" rs="12" s="18">
+      <C c="2" r="405" cs="11" rs="12" s="19">
         <O><![CDATA[Payment should not be made to any persons other than the stated
 payment methods in this monthly statement.]]></O>
         <PrivilegeControl/>
@@ -3528,17 +3528,17 @@ payment methods in this monthly statement.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="411" cs="2" rs="6" s="19">
+      <C c="0" r="411" cs="2" rs="6" s="20">
         <O><![CDATA[●]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="411" cs="2" rs="7" s="18">
+      <C c="0" r="411" cs="2" rs="7" s="19">
         <O><![CDATA[4)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="411" cs="11" rs="15" s="18">
+      <C c="2" r="411" cs="11" rs="15" s="19">
         <O><![CDATA[Simply present the monthly statement when making payment.
 Please check carefully and ensure details printed on the receipt
 are correct. Retain the receipt or make a photocopy of it, if
@@ -3547,7 +3547,7 @@ checking.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="411" cs="11" rs="7" s="18">
+      <C c="2" r="411" cs="11" rs="7" s="19">
         <O><![CDATA[The number of daily payment per tenant code is up to 3.]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -3562,12 +3562,12 @@ checking.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="416" cs="2" rs="4" s="18">
+      <C c="0" r="416" cs="2" rs="4" s="19">
         <O><![CDATA[4)]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="416" cs="11" rs="14" s="18">
+      <C c="2" r="416" cs="11" rs="14" s="19">
         <O><![CDATA[If you have paid the rent due for payment shown in the monthly
 statement or you have any enquiries on the monthly statement,
 please contact our estate office or property management
@@ -3590,7 +3590,7 @@ companies.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="427" cs="13" rs="3" s="17">
+      <C c="0" r="427" cs="13" rs="3" s="18">
         <O><![CDATA[Estate Shroff Office (Accept Cash or Crossed Cheque)]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -3605,12 +3605,12 @@ companies.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="430" cs="2" rs="4" s="19">
+      <C c="0" r="430" cs="2" rs="4" s="20">
         <O><![CDATA[●]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="430" cs="11" rs="3" s="18">
+      <C c="2" r="430" cs="11" rs="3" s="19">
         <O><![CDATA[Post-dated cheques / cash cheques will not be accepted.]]></O>
         <PrivilegeControl/>
         <Expand/>
@@ -3626,12 +3626,12 @@ companies.]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="0" r="433" cs="2" rs="3" s="19">
+      <C c="0" r="433" cs="2" rs="3" s="20">
         <O><![CDATA[●]]></O>
         <PrivilegeControl/>
         <Expand/>
       </C>
-      <C c="2" r="433" cs="11" rs="5" s="18">
+      <C c="2" r="433" cs="11" rs="5" s="19">
         <O><![CDATA[Please make a crossed cheque payable to ‘Hong Kong Housing
 Authority’, and write down your Electronic Payment Tenant Code
 on the back of your cheque.]]></O>
@@ -3683,64 +3683,68 @@ on the back of your cheque.]]></O>
   </ReportParameterAttr>
   <StyleList>
     <Style horizontal_alignment="4">
-      <FRFont name="IDAutomationC128M" style="0"/>
+      <FRFont name="IDAutomationC128M" style="0" size="86"/>
     </Style>
     <Style>
-      <FRFont name="SansSerif" style="0"/>
+      <FRFont name="SansSerif" style="0" size="62"/>
     </Style>
     <Style horizontal_alignment="0">
-      <FRFont name="SansSerif" style="0"/>
+      <FRFont name="SansSerif" style="0" size="62"/>
     </Style>
     <Style horizontal_alignment="4">
-      <FRFont name="SansSerif" style="0"/>
+      <FRFont name="SansSerif" style="0" size="62"/>
     </Style>
     <Style horizontal_alignment="0">
-      <FRFont name="Arial Unicode MS" style="0"/>
+      <FRFont name="Arial Unicode MS" style="0" size="62"/>
     </Style>
     <Style>
-      <FRFont name="Arial Unicode MS" style="0"/>
+      <FRFont name="Arial Unicode MS" style="0" size="62"/>
     </Style>
     <Style horizontal_alignment="2">
-      <FRFont name="Times New Roman" style="0"/>
+      <FRFont name="Times New Roman" style="0" size="86"/>
     </Style>
     <Style>
-      <FRFont name="Arial Unicode MS" style="1"/>
+      <FRFont name="Arial Unicode MS" style="1" size="110"/>
     </Style>
     <Style horizontal_alignment="4">
-      <FRFont name="Arial Unicode MS" style="0"/>
+      <FRFont name="Arial Unicode MS" style="0" size="62"/>
     </Style>
     <Style horizontal_alignment="2">
-      <FRFont name="Arial Unicode MS" style="0"/>
+      <FRFont name="Arial Unicode MS" style="0" size="62"/>
+      <Background name="ColorBackground" color="-4205854"/>
     </Style>
     <Style>
-      <FRFont name="SansSerif" style="1"/>
+      <FRFont name="SansSerif" style="1" size="62"/>
     </Style>
     <Style>
-      <FRFont name="Arial Unicode MS" style="1"/>
+      <FRFont name="Arial Unicode MS" style="1" size="62"/>
     </Style>
     <Style horizontal_alignment="2">
-      <FRFont name="Arial Unicode MS" style="0"/>
+      <FRFont name="Arial Unicode MS" style="0" size="62"/>
+    </Style>
+    <Style horizontal_alignment="2">
+      <FRFont name="Arial Unicode MS" style="0" size="46"/>
     </Style>
     <Style>
-      <FRFont name="Arial Unicode MS" style="1"/>
+      <FRFont name="Arial Unicode MS" style="1" size="70"/>
     </Style>
     <Style horizontal_alignment="4">
-      <FRFont name="Arial Unicode MS" style="1"/>
+      <FRFont name="Arial Unicode MS" style="1" size="70"/>
     </Style>
     <Style>
-      <FRFont name="SansSerif" style="1"/>
+      <FRFont name="SansSerif" style="1" size="70"/>
     </Style>
     <Style horizontal_alignment="4">
-      <FRFont name="SansSerif" style="1"/>
+      <FRFont name="SansSerif" style="1" size="70"/>
     </Style>
     <Style>
-      <FRFont name="SansSerif" style="1"/>
+      <FRFont name="SansSerif" style="1" size="54"/>
     </Style>
     <Style>
-      <FRFont name="SansSerif" style="0"/>
+      <FRFont name="SansSerif" style="0" size="54"/>
     </Style>
     <Style>
-      <FRFont name="Arial Unicode MS" style="0"/>
+      <FRFont name="Arial Unicode MS" style="0" size="54"/>
     </Style>
   </StyleList>
 </WorkBook>

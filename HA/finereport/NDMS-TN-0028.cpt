@@ -3538,67 +3538,67 @@ Landlord indemnified from and against all liabilities, claims, losses, damages, 
   </ReportParameterAttr>
   <StyleList>
     <Style horizontal_alignment="2">
-      <FRFont name="Times New Roman" style="1"/>
+      <FRFont name="Times New Roman" style="1" size="174"/>
     </Style>
     <Style horizontal_alignment="2">
-      <FRFont name="Times New Roman" style="1"/>
+      <FRFont name="Times New Roman" style="1" size="110"/>
     </Style>
     <Style>
-      <FRFont name="Times New Roman" style="0"/>
+      <FRFont name="Times New Roman" style="0" size="70" foreground="-16251129"/>
     </Style>
     <Style horizontal_alignment="0">
-      <FRFont name="Times New Roman" style="0"/>
+      <FRFont name="Times New Roman" style="0" size="78"/>
     </Style>
     <Style horizontal_alignment="2">
-      <FRFont name="Times New Roman" style="0"/>
+      <FRFont name="Times New Roman" style="0" foreground="-8355712"/>
     </Style>
     <Style>
-      <FRFont name="Times New Roman" style="1"/>
+      <FRFont name="Times New Roman" style="1" size="126"/>
     </Style>
     <Style horizontal_alignment="2">
-      <FRFont name="Times New Roman" style="0"/>
+      <FRFont name="Times New Roman" style="0" size="78"/>
     </Style>
     <Style>
-      <FRFont name="Times New Roman" style="0"/>
+      <FRFont name="Times New Roman" style="0" size="78"/>
     </Style>
     <Style horizontal_alignment="2">
       <FRFont name="Times New Roman" style="0"/>
     </Style>
     <Style horizontal_alignment="4">
-      <FRFont name="Times New Roman" style="0"/>
+      <FRFont name="Times New Roman" style="0" size="78"/>
     </Style>
     <Style horizontal_alignment="0">
-      <FRFont name="Times New Roman" style="0"/>
+      <FRFont name="Times New Roman" style="0" size="78"/>
     </Style>
     <Style horizontal_alignment="0">
-      <FRFont name="Times New Roman" style="1"/>
+      <FRFont name="Times New Roman" style="1" size="78"/>
     </Style>
     <Style>
-      <FRFont name="Times New Roman" style="0"/>
+      <FRFont name="Times New Roman" style="0" size="62"/>
     </Style>
     <Style horizontal_alignment="0">
-      <FRFont name="新細明體" style="0"/>
+      <FRFont name="新細明體" style="0" size="78"/>
     </Style>
     <Style horizontal_alignment="2">
-      <FRFont name="新細明體" style="0"/>
+      <FRFont name="新細明體" style="0" size="78"/>
     </Style>
     <Style horizontal_alignment="4">
-      <FRFont name="新細明體" style="0"/>
+      <FRFont name="新細明體" style="0" size="78"/>
     </Style>
     <Style horizontal_alignment="0">
-      <FRFont name="新細明體" style="0"/>
+      <FRFont name="新細明體" style="0" size="78"/>
     </Style>
     <Style>
-      <FRFont name="新細明體" style="0"/>
+      <FRFont name="新細明體" style="0" size="78"/>
     </Style>
     <Style>
-      <FRFont name="新細明體" style="0"/>
+      <FRFont name="新細明體" style="0" size="62"/>
     </Style>
     <Style horizontal_alignment="2">
-      <FRFont name="Times New Roman" style="0"/>
+      <FRFont name="Times New Roman" style="0" size="78" foreground="-8355712"/>
     </Style>
     <Style>
-      <FRFont name="Times New Roman" style="1"/>
+      <FRFont name="Times New Roman" style="1" size="78"/>
     </Style>
   </StyleList>
 </WorkBook>

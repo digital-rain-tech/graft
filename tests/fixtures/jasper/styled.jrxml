@@ -5,7 +5,7 @@
     <title>
         <band height="30">
             <staticText>
-                <reportElement x="0" y="0" width="200" height="20"/>
+                <reportElement x="0" y="0" width="200" height="20" forecolor="#0000FF" backcolor="#FFFF00" mode="Opaque"/>
                 <textElement textAlignment="Center">
                     <font fontName="Times New Roman" size="14" isBold="true"/>
                 </textElement>
