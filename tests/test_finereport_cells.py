@@ -21,10 +21,18 @@ def _by_ref(cells, ref):
     return next(c for c in cells if c.a1 == ref)
 
 
-def test_only_cells_with_content_are_parsed():
-    # 38 meaningful cells; bare spacer cells (no value object) are skipped.
+def test_meaningful_cells_are_parsed():
+    # 38 valued cells + 1 empty cell that carries a style/span; 26 truly-bare
+    # spacer cells (no value, style, or span) are still skipped as pure noise.
     cells = _cells()
-    assert len(cells) == 38
+    assert len(cells) == 39
+
+
+def test_styled_or_spanned_empty_cell_is_preserved():
+    cells = _cells()
+    empties = [c for c in cells if c.value_kind == "empty"]
+    assert empties, "empty cells carrying style/span must survive (ADR-0014 fidelity)"
+    assert all(c.style_id is not None or c.col_span > 1 or c.row_span > 1 for c in empties)
 
 
 def test_text_cell_with_colspan():

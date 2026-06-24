@@ -317,8 +317,13 @@ of `<Style>` (FRFont, Background, Border Top/Bottom/Left/Right, `horizontal_alig
 FineReport here, the bar is to reproduce the real sample's own structures. Round-tripping
 `Checkbox Multi-Condition Query.cpt` through reader→writer now preserves the `<StyleList>`
 (Style/FRFont/Border/Background counts within the block) and `<RowHeight>`/`<ColumnWidth>`
-verbatim — proving our emission matches FineReport's bytes. Known still-dropped on round-trip:
-some cells (65→38, empty/styled cells the reader skips) and widget-level fonts/borders.
+verbatim — proving our emission matches FineReport's bytes. Cell-drop fixed: the reader now
+keeps empty cells carrying a style or span (65→39; the other 26 are truly-bare noise,
+equivalent to absent). Known still-dropped on round-trip: widget-level fonts/borders.
+
+- [x] **5i: Empty styled/spanned cell preservation** — DONE. `parse_cells` keeps cells with a
+  value, style, or span; skips only truly-bare spacers (ADR-0014 fidelity). (TDD: 2 tests + 3
+  count assertions updated.)
 
 - [x] **5g: StyleList + sizing preservation** — DONE. Reader captures the workbook `<StyleList>`
   (metadata) and per-worksheet sizing (page properties); writer re-emits both. Verified by

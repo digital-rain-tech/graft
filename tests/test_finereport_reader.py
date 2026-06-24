@@ -24,7 +24,7 @@ def test_read_assembles_report():
     assert len(report.pages) == 1
     page = report.pages[0]
     assert page.name == "sheet1"
-    assert len(page.cells) == 38
+    assert len(page.cells) == 39
 
     # derived collections
     assert any(cf.name == "F5" for cf in report.calculated_fields)

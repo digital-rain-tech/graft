@@ -24,4 +24,4 @@ def test_export_finereport_json_round_trips_cells():
     assert result.exit_code == 0
     data = json.loads(result.output)
     assert data["platform"] == "finereport"
-    assert len(data["pages"][0]["cells"]) == 38
+    assert len(data["pages"][0]["cells"]) == 39

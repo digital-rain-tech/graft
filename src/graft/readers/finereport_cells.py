@@ -99,8 +99,9 @@ def _parse_value(cell: Cell, o_elem: etree._Element) -> None:
 def parse_cells(report_elem: etree._Element | None) -> list[Cell]:
     """Parse a worksheet ``<Report>``'s CellElementList into `Cell` objects.
 
-    Bare spacer cells (no ``<O>`` value object) are skipped — they carry no
-    report definition, only grid geometry.
+    Cells with a value object, a style (``s``), or a span (``cs``/``rs``) are
+    kept — styled/merged empty cells carry layout meaning (borders, backgrounds).
+    Truly-bare spacer cells (no value, style, or span) are skipped as pure noise.
     """
     if report_elem is None:
         return []
@@ -111,7 +112,9 @@ def parse_cells(report_elem: etree._Element | None) -> list[Cell]:
     cells: list[Cell] = []
     for c in cell_list.findall("C"):
         o_elem = c.find("O")
-        if o_elem is None:
+        has_style = c.get("s") is not None
+        has_span = c.get("cs") is not None or c.get("rs") is not None
+        if o_elem is None and not has_style and not has_span:
             continue
         cell = Cell(
             row=_int_attr(c, "r", 0),
@@ -120,7 +123,8 @@ def parse_cells(report_elem: etree._Element | None) -> list[Cell]:
             col_span=_int_attr(c, "cs", 1),
             style_id=c.get("s"),
         )
-        _parse_value(cell, o_elem)
+        if o_elem is not None:
+            _parse_value(cell, o_elem)
         cells.append(cell)
     return cells
 
