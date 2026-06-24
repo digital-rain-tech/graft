@@ -171,11 +171,28 @@ def _write_cell(cell_list: etree._Element, cell: Cell) -> None:
     etree.SubElement(c, "Expand")
 
 
+# FineReport stores geometry in EMU; Jasper geometry is px at 72 dpi.
+_EMU_PER_PX = 12700  # 914400 EMU per inch / 72 dpi
+
+
+def _write_sizes(report_el: etree._Element, page) -> None:
+    """Emit per-row/column sizes (EMU) from px geometry, matching FineReport order."""
+    rows = page.properties.get("row_heights_px")
+    cols = page.properties.get("col_widths_px")
+    if rows:
+        rh = etree.SubElement(report_el, "RowHeight", defaultValue="723900")
+        rh.text = etree.CDATA(",".join(str(int(px) * _EMU_PER_PX) for px in rows))
+    if cols:
+        cw = etree.SubElement(report_el, "ColumnWidth", defaultValue="2743200")
+        cw.text = etree.CDATA(",".join(str(int(px) * _EMU_PER_PX) for px in cols))
+
+
 def _write_worksheet(workbook: etree._Element, report: Report) -> None:
     for page in report.pages:
         report_el = etree.SubElement(
             workbook, "Report", attrib={"class": _WORKSHEET_CLASS}, name=page.name
         )
+        _write_sizes(report_el, page)
         cell_list = etree.SubElement(report_el, "CellElementList")
         for cell in page.cells:
             _write_cell(cell_list, cell)

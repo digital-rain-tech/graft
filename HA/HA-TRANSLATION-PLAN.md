@@ -299,10 +299,21 @@ See [ADR-0013](../docs/adr/0013-sql-expression-ir-with-llm-frontend-and-sqlite-v
     RC-0055 6 logo cells, TN-0028 1. (TDD: 5 translator + 2 writer tests.)
   - [x] **HTML `<sup>` passthrough** — reader captures `markup="html"`; translator flags cells
     `properties["html"]=True`. TN-0028: 144 HTML cells. (TDD: reader + 2 translator tests.)
+  - [x] **Faithful column/row sizing** — learned from the real `HA/Checkbox Multi-Condition
+    Query.cpt`: FineReport stores `<RowHeight>`/`<ColumnWidth>` as EMU CDATA lists (914400/inch;
+    px×12700 at 72dpi), ordered before `<CellElementList>`. `_bands_to_cells` now returns per-grid
+    col widths/row heights; the writer emits them. RC-0055 → 30 cols/438 rows, TN-0028 → 180/651.
   - [ ] **QR codes** — RC-0055's ZXing `componentElement` → FineReport barcode/QR cell. Needs
     reader support for the QR component's code expression + a real FR sample to pin the cell XML.
   - [ ] **Writer rendering attributes** — the exact FineReport cell XML to *display* an image and
     to *render* HTML needs a real `.cpt` export to match (payload is carried; display flag TBD).
+
+**Sample findings (`HA/Checkbox Multi-Condition Query.cpt`, the only real FR export we have):**
+no image/QR/HTML cells, so those exact formats remain unknown. It *does* reveal: `<StyleList>`
+of `<Style>` (FRFont, Background, Border Top/Bottom/Left/Right, `horizontal_alignment`,
+`imageLayout`) referenced by cells via `s="N"`; and the EMU sizing format (adopted above).
+**Next visual-fidelity lever:** emit a `<StyleList>` (fonts/borders/alignment) from Jasper
+element styles — and `imageLayout` on a style is the likely image-display mechanism.
 - [ ] **5e: RC-0055 bursting** — map the 5 subdatasets (per-tenant statement bursting) to FR
   datasets/distribution. Not started.
 - [ ] **5f: ChineseConvertUtil install** — Java generated in `HA/finereport/functions/`;

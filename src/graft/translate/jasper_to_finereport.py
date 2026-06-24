@@ -526,7 +526,7 @@ def _extract_image_source(expr: str) -> tuple[str, str] | None:
     return None
 
 
-def _bands_to_cells(page: Page) -> tuple[list[Cell], list[TranslationIssue]]:
+def _bands_to_cells(page: Page) -> tuple[list[Cell], list[TranslationIssue], dict]:
     """Snap pixel-positioned band elements onto a FineReport cell grid.
 
     Column and row grid lines are inferred from the set of element edge
@@ -551,12 +551,17 @@ def _bands_to_cells(page: Page) -> tuple[list[Cell], list[TranslationIssue]]:
         offset += _band_height(band)
 
     if not placed:
-        return [], issues
+        return [], issues, {"col_widths": [], "row_heights": []}
 
     x_edges = sorted({p.x for p in placed} | {p.x + p.width for p in placed})
     y_edges = sorted({p.y for p in placed} | {p.y + p.height for p in placed})
     x_index = {v: i for i, v in enumerate(x_edges)}
     y_index = {v: i for i, v in enumerate(y_edges)}
+    # Per-column/row sizes (px) from consecutive grid lines → faithful proportions.
+    dims = {
+        "col_widths": [b - a for a, b in zip(x_edges, x_edges[1:])],
+        "row_heights": [b - a for a, b in zip(y_edges, y_edges[1:])],
+    }
 
     cells: list[Cell] = []
     for p in placed:
@@ -645,7 +650,7 @@ def _bands_to_cells(page: Page) -> tuple[list[Cell], list[TranslationIssue]]:
             )
 
     cells.sort(key=lambda c: (c.row, c.col))
-    return cells, issues
+    return cells, issues, dims
 
 
 def translate_to_finereport(report: Report) -> TranslationResult:
@@ -666,13 +671,18 @@ def translate_to_finereport(report: Report) -> TranslationResult:
 
     cells = builder.cells
     used_band_path = False
+    page_properties: dict = {}
     if not page.tables:
         # Pixel/banded report: snap band elements onto a cell grid.
-        band_cells, band_issues = _bands_to_cells(page)
+        band_cells, band_issues, band_dims = _bands_to_cells(page)
         if band_cells:
             cells = band_cells
             issues.extend(band_issues)
             used_band_path = True
+            page_properties = {
+                "col_widths_px": band_dims["col_widths"],
+                "row_heights_px": band_dims["row_heights"],
+            }
 
     has_content = bool(page.tables) or used_band_path
 
@@ -723,7 +733,7 @@ def translate_to_finereport(report: Report) -> TranslationResult:
         name=report.name,
         platform=Platform.FINEREPORT,
         data_sources=data_sources,
-        pages=[Page(name=page.name or "sheet1", cells=cells)],
+        pages=[Page(name=page.name or "sheet1", cells=cells, properties=page_properties)],
         report_parameters=params,
         parameter_widgets=widgets,
         metadata={"translated_from": report.platform.value},

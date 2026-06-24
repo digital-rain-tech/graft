@@ -14,9 +14,7 @@ def _write_one(tmp_path: Path, cell: Cell) -> str:
 
 
 def test_image_cell_with_formula_carries_data_url(tmp_path):
-    cell = Cell(
-        row=0, col=0, value_kind="image", expression='="data:image/png;base64," + $HA_LOGO'
-    )
+    cell = Cell(row=0, col=0, value_kind="image", expression='="data:image/png;base64," + $HA_LOGO')
     text = _write_one(tmp_path, cell)
     assert "data:image/png;base64," in text
     assert "$HA_LOGO" in text
@@ -26,6 +24,20 @@ def test_image_cell_with_literal_carries_data_url(tmp_path):
     cell = Cell(row=0, col=0, value_kind="image", value="data:image/png;base64,AAAB")
     text = _write_one(tmp_path, cell)
     assert "data:image/png;base64,AAAB" in text
+
+
+def test_writer_emits_column_and_row_sizes_in_emu(tmp_path):
+    page = Page(
+        name="s",
+        cells=[Cell(row=0, col=0, value="x", value_kind="text")],
+        properties={"col_widths_px": [100, 200], "row_heights_px": [20]},
+    )
+    report = Report(name="r", platform=Platform.FINEREPORT, pages=[page])
+    text = FineReportWriter().write(report, tmp_path / "sized.cpt").read_text(encoding="utf-8")
+    assert "<RowHeight" in text and "<ColumnWidth" in text
+    # px -> EMU at 12700 (914400 / 72dpi)
+    assert "1270000,2540000" in text  # columns 100,200
+    assert "254000" in text  # row 20
 
 
 def _roundtrip(tmp_path: Path):

@@ -37,7 +37,7 @@ def test_single_static_text_becomes_top_left_cell():
             elements=[_el(ElementKind.STATIC_TEXT, static_text="Hello")],
         )
     )
-    cells, _ = _bands_to_cells(page)
+    cells, _, _ = _bands_to_cells(page)
     assert len(cells) == 1
     assert cells[0].row == 0
     assert cells[0].col == 0
@@ -155,7 +155,9 @@ def test_image_param_becomes_data_url_formula():
         "org.apache.commons.codec.binary.Base64.decodeBase64($P{HA_LOGO}.getBytes()))"
     )
     page = _page(
-        Band(band_type=BandType.TITLE, height=40, elements=[_el(ElementKind.IMAGE, expression=expr)])
+        Band(
+            band_type=BandType.TITLE, height=40, elements=[_el(ElementKind.IMAGE, expression=expr)]
+        )
     )
     cells = _bands_to_cells(page)[0]
     assert cells[0].value_kind == "image"
@@ -169,11 +171,30 @@ def test_image_literal_becomes_data_url_value():
         'org.apache.commons.codec.binary.Base64.decodeBase64("AAAB".getBytes()))'
     )
     page = _page(
-        Band(band_type=BandType.TITLE, height=40, elements=[_el(ElementKind.IMAGE, expression=expr)])
+        Band(
+            band_type=BandType.TITLE, height=40, elements=[_el(ElementKind.IMAGE, expression=expr)]
+        )
     )
     cells = _bands_to_cells(page)[0]
     assert cells[0].value_kind == "image"
     assert cells[0].value == "data:image/png;base64,AAAB"
+
+
+def test_column_widths_and_row_heights_from_geometry():
+    page = _page(
+        Band(
+            band_type=BandType.DETAIL,
+            height=60,
+            elements=[
+                _el(ElementKind.STATIC_TEXT, x=0, y=0, width=100, height=20, static_text="A"),
+                _el(ElementKind.STATIC_TEXT, x=100, y=0, width=150, height=20, static_text="B"),
+                _el(ElementKind.STATIC_TEXT, x=0, y=20, width=250, height=30, static_text="C"),
+            ],
+        )
+    )
+    _cells, _issues, dims = _bands_to_cells(page)
+    assert dims["col_widths"] == [100, 150]  # x edges 0,100,250
+    assert dims["row_heights"] == [20, 30]  # y edges 0,20,50
 
 
 def test_html_markup_flagged_on_cell():
