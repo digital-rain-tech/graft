@@ -10,6 +10,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from lxml import etree
+
 from graft.models import Page, Platform, Report
 from graft.readers import BaseReader
 from graft.readers.finereport_cells import (
@@ -43,11 +45,21 @@ class FineReportReader(BaseReader):
             if report_elem.get("class") != _WORKSHEET_CLASS:
                 continue
             cells = parse_cells(report_elem)
-            pages.append(
-                Page(name=report_elem.get("name") or f"sheet{len(pages) + 1}", cells=cells)
-            )
+            page = Page(name=report_elem.get("name") or f"sheet{len(pages) + 1}", cells=cells)
+            # Preserve per-worksheet sizing verbatim so it survives a round-trip.
+            for tag in ("RowHeight", "ColumnWidth"):
+                el = report_elem.find(tag)
+                if el is not None:
+                    page.properties[f"{tag}_raw"] = etree.tostring(el, encoding="unicode")
+            pages.append(page)
 
         all_cells = [c for p in pages for c in p.cells]
+
+        # Preserve the workbook-level style table verbatim (fonts/borders/etc.).
+        style_list = root.find("StyleList")
+        style_list_xml = (
+            etree.tostring(style_list, encoding="unicode") if style_list is not None else None
+        )
 
         return Report(
             name=name,
@@ -61,5 +73,6 @@ class FineReportReader(BaseReader):
             metadata={
                 "release_version": root.get("releaseVersion"),
                 "xml_version": root.get("xmlVersion"),
+                **({"finereport_stylelist": style_list_xml} if style_list_xml else {}),
             },
         )

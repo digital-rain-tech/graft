@@ -312,8 +312,20 @@ See [ADR-0013](../docs/adr/0013-sql-expression-ir-with-llm-frontend-and-sqlite-v
 no image/QR/HTML cells, so those exact formats remain unknown. It *does* reveal: `<StyleList>`
 of `<Style>` (FRFont, Background, Border Top/Bottom/Left/Right, `horizontal_alignment`,
 `imageLayout`) referenced by cells via `s="N"`; and the EMU sizing format (adopted above).
-**Next visual-fidelity lever:** emit a `<StyleList>` (fonts/borders/alignment) from Jasper
-element styles — and `imageLayout` on a style is the likely image-display mechanism.
+
+**Verification harness (how we know the format is FineReport-valid):** since we can't run
+FineReport here, the bar is to reproduce the real sample's own structures. Round-tripping
+`Checkbox Multi-Condition Query.cpt` through reader→writer now preserves the `<StyleList>`
+(Style/FRFont/Border/Background counts within the block) and `<RowHeight>`/`<ColumnWidth>`
+verbatim — proving our emission matches FineReport's bytes. Known still-dropped on round-trip:
+some cells (65→38, empty/styled cells the reader skips) and widget-level fonts/borders.
+
+- [x] **5g: StyleList + sizing preservation** — DONE. Reader captures the workbook `<StyleList>`
+  (metadata) and per-worksheet sizing (page properties); writer re-emits both. Verified by
+  round-tripping the real sample. (TDD: 2 round-trip + 1 sizing test.)
+- [ ] **5h: Generate StyleList from Jasper styles** — emit fonts/borders/alignment (and
+  `imageLayout` for image cells) for the HA reports, using the now-proven emission path. The
+  definitive check remains opening the output in FineReport Designer.
 - [ ] **5e: RC-0055 bursting** — map the 5 subdatasets (per-tenant statement bursting) to FR
   datasets/distribution. Not started.
 - [ ] **5f: ChineseConvertUtil install** — Java generated in `HA/finereport/functions/`;

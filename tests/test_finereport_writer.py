@@ -40,6 +40,40 @@ def test_writer_emits_column_and_row_sizes_in_emu(tmp_path):
     assert "254000" in text  # row 20
 
 
+def _count_tags(text: str, tag: str) -> int:
+    import re
+
+    return len(re.findall("<" + tag + r"[ />]", text))
+
+
+def _stylelist_block(text: str) -> str:
+    import re
+
+    m = re.search(r"<StyleList>.*?</StyleList>", text, re.S)
+    return m.group(0) if m else ""
+
+
+def test_stylelist_preserved_through_roundtrip(tmp_path):
+    # The real FineReport sample carries a <StyleList>; our writer must reproduce
+    # the whole block so the output matches FineReport's own format (ground truth).
+    original_text = Path(SAMPLE).read_text(encoding="utf-8")
+    report = FineReportReader().read(SAMPLE)
+    out_text = FineReportWriter().write(report, tmp_path / "rt.cpt").read_text(encoding="utf-8")
+
+    orig_block, out_block = _stylelist_block(original_text), _stylelist_block(out_text)
+    assert orig_block and out_block
+    for tag in ("Style", "FRFont", "Border", "Background"):
+        assert _count_tags(out_block, tag) == _count_tags(orig_block, tag), tag
+
+
+def test_worksheet_sizing_preserved_through_roundtrip(tmp_path):
+    original_text = Path(SAMPLE).read_text(encoding="utf-8")
+    report = FineReportReader().read(SAMPLE)
+    out_text = FineReportWriter().write(report, tmp_path / "rt.cpt").read_text(encoding="utf-8")
+    for tag in ("ColumnWidth", "RowHeight"):
+        assert _count_tags(out_text, tag) == _count_tags(original_text, tag), tag
+
+
 def _roundtrip(tmp_path: Path):
     original = FineReportReader().read(SAMPLE)
     out = FineReportWriter().write(original, tmp_path / "out.cpt")

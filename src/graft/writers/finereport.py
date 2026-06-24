@@ -176,7 +176,20 @@ _EMU_PER_PX = 12700  # 914400 EMU per inch / 72 dpi
 
 
 def _write_sizes(report_el: etree._Element, page) -> None:
-    """Emit per-row/column sizes (EMU) from px geometry, matching FineReport order."""
+    """Emit per-row/column sizes, matching FineReport's order (RowHeight, ColumnWidth).
+
+    Verbatim sizing captured from an existing template (``*_raw``) is preferred so
+    round-trips are faithful; otherwise sizes are derived from px geometry (EMU).
+    """
+    raw_rh = page.properties.get("RowHeight_raw")
+    raw_cw = page.properties.get("ColumnWidth_raw")
+    if raw_rh or raw_cw:
+        if raw_rh:
+            report_el.append(etree.fromstring(raw_rh))
+        if raw_cw:
+            report_el.append(etree.fromstring(raw_cw))
+        return
+
     rows = page.properties.get("row_heights_px")
     cols = page.properties.get("col_widths_px")
     if rows:
@@ -185,6 +198,13 @@ def _write_sizes(report_el: etree._Element, page) -> None:
     if cols:
         cw = etree.SubElement(report_el, "ColumnWidth", defaultValue="2743200")
         cw.text = etree.CDATA(",".join(str(int(px) * _EMU_PER_PX) for px in cols))
+
+
+def _write_stylelist(workbook: etree._Element, report: Report) -> None:
+    """Re-emit a preserved workbook-level <StyleList> (fonts/borders/backgrounds)."""
+    xml = report.metadata.get("finereport_stylelist")
+    if xml:
+        workbook.append(etree.fromstring(xml))
 
 
 def _write_worksheet(workbook: etree._Element, report: Report) -> None:
@@ -264,6 +284,7 @@ class FineReportWriter(BaseWriter):
         _write_datasources(workbook, report)
         _write_worksheet(workbook, report)
         _write_parameters(workbook, report)
+        _write_stylelist(workbook, report)
 
         tree = etree.ElementTree(workbook)
         out.parent.mkdir(parents=True, exist_ok=True)
