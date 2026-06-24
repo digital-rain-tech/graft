@@ -506,6 +506,26 @@ def _band_height(band) -> int:
     return max(band.height, extent)
 
 
+# Jasper image expressions wrap a Base64 payload in a ByteArrayInputStream.
+_IMAGE_PARAM_RE = re.compile(r"decodeBase64\(\s*\$P\{([^}]+)\}\.getBytes\(\)")
+_IMAGE_LITERAL_RE = re.compile(r'decodeBase64\(\s*"([^"]*)"\.getBytes\(\)')
+
+
+def _extract_image_source(expr: str) -> tuple[str, str] | None:
+    """Pull the image payload out of a Jasper ``imageExpression``.
+
+    Returns ``("param", name)`` for ``$P{name}`` references or
+    ``("base64", data)`` for an inline Base64 literal; ``None`` if unrecognised.
+    """
+    m = _IMAGE_PARAM_RE.search(expr)
+    if m:
+        return ("param", m.group(1))
+    m = _IMAGE_LITERAL_RE.search(expr)
+    if m:
+        return ("base64", m.group(1))
+    return None
+
+
 def _bands_to_cells(page: Page) -> tuple[list[Cell], list[TranslationIssue]]:
     """Snap pixel-positioned band elements onto a FineReport cell grid.
 
@@ -526,15 +546,8 @@ def _bands_to_cells(page: Page) -> tuple[list[Cell], list[TranslationIssue]]:
                 if el.static_text is None and el.expression is None:
                     continue
                 placed.append(_PlacedElement(el, offset + el.y))
-            elif el.kind is ElementKind.IMAGE:
-                issues.append(
-                    TranslationIssue(
-                        severity=Severity.INFO,
-                        message="Image element not embedded; supply as a base64 cell value.",
-                        source_element=el.expression or None,
-                        suggestion="FineReport accepts data:image/...;base64 values in a cell.",
-                    )
-                )
+            elif el.kind is ElementKind.IMAGE and el.expression:
+                placed.append(_PlacedElement(el, offset + el.y))
         offset += _band_height(band)
 
     if not placed:
@@ -553,6 +566,41 @@ def _bands_to_cells(page: Page) -> tuple[list[Cell], list[TranslationIssue]]:
         row_span = max(1, y_index[p.y + p.height] - row)
         props = {"x": p.x, "y": p.y, "width": p.width, "height": p.height}
         el = p.element
+        # Jasper markup="html" → FineReport HTML cell rendering.
+        if (el.properties or {}).get("markup") == "html":
+            props["html"] = True
+
+        if el.kind is ElementKind.IMAGE:
+            src = _extract_image_source(el.expression or "")
+            common = {"row": row, "col": col, "row_span": row_span, "col_span": col_span}
+            if src and src[0] == "param":
+                # The parameter carries Base64; build a data: URL at render time.
+                cells.append(
+                    Cell(
+                        **common,
+                        expression=f'="data:image/png;base64," + ${src[1]}',
+                        value_kind="image",
+                        properties=props,
+                    )
+                )
+            elif src and src[0] == "base64":
+                cells.append(
+                    Cell(
+                        **common,
+                        value=f"data:image/png;base64,{src[1]}",
+                        value_kind="image",
+                        properties=props,
+                    )
+                )
+            else:
+                issues.append(
+                    TranslationIssue(
+                        severity=Severity.WARNING,
+                        message="Unrecognised image expression; embed the logo manually.",
+                        source_element=el.expression or None,
+                    )
+                )
+            continue
 
         if el.kind is ElementKind.STATIC_TEXT:
             cells.append(

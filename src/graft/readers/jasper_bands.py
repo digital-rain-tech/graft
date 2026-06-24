@@ -82,6 +82,11 @@ def _element_from(elem, kind: ElementKind) -> ReportElement:
     x, y, w, h = read_geometry(elem)
     re_el = find_local(elem, "reportElement")
     style = re_el.get("style") if re_el is not None else None
+    # JasperReports marks rich-text fields with markup="html" on <textElement>.
+    text_el = find_local(elem, "textElement")
+    properties: dict = {}
+    if text_el is not None and text_el.get("markup"):
+        properties["markup"] = text_el.get("markup")
     return ReportElement(
         kind=kind,
         x=x,
@@ -91,6 +96,7 @@ def _element_from(elem, kind: ElementKind) -> ReportElement:
         expression=_expression_text(elem) if kind is not ElementKind.STATIC_TEXT else None,
         static_text=_static_text(elem) if kind is ElementKind.STATIC_TEXT else None,
         style=style,
+        properties=properties,
     )
 
 

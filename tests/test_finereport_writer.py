@@ -1,10 +1,31 @@
 from pathlib import Path
 
-from graft.models import AggregationType, FilterOperator
+from graft.models import AggregationType, Cell, FilterOperator, Page, Platform, Report
 from graft.readers.finereport import FineReportReader
 from graft.writers.finereport import FineReportWriter
 
 SAMPLE = "tests/fixtures/finereport/checkbox_multi_condition_query.cpt"
+
+
+def _write_one(tmp_path: Path, cell: Cell) -> str:
+    report = Report(name="r", platform=Platform.FINEREPORT, pages=[Page(name="s", cells=[cell])])
+    out = FineReportWriter().write(report, tmp_path / "img.cpt")
+    return out.read_text(encoding="utf-8")
+
+
+def test_image_cell_with_formula_carries_data_url(tmp_path):
+    cell = Cell(
+        row=0, col=0, value_kind="image", expression='="data:image/png;base64," + $HA_LOGO'
+    )
+    text = _write_one(tmp_path, cell)
+    assert "data:image/png;base64," in text
+    assert "$HA_LOGO" in text
+
+
+def test_image_cell_with_literal_carries_data_url(tmp_path):
+    cell = Cell(row=0, col=0, value_kind="image", value="data:image/png;base64,AAAB")
+    text = _write_one(tmp_path, cell)
+    assert "data:image/png;base64,AAAB" in text
 
 
 def _roundtrip(tmp_path: Path):

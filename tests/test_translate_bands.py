@@ -5,7 +5,7 @@ grid by inferring column/row grid lines from element edge coordinates and
 snapping each element onto that grid.
 """
 
-from graft.models import Band, BandType, ElementKind, Page, ReportElement, Severity
+from graft.models import Band, BandType, ElementKind, Page, ReportElement
 from graft.translate.jasper_to_finereport import _bands_to_cells, translate_to_finereport
 
 
@@ -123,16 +123,72 @@ def test_wide_element_spans_multiple_columns():
     assert cells["A"].col_span == 1
 
 
-def test_image_element_emits_issue():
-    page = _page(
-        Band(
-            band_type=BandType.TITLE,
-            height=40,
-            elements=[_el(ElementKind.IMAGE, expression="$P{HA_LOGO}")],
-        )
+def test_extract_image_source_param():
+    from graft.translate.jasper_to_finereport import _extract_image_source
+
+    expr = (
+        "new java.io.ByteArrayInputStream("
+        "org.apache.commons.codec.binary.Base64.decodeBase64($P{HA_LOGO}.getBytes()))"
     )
-    _, issues = _bands_to_cells(page)
-    assert any(i.severity is Severity.INFO and "image" in i.message.lower() for i in issues)
+    assert _extract_image_source(expr) == ("param", "HA_LOGO")
+
+
+def test_extract_image_source_literal():
+    from graft.translate.jasper_to_finereport import _extract_image_source
+
+    expr = (
+        "new java.io.ByteArrayInputStream("
+        'org.apache.commons.codec.binary.Base64.decodeBase64("iVBORw0KAAA".getBytes()))'
+    )
+    assert _extract_image_source(expr) == ("base64", "iVBORw0KAAA")
+
+
+def test_extract_image_source_none():
+    from graft.translate.jasper_to_finereport import _extract_image_source
+
+    assert _extract_image_source("$P{SOMETHING_ELSE}") is None
+
+
+def test_image_param_becomes_data_url_formula():
+    expr = (
+        "new java.io.ByteArrayInputStream("
+        "org.apache.commons.codec.binary.Base64.decodeBase64($P{HA_LOGO}.getBytes()))"
+    )
+    page = _page(
+        Band(band_type=BandType.TITLE, height=40, elements=[_el(ElementKind.IMAGE, expression=expr)])
+    )
+    cells = _bands_to_cells(page)[0]
+    assert cells[0].value_kind == "image"
+    # FineReport renders a cell whose value is a data: URL as an image.
+    assert cells[0].expression == '="data:image/png;base64," + $HA_LOGO'
+
+
+def test_image_literal_becomes_data_url_value():
+    expr = (
+        "new java.io.ByteArrayInputStream("
+        'org.apache.commons.codec.binary.Base64.decodeBase64("AAAB".getBytes()))'
+    )
+    page = _page(
+        Band(band_type=BandType.TITLE, height=40, elements=[_el(ElementKind.IMAGE, expression=expr)])
+    )
+    cells = _bands_to_cells(page)[0]
+    assert cells[0].value_kind == "image"
+    assert cells[0].value == "data:image/png;base64,AAAB"
+
+
+def test_html_markup_flagged_on_cell():
+    el = _el(ElementKind.STATIC_TEXT, static_text="1<sup>st</sup>")
+    el.properties = {"markup": "html"}
+    page = _page(Band(band_type=BandType.DETAIL, height=30, elements=[el]))
+    cells = _bands_to_cells(page)[0]
+    assert cells[0].properties.get("html") is True
+
+
+def test_plain_markup_not_flagged_html():
+    el = _el(ElementKind.STATIC_TEXT, static_text="plain")
+    page = _page(Band(band_type=BandType.DETAIL, height=30, elements=[el]))
+    cells = _bands_to_cells(page)[0]
+    assert "html" not in cells[0].properties
 
 
 def test_geometry_preserved_in_properties():

@@ -147,7 +147,16 @@ def _write_cell(cell_list: etree._Element, cell: Cell) -> None:
     if cell.style_id is not None:
         c.set("s", cell.style_id)
 
-    if cell.value_kind == "formula" and cell.expression is not None:
+    if cell.value_kind == "image":
+        # FineReport renders a cell as an image when its value is a data: URL.
+        # The image-display cell attribute is set in Designer (or via a sample
+        # template); here we carry the payload as a formula or literal value.
+        if cell.expression is not None:
+            _formula_obj(c, cell.expression)
+        elif cell.value is not None:
+            o = etree.SubElement(c, "O")
+            o.text = etree.CDATA(cell.value)
+    elif cell.value_kind == "formula" and cell.expression is not None:
         _formula_obj(c, cell.expression)
     elif cell.value_kind == "column":
         _write_column_obj(c, cell)

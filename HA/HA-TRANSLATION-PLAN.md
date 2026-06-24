@@ -292,8 +292,17 @@ See [ADR-0013](../docs/adr/0013-sql-expression-ir-with-llm-frontend-and-sqlite-v
 - [ ] **5c: TN-0028 long tail (4 exprs)** — `length()>25 ? substring(0, lastIndexOf(' ')) : …`
   word-wrap truncation. Designated AI→SQL→oracle cases (ADR-0013), or approximate to FR cell
   auto-wrap (ADR-0012). Not yet resolved.
-- [ ] **5d: Content mappers** — base64 images (all), `QRCODE()` for RC-0055's ZXing QR, HTML
-  `<sup>` passthrough (TN-0028). Not started.
+- [~] **5d: Content mappers** — IN PROGRESS.
+  - [x] **Base64 images** — `_extract_image_source` parses Jasper `ByteArrayInputStream(Base64
+    .decodeBase64(...))`; param refs → `="data:image/png;base64," + $LOGO`, inline literals →
+    a `data:` URL. Emitted as `value_kind="image"` cells; writer carries the payload. Results:
+    RC-0055 6 logo cells, TN-0028 1. (TDD: 5 translator + 2 writer tests.)
+  - [x] **HTML `<sup>` passthrough** — reader captures `markup="html"`; translator flags cells
+    `properties["html"]=True`. TN-0028: 144 HTML cells. (TDD: reader + 2 translator tests.)
+  - [ ] **QR codes** — RC-0055's ZXing `componentElement` → FineReport barcode/QR cell. Needs
+    reader support for the QR component's code expression + a real FR sample to pin the cell XML.
+  - [ ] **Writer rendering attributes** — the exact FineReport cell XML to *display* an image and
+    to *render* HTML needs a real `.cpt` export to match (payload is carried; display flag TBD).
 - [ ] **5e: RC-0055 bursting** — map the 5 subdatasets (per-tenant statement bursting) to FR
   datasets/distribution. Not started.
 - [ ] **5f: ChineseConvertUtil install** — Java generated in `HA/finereport/functions/`;

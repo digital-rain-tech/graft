@@ -6,6 +6,15 @@ MINIMAL = "tests/fixtures/jasper/minimal.jrxml"
 PARAMS = "tests/fixtures/jasper/params_and_query.jrxml"
 TABLE = "tests/fixtures/jasper/table_component.jrxml"
 GROUPS = "tests/fixtures/jasper/groups.jrxml"
+MARKUP = "tests/fixtures/jasper/markup_html.jrxml"
+
+
+def test_html_markup_captured_in_properties():
+    bands = parse_bands(parse_jrxml(MARKUP))
+    title = next(b for b in bands if b.band_type is BandType.TITLE)
+    html_el, plain_el = title.elements[0], title.elements[1]
+    assert html_el.properties.get("markup") == "html"
+    assert plain_el.properties.get("markup") != "html"
 
 
 def test_parse_layout():
