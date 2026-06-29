@@ -136,6 +136,28 @@ def test_write_returns_valid_cpt_path(tmp_path):
     assert "<WorkBook" in text
 
 
+def test_no_empty_tabledatamap_when_no_datasources(tmp_path):
+    """An empty <TableDataMap/> makes FineReport's reader consume the worksheet and
+    parameter layout as table-data entries (ClassCastException -> blank template,
+    Index: 0, Size: 0). When there are no datasources the element must be omitted."""
+    report = Report(
+        name="r",
+        platform=Platform.FINEREPORT,
+        pages=[Page(name="s", cells=[Cell(row=0, col=0, value="x", value_kind="text")])],
+    )
+    assert not report.data_sources
+    text = FineReportWriter().write(report, tmp_path / "no_ds.cpt").read_text(encoding="utf-8")
+    assert "<TableDataMap/>" not in text
+    assert "<TableDataMap>" not in text
+
+
+def test_tabledatamap_present_when_datasources_exist(tmp_path):
+    original = FineReportReader().read(SAMPLE)
+    assert original.data_sources
+    text = FineReportWriter().write(original, tmp_path / "with_ds.cpt").read_text(encoding="utf-8")
+    assert "<TableDataMap>" in text
+
+
 def test_roundtrip_preserves_datasource(tmp_path):
     original, reparsed = _roundtrip(tmp_path)
     assert len(reparsed.data_sources) == 1

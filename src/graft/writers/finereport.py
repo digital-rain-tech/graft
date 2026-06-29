@@ -74,6 +74,15 @@ def _formula_obj(parent: etree._Element, expression: str) -> etree._Element:
 
 
 def _write_datasources(workbook: etree._Element, report: Report) -> None:
+    # An empty ``<TableDataMap/>`` breaks FineReport's reader: when the element
+    # has no <TableData> children, ``AbstractTableDataSource.readXML`` fails to
+    # exit the container and keeps consuming the following <WorkBook> children
+    # (the worksheet, cell formulas, parameter layout) as table-data entries.
+    # Every one fails to cast to TableData and the worksheet is lost, so the
+    # template opens blank with ``Index: 0, Size: 0``. Omit the element entirely
+    # when there are no datasources rather than emit an empty one.
+    if not report.data_sources:
+        return
     table_map = etree.SubElement(workbook, "TableDataMap")
     for ds in report.data_sources:
         cls = (
