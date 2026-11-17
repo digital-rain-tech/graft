@@ -155,6 +155,9 @@ metadata only.
 
 Pre-alpha. The Tableau (.twb/.twbx) and JasperReports (.jrxml) readers work end-to-end with `ingest`, `export`, and `analyze`; JasperReports adds a `portfolio` command that rolls conversion-readiness up across a folder of reports. FineReport (.cpt) has both a reader and a writer, and `graft translate --target finereport` performs the first working cross-platform conversion (JasperReports → FineReport) for tabular reports. Power BI and Yonghong are next.
 
+See the [implementation status and remaining work](docs/implementation-status.md)
+and [FineReport custom-function installation](docs/finereport-custom-functions.md).
+
 Star the repo to follow progress.
 
 ## License
