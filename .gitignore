@@ -1,0 +1,40 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.venv/
+venv/
+.env
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+docs/internal/
+confidential/
+
+.claude/
+
+memory/
+
+# Local-only customer report samples (never committed)
+tests/fixtures/jasper/local/
+tests/fixtures/finereport/local/
+
+# Local-only FineReport debug logs (never committed)
+fanruan.log
+
+# Keep report sources and rendered outputs outside the repository.
+# Only reviewed synthetic or redistributable vendor fixtures belong in Git.
+*.jrxml
+*.cpt
+*.pdf
+*.docx
+*.xlsx
+!tests/fixtures/jasper/*.jrxml
+!tests/fixtures/finereport/*.cpt
+
+# Keep internal review notes outside the source repository.
+/reviews/

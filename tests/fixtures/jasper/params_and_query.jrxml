@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+    name="params_and_query" pageWidth="842" pageHeight="595" orientation="Landscape"
+    columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+    <parameter name="REPORT_YEAR" class="java.lang.String">
+        <defaultValueExpression><![CDATA["2025"]]></defaultValueExpression>
+    </parameter>
+    <parameter name="STATUS" class="java.lang.String"/>
+    <queryString>
+        <![CDATA[SELECT region_code, SUM(AREA) AS total_area FROM stock WHERE yr = $P{REPORT_YEAR} AND password='hunter2' GROUP BY region_code]]>
+    </queryString>
+    <field name="region_code" class="java.lang.String"/>
+    <field name="total_area" class="java.math.BigDecimal"/>
+    <variable name="GrandTotal" class="java.math.BigDecimal" calculation="Sum" resetType="Report">
+        <variableExpression><![CDATA[$F{total_area}]]></variableExpression>
+    </variable>
+    <detail>
+        <band height="20">
+            <textField>
+                <reportElement x="0" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA[$F{region_code}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="100" y="0" width="100" height="20"/>
+                <textFieldExpression><![CDATA[$F{total_area}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <summary>
+        <band height="20">
+            <textField>
+                <reportElement x="0" y="0" width="200" height="20"/>
+                <textFieldExpression><![CDATA[$V{GrandTotal}]]></textFieldExpression>
+            </textField>
+        </band>
+    </summary>
+</jasperReport>

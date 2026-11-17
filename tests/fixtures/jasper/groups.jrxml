@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+    name="groups" pageWidth="595" pageHeight="842"
+    columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+    <field name="region" class="java.lang.String"/>
+    <field name="amount" class="java.math.BigDecimal"/>
+    <group name="RegionGroup">
+        <groupHeader>
+            <band height="20">
+                <textField>
+                    <reportElement x="0" y="0" width="200" height="20"/>
+                    <textFieldExpression><![CDATA[$F{region}]]></textFieldExpression>
+                </textField>
+            </band>
+        </groupHeader>
+        <groupFooter>
+            <band height="20">
+                <staticText>
+                    <reportElement x="0" y="0" width="200" height="20"/>
+                    <text><![CDATA[Subtotal]]></text>
+                </staticText>
+            </band>
+        </groupFooter>
+    </group>
+    <detail>
+        <band height="20">
+            <textField>
+                <reportElement x="0" y="0" width="200" height="20"/>
+                <textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+</jasperReport>

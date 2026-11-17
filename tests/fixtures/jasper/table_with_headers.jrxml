@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+    xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components"
+    name="table_with_headers" pageWidth="595" pageHeight="842"
+    columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+    <subDataset name="sales">
+        <parameter name="REGION" class="java.lang.String"/>
+        <queryString language="SQL">
+            <![CDATA[SELECT region, amount FROM sales WHERE region = $P{REGION} ORDER BY region]]>
+        </queryString>
+        <field name="region" class="java.lang.String"/>
+        <field name="amount" class="java.math.BigDecimal"/>
+        <variable name="SUM_amount" class="java.lang.Double" calculation="Sum">
+            <variableExpression><![CDATA[$F{amount}]]></variableExpression>
+        </variable>
+    </subDataset>
+    <parameter name="REGION" class="java.lang.String"/>
+    <queryString><![CDATA[select 1 from dual]]></queryString>
+    <detail>
+        <band height="120">
+            <staticText>
+                <reportElement x="0" y="0" width="200" height="20"/>
+                <text><![CDATA[Sales by Region]]></text>
+            </staticText>
+            <componentElement>
+                <reportElement x="0" y="30" width="555" height="90"/>
+                <jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components">
+                    <datasetRun subDataset="sales"/>
+                    <jr:column width="200">
+                        <jr:columnHeader height="20">
+                            <staticText>
+                                <reportElement x="0" y="0" width="200" height="20"/>
+                                <text><![CDATA[Region]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell height="20">
+                            <textField>
+                                <reportElement x="0" y="0" width="200" height="20"/>
+                                <textFieldExpression><![CDATA[$F{region}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                    <jr:column width="100">
+                        <jr:columnHeader height="20">
+                            <staticText>
+                                <reportElement x="0" y="0" width="100" height="20"/>
+                                <text><![CDATA[Amount]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell height="20">
+                            <textField>
+                                <reportElement x="0" y="0" width="100" height="20"/>
+                                <textFieldExpression><![CDATA[$F{amount}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                        <jr:columnFooter height="20">
+                            <textField>
+                                <reportElement x="0" y="0" width="100" height="20"/>
+                                <textFieldExpression><![CDATA[$V{SUM_amount}]]></textFieldExpression>
+                            </textField>
+                        </jr:columnFooter>
+                    </jr:column>
+                </jr:table>
+            </componentElement>
+        </band>
+    </detail>
+</jasperReport>
